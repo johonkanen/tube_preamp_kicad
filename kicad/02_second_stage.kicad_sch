@@ -10,6 +10,5675 @@
 		(rev "rev A (as built)")
 		(comment 1 "Redrawn from Proteus etunen")
 	)
-	(lib_symbols)
+	(lib_symbols
+		(symbol "tube_preamp:12AX7"
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 3.302 7.874 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "12AX7"
+				(at 8.89 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 6.858 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "12AX7 / ECC83 double triode, noval; Proteus pin ids A1=1 G1=2 K1=3 H1=4 H2=5 A2=6 G2=7 K2=8 HCT=9 (N/C: no-connect flag); unit A = pins 1-3, B = 6-8, C = heater"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "triode valve"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "VALVE*NOVAL*P*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "12AX7_0_1"
+				(polyline
+					(pts
+						(xy -5.08 2.54) (xy -5.08 -2.54) (xy -5.08 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.08 2.54)
+					(mid 0 7.5979)
+					(end 5.08 2.54)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 5.08 -2.54)
+					(mid 0 -7.5979)
+					(end -5.08 -2.54)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 5.08 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "12AX7_2_0"
+				(polyline
+					(pts
+						(xy -2.54 -5.08) (xy -2.54 -7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 5.08) (xy 0 7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "12AX7_2_1"
+				(polyline
+					(pts
+						(xy -5.08 0) (xy -3.175 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 5.08) (xy 2.794 5.08) (xy 2.794 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 0) (xy -3.175 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.635 0) (xy 0.635 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.54 -5.08)
+					(mid 0 -3.0968)
+					(end 2.54 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 0) (xy 3.175 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 0 10.16 270)
+					(length 2.54)
+					(name "A2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "G2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -2.54 -10.16 90)
+					(length 2.54)
+					(name "K2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "12AX7_1_0"
+				(polyline
+					(pts
+						(xy -2.54 -5.08) (xy -2.54 -7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 5.08) (xy 0 7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "12AX7_1_1"
+				(polyline
+					(pts
+						(xy -5.08 0) (xy -3.175 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 5.08) (xy 2.794 5.08) (xy 2.794 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 0) (xy -3.175 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.635 0) (xy 0.635 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.54 -5.08)
+					(mid 0 -3.0968)
+					(end 2.54 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 0) (xy 3.175 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 0 10.16 270)
+					(length 2.54)
+					(name "A1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "G1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -2.54 -10.16 90)
+					(length 2.54)
+					(name "K1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "12AX7_3_1"
+				(arc
+					(start -2.54 -6.35)
+					(mid -1.27 -5.5651)
+					(end 0 -6.35)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -6.35)
+					(mid 1.27 -5.5651)
+					(end 2.54 -6.35)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -2.54 -11.43 90)
+					(length 5.08)
+					(name "H1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -11.43 90)
+					(length 5.08)
+					(name "H2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -11.43 90)
+					(length 5.08)
+					(name "HCT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp:G5V-2"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "RLY"
+				(at 6.35 1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "G5V-2(HI)"
+				(at 6.35 -1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 6.35 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Omron G5V-2 DPDT relay; Proteus ids DC1=4 DC2=5 (coil, unit A), COM1=2 NC1=3 AC1(NO)=1 (unit B), COM2=6 NC2=7 AC2(NO)=8 (unit C)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Miniature Relay Dual Pole DPDT Omron"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Relay*DPDT*Omron*G5V*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "G5V-2_1_1"
+				(rectangle
+					(start -5.08 5.08)
+					(end 5.08 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -3.175 1.905)
+					(end 3.175 -1.905)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -1.905) (xy 2.54 1.905)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 5.08) (xy 0 1.905)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -5.08) (xy 0 -1.905)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "DC1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "DC2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "G5V-2_2_1"
+				(polyline
+					(pts
+						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy -1.905 3.81)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 0 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "COM1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -2.54 7.62 270)
+					(length 2.54)
+					(name "NC1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 7.62 270)
+					(length 2.54)
+					(name "AC1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "G5V-2_3_1"
+				(polyline
+					(pts
+						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy -1.905 3.81)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 0 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 2.54 7.62 270)
+					(length 2.54)
+					(name "AC2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -2.54 7.62 270)
+					(length 2.54)
+					(name "NC2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "COM2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp:D"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "D"
+				(at 0 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Diode, Proteus pins A/K"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "diode"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "D_0_1"
+				(polyline
+					(pts
+						(xy -1.27 1.27) (xy -1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "D_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp:J112"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "Q"
+				(at 5.08 1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "J112"
+				(at 5.08 -1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "N-channel JFET J112, TO-92; Proteus ids 1=D 2=S 3=G"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "transistor NJFET N-JFET"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "J112_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy -1.016 0.381) (xy -1.016 -0.381) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 1.905) (xy 0.254 -1.905) (xy 0.254 -1.905)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.27 0)
+					(radius 2.8194)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 2.54) (xy 2.54 1.397) (xy 0.254 1.397)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -2.54) (xy 2.54 -1.27) (xy 0.254 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "J112_1_1"
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "S"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -5.08 0 0)
+					(length 5.334)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp:PIN"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 0 6.858 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TERMINAL"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "PIN_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "PIN_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp:C"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C"
+				(at 0.635 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Unpolarized capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_0_1"
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:12AX7")
+		(at 173.99 128.27 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1936cb2c-a145-5f9a-b162-ddd1a3f40d98")
+		(property "Reference" "U2"
+			(at 166.37 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "12AX7"
+			(at 166.37 120.015 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 180.848 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 173.99 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "12AX7 / ECC83 double triode, noval; Proteus pin ids A1=1 G1=2 K1=3 H1=4 H2=5 A2=6 G2=7 K2=8 HCT=9 (N/C: no-connect flag); unit A = pins 1-3, B = 6-8, C = heater"
+			(at 173.99 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8acc0824-aaee-5cb9-8177-67ce9d13761f")
+		)
+		(pin "2"
+			(uuid "f1e7ed71-ed4c-565d-9ff0-1bbb4c027d43")
+		)
+		(pin "3"
+			(uuid "0b02929c-d18c-51fc-b024-a43aa9a4d466")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:12AX7")
+		(at 191.77 128.27 0)
+		(mirror y)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1d5912ac-bbd0-5094-b6aa-52e1fe34c57d")
+		(property "Reference" "U2"
+			(at 199.39 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "12AX7"
+			(at 199.39 120.015 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 198.628 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 191.77 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "12AX7 / ECC83 double triode, noval; Proteus pin ids A1=1 G1=2 K1=3 H1=4 H2=5 A2=6 G2=7 K2=8 HCT=9 (N/C: no-connect flag); unit A = pins 1-3, B = 6-8, C = heater"
+			(at 191.77 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "6"
+			(uuid "7c641639-4a89-5f2e-8ef5-dc0f7f3706ec")
+		)
+		(pin "7"
+			(uuid "c5185cab-1ce1-5a45-a215-aec7cd0528fd")
+		)
+		(pin "8"
+			(uuid "98d0e336-5aa6-5a16-9f3e-219dd785ab8f")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "U2")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:12AX7")
+		(at 177.8 153.67 0)
+		(unit 3)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4af3b947-795a-5831-bece-15bf5a7aa54f")
+		(property "Reference" "U2"
+			(at 181.102 145.796 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "12AX7"
+			(at 186.69 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 184.658 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 177.8 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "12AX7 / ECC83 double triode, noval; Proteus pin ids A1=1 G1=2 K1=3 H1=4 H2=5 A2=6 G2=7 K2=8 HCT=9 (N/C: no-connect flag); unit A = pins 1-3, B = 6-8, C = heater"
+			(at 177.8 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "441d67e0-98d7-559b-a4e9-35eaa9a27582")
+		)
+		(pin "5"
+			(uuid "0f26d969-c384-5773-b774-5689459e82f6")
+		)
+		(pin "9"
+			(uuid "ee3dc1f0-c1f9-5fa0-a6f7-0a76a686843e")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "U2")
+					(unit 3)
+				)
+			)
+		)
+	)
+	(no_connect
+		(at 177.8 165.1)
+		(uuid "734f942b-69fd-5222-ae05-210027fd8362")
+	)
+	(symbol
+		(lib_id "tube_preamp:G5V-2")
+		(at 78.74 115.57 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ffe08acd-a03b-5cd6-830a-d043337bcb6e")
+		(property "Reference" "RLY3"
+			(at 63.5 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "G5V-2(HI)"
+			(at 63.5 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 72.39 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Omron G5V-2 DPDT relay; Proteus ids DC1=4 DC2=5 (coil, unit A), COM1=2 NC1=3 AC1(NO)=1 (unit B), COM2=6 NC2=7 AC2(NO)=8 (unit C)"
+			(at 78.74 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "e8dd5056-13c9-5d56-868a-b64c59d60fc3")
+		)
+		(pin "5"
+			(uuid "6e3d6e5d-7850-50ab-9643-2b04240dd798")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "RLY3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:G5V-2")
+		(at 78.74 97.79 270)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e529abb3-b410-568f-b92d-6c82dbcff005")
+		(property "Reference" "RLY3"
+			(at 76.2 92.075 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "G5V-2(HI)"
+			(at 76.2 93.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 74.93 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Omron G5V-2 DPDT relay; Proteus ids DC1=4 DC2=5 (coil, unit A), COM1=2 NC1=3 AC1(NO)=1 (unit B), COM2=6 NC2=7 AC2(NO)=8 (unit C)"
+			(at 78.74 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "6bd5115a-3ec0-532c-b752-6d92d5fb87c5")
+		)
+		(pin "3"
+			(uuid "c04b28ec-6c78-5e95-973f-d908f17c9bb6")
+		)
+		(pin "1"
+			(uuid "2c1b6588-002e-54e6-8ebc-a394ff45528b")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "RLY3")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:G5V-2")
+		(at 78.74 87.63 270)
+		(unit 3)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9ce051ae-1f13-55dd-b38b-29e0810a9e04")
+		(property "Reference" "RLY3"
+			(at 76.2 81.915 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "G5V-2(HI)"
+			(at 76.2 83.82 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 74.93 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Omron G5V-2 DPDT relay; Proteus ids DC1=4 DC2=5 (coil, unit A), COM1=2 NC1=3 AC1(NO)=1 (unit B), COM2=6 NC2=7 AC2(NO)=8 (unit C)"
+			(at 78.74 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "8"
+			(uuid "b08404aa-10ba-5015-800d-1f358ef3264c")
+		)
+		(pin "7"
+			(uuid "472d2ade-8d07-51cc-b5cf-976cd6aa945d")
+		)
+		(pin "6"
+			(uuid "0ed2406e-a55e-5c94-90ec-f1b0d64d144b")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "RLY3")
+					(unit 3)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 71.12 87.63) (xy 66.04 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b923ae45-fac9-5ceb-ac44-687b54732a97")
+	)
+	(global_label "EQ"
+		(shape passive)
+		(at 66.04 87.63 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6318b47b-af4a-503d-a02c-2f4d7fabb44e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 66.04 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 71.12 97.79) (xy 66.04 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e0c2a8a1-67ca-5693-bf29-1a64c68acd42")
+	)
+	(global_label "PRE1"
+		(shape passive)
+		(at 66.04 97.79 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ba7a3231-25c4-5b69-8865-2dd3be35e1fb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 66.04 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 86.36 85.09) (xy 92.71 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8de4d9e2-ac0c-5e3e-8706-fd42732c1f6a")
+	)
+	(label "PRE2"
+		(at 92.71 85.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0c186d9a-864a-53ca-b0d0-ac2a6dd99878")
+	)
+	(wire
+		(pts
+			(xy 86.36 90.17) (xy 91.44 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "303059b3-acf4-5521-bb6f-41921b457d7a")
+	)
+	(wire
+		(pts
+			(xy 91.44 90.17) (xy 91.44 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a98fcda2-30c8-5844-b49a-5704b343b881")
+	)
+	(wire
+		(pts
+			(xy 91.44 100.33) (xy 86.36 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83069e44-da98-5305-bfe2-348fa79a1a63")
+	)
+	(symbol
+		(lib_id "tube_preamp:D")
+		(at 87.63 115.57 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0bce8d31-4294-5368-8b4c-78fb4ddeef95")
+		(property "Reference" "D3"
+			(at 91.27 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1N4001"
+			(at 93.47 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Diode, Proteus pins A/K"
+			(at 87.63 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "K"
+			(uuid "7ddafea0-e37d-56e4-befb-e6e9c42adff4")
+		)
+		(pin "A"
+			(uuid "49aabaf7-b104-5924-a4d3-2c1e528e6d9f")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 78.74 107.95) (xy 87.63 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54ffca1b-3a91-5d5a-892b-fcf7631d808d")
+	)
+	(wire
+		(pts
+			(xy 87.63 107.95) (xy 87.63 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "00fb442a-50d5-5136-86c9-a7279ff1d2ca")
+	)
+	(wire
+		(pts
+			(xy 78.74 123.19) (xy 87.63 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2623ef7-9462-59d8-a38c-18baa827e1c1")
+	)
+	(wire
+		(pts
+			(xy 87.63 123.19) (xy 87.63 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ce76800-c645-579f-a366-47cbaf6b3d6b")
+	)
+	(wire
+		(pts
+			(xy 78.74 123.19) (xy 78.74 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "98a548a0-d75b-5d18-969c-a131e2fcf69f")
+	)
+	(global_label "H4"
+		(shape passive)
+		(at 78.74 130.81 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "436319a7-c887-504b-b654-d3d55e783b93")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 78.74 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(junction
+		(at 78.74 123.19)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "40beb732-7c6b-5966-b823-ebf396b14c46")
+	)
+	(wire
+		(pts
+			(xy 78.74 107.95) (xy 71.12 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fa19db91-a19d-5a4a-bb92-89a307e0bc03")
+	)
+	(wire
+		(pts
+			(xy 71.12 107.95) (xy 71.12 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1c12408e-bb01-5f7f-9d8b-394473a6cc33")
+	)
+	(global_label "SW1"
+		(shape passive)
+		(at 71.12 130.81 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "46850650-8d5e-5c7c-ac1d-e0d8fa5c08b1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 71.12 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(junction
+		(at 78.74 107.95)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "13774a76-1e7d-5063-9d95-e9e4ac9bc39f")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 105.41 116.84 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d91fe059-0145-55b7-baf7-5bb2bb20383b")
+		(property "Reference" "R16"
+			(at 109.6 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "560k"
+			(at 110.15 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 103.632 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 105.41 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 105.41 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "17fa3a5f-5668-5f75-a806-a8877427177c")
+		)
+		(pin "2"
+			(uuid "50285673-3807-5954-8e95-faf60cf67222")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 86.36 95.25) (xy 105.41 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3fb41785-9372-5fe3-b5ad-745c562c200b")
+	)
+	(wire
+		(pts
+			(xy 105.41 95.25) (xy 105.41 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "141ff77e-087b-550d-9098-b8b989aa6f68")
+	)
+	(wire
+		(pts
+			(xy 105.41 120.65) (xy 105.41 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2f5a5077-3d1b-562d-bb87-cec9869ef53c")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 134.62 128.27 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cddad61a-c289-529c-a491-df670b0a5570")
+		(property "Reference" "R18"
+			(at 134.62 125.73 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "33k"
+			(at 134.62 130.81 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 134.62 126.492 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 134.62 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 134.62 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e7f35201-c50d-5f49-a392-b3573c9b98c7")
+		)
+		(pin "2"
+			(uuid "e443f747-6789-5741-a327-0ebbbcaa8126")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 105.41 128.27) (xy 130.81 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d6458a52-d7d1-58cd-8f50-a0eef7df3796")
+	)
+	(wire
+		(pts
+			(xy 138.43 128.27) (xy 166.37 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "866db8c6-d8de-5df0-a362-9af108c32854")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 105.41 147.32 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "24192d3e-bf0d-5661-b2c6-e0d37a307f15")
+		(property "Reference" "R17"
+			(at 109.6 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "270k"
+			(at 110.15 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 107.188 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 105.41 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 105.41 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a8c36000-65e3-5fc9-8936-e30496811629")
+		)
+		(pin "2"
+			(uuid "e53ed665-a1c8-5aab-8190-699ced7d58a0")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 105.41 128.27) (xy 105.41 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21714c9e-2edd-5ded-9c91-70a4eff3165c")
+	)
+	(junction
+		(at 105.41 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "82763727-3ecc-5d5a-8850-0ccbc0240ec8")
+	)
+	(wire
+		(pts
+			(xy 105.41 151.13) (xy 105.41 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "231f0081-2a43-5741-86a8-f13e2d7fb1e6")
+	)
+	(junction
+		(at 105.41 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1809256f-1f60-5d9c-a070-18706590361b")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 118.11 147.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f381f124-559b-5274-b241-58c707a03f56")
+		(property "Reference" "R19"
+			(at 122.3 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470k"
+			(at 122.85 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 116.332 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 118.11 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "020cd1bd-15cc-5c66-bf5f-3d29b33414a9")
+		)
+		(pin "2"
+			(uuid "bf209300-d6f6-5729-9720-b70b849f7bbc")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 118.11 128.27) (xy 118.11 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c1d2de8a-a1a0-55bf-b28a-b700471644fd")
+	)
+	(junction
+		(at 118.11 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "85a9205b-db42-54da-962d-f7cafd4edaf0")
+	)
+	(wire
+		(pts
+			(xy 118.11 151.13) (xy 118.11 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78f49067-ae40-52f2-ab30-06ae6f0eab82")
+	)
+	(symbol
+		(lib_id "tube_preamp:J112")
+		(at 120.65 168.91 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "641aa87e-8ba1-54ab-8567-9880a2516a5f")
+		(property "Reference" "Q3"
+			(at 127 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "J112"
+			(at 127 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "N-channel JFET J112, TO-92; Proteus ids 1=D 2=S 3=G"
+			(at 120.65 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9d5d866a-61a3-5475-ae32-fe43b5217916")
+		)
+		(pin "2"
+			(uuid "8278bada-a9cc-52b6-9264-a1d21e5ed428")
+		)
+		(pin "3"
+			(uuid "6e53b6b2-781f-55b0-b0c5-9af412ab9770")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "Q3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 118.11 173.99) (xy 118.11 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2165107-524a-5097-8088-30d5c5942391")
+	)
+	(junction
+		(at 118.11 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f92ea45d-c4f5-53a5-bb25-ded311fe518d")
+	)
+	(wire
+		(pts
+			(xy 125.73 168.91) (xy 133.35 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f1d1fc59-9179-536e-a1b5-cb1680433f7c")
+	)
+	(wire
+		(pts
+			(xy 133.35 168.91) (xy 133.35 204.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8db28be0-3178-5d2c-9a30-7825963c3eaf")
+	)
+	(wire
+		(pts
+			(xy 133.35 204.47) (xy 146.05 204.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de509d11-96b5-5728-bb79-098ce2a31ded")
+	)
+	(global_label "J1"
+		(shape passive)
+		(at 146.05 204.47 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c16fed4c-0d67-5ea0-a511-44b6c23a38fd")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 146.05 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:PIN")
+		(at 118.11 194.31 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9aa8a68d-c04c-5a58-a4f8-05f75b68e29c")
+		(property "Reference" "POT_GND"
+			(at 118.11 201.168 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TERMINAL"
+			(at 118.11 199.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 113.03 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 113.03 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+			(at 118.11 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "03ad7e91-3d4a-57b0-939c-b3b0ac47c96d")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "POT_GND")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 118.11 184.15) (xy 118.11 194.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7f366644-ca8b-5d6b-b16b-b17bb8bd8a0c")
+	)
+	(wire
+		(pts
+			(xy 171.45 138.43) (xy 171.45 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e11c9fe1-0946-5811-b711-e432356c7b7e")
+	)
+	(wire
+		(pts
+			(xy 171.45 140.97) (xy 138.43 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa195393-b74c-5acf-a7e6-edbcc13ac7bc")
+	)
+	(symbol
+		(lib_id "tube_preamp:C")
+		(at 138.43 149.86 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b997512f-ec59-5990-84de-ac9a3da002dd")
+		(property "Reference" "C6"
+			(at 142.07 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470n mmk"
+			(at 145.37 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 137.4648 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 138.43 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 138.43 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "88eeac35-36bb-58a5-b5a5-57de810e0647")
+		)
+		(pin "2"
+			(uuid "808b907b-61f4-5f74-9d93-6f1db4d52b9e")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 138.43 140.97) (xy 138.43 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4622ce35-9bef-59ae-88d0-8235d4c7dbaf")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 153.67 149.86 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "155ff069-e433-559d-a26a-f22a7dcea256")
+		(property "Reference" "R20"
+			(at 157.86 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "6k8"
+			(at 157.86 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 155.448 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 153.67 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fc42d56c-a7f0-5ad5-a2a6-9a354e9d9ea2")
+		)
+		(pin "2"
+			(uuid "d96bca89-47fe-5adf-a531-46534b70bfd9")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 153.67 140.97) (xy 153.67 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca4100ae-3a60-52e7-a946-5cec849d95a4")
+	)
+	(junction
+		(at 153.67 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f5ebdc87-29f2-5209-b724-7f39b3998e4d")
+	)
+	(wire
+		(pts
+			(xy 153.67 153.67) (xy 153.67 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4667882c-b359-5f7b-8b1e-771e09729062")
+	)
+	(wire
+		(pts
+			(xy 153.67 156.21) (xy 138.43 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a15255f3-ec03-5f55-872a-8fc447c7be9f")
+	)
+	(wire
+		(pts
+			(xy 138.43 153.67) (xy 138.43 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "13ef2796-e509-50d1-b9e2-a501fff90fc9")
+	)
+	(junction
+		(at 138.43 156.21)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "df848703-c644-5932-8902-1c04940d4d6b")
+	)
+	(symbol
+		(lib_id "tube_preamp:J112")
+		(at 140.97 170.18 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d217a8ae-6ec6-5751-8265-fab0dd794e9f")
+		(property "Reference" "Q4"
+			(at 147.32 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "NADA"
+			(at 147.32 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 135.89 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "N-channel JFET J112, TO-92; Proteus ids 1=D 2=S 3=G"
+			(at 140.97 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "627a5758-df77-557a-99fb-b2ea3292d134")
+		)
+		(pin "2"
+			(uuid "4be77878-b5e0-5829-8202-1951117118a9")
+		)
+		(pin "3"
+			(uuid "4a15c731-8f8d-57d7-92b5-259d58e16121")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "Q4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 138.43 175.26) (xy 138.43 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c26bf00c-e450-523c-8054-aa4eb38dcf71")
+	)
+	(junction
+		(at 138.43 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3f4cefde-e490-51f4-b186-f0a50f2daf07")
+	)
+	(wire
+		(pts
+			(xy 146.05 170.18) (xy 157.48 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "97f81071-4c49-55e5-818f-72430c4a36b5")
+	)
+	(wire
+		(pts
+			(xy 157.48 170.18) (xy 157.48 191.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "400baae7-3e33-53c3-a5e7-8fee2b22c735")
+	)
+	(wire
+		(pts
+			(xy 157.48 191.77) (xy 162.56 191.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c1dd3e12-7800-5a59-9626-6d5e0fed409a")
+	)
+	(global_label "J1"
+		(shape passive)
+		(at 162.56 191.77 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a109f4cf-1d77-59e0-9bc8-bb9bc8cb6e15")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 162.56 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 163.83 165.1 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "39bcacc7-517c-54a6-8912-1d6e9ded955d")
+		(property "Reference" "R21"
+			(at 168.02 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "39k"
+			(at 168.02 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 165.608 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 163.83 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 163.83 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fb7a38b7-5fb7-5bf7-8eaa-ed7db90fd516")
+		)
+		(pin "2"
+			(uuid "adc972c5-9507-5b3f-8a27-e9a232d72f93")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 163.83 140.97) (xy 163.83 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "104653c8-c6cf-5503-9a99-25ad32d695c8")
+	)
+	(junction
+		(at 163.83 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "570f6568-54e8-50ed-a444-bce00eb38852")
+	)
+	(wire
+		(pts
+			(xy 163.83 168.91) (xy 163.83 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2566ab68-47af-5354-8e20-a2f65880cc57")
+	)
+	(junction
+		(at 163.83 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "39f50732-9911-56ae-8468-e34929e5b270")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 173.99 53.34 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "90b554e3-0291-5b80-b363-a58a33c09dc0")
+		(property "Reference" "R22"
+			(at 178.18 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220k/2W"
+			(at 180.38 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 175.768 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 173.99 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 173.99 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e2beba4d-b541-5bb9-86f5-f690ff422bb2")
+		)
+		(pin "2"
+			(uuid "485684a7-4632-595e-b17f-37b7a443bbef")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 173.99 57.15) (xy 173.99 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8e1cb4c-b541-535f-8a45-af7e3106381c")
+	)
+	(wire
+		(pts
+			(xy 173.99 49.53) (xy 173.99 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78657669-5986-5eb1-8f0c-eb1d5effbc72")
+	)
+	(wire
+		(pts
+			(xy 151.13 41.91) (xy 190.5 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7674d5f7-6e3e-5d72-8b09-8fcc475a3d6e")
+	)
+	(global_label "C"
+		(shape passive)
+		(at 190.5 41.91 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5f37eee6-f8f4-5108-a560-310065c4c048")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 190.5 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(junction
+		(at 173.99 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "54d679a1-cb97-5582-92c1-0cc38ba0652c")
+	)
+	(symbol
+		(lib_id "tube_preamp:C")
+		(at 151.13 52.07 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "66782b5a-ec88-51f4-ab45-d5015a135279")
+		(property "Reference" "C8"
+			(at 154.77 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1N ORANGE DROP"
+			(at 161.37 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 152.0952 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 151.13 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 151.13 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c08f04fa-eb7a-5348-ade4-5d604e8bf7de")
+		)
+		(pin "2"
+			(uuid "1dfc18b3-1f64-54ee-b94f-ff621a6368dc")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 151.13 48.26) (xy 151.13 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad186813-ad7a-57fa-b385-9a9dcc611ebd")
+	)
+	(wire
+		(pts
+			(xy 151.13 55.88) (xy 151.13 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9eb127fb-f164-5964-9dff-9610a76353d0")
+	)
+	(wire
+		(pts
+			(xy 151.13 64.77) (xy 173.99 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3cf01b0-1fb5-5019-b944-324c80fcfa75")
+	)
+	(junction
+		(at 173.99 64.77)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "10c39b1b-27eb-560e-80ad-0260a6908031")
+	)
+	(symbol
+		(lib_id "tube_preamp:C")
+		(at 208.28 64.77 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "853506ad-a2d7-5c3e-aa0b-69c342b326db")
+		(property "Reference" "C7"
+			(at 208.28 60.96 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22N XICON"
+			(at 208.28 68.58 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 212.09 63.8048 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 208.28 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5641a641-6bf4-5919-8197-bcad232423b9")
+		)
+		(pin "2"
+			(uuid "58ae5b91-5c7e-54ac-9492-1044ac639a9f")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "C7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 173.99 64.77) (xy 204.47 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a9a87bd-4f28-5046-b402-8df8d563dc23")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 283.21 73.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bc6a6c88-5c9e-58f7-89fa-bb7e64ce2841")
+		(property "Reference" "R24"
+			(at 287.4 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330k"
+			(at 287.95 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 281.432 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 283.21 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 283.21 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3e0dffbe-b51b-524d-b611-9567ff828e76")
+		)
+		(pin "2"
+			(uuid "e799196b-a6f8-5aa3-9f22-c1518728f2a8")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 283.21 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "54be8082-0d11-5488-b579-278395508f09")
+		(property "Reference" "R25"
+			(at 287.4 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330k"
+			(at 287.95 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 281.432 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 283.21 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 283.21 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dfac5a7f-e295-57e9-a578-b98c2f7f5ba0")
+		)
+		(pin "2"
+			(uuid "141b7c7c-7e75-5a21-9470-d639df9afbf8")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 283.21 116.84 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3f24e135-9293-5353-a48b-9f28a02111ee")
+		(property "Reference" "R26"
+			(at 287.4 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220k"
+			(at 287.95 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 281.432 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 283.21 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 283.21 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ffa2709a-5b16-5446-a93e-5093a960ddbf")
+		)
+		(pin "2"
+			(uuid "ad7d4eb9-b73b-5313-8cee-a45b27f0e0af")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 212.09 64.77) (xy 283.21 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "553fbd7c-6eab-5845-bd8a-028818303516")
+	)
+	(wire
+		(pts
+			(xy 283.21 64.77) (xy 283.21 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e5cf8eb0-5190-55b9-915a-1455c56a77c2")
+	)
+	(wire
+		(pts
+			(xy 283.21 77.47) (xy 283.21 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1887519-f06c-5479-8d1c-f6acfb575a68")
+	)
+	(wire
+		(pts
+			(xy 283.21 97.79) (xy 283.21 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eaee87a6-6fd3-5825-9844-3466fdda388d")
+	)
+	(symbol
+		(lib_id "tube_preamp:C")
+		(at 252.73 80.01 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dab7d4aa-6db7-5e03-a93b-0f76898612bd")
+		(property "Reference" "C11"
+			(at 256.92 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2N2 ORANGE DROP"
+			(at 263.52 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 251.7648 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 252.73 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 252.73 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "39b1bbc8-5cf4-5351-a63b-57a6578ac570")
+		)
+		(pin "2"
+			(uuid "df1d60e2-b205-57ae-9905-8592f093efbc")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "C11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 252.73 64.77) (xy 252.73 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b90dffd7-e151-5d4f-a6bc-63500389b8ed")
+	)
+	(junction
+		(at 252.73 64.77)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9ee46f05-37fd-5de3-b89d-e6f56d806e5a")
+	)
+	(symbol
+		(lib_id "tube_preamp:C")
+		(at 261.62 105.41 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9fd9a33e-eb59-5d30-83c1-38fb2b8db750")
+		(property "Reference" "C13"
+			(at 261.62 101.6 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1N ORANGE DROP"
+			(at 261.62 109.22 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 257.81 106.3752 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 261.62 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 261.62 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e7a99f79-4de2-5b51-81c5-9eabcda0f987")
+		)
+		(pin "2"
+			(uuid "d8cfb9d9-c682-5c6b-8f53-c6a37ca0f4bd")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "C13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 252.73 83.82) (xy 252.73 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81a1d25f-5661-56f1-bf0b-e2c2b0a989e6")
+	)
+	(wire
+		(pts
+			(xy 252.73 105.41) (xy 257.81 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ed63d20e-6157-5161-9d02-65f379a2c6b8")
+	)
+	(wire
+		(pts
+			(xy 265.43 105.41) (xy 283.21 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "22e34f40-3247-5769-adf1-11d9285aa7cc")
+	)
+	(junction
+		(at 283.21 105.41)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7dc44274-7a1a-5a66-8adb-9fc2a2ba4996")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 273.05 149.86 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d93103e9-b028-5cf9-8d38-ae6fc4566090")
+		(property "Reference" "R31"
+			(at 268.86 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "560k"
+			(at 268.31 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 271.272 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 273.05 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 273.05 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9e8625f6-2435-55b5-9213-017ed7bcf08f")
+		)
+		(pin "2"
+			(uuid "ac4b1b9d-cc2f-5166-9f40-69a9dad10497")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R31")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 252.73 92.71) (xy 273.05 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "388cec4c-b2ed-581d-a5f4-e5f57357845e")
+	)
+	(wire
+		(pts
+			(xy 273.05 92.71) (xy 273.05 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c3c90140-f571-51f3-af69-35e48395f5cb")
+	)
+	(junction
+		(at 252.73 92.71)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c1ae2cde-42bd-5e21-8fcd-e3f56eaa409c")
+	)
+	(wire
+		(pts
+			(xy 273.05 153.67) (xy 273.05 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "201b7118-e6cd-5206-98d2-567468ff7353")
+	)
+	(junction
+		(at 273.05 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "45412e53-fd4f-5b5e-8d16-4f8e8e5730a6")
+	)
+	(symbol
+		(lib_id "tube_preamp:C")
+		(at 295.91 105.41 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9df24df1-2eb9-5e3e-997b-1000d908fce8")
+		(property "Reference" "C12"
+			(at 300.1 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "3N3 ORANGE DROP"
+			(at 306.7 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 294.9448 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 295.91 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 295.91 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5abc1000-6313-5f62-b297-85c2ebbecd95")
+		)
+		(pin "2"
+			(uuid "1ab9d8f1-be5f-52a4-9292-71abcb994dd4")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "C12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 283.21 85.09) (xy 295.91 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "02288334-f721-5fc3-b36b-6bd5bab0ef38")
+	)
+	(wire
+		(pts
+			(xy 295.91 85.09) (xy 295.91 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "683c852e-db4e-5e93-bae5-c701be314082")
+	)
+	(junction
+		(at 283.21 85.09)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "eb644415-8811-5109-bc41-407a27d3313e")
+	)
+	(wire
+		(pts
+			(xy 199.39 128.27) (xy 295.91 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e6bdfe0-c220-5e1f-8a68-8afc062dd0ce")
+	)
+	(wire
+		(pts
+			(xy 283.21 120.65) (xy 283.21 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3140f1d8-1e18-51fd-81c1-a8a5204c848c")
+	)
+	(junction
+		(at 283.21 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e7dd9f62-57c6-56f0-921a-8a7e89112368")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 283.21 137.16 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "76cfea8e-5f2e-560e-bc6d-d5aa36222df3")
+		(property "Reference" "R27"
+			(at 287.4 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "120k"
+			(at 287.95 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 284.988 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 283.21 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 283.21 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c6da92c4-c145-5490-91b6-63f63b0ecac2")
+		)
+		(pin "2"
+			(uuid "019c7483-1715-505d-9209-66c019d95c45")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 283.21 128.27) (xy 283.21 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c39dbbd0-f6e6-5c29-a82d-d2e05a227f5b")
+	)
+	(wire
+		(pts
+			(xy 283.21 140.97) (xy 283.21 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a0356281-cf80-52d4-a3d5-643a61573236")
+	)
+	(junction
+		(at 283.21 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b042debe-5db3-5ab5-97c8-a6bab63712d7")
+	)
+	(wire
+		(pts
+			(xy 295.91 109.22) (xy 295.91 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53dce682-20c8-561b-a797-aa53bbcaa190")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 295.91 137.16 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3ea7ab83-d3f1-5fe5-aaf1-62221027a9c1")
+		(property "Reference" "R29"
+			(at 300.1 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22k"
+			(at 300.1 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 294.132 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 295.91 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 295.91 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ae708483-4145-58d0-a62c-b1ffb06ee388")
+		)
+		(pin "2"
+			(uuid "5e33aaea-c9f4-5ae1-ac21-96d2c844da4a")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 295.91 128.27) (xy 295.91 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "18295c11-5961-5a94-b36b-a3400d7484b7")
+	)
+	(junction
+		(at 295.91 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e3355d6f-d97d-57e6-b474-32340e382185")
+	)
+	(wire
+		(pts
+			(xy 295.91 140.97) (xy 295.91 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "52e79919-988b-5ad1-bc69-29275d390f46")
+	)
+	(symbol
+		(lib_id "tube_preamp:J112")
+		(at 298.45 170.18 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "afedf061-a169-578c-8bd5-f8e26f3ec244")
+		(property "Reference" "Q6"
+			(at 304.8 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "J112"
+			(at 304.8 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 293.37 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 298.45 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "N-channel JFET J112, TO-92; Proteus ids 1=D 2=S 3=G"
+			(at 298.45 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2f7715a3-b350-50c8-80a6-b19ce9095b26")
+		)
+		(pin "2"
+			(uuid "d746b4a5-91be-5d61-836f-49f1f69134a2")
+		)
+		(pin "3"
+			(uuid "8b3f9ca2-8726-5909-8d6c-4c50530ae2d9")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "Q6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 295.91 175.26) (xy 295.91 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a4b4867-60b3-50a6-ba94-550703793a9a")
+	)
+	(junction
+		(at 295.91 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ff169a20-0800-54ce-8075-3e97ac5ac496")
+	)
+	(wire
+		(pts
+			(xy 303.53 170.18) (xy 317.5 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1659b9d-a808-58c1-a179-e44de70fe90c")
+	)
+	(global_label "J4"
+		(shape passive)
+		(at 317.5 170.18 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "48f4ec04-131b-581a-83b5-3faabedb98ed")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 317.5 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:C")
+		(at 194.31 170.18 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d273795e-b917-5bf1-95c1-ec99f3d02fa9")
+		(property "Reference" "C9"
+			(at 197.95 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100n MMK"
+			(at 201.25 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.3448 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 194.31 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 194.31 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "94a68f4a-b652-559a-a79d-6945397eb3c9")
+		)
+		(pin "2"
+			(uuid "c621faf6-9890-58f0-b413-6249af68caa9")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 194.31 138.43) (xy 194.31 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "936cd4f7-18f9-5655-9742-ea004db2886a")
+	)
+	(wire
+		(pts
+			(xy 194.31 173.99) (xy 194.31 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "240f625d-abde-59eb-b9d3-334f3e79ce2d")
+	)
+	(junction
+		(at 194.31 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "60a33fed-86b0-5358-82cb-e6f758114f9b")
+	)
+	(wire
+		(pts
+			(xy 194.31 140.97) (xy 237.49 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "575dd56a-2cf4-5e60-8245-ae6f791b5dbe")
+	)
+	(junction
+		(at 194.31 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "afbf5d56-d838-53af-8eb3-39393159913c")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 207.01 165.1 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "600e1b32-c899-5e9c-8f3e-b27854f1cc17")
+		(property "Reference" "R28"
+			(at 211.2 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k8"
+			(at 211.2 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.788 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 207.01 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 207.01 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "21efbfda-f974-50bf-a072-f742e3263a99")
+		)
+		(pin "2"
+			(uuid "1948ef21-8a46-5824-b994-07e6278571ee")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 207.01 140.97) (xy 207.01 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3fb7ec4-8b86-5c79-a048-67ccf59168a1")
+	)
+	(junction
+		(at 207.01 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "aa270e2a-61d8-5d2e-8522-d483e59396a3")
+	)
+	(wire
+		(pts
+			(xy 207.01 168.91) (xy 207.01 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8b12f20b-903c-577d-bb7e-b13302ae530b")
+	)
+	(junction
+		(at 207.01 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c3d8e6be-bdf2-5dbd-93cb-2208a887b511")
+	)
+	(symbol
+		(lib_id "tube_preamp:C")
+		(at 224.79 149.86 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5a7bdadf-f064-58c6-ab92-41a643d6adc5")
+		(property "Reference" "C14"
+			(at 228.98 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1µ mmk"
+			(at 230.63 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 223.8248 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 224.79 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 224.79 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "66dcd2bd-b58f-512e-8101-1f17a3421db6")
+		)
+		(pin "2"
+			(uuid "1a4b4833-c330-5417-9299-122b3c99b534")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "C14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 224.79 140.97) (xy 224.79 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "97684977-6b7e-5e50-8f7a-13404a663a6b")
+	)
+	(junction
+		(at 224.79 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "87225c5c-42f9-556d-b184-df612f9a0b51")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 237.49 149.86 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fd90cd3d-e335-5352-80d7-034d48f2e356")
+		(property "Reference" "R30"
+			(at 241.68 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2k2"
+			(at 241.68 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 239.268 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 237.49 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 237.49 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "117af5be-26e7-5b33-9a1f-fd4a5a388044")
+		)
+		(pin "2"
+			(uuid "68a8b1b0-8f47-5666-b932-f4d48ea4ba04")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 237.49 140.97) (xy 237.49 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65511138-d026-5aea-baa2-fb3eca6de7f5")
+	)
+	(wire
+		(pts
+			(xy 237.49 153.67) (xy 237.49 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8f7dccd9-1788-5e10-89eb-cde35c4c7b48")
+	)
+	(wire
+		(pts
+			(xy 237.49 158.75) (xy 224.79 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cdbb982c-2865-5624-9821-615076216135")
+	)
+	(wire
+		(pts
+			(xy 224.79 153.67) (xy 224.79 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c41a150d-55a7-5732-9b70-ab52eacffbf1")
+	)
+	(junction
+		(at 224.79 158.75)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dccf2d25-cc15-55ce-9d63-a6f91c469d40")
+	)
+	(symbol
+		(lib_id "tube_preamp:J112")
+		(at 227.33 170.18 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8d309f36-9af5-5ae1-acc8-673e52e0c164")
+		(property "Reference" "Q5"
+			(at 233.68 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "J112"
+			(at 233.68 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 222.25 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 227.33 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "N-channel JFET J112, TO-92; Proteus ids 1=D 2=S 3=G"
+			(at 227.33 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f22cab6c-f8a4-53c6-8c22-2134578a1a36")
+		)
+		(pin "2"
+			(uuid "9fda4339-99db-5a89-98f1-57c4a38cdb5f")
+		)
+		(pin "3"
+			(uuid "3d1f69c8-159b-5e39-ad74-deacbd72b6ba")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "Q5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 224.79 175.26) (xy 224.79 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "08bc5b2f-e32e-57b1-844c-f3866cd67c50")
+	)
+	(junction
+		(at 224.79 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d300f09c-b7d1-547c-82db-c3c96223f8ec")
+	)
+	(wire
+		(pts
+			(xy 232.41 170.18) (xy 245.11 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5c16686-ff01-550a-8bb7-a6677883eae0")
+	)
+	(wire
+		(pts
+			(xy 245.11 170.18) (xy 245.11 194.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4712eca4-85a7-5353-a3f8-8b4caaff33ab")
+	)
+	(wire
+		(pts
+			(xy 245.11 194.31) (xy 254 194.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "28e8e279-de7c-589d-8f1c-7864b6e0a7bb")
+	)
+	(global_label "J1"
+		(shape passive)
+		(at 254 194.31 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6a9fd860-1fba-5fdc-9d42-e7b1d0499fc6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 254 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 191.77 86.36 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "09208d9e-0133-554e-a3cb-3663dd78fef9")
+		(property "Reference" "R23"
+			(at 195.96 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220k/2W"
+			(at 198.16 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.548 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 191.77 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 191.77 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "69d98300-fa2e-5092-be20-acc7482598a5")
+		)
+		(pin "2"
+			(uuid "33acea20-4b6b-5074-825a-df35c9a21837")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 82.55) (xy 191.77 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "227e035a-139c-5aa9-bc15-8857e9d89439")
+	)
+	(wire
+		(pts
+			(xy 191.77 74.93) (xy 198.12 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8801979f-14c4-50e4-9870-999a6fd7b67c")
+	)
+	(global_label "D"
+		(shape passive)
+		(at 198.12 74.93 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3588c01e-d93f-5cfe-9430-70eeb26b92fc")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 198.12 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 90.17) (xy 191.77 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b12b02a4-2e3b-560f-b512-af57472f8d5b")
+	)
+	(wire
+		(pts
+			(xy 191.77 100.33) (xy 223.52 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "634e616f-9898-5ed8-abe4-46b51579a56f")
+	)
+	(junction
+		(at 191.77 100.33)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ac15da78-b5c9-5eb7-a86a-b190fa84b68f")
+	)
+	(label "PRE2"
+		(at 223.52 100.33 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "65943052-bcfb-56ee-a095-1fe312da3b82")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 217.17 116.84 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "05e3ddf8-5ccf-5873-961f-cd732ba9fef6")
+		(property "Reference" "R50"
+			(at 221.36 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10M"
+			(at 221.36 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 215.392 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 217.17 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 217.17 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "05539225-4890-5d27-86ab-b61595530687")
+		)
+		(pin "2"
+			(uuid "2ddff00a-c745-55a7-9a0c-3f065c684671")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
+					(reference "R50")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 217.17 100.33) (xy 217.17 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b178bf9-f36f-50de-a8eb-c6f05a188bc8")
+	)
+	(junction
+		(at 217.17 100.33)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6aa29469-3bec-58c3-9da2-4ec071a1181d")
+	)
+	(wire
+		(pts
+			(xy 217.17 120.65) (xy 217.17 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6dcc3941-c9f7-5862-a499-33db69b77e24")
+	)
+	(junction
+		(at 217.17 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5dc6241a-20e7-598d-ab18-f19318148d11")
+	)
+	(wire
+		(pts
+			(xy 175.26 165.1) (xy 175.26 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "25c30ed2-efd7-5dc5-8bb2-85900cac684c")
+	)
+	(global_label "H4"
+		(shape passive)
+		(at 175.26 168.91 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ef1506a3-b58f-5cad-938e-4443029009c7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 175.26 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 180.34 165.1) (xy 180.34 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f5ba373-2f83-5502-8746-6024f43e8fc0")
+	)
+	(global_label "H5"
+		(shape passive)
+		(at 180.34 168.91 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f7607463-0739-5a1c-ab61-d6d5bd43727a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 180.34 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 93.98 184.15) (xy 295.91 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45828e58-71af-5ccf-a8d3-90f2882b5ba8")
+	)
+	(global_label "PRE-GND"
+		(shape passive)
+		(at 93.98 184.15 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7746aea4-a493-569f-a002-fe5abbca4cff")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 93.98 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(text "PDF labels sw1, j4 = nets SW1, J4 (Proteus net names are case-insensitive). PRE2 is a net of this sheet only (local labels)."
+		(exclude_from_sim no)
+		(at 63.5 213.36 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a6322a74-f1d2-53bd-8049-abaea070d5ad")
+	)
+	(text "PDF terminal name POT-GND = POT_GND. Q4's value is NADA in the Proteus schematic (the part on the board is a J112). U2 pin 9 has no net (as in Proteus)."
+		(exclude_from_sim no)
+		(at 63.5 217.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "178a34e1-6821-54ab-8222-db121897fcf4")
+	)
 	(embedded_fonts no)
 )
