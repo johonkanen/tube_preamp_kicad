@@ -19,7 +19,7 @@ WANT = [
     ("Analog_Switch", "DG411xY"), ("74xGxx", "74LVC1G08"),
     ("Connector_Generic", "Conn_02x07_Odd_Even"), ("Connector_Generic", "Conn_02x13_Odd_Even"),
     ("Connector_Generic", "Conn_01x02"), ("Connector_Generic", "Conn_01x03"),
-    ("power", "GND"), ("power", "+5V"), ("power", "+15V"), ("power", "-15V"), ("power", "PWR_FLAG"),
+    ("power", "GND"), ("power", "GNDA"), ("power", "GNDD"), ("Connector_Generic", "Conn_01x01"), ("power", "+5V"), ("power", "+15V"), ("power", "-15V"), ("power", "PWR_FLAG"),
 ]
 _cache = {}
 

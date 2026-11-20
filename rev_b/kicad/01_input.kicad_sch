@@ -169,7 +169,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "tube_preamp_revb:GND"
+		(symbol "tube_preamp_revb:GNDA"
 			(power global)
 			(pin_numbers
 				(hide yes)
@@ -194,7 +194,7 @@
 					)
 				)
 			)
-			(property "Value" "GND"
+			(property "Value" "GNDA"
 				(at 0 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -226,7 +226,7 @@
 					)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -248,7 +248,7 @@
 					)
 				)
 			)
-			(symbol "GND_0_1"
+			(symbol "GNDA_0_1"
 				(polyline
 					(pts
 						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
@@ -262,7 +262,7 @@
 					)
 				)
 			)
-			(symbol "GND_1_1"
+			(symbol "GNDA_1_1"
 				(pin power_in line
 					(at 0 0 270)
 					(length 0)
@@ -414,6 +414,135 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp_revb:Conn_01x01"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x01"
+				(at 0 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Conn_01x01_1_1"
+				(rectangle
+					(start -1.27 1.27)
+					(end 1.27 -1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1935,7 +2064,7 @@
 		(uuid "73124046-95bb-591d-b679-eee332c3e675")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 22.86 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1952,7 +2081,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 22.86 59.69 0)
 			(effects
 				(font
@@ -1978,7 +2107,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 22.86 55.88 0)
 			(effects
 				(font
@@ -2097,7 +2226,7 @@
 		(uuid "b5590b49-74e5-5a68-b1e6-18ca163d8276")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 57.15 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2114,7 +2243,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 57.15 74.93 0)
 			(effects
 				(font
@@ -2140,7 +2269,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 57.15 71.12 0)
 			(effects
 				(font
@@ -2156,6 +2285,145 @@
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
 					(reference "#PWR102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:Conn_01x01")
+		(at 30.48 97.79 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "094d3501-0669-576c-a337-8878aaf71b2b")
+		(property "Reference" "J102"
+			(at 30.48 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "CHASSIS (bolted tag; the only bond)"
+			(at 30.48 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 30.48 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 30.48 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 30.48 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1e4d204e-c819-542f-895e-c52b7d9f61a7")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
+					(reference "J102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 25.4 97.79) (xy 22.86 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5f466194-7b43-5a1f-bfe1-23790ab2403e")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GNDA")
+		(at 22.86 97.79 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "93a80d01-c54d-5dfd-aded-c233aea3aecd")
+		(property "Reference" "#PWR103"
+			(at 22.86 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 22.86 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 22.86 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 22.86 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 22.86 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b0e0817e-53d0-51d9-930b-8349eb3fd633")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
+					(reference "#PWR103")
 					(unit 1)
 				)
 			)
@@ -2236,7 +2504,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5f466194-7b43-5a1f-bfe1-23790ab2403e")
+		(uuid "3f9560fc-3b36-58da-b3d7-0f9e091812dd")
 	)
 	(label "IN_TIP"
 		(at 71.12 46.99 90)
@@ -2246,7 +2514,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "3f9560fc-3b36-58da-b3d7-0f9e091812dd")
+		(uuid "31b04b73-f003-55f3-ba7c-deb6e346981e")
 	)
 	(wire
 		(pts
@@ -2256,7 +2524,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "31b04b73-f003-55f3-ba7c-deb6e346981e")
+		(uuid "354a0762-dd93-5d35-b548-24a7a3b268f2")
 	)
 	(label "G1"
 		(at 71.12 59.69 270)
@@ -2266,7 +2534,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "354a0762-dd93-5d35-b548-24a7a3b268f2")
+		(uuid "45ee2072-3bf6-5a1f-8f70-aa9f92ccf62f")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:ECC83")
@@ -2346,7 +2614,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "45ee2072-3bf6-5a1f-8f70-aa9f92ccf62f")
+		(uuid "1861f1d0-d9fe-57d9-86f4-b0df0e1feb84")
 	)
 	(label "P1"
 		(at 111.76 40.64 90)
@@ -2356,7 +2624,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1861f1d0-d9fe-57d9-86f4-b0df0e1feb84")
+		(uuid "e6676c4d-429b-548e-84a4-b1fc2ddbc2cb")
 	)
 	(wire
 		(pts
@@ -2366,7 +2634,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e6676c4d-429b-548e-84a4-b1fc2ddbc2cb")
+		(uuid "fd22d2e4-cb14-5222-ac67-a6ae5f2c8778")
 	)
 	(label "G1"
 		(at 101.6 53.34 180)
@@ -2376,7 +2644,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "fd22d2e4-cb14-5222-ac67-a6ae5f2c8778")
+		(uuid "b3ba70c1-66c1-57b2-9289-0027ef407ae1")
 	)
 	(wire
 		(pts
@@ -2386,7 +2654,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b3ba70c1-66c1-57b2-9289-0027ef407ae1")
+		(uuid "fe292090-1ebf-5889-9753-3936a972e006")
 	)
 	(label "K1"
 		(at 109.22 66.04 270)
@@ -2396,7 +2664,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "fe292090-1ebf-5889-9753-3936a972e006")
+		(uuid "237a1334-4f49-57a5-9304-d934981b7597")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -2473,7 +2741,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "237a1334-4f49-57a5-9304-d934981b7597")
+		(uuid "10125b4a-e161-55d1-a8b0-1ea022c0bcc5")
 	)
 	(global_label "BP1"
 		(shape passive)
@@ -2485,7 +2753,7 @@
 			)
 			(justify right)
 		)
-		(uuid "10125b4a-e161-55d1-a8b0-1ea022c0bcc5")
+		(uuid "12262409-029a-5544-a8b4-5719b30b3939")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 105.41 35.56 0)
 			(effects
@@ -2505,7 +2773,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "12262409-029a-5544-a8b4-5719b30b3939")
+		(uuid "64f3db83-b8e6-5959-b5fa-61fcb98bb6b2")
 	)
 	(label "P1"
 		(at 118.11 35.56 0)
@@ -2515,7 +2783,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "64f3db83-b8e6-5959-b5fa-61fcb98bb6b2")
+		(uuid "5becfb52-6b95-514c-b742-15f1448c17e9")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -2592,7 +2860,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5becfb52-6b95-514c-b742-15f1448c17e9")
+		(uuid "38e8692f-1f4c-5dd1-9c9a-aadb32daecc7")
 	)
 	(label "K1"
 		(at 105.41 88.9 180)
@@ -2602,7 +2870,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "38e8692f-1f4c-5dd1-9c9a-aadb32daecc7")
+		(uuid "1e8ac8d1-8ced-544e-b4ed-87c57ec7d335")
 	)
 	(wire
 		(pts
@@ -2612,18 +2880,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1e8ac8d1-8ced-544e-b4ed-87c57ec7d335")
+		(uuid "27be5266-ad63-58b0-81a3-131022ffed3e")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 118.11 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "93a80d01-c54d-5dfd-aded-c233aea3aecd")
-		(property "Reference" "#PWR103"
+		(uuid "67e9e2ce-1406-5413-8df0-3d919b429b46")
+		(property "Reference" "#PWR104"
 			(at 118.11 95.25 0)
 			(effects
 				(font
@@ -2632,7 +2900,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 118.11 92.71 0)
 			(effects
 				(font
@@ -2658,7 +2926,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 118.11 88.9 0)
 			(effects
 				(font
@@ -2668,12 +2936,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b0e0817e-53d0-51d9-930b-8349eb3fd633")
+			(uuid "657d7853-d9a7-557f-bf4f-0b8aa7a4bf21")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR103")
+					(reference "#PWR104")
 					(unit 1)
 				)
 			)
@@ -2754,7 +3022,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "27be5266-ad63-58b0-81a3-131022ffed3e")
+		(uuid "fe99fd5a-0a08-5fca-b30a-970822df0650")
 	)
 	(label "K1"
 		(at 146.05 71.12 180)
@@ -2764,7 +3032,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "fe99fd5a-0a08-5fca-b30a-970822df0650")
+		(uuid "b98a1f3d-5e27-521c-8323-f06d73a5648a")
 	)
 	(wire
 		(pts
@@ -2774,7 +3042,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b98a1f3d-5e27-521c-8323-f06d73a5648a")
+		(uuid "2e9b289d-a6f6-55d5-a560-81088d977b7e")
 	)
 	(label "N_S1A"
 		(at 158.75 71.12 0)
@@ -2784,7 +3052,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2e9b289d-a6f6-55d5-a560-81088d977b7e")
+		(uuid "34c238af-f371-5dc4-87bb-45144aba3937")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:C_Polarized")
@@ -2861,7 +3129,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "34c238af-f371-5dc4-87bb-45144aba3937")
+		(uuid "e7c27d16-5c43-5552-8e0b-efda9026ae79")
 	)
 	(label "N_S1A"
 		(at 152.4 82.55 90)
@@ -2871,7 +3139,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e7c27d16-5c43-5552-8e0b-efda9026ae79")
+		(uuid "33e32a66-f788-538a-b6ba-3c4244b02875")
 	)
 	(wire
 		(pts
@@ -2881,7 +3149,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "33e32a66-f788-538a-b6ba-3c4244b02875")
+		(uuid "0b08f49e-2142-5cbc-aa64-9d7480e89da1")
 	)
 	(label "M_S1A"
 		(at 152.4 95.25 270)
@@ -2891,7 +3159,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "0b08f49e-2142-5cbc-aa64-9d7480e89da1")
+		(uuid "eae23944-0cd5-5777-adb5-a129ce083bd6")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:2N7002")
@@ -2975,7 +3243,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "eae23944-0cd5-5777-adb5-a129ce083bd6")
+		(uuid "d1ed4fdf-b25b-5ee3-9959-1d0b9e7e4d39")
 	)
 	(label "GM_S1A"
 		(at 144.78 106.68 180)
@@ -2985,7 +3253,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d1ed4fdf-b25b-5ee3-9959-1d0b9e7e4d39")
+		(uuid "898c5d09-5255-5c8b-9433-d34fe85d3998")
 	)
 	(wire
 		(pts
@@ -2995,18 +3263,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "898c5d09-5255-5c8b-9433-d34fe85d3998")
+		(uuid "0653975d-2d9e-58d9-98b4-a6a9dbc71af0")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 154.94 114.3 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "67e9e2ce-1406-5413-8df0-3d919b429b46")
-		(property "Reference" "#PWR104"
+		(uuid "e04eb232-288c-57e0-a7a8-0bbea5987d31")
+		(property "Reference" "#PWR105"
 			(at 154.94 120.65 0)
 			(effects
 				(font
@@ -3015,7 +3283,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 154.94 118.11 0)
 			(effects
 				(font
@@ -3041,7 +3309,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 154.94 114.3 0)
 			(effects
 				(font
@@ -3051,12 +3319,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "657d7853-d9a7-557f-bf4f-0b8aa7a4bf21")
+			(uuid "1191250e-da1f-5ecf-933c-fd6d0a9f2e3a")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR104")
+					(reference "#PWR105")
 					(unit 1)
 				)
 			)
@@ -3070,7 +3338,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0653975d-2d9e-58d9-98b4-a6a9dbc71af0")
+		(uuid "9b4bb516-e916-547b-94cb-e087b1ee3037")
 	)
 	(label "M_S1A"
 		(at 154.94 99.06 90)
@@ -3080,7 +3348,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "9b4bb516-e916-547b-94cb-e087b1ee3037")
+		(uuid "2491708c-e3b6-5684-b127-92daf0d59e4c")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -3157,7 +3425,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2491708c-e3b6-5684-b127-92daf0d59e4c")
+		(uuid "7881cfea-a97f-553d-88c8-bda8b4b2f0f2")
 	)
 	(label "M_S1A"
 		(at 166.37 106.68 180)
@@ -3167,7 +3435,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "7881cfea-a97f-553d-88c8-bda8b4b2f0f2")
+		(uuid "2e084d2c-39bb-574f-8c4b-3f18ca3bab3b")
 	)
 	(wire
 		(pts
@@ -3177,18 +3445,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2e084d2c-39bb-574f-8c4b-3f18ca3bab3b")
+		(uuid "b6c248bf-20a4-552d-83dd-ac3cc63434eb")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 179.07 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "e04eb232-288c-57e0-a7a8-0bbea5987d31")
-		(property "Reference" "#PWR105"
+		(uuid "31b95226-f79a-541a-ad68-c8ae25530180")
+		(property "Reference" "#PWR106"
 			(at 179.07 113.03 0)
 			(effects
 				(font
@@ -3197,7 +3465,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 179.07 110.49 0)
 			(effects
 				(font
@@ -3223,7 +3491,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 179.07 106.68 0)
 			(effects
 				(font
@@ -3233,12 +3501,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "1191250e-da1f-5ecf-933c-fd6d0a9f2e3a")
+			(uuid "5bd1d95a-c03a-58c0-92d0-35ba760a0728")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR105")
+					(reference "#PWR106")
 					(unit 1)
 				)
 			)
@@ -3319,7 +3587,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b6c248bf-20a4-552d-83dd-ac3cc63434eb")
+		(uuid "380255ee-9652-51e4-844a-98bac1a3d502")
 	)
 	(global_label "CTL_S1A"
 		(shape passive)
@@ -3331,7 +3599,7 @@
 			)
 			(justify left)
 		)
-		(uuid "380255ee-9652-51e4-844a-98bac1a3d502")
+		(uuid "1f9060d9-96b9-5328-8d03-d422578f38dd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 132.08 100.33 0)
 			(effects
@@ -3351,7 +3619,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1f9060d9-96b9-5328-8d03-d422578f38dd")
+		(uuid "55d1fb18-f228-5182-acb2-481a3b9c97b6")
 	)
 	(label "GM_S1A"
 		(at 132.08 113.03 270)
@@ -3361,7 +3629,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "55d1fb18-f228-5182-acb2-481a3b9c97b6")
+		(uuid "606e921e-430a-5d93-9be5-2ef080e979e8")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:C")
@@ -3438,7 +3706,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "606e921e-430a-5d93-9be5-2ef080e979e8")
+		(uuid "300a18ae-e7c5-5206-b777-c4825523a514")
 	)
 	(label "GM_S1A"
 		(at 138.43 124.46 0)
@@ -3448,7 +3716,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "300a18ae-e7c5-5206-b777-c4825523a514")
+		(uuid "17909672-425b-5189-97d5-bb13d295a58b")
 	)
 	(wire
 		(pts
@@ -3458,18 +3726,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "17909672-425b-5189-97d5-bb13d295a58b")
+		(uuid "a2d180d5-94b8-5466-a02f-8e7b3b1066ef")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 125.73 124.46 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "31b95226-f79a-541a-ad68-c8ae25530180")
-		(property "Reference" "#PWR106"
+		(uuid "23bd607e-4333-5d0f-8cd4-b1335f7867df")
+		(property "Reference" "#PWR107"
 			(at 125.73 130.81 0)
 			(effects
 				(font
@@ -3478,7 +3746,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 125.73 128.27 0)
 			(effects
 				(font
@@ -3504,7 +3772,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 125.73 124.46 0)
 			(effects
 				(font
@@ -3514,12 +3782,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "5bd1d95a-c03a-58c0-92d0-35ba760a0728")
+			(uuid "b3d78444-69ad-5143-b96b-099ff509a876")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR106")
+					(reference "#PWR107")
 					(unit 1)
 				)
 			)
@@ -3600,7 +3868,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a2d180d5-94b8-5466-a02f-8e7b3b1066ef")
+		(uuid "cafbc9f7-0cc7-5b01-91e1-1f2aa5103e0b")
 	)
 	(label "K1"
 		(at 213.36 82.55 90)
@@ -3610,7 +3878,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "cafbc9f7-0cc7-5b01-91e1-1f2aa5103e0b")
+		(uuid "cf7448ac-e4db-532f-96b5-76ee3c93fc2b")
 	)
 	(wire
 		(pts
@@ -3620,7 +3888,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cf7448ac-e4db-532f-96b5-76ee3c93fc2b")
+		(uuid "f9251f8f-471c-5d44-b63f-e5be49995a27")
 	)
 	(label "M_S1B"
 		(at 213.36 95.25 270)
@@ -3630,7 +3898,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "f9251f8f-471c-5d44-b63f-e5be49995a27")
+		(uuid "664b3796-579c-565d-852d-e577bbf8024a")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:2N7002")
@@ -3714,7 +3982,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "664b3796-579c-565d-852d-e577bbf8024a")
+		(uuid "432481b6-0295-52e9-b7ff-893515f92545")
 	)
 	(label "GM_S1B"
 		(at 205.74 106.68 180)
@@ -3724,7 +3992,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "432481b6-0295-52e9-b7ff-893515f92545")
+		(uuid "83285d42-7045-5c8d-975e-ed6ada1ae908")
 	)
 	(wire
 		(pts
@@ -3734,18 +4002,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "83285d42-7045-5c8d-975e-ed6ada1ae908")
+		(uuid "e94a9d5b-22e7-59fa-b411-29177096a562")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 215.9 114.3 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "23bd607e-4333-5d0f-8cd4-b1335f7867df")
-		(property "Reference" "#PWR107"
+		(uuid "ce531a35-336d-57a9-b957-7d65af21a053")
+		(property "Reference" "#PWR108"
 			(at 215.9 120.65 0)
 			(effects
 				(font
@@ -3754,7 +4022,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 215.9 118.11 0)
 			(effects
 				(font
@@ -3780,7 +4048,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 215.9 114.3 0)
 			(effects
 				(font
@@ -3790,12 +4058,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b3d78444-69ad-5143-b96b-099ff509a876")
+			(uuid "76d9d6e1-7609-501b-b7b2-73e34b418a2c")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR107")
+					(reference "#PWR108")
 					(unit 1)
 				)
 			)
@@ -3809,7 +4077,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e94a9d5b-22e7-59fa-b411-29177096a562")
+		(uuid "7e12630d-aa99-54be-a067-507d9962055c")
 	)
 	(label "M_S1B"
 		(at 215.9 99.06 90)
@@ -3819,7 +4087,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "7e12630d-aa99-54be-a067-507d9962055c")
+		(uuid "1bcbd849-9ee0-58e0-8000-7235103f6809")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -3896,7 +4164,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1bcbd849-9ee0-58e0-8000-7235103f6809")
+		(uuid "c0011975-ddbe-5a18-ba46-eb5f0ae24058")
 	)
 	(label "M_S1B"
 		(at 227.33 106.68 180)
@@ -3906,7 +4174,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "c0011975-ddbe-5a18-ba46-eb5f0ae24058")
+		(uuid "c7595ba4-04bd-51e8-816f-f6ab2027ab3e")
 	)
 	(wire
 		(pts
@@ -3916,18 +4184,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c7595ba4-04bd-51e8-816f-f6ab2027ab3e")
+		(uuid "4ccd823a-b20c-5326-be3a-2cfd8b9bde6f")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 240.03 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ce531a35-336d-57a9-b957-7d65af21a053")
-		(property "Reference" "#PWR108"
+		(uuid "8adbac51-6223-53ff-a286-7bb66eab3070")
+		(property "Reference" "#PWR109"
 			(at 240.03 113.03 0)
 			(effects
 				(font
@@ -3936,7 +4204,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 240.03 110.49 0)
 			(effects
 				(font
@@ -3962,7 +4230,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 240.03 106.68 0)
 			(effects
 				(font
@@ -3972,12 +4240,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "76d9d6e1-7609-501b-b7b2-73e34b418a2c")
+			(uuid "083b9c92-2544-59b5-9d9f-22c1eea5ffe3")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR108")
+					(reference "#PWR109")
 					(unit 1)
 				)
 			)
@@ -4058,7 +4326,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4ccd823a-b20c-5326-be3a-2cfd8b9bde6f")
+		(uuid "e9029b6b-964b-5b8c-979e-fcc089c7e4e1")
 	)
 	(global_label "CTL_S1B"
 		(shape passive)
@@ -4070,7 +4338,7 @@
 			)
 			(justify left)
 		)
-		(uuid "e9029b6b-964b-5b8c-979e-fcc089c7e4e1")
+		(uuid "db1fe085-503b-5e30-88bc-73fc256b6144")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 193.04 100.33 0)
 			(effects
@@ -4090,7 +4358,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "db1fe085-503b-5e30-88bc-73fc256b6144")
+		(uuid "40d4cb7b-66ea-52b6-b4ce-06e57551a96b")
 	)
 	(label "GM_S1B"
 		(at 193.04 113.03 270)
@@ -4100,7 +4368,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "40d4cb7b-66ea-52b6-b4ce-06e57551a96b")
+		(uuid "fd3c83ce-d1e3-51df-9037-b4f054ad9cd5")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:C")
@@ -4177,7 +4445,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fd3c83ce-d1e3-51df-9037-b4f054ad9cd5")
+		(uuid "b342c1a6-c1cc-5969-9e44-41a043fd3c7c")
 	)
 	(label "GM_S1B"
 		(at 199.39 124.46 0)
@@ -4187,7 +4455,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b342c1a6-c1cc-5969-9e44-41a043fd3c7c")
+		(uuid "ae5b8a03-d929-5691-b510-52167eab89ac")
 	)
 	(wire
 		(pts
@@ -4197,18 +4465,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ae5b8a03-d929-5691-b510-52167eab89ac")
+		(uuid "4df5571c-e25f-584c-9262-7fbe921901c4")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 186.69 124.46 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8adbac51-6223-53ff-a286-7bb66eab3070")
-		(property "Reference" "#PWR109"
+		(uuid "f03aa8e6-f618-52aa-a6e2-ef7ce3f4ed2f")
+		(property "Reference" "#PWR110"
 			(at 186.69 130.81 0)
 			(effects
 				(font
@@ -4217,7 +4485,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 186.69 128.27 0)
 			(effects
 				(font
@@ -4243,7 +4511,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 186.69 124.46 0)
 			(effects
 				(font
@@ -4253,12 +4521,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "083b9c92-2544-59b5-9d9f-22c1eea5ffe3")
+			(uuid "072be526-a843-5bb8-892c-ce1b9de1e279")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR109")
+					(reference "#PWR110")
 					(unit 1)
 				)
 			)
@@ -4273,7 +4541,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "4df5571c-e25f-584c-9262-7fbe921901c4")
+		(uuid "6bf33d7d-bef5-5132-a64c-34aa8d8468dc")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:C")
@@ -4350,7 +4618,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6bf33d7d-bef5-5132-a64c-34aa8d8468dc")
+		(uuid "bb95a7fc-2473-5919-a54e-a714182cca13")
 	)
 	(label "P1"
 		(at 274.32 46.99 90)
@@ -4360,7 +4628,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "bb95a7fc-2473-5919-a54e-a714182cca13")
+		(uuid "f4d85799-a0c9-525f-86f8-7318b0d54085")
 	)
 	(wire
 		(pts
@@ -4370,7 +4638,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f4d85799-a0c9-525f-86f8-7318b0d54085")
+		(uuid "ff2b56f1-632a-5613-a90e-6363f868a46d")
 	)
 	(global_label "POT_G_CL_TOP"
 		(shape passive)
@@ -4382,7 +4650,7 @@
 			)
 			(justify right)
 		)
-		(uuid "ff2b56f1-632a-5613-a90e-6363f868a46d")
+		(uuid "817923ec-8849-55cc-a29a-48a84adc38cc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 274.32 59.69 0)
 			(effects
@@ -4469,7 +4737,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "817923ec-8849-55cc-a29a-48a84adc38cc")
+		(uuid "d2808455-991d-513e-994e-955c650406d4")
 	)
 	(global_label "POT_G_CL_TOP"
 		(shape passive)
@@ -4481,7 +4749,7 @@
 			)
 			(justify right)
 		)
-		(uuid "d2808455-991d-513e-994e-955c650406d4")
+		(uuid "ce675fdd-13ac-5707-a1aa-8d6284c1303a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 308.61 71.12 0)
 			(effects
@@ -4501,7 +4769,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ce675fdd-13ac-5707-a1aa-8d6284c1303a")
+		(uuid "342eb8eb-76e3-5afc-a379-e6a098d053e4")
 	)
 	(global_label "POT_G_CL_W"
 		(shape passive)
@@ -4513,7 +4781,7 @@
 			)
 			(justify left)
 		)
-		(uuid "342eb8eb-76e3-5afc-a379-e6a098d053e4")
+		(uuid "da58027b-b86c-556c-b142-eb681d32545f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 321.31 71.12 0)
 			(effects
@@ -4600,7 +4868,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "da58027b-b86c-556c-b142-eb681d32545f")
+		(uuid "efe56e6c-bca1-52ab-ae1a-cd237bea43e8")
 	)
 	(global_label "POT_G_CL_W"
 		(shape passive)
@@ -4612,7 +4880,7 @@
 			)
 			(justify left)
 		)
-		(uuid "efe56e6c-bca1-52ab-ae1a-cd237bea43e8")
+		(uuid "fd1e28e1-db9b-5102-a4bd-0fed7539271a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 335.28 46.99 0)
 			(effects
@@ -4632,7 +4900,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fd1e28e1-db9b-5102-a4bd-0fed7539271a")
+		(uuid "5244093c-6804-56a6-8c0a-f7c3b39a48fb")
 	)
 	(label "XI_CL"
 		(at 335.28 59.69 270)
@@ -4642,7 +4910,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "5244093c-6804-56a6-8c0a-f7c3b39a48fb")
+		(uuid "904f5f96-6da5-5e8d-9cd9-d6e9f6bfa7fd")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:MMBFJ113")
@@ -4726,7 +4994,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "904f5f96-6da5-5e8d-9cd9-d6e9f6bfa7fd")
+		(uuid "f9404b16-ddeb-50a1-bc93-873b852bbcfa")
 	)
 	(label "XI_CL"
 		(at 378.46 63.5 90)
@@ -4736,7 +5004,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "f9404b16-ddeb-50a1-bc93-873b852bbcfa")
+		(uuid "69b49755-3d97-5418-a8e2-d99933b306cc")
 	)
 	(wire
 		(pts
@@ -4746,18 +5014,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "69b49755-3d97-5418-a8e2-d99933b306cc")
+		(uuid "f89a9f1d-7f78-5cf7-b899-8f11ef34b74a")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 378.46 78.74 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f03aa8e6-f618-52aa-a6e2-ef7ce3f4ed2f")
-		(property "Reference" "#PWR110"
+		(uuid "5c2afd1b-23eb-591e-bb9f-e54b149239f8")
+		(property "Reference" "#PWR111"
 			(at 378.46 85.09 0)
 			(effects
 				(font
@@ -4766,7 +5034,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 378.46 82.55 0)
 			(effects
 				(font
@@ -4792,7 +5060,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 378.46 78.74 0)
 			(effects
 				(font
@@ -4802,12 +5070,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "072be526-a843-5bb8-892c-ce1b9de1e279")
+			(uuid "6ac69de9-b853-52fa-9be5-d2575fc79e68")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR110")
+					(reference "#PWR111")
 					(unit 1)
 				)
 			)
@@ -4821,7 +5089,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f89a9f1d-7f78-5cf7-b899-8f11ef34b74a")
+		(uuid "0b929628-b138-5d91-ab2c-b8fb04acdbe9")
 	)
 	(label "G_ICL"
 		(at 368.3 71.12 180)
@@ -4831,7 +5099,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "0b929628-b138-5d91-ab2c-b8fb04acdbe9")
+		(uuid "7e1e3a0f-ebfd-5c48-a606-c7ba4307cb3b")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -4908,7 +5176,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7e1e3a0f-ebfd-5c48-a606-c7ba4307cb3b")
+		(uuid "ab0688bb-cc45-55f1-92f8-7cc9b6cb1078")
 	)
 	(global_label "JDRV_ICL"
 		(shape passive)
@@ -4920,7 +5188,7 @@
 			)
 			(justify left)
 		)
-		(uuid "ab0688bb-cc45-55f1-92f8-7cc9b6cb1078")
+		(uuid "15a9ab32-7ea6-5361-8780-1ed358f11ba4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 355.6 64.77 0)
 			(effects
@@ -4940,7 +5208,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "15a9ab32-7ea6-5361-8780-1ed358f11ba4")
+		(uuid "f578dde6-0b7e-5d9d-8e26-2ecdafca92de")
 	)
 	(label "G_ICL"
 		(at 355.6 77.47 270)
@@ -4950,7 +5218,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "f578dde6-0b7e-5d9d-8e26-2ecdafca92de")
+		(uuid "0516388f-fbb9-5d4c-a379-2f6a098e7653")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:C")
@@ -5027,7 +5295,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0516388f-fbb9-5d4c-a379-2f6a098e7653")
+		(uuid "2b440773-1cc1-5f5c-aeab-67e438018905")
 	)
 	(label "G_ICL"
 		(at 361.95 88.9 0)
@@ -5037,7 +5305,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2b440773-1cc1-5f5c-aeab-67e438018905")
+		(uuid "05be3d48-9b99-5bb7-a478-da9fc346a0d0")
 	)
 	(wire
 		(pts
@@ -5047,18 +5315,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "05be3d48-9b99-5bb7-a478-da9fc346a0d0")
+		(uuid "4b7801be-4b9e-58a6-89e4-bd9a7b7a9f46")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 349.25 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "5c2afd1b-23eb-591e-bb9f-e54b149239f8")
-		(property "Reference" "#PWR111"
+		(uuid "de4dd4c5-91e1-5aad-8350-926f551fa283")
+		(property "Reference" "#PWR112"
 			(at 349.25 95.25 0)
 			(effects
 				(font
@@ -5067,7 +5335,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 349.25 92.71 0)
 			(effects
 				(font
@@ -5093,7 +5361,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 349.25 88.9 0)
 			(effects
 				(font
@@ -5103,12 +5371,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "6ac69de9-b853-52fa-9be5-d2575fc79e68")
+			(uuid "b8662118-a842-5eb7-b287-00ba011fb686")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR111")
+					(reference "#PWR112")
 					(unit 1)
 				)
 			)
@@ -5189,7 +5457,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4b7801be-4b9e-58a6-89e4-bd9a7b7a9f46")
+		(uuid "cd1f68a8-0e7d-5cf2-82b7-b4f3198d15b4")
 	)
 	(label "XI_CL"
 		(at 396.24 46.99 90)
@@ -5199,7 +5467,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "cd1f68a8-0e7d-5cf2-82b7-b4f3198d15b4")
+		(uuid "6c55fb9c-ffd4-5a8d-82fd-a82a1a59655b")
 	)
 	(wire
 		(pts
@@ -5209,7 +5477,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6c55fb9c-ffd4-5a8d-82fd-a82a1a59655b")
+		(uuid "b05ca770-b8f1-5ee2-8174-73b87c2535d1")
 	)
 	(global_label "GX2"
 		(shape passive)
@@ -5221,7 +5489,7 @@
 			)
 			(justify right)
 		)
-		(uuid "b05ca770-b8f1-5ee2-8174-73b87c2535d1")
+		(uuid "d7bbce82-01fa-5906-be0f-c65e21c9ec70")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 396.24 59.69 0)
 			(effects
@@ -5242,7 +5510,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d7bbce82-01fa-5906-be0f-c65e21c9ec70")
+		(uuid "149f81fc-f2af-5e41-bd2c-9584e63a6311")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:C")
@@ -5319,7 +5587,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "149f81fc-f2af-5e41-bd2c-9584e63a6311")
+		(uuid "b231c880-a7dc-5299-8508-767ac4f9c2f1")
 	)
 	(label "P1"
 		(at 274.32 118.11 90)
@@ -5329,7 +5597,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b231c880-a7dc-5299-8508-767ac4f9c2f1")
+		(uuid "aa97d758-d5dc-5566-b031-f1d6ddae4b88")
 	)
 	(wire
 		(pts
@@ -5339,7 +5607,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "aa97d758-d5dc-5566-b031-f1d6ddae4b88")
+		(uuid "980b7551-763e-55d3-be08-f739d173e595")
 	)
 	(global_label "POT_G_CR_TOP"
 		(shape passive)
@@ -5351,7 +5619,7 @@
 			)
 			(justify right)
 		)
-		(uuid "980b7551-763e-55d3-be08-f739d173e595")
+		(uuid "749f1fa8-1f95-5d6d-9903-255292f21016")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 274.32 130.81 0)
 			(effects
@@ -5438,7 +5706,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "749f1fa8-1f95-5d6d-9903-255292f21016")
+		(uuid "e458cb6c-ef58-5b47-80e9-4bf7b63f5c00")
 	)
 	(global_label "POT_G_CR_TOP"
 		(shape passive)
@@ -5450,7 +5718,7 @@
 			)
 			(justify right)
 		)
-		(uuid "e458cb6c-ef58-5b47-80e9-4bf7b63f5c00")
+		(uuid "45dc508a-8403-5088-b498-24bc9b606c62")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 308.61 142.24 0)
 			(effects
@@ -5470,7 +5738,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "45dc508a-8403-5088-b498-24bc9b606c62")
+		(uuid "11380901-0f18-5a24-839c-fb9a71073b34")
 	)
 	(global_label "POT_G_CR_W"
 		(shape passive)
@@ -5482,7 +5750,7 @@
 			)
 			(justify left)
 		)
-		(uuid "11380901-0f18-5a24-839c-fb9a71073b34")
+		(uuid "64e6f567-cd70-57b0-9692-7493779c4003")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 321.31 142.24 0)
 			(effects
@@ -5569,7 +5837,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "64e6f567-cd70-57b0-9692-7493779c4003")
+		(uuid "edcb61f4-4dce-58b1-b92f-d805bd3f17d9")
 	)
 	(global_label "POT_G_CR_W"
 		(shape passive)
@@ -5581,7 +5849,7 @@
 			)
 			(justify left)
 		)
-		(uuid "edcb61f4-4dce-58b1-b92f-d805bd3f17d9")
+		(uuid "eea9f0b6-fb6c-51a7-9b1b-772f86d1a7bd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 335.28 118.11 0)
 			(effects
@@ -5601,7 +5869,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "eea9f0b6-fb6c-51a7-9b1b-772f86d1a7bd")
+		(uuid "985b904e-758c-53f1-ac87-b25cd46a2abe")
 	)
 	(label "XI_CR"
 		(at 335.28 130.81 270)
@@ -5611,7 +5879,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "985b904e-758c-53f1-ac87-b25cd46a2abe")
+		(uuid "a9675836-07fe-5e0f-adb1-7f32ba382cac")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:MMBFJ113")
@@ -5695,7 +5963,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a9675836-07fe-5e0f-adb1-7f32ba382cac")
+		(uuid "7a12e342-1b47-5595-adef-1e3d89ad6553")
 	)
 	(label "XI_CR"
 		(at 378.46 134.62 90)
@@ -5705,7 +5973,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "7a12e342-1b47-5595-adef-1e3d89ad6553")
+		(uuid "8946194a-125b-533a-9e9d-ee60561ac94a")
 	)
 	(wire
 		(pts
@@ -5715,18 +5983,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8946194a-125b-533a-9e9d-ee60561ac94a")
+		(uuid "5b343cc5-19f3-5f57-bb34-ac7663352174")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 378.46 149.86 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "de4dd4c5-91e1-5aad-8350-926f551fa283")
-		(property "Reference" "#PWR112"
+		(uuid "15120f44-cebb-5469-abb4-3b8fb8fee25d")
+		(property "Reference" "#PWR113"
 			(at 378.46 156.21 0)
 			(effects
 				(font
@@ -5735,7 +6003,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 378.46 153.67 0)
 			(effects
 				(font
@@ -5761,7 +6029,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 378.46 149.86 0)
 			(effects
 				(font
@@ -5771,12 +6039,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b8662118-a842-5eb7-b287-00ba011fb686")
+			(uuid "3e283409-7fc2-51b2-a113-3e03cda9ea87")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR112")
+					(reference "#PWR113")
 					(unit 1)
 				)
 			)
@@ -5790,7 +6058,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5b343cc5-19f3-5f57-bb34-ac7663352174")
+		(uuid "a4600097-7f8b-5edd-878f-4f2068a3d087")
 	)
 	(label "G_ICR"
 		(at 368.3 142.24 180)
@@ -5800,7 +6068,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "a4600097-7f8b-5edd-878f-4f2068a3d087")
+		(uuid "2dd56368-e487-5e6f-9c0f-8a229e7f70b0")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -5877,7 +6145,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2dd56368-e487-5e6f-9c0f-8a229e7f70b0")
+		(uuid "2e819bd0-58ad-5fb0-b070-980cbb3d9be4")
 	)
 	(global_label "JDRV_ICR"
 		(shape passive)
@@ -5889,7 +6157,7 @@
 			)
 			(justify left)
 		)
-		(uuid "2e819bd0-58ad-5fb0-b070-980cbb3d9be4")
+		(uuid "84007f32-9403-55b8-a4c0-90e41e5c27e2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 355.6 135.89 0)
 			(effects
@@ -5909,7 +6177,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "84007f32-9403-55b8-a4c0-90e41e5c27e2")
+		(uuid "bc48ed46-4c90-5905-b78a-f3de813b83d6")
 	)
 	(label "G_ICR"
 		(at 355.6 148.59 270)
@@ -5919,7 +6187,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "bc48ed46-4c90-5905-b78a-f3de813b83d6")
+		(uuid "8dbad9ab-5dd0-507b-9d86-a46adb4d862a")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:C")
@@ -5996,7 +6264,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8dbad9ab-5dd0-507b-9d86-a46adb4d862a")
+		(uuid "35cd58c0-a136-5765-96d8-5b32588e9bb4")
 	)
 	(label "G_ICR"
 		(at 361.95 160.02 0)
@@ -6006,7 +6274,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "35cd58c0-a136-5765-96d8-5b32588e9bb4")
+		(uuid "d6ad0704-5d0c-53bc-98a9-b295c8ed8824")
 	)
 	(wire
 		(pts
@@ -6016,18 +6284,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d6ad0704-5d0c-53bc-98a9-b295c8ed8824")
+		(uuid "b9364bcd-b9fb-5d35-a74b-c755a944b540")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 349.25 160.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "15120f44-cebb-5469-abb4-3b8fb8fee25d")
-		(property "Reference" "#PWR113"
+		(uuid "d2d3f926-c91f-556b-a0ce-7cee737f179d")
+		(property "Reference" "#PWR114"
 			(at 349.25 166.37 0)
 			(effects
 				(font
@@ -6036,7 +6304,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 349.25 163.83 0)
 			(effects
 				(font
@@ -6062,7 +6330,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 349.25 160.02 0)
 			(effects
 				(font
@@ -6072,12 +6340,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "3e283409-7fc2-51b2-a113-3e03cda9ea87")
+			(uuid "61c197d3-9492-5ad9-aa93-ec794c8c114e")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR113")
+					(reference "#PWR114")
 					(unit 1)
 				)
 			)
@@ -6158,7 +6426,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b9364bcd-b9fb-5d35-a74b-c755a944b540")
+		(uuid "43c12832-2e7a-537b-a92b-38ff569bf507")
 	)
 	(label "XI_CR"
 		(at 396.24 118.11 90)
@@ -6168,7 +6436,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "43c12832-2e7a-537b-a92b-38ff569bf507")
+		(uuid "37cfab5b-ba41-53dc-aa91-d42fc39fda3d")
 	)
 	(wire
 		(pts
@@ -6178,7 +6446,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "37cfab5b-ba41-53dc-aa91-d42fc39fda3d")
+		(uuid "5555f979-399d-5807-b843-9090e0ec4686")
 	)
 	(global_label "GX2"
 		(shape passive)
@@ -6190,7 +6458,7 @@
 			)
 			(justify right)
 		)
-		(uuid "5555f979-399d-5807-b843-9090e0ec4686")
+		(uuid "a8e3389c-be73-5244-bc41-3980dcfc416c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 396.24 130.81 0)
 			(effects
@@ -6211,7 +6479,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "a8e3389c-be73-5244-bc41-3980dcfc416c")
+		(uuid "677d3611-3db2-568b-a934-890efc476347")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:C")
@@ -6288,7 +6556,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "677d3611-3db2-568b-a934-890efc476347")
+		(uuid "6366f9cd-4a9a-527c-b53c-df6b28524102")
 	)
 	(label "P1"
 		(at 274.32 189.23 90)
@@ -6298,7 +6566,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6366f9cd-4a9a-527c-b53c-df6b28524102")
+		(uuid "1eb4a8cb-7bf2-5f25-9e45-36335acc4c94")
 	)
 	(wire
 		(pts
@@ -6308,7 +6576,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1eb4a8cb-7bf2-5f25-9e45-36335acc4c94")
+		(uuid "d06e4beb-0e17-5b87-90e5-df9514b77563")
 	)
 	(global_label "POT_G_LD_TOP"
 		(shape passive)
@@ -6320,7 +6588,7 @@
 			)
 			(justify right)
 		)
-		(uuid "d06e4beb-0e17-5b87-90e5-df9514b77563")
+		(uuid "8449b0c5-51e7-5ae6-bab5-1f17d1794efd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 274.32 201.93 0)
 			(effects
@@ -6407,7 +6675,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8449b0c5-51e7-5ae6-bab5-1f17d1794efd")
+		(uuid "e2151ee0-ea45-5cdc-ac54-e8359dbd38f8")
 	)
 	(global_label "POT_G_LD_W"
 		(shape passive)
@@ -6419,7 +6687,7 @@
 			)
 			(justify left)
 		)
-		(uuid "e2151ee0-ea45-5cdc-ac54-e8359dbd38f8")
+		(uuid "ba1be0c8-c7e6-5e9d-b147-33fb1a273a27")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 335.28 189.23 0)
 			(effects
@@ -6439,7 +6707,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ba1be0c8-c7e6-5e9d-b147-33fb1a273a27")
+		(uuid "b65b6ded-f3d5-5c59-9004-458cba5bd0c4")
 	)
 	(label "XI_LD"
 		(at 335.28 201.93 270)
@@ -6449,7 +6717,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "b65b6ded-f3d5-5c59-9004-458cba5bd0c4")
+		(uuid "8aa6fdda-cc1a-558c-8d27-07b803fdee23")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:MMBFJ113")
@@ -6533,7 +6801,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8aa6fdda-cc1a-558c-8d27-07b803fdee23")
+		(uuid "2ef43031-c52a-5bac-bb30-861aaf12e192")
 	)
 	(label "XI_LD"
 		(at 378.46 205.74 90)
@@ -6543,7 +6811,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2ef43031-c52a-5bac-bb30-861aaf12e192")
+		(uuid "18f45358-ac8a-5ccd-b967-225daf56a1a0")
 	)
 	(wire
 		(pts
@@ -6553,18 +6821,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "18f45358-ac8a-5ccd-b967-225daf56a1a0")
+		(uuid "abe30d4f-085c-5bc8-9c8c-641aa897edb5")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 378.46 220.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d2d3f926-c91f-556b-a0ce-7cee737f179d")
-		(property "Reference" "#PWR114"
+		(uuid "c00abd6f-a68e-5d18-b016-5f842465d860")
+		(property "Reference" "#PWR115"
 			(at 378.46 227.33 0)
 			(effects
 				(font
@@ -6573,7 +6841,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 378.46 224.79 0)
 			(effects
 				(font
@@ -6599,7 +6867,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 378.46 220.98 0)
 			(effects
 				(font
@@ -6609,12 +6877,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "61c197d3-9492-5ad9-aa93-ec794c8c114e")
+			(uuid "9993659a-8c9a-51c6-ad50-832c8e355ffd")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR114")
+					(reference "#PWR115")
 					(unit 1)
 				)
 			)
@@ -6628,7 +6896,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "abe30d4f-085c-5bc8-9c8c-641aa897edb5")
+		(uuid "93034d55-2f69-5f0c-97c2-b21d500398c5")
 	)
 	(label "G_ILD"
 		(at 368.3 213.36 180)
@@ -6638,7 +6906,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "93034d55-2f69-5f0c-97c2-b21d500398c5")
+		(uuid "c82b0d0a-a4f6-5864-a640-b9b53e089a53")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -6715,7 +6983,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c82b0d0a-a4f6-5864-a640-b9b53e089a53")
+		(uuid "20217514-a8ad-514c-b87b-dce4a4acb91a")
 	)
 	(global_label "JDRV_ILD"
 		(shape passive)
@@ -6727,7 +6995,7 @@
 			)
 			(justify left)
 		)
-		(uuid "20217514-a8ad-514c-b87b-dce4a4acb91a")
+		(uuid "9cd2768c-318a-5671-805d-9921b21a8955")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 355.6 207.01 0)
 			(effects
@@ -6747,7 +7015,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9cd2768c-318a-5671-805d-9921b21a8955")
+		(uuid "5eda5183-1db1-5e44-b713-7239fd9f94fc")
 	)
 	(label "G_ILD"
 		(at 355.6 219.71 270)
@@ -6757,7 +7025,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "5eda5183-1db1-5e44-b713-7239fd9f94fc")
+		(uuid "a5e7a03f-a196-5a45-8505-3676348f1dea")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:C")
@@ -6834,7 +7102,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a5e7a03f-a196-5a45-8505-3676348f1dea")
+		(uuid "c60893bd-b0c0-59c4-a1c7-71e2bcc6b256")
 	)
 	(label "G_ILD"
 		(at 361.95 231.14 0)
@@ -6844,7 +7112,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c60893bd-b0c0-59c4-a1c7-71e2bcc6b256")
+		(uuid "d099442d-d692-5da4-8afb-06a222c70f1b")
 	)
 	(wire
 		(pts
@@ -6854,18 +7122,18 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d099442d-d692-5da4-8afb-06a222c70f1b")
+		(uuid "a6d6cbc2-cbca-5f89-9c71-b550d09ff34d")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 349.25 231.14 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c00abd6f-a68e-5d18-b016-5f842465d860")
-		(property "Reference" "#PWR115"
+		(uuid "665d7d79-a93d-54a6-b617-29206006b20c")
+		(property "Reference" "#PWR116"
 			(at 349.25 237.49 0)
 			(effects
 				(font
@@ -6874,7 +7142,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 349.25 234.95 0)
 			(effects
 				(font
@@ -6900,7 +7168,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 349.25 231.14 0)
 			(effects
 				(font
@@ -6910,12 +7178,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "9993659a-8c9a-51c6-ad50-832c8e355ffd")
+			(uuid "0d709725-a121-5d4c-a354-0402d1d98c68")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
-					(reference "#PWR115")
+					(reference "#PWR116")
 					(unit 1)
 				)
 			)
@@ -6996,7 +7264,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a6d6cbc2-cbca-5f89-9c71-b550d09ff34d")
+		(uuid "94da9bbc-a5b3-58cb-8066-d5a067c88ebe")
 	)
 	(label "XI_LD"
 		(at 396.24 189.23 90)
@@ -7006,7 +7274,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "94da9bbc-a5b3-58cb-8066-d5a067c88ebe")
+		(uuid "0e27ac92-c65b-5646-bd6f-d1c931c77e7e")
 	)
 	(wire
 		(pts
@@ -7016,7 +7284,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0e27ac92-c65b-5646-bd6f-d1c931c77e7e")
+		(uuid "d7b9537a-ce3d-564f-b7e5-fadcc4d80d0f")
 	)
 	(global_label "GX2"
 		(shape passive)
@@ -7028,7 +7296,7 @@
 			)
 			(justify right)
 		)
-		(uuid "d7b9537a-ce3d-564f-b7e5-fadcc4d80d0f")
+		(uuid "6183b205-76a1-5ada-abeb-fa0d41f0ef2e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 396.24 201.93 0)
 			(effects

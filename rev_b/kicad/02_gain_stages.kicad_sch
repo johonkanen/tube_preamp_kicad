@@ -151,7 +151,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "tube_preamp_revb:GND"
+		(symbol "tube_preamp_revb:GNDA"
 			(power global)
 			(pin_numbers
 				(hide yes)
@@ -176,7 +176,7 @@
 					)
 				)
 			)
-			(property "Value" "GND"
+			(property "Value" "GNDA"
 				(at 0 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -208,7 +208,7 @@
 					)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -230,7 +230,7 @@
 					)
 				)
 			)
-			(symbol "GND_0_1"
+			(symbol "GNDA_0_1"
 				(polyline
 					(pts
 						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
@@ -244,7 +244,7 @@
 					)
 				)
 			)
-			(symbol "GND_1_1"
+			(symbol "GNDA_1_1"
 				(pin power_in line
 					(at 0 0 270)
 					(length 0)
@@ -2262,7 +2262,7 @@
 		(uuid "b99860af-87dc-57dc-bc05-e0d33dcc6e9c")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 36.83 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2279,7 +2279,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 36.83 74.93 0)
 			(effects
 				(font
@@ -2305,7 +2305,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 36.83 71.12 0)
 			(effects
 				(font
@@ -2685,7 +2685,7 @@
 		(uuid "49b87fd8-36d7-5aaf-b0c5-ba151d080056")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 77.47 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2702,7 +2702,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 77.47 92.71 0)
 			(effects
 				(font
@@ -2728,7 +2728,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 77.47 88.9 0)
 			(effects
 				(font
@@ -2961,7 +2961,7 @@
 		(uuid "b496a0c7-43bb-5887-a1d2-1a646ece3719")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 114.3 114.3 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2978,7 +2978,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 114.3 118.11 0)
 			(effects
 				(font
@@ -3004,7 +3004,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 114.3 114.3 0)
 			(effects
 				(font
@@ -3143,7 +3143,7 @@
 		(uuid "3d87b403-c11f-5576-b31e-3e7e673ffffa")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 138.43 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3160,7 +3160,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 138.43 110.49 0)
 			(effects
 				(font
@@ -3186,7 +3186,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 138.43 106.68 0)
 			(effects
 				(font
@@ -3424,7 +3424,7 @@
 		(uuid "e131a9c9-df18-5047-9aad-ad214bf3fb11")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 85.09 124.46 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3441,7 +3441,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 85.09 128.27 0)
 			(effects
 				(font
@@ -3467,7 +3467,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 85.09 124.46 0)
 			(effects
 				(font
@@ -3693,7 +3693,7 @@
 		(uuid "5e8f4891-c6b5-504e-8301-000f7fe41328")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 71.12 157.48 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3710,7 +3710,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 71.12 161.29 0)
 			(effects
 				(font
@@ -3736,7 +3736,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 71.12 157.48 0)
 			(effects
 				(font
@@ -4558,7 +4558,7 @@
 		(uuid "8ae9296f-3efa-569f-a660-3db33d0ab64a")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 240.03 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4575,7 +4575,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 240.03 92.71 0)
 			(effects
 				(font
@@ -4601,7 +4601,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 240.03 88.9 0)
 			(effects
 				(font
@@ -4720,7 +4720,7 @@
 		(uuid "8c973fcb-7620-5cbe-9bf9-53f954d13b6e")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 260.35 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4737,7 +4737,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 260.35 92.71 0)
 			(effects
 				(font
@@ -4763,7 +4763,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 260.35 88.9 0)
 			(effects
 				(font
@@ -5149,7 +5149,7 @@
 		(uuid "cd0b71ba-b478-5b90-ae1d-9f2799f7c58a")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 280.67 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5166,7 +5166,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 280.67 74.93 0)
 			(effects
 				(font
@@ -5192,7 +5192,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 280.67 71.12 0)
 			(effects
 				(font
@@ -5525,7 +5525,7 @@
 		(uuid "aa24b82e-300e-5309-b46f-ff7c627989dd")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 321.31 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5542,7 +5542,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 321.31 92.71 0)
 			(effects
 				(font
@@ -5568,7 +5568,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 321.31 88.9 0)
 			(effects
 				(font
@@ -6093,7 +6093,7 @@
 		(uuid "38b523fc-4d51-5c63-8268-951210e59d87")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 341.63 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6110,7 +6110,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 341.63 74.93 0)
 			(effects
 				(font
@@ -6136,7 +6136,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 341.63 71.12 0)
 			(effects
 				(font
@@ -6255,7 +6255,7 @@
 		(uuid "0cf55ae3-de0c-5218-974a-f616d802f0d5")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 382.27 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6272,7 +6272,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 382.27 74.93 0)
 			(effects
 				(font
@@ -6298,7 +6298,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 382.27 71.12 0)
 			(effects
 				(font
@@ -6666,7 +6666,7 @@
 		(uuid "c3c3b0c5-1445-5462-b40a-ebf4a0ac2c4d")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 402.59 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6683,7 +6683,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 402.59 92.71 0)
 			(effects
 				(font
@@ -6709,7 +6709,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 402.59 88.9 0)
 			(effects
 				(font
@@ -6828,7 +6828,7 @@
 		(uuid "33b08f17-8233-5983-a48f-d63f41005141")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 422.91 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6845,7 +6845,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 422.91 92.71 0)
 			(effects
 				(font
@@ -6871,7 +6871,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 422.91 88.9 0)
 			(effects
 				(font
@@ -7204,7 +7204,7 @@
 		(uuid "ea7bc6d9-b295-56b7-a46a-f3f0a5ee020f")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 463.55 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7221,7 +7221,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 463.55 92.71 0)
 			(effects
 				(font
@@ -7247,7 +7247,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 463.55 88.9 0)
 			(effects
 				(font
@@ -7473,7 +7473,7 @@
 		(uuid "aa32a487-0e69-53e7-8a7a-fee8fca6d160")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 382.27 160.02 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7490,7 +7490,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 382.27 163.83 0)
 			(effects
 				(font
@@ -7516,7 +7516,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 382.27 160.02 0)
 			(effects
 				(font
@@ -7635,7 +7635,7 @@
 		(uuid "8960e658-ae62-5ab5-9b48-435bc8cc3457")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 422.91 160.02 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7652,7 +7652,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 422.91 163.83 0)
 			(effects
 				(font
@@ -7678,7 +7678,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 422.91 160.02 0)
 			(effects
 				(font
@@ -8070,7 +8070,7 @@
 		(uuid "9ade7287-8655-5df7-b84e-33316f6737ed")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 463.55 177.8 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8087,7 +8087,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 463.55 181.61 0)
 			(effects
 				(font
@@ -8113,7 +8113,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 463.55 177.8 0)
 			(effects
 				(font
@@ -8453,7 +8453,7 @@
 		(uuid "c412e6f4-17ba-5627-95a7-437355e5a697")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 500.38 203.2 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8470,7 +8470,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 500.38 207.01 0)
 			(effects
 				(font
@@ -8496,7 +8496,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 500.38 203.2 0)
 			(effects
 				(font
@@ -8635,7 +8635,7 @@
 		(uuid "fec8a410-3f59-5766-b9cd-ecec5ff72058")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 524.51 195.58 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8652,7 +8652,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 524.51 199.39 0)
 			(effects
 				(font
@@ -8678,7 +8678,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 524.51 195.58 0)
 			(effects
 				(font
@@ -8916,7 +8916,7 @@
 		(uuid "8479ab3a-6eb1-5bc0-9936-a8747d66361f")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 471.17 213.36 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8933,7 +8933,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 471.17 217.17 0)
 			(effects
 				(font
@@ -8959,7 +8959,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 471.17 213.36 0)
 			(effects
 				(font
@@ -9192,7 +9192,7 @@
 		(uuid "c9abf787-7ead-5e18-8001-37d2702c0503")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 561.34 203.2 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9209,7 +9209,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 561.34 207.01 0)
 			(effects
 				(font
@@ -9235,7 +9235,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 561.34 203.2 0)
 			(effects
 				(font
@@ -9374,7 +9374,7 @@
 		(uuid "3306859a-03e4-53a1-9ef4-66a5d70065d4")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 585.47 195.58 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9391,7 +9391,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 585.47 199.39 0)
 			(effects
 				(font
@@ -9417,7 +9417,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 585.47 195.58 0)
 			(effects
 				(font
@@ -9655,7 +9655,7 @@
 		(uuid "96582df9-5e89-5c8a-a939-c75ccdf1f2b3")
 	)
 	(symbol
-		(lib_id "tube_preamp_revb:GND")
+		(lib_id "tube_preamp_revb:GNDA")
 		(at 532.13 213.36 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9672,7 +9672,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GNDA"
 			(at 532.13 217.17 0)
 			(effects
 				(font
@@ -9698,7 +9698,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 532.13 213.36 0)
 			(effects
 				(font

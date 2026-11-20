@@ -23,7 +23,12 @@ sys.path.insert(0, os.path.join(RB, "..", "tools", "p2k"))
 from p2k.sch_builder import Sheet, lib  # noqa: E402
 from p2k.sexpr import find, find_all  # noqa: E402
 
-POWER = {"GND", "+5V", "+15V", "-15V"}
+POWER = {"GNDA", "GNDD", "+5V", "+15V", "-15V"}
+# Grounding (tube_amplifier_kicad docs/grounding.md §5a, user-confirmed 2026-11-21): "GND" in the
+# sheet code means AGND (GNDA): signal and power star, entry at J501 pin 2, chassis bond at the
+# CHASSIS pad J102 by the input. Sheet 04's logic sits on a DGND island (GNDD) joined to AGND by one
+# soft tie (10R || 100n, R426 / C407 after numbering) next to J401. Switch references (JFET / MOSFET sources, gate caps,
+# JFET-gate pull-downs) are AGND.
 GRID = 2.54
 
 
@@ -65,6 +70,7 @@ class Drawer:
 
     def part(self, sym, ref, c, r, nets, value=None, rot=0, unit=1, stub=GRID):
         ref = self.auto_ref(ref, sym)
+        nets = {k: ("GNDA" if v == "GND" else v) for k, v in nets.items()}
         for n in nets.values():
             if n and n != "NC":
                 self.nets.add(n)
@@ -160,6 +166,7 @@ def sheet01(d):
            "pad, gain pot (on its pot ribbon) and bright cap, JFET-selected into S2's grid (GX2).", 0, -1.0, 2)
     d.part("Conn_01x02", "J101", 0, 1, {1: "IN_TIP", 2: "GND"}, value="INPUT")
     R(d, "R101", 1, 2, "IN_TIP", "GND", "1M")
+    d.part("Conn_01x01", "J102", 0, 3.5, {1: "GND"}, value="CHASSIS (bolted tag; the only bond)")
     R(d, "R102", 2, 1, "IN_TIP", "G1", "68k", rot=0)
     d.part("ECC83", "V1", 4, 1, {1: "P1", 2: "G1", 3: "K1"}, value="12AX7", unit=2)
     R(d, "R103", 4, 0, "BP1", "P1", "100k")
@@ -277,28 +284,28 @@ def sheet04(d):
            "(pulled low: ribbon unplugged = muted).", 0, -1.0, 2)
     # INTERFACE CONTRACT: J401 pinout is in tube_amplifier_kicad docs/interfaces.md ("preamp rev B
     # draft (2026-11-20)"); other boards follow it. Propose changes via the main-branch session first.
-    d.part("Conn_02x07_Odd_Even", "J401", 0, 2, {1: "+5V", 2: "GND", 3: "+15V", 4: "GND", 5: "-15V", 6: "GND",
-                                                  7: "SPI_SCK", 8: "GND", 9: "SPI_MOSI", 10: "SPI_MISO",
-                                                  11: "SPI_CS_N", 12: "MUTE_ALL_N", 13: "RESET_N", 14: "GND"},
+    d.part("Conn_02x07_Odd_Even", "J401", 0, 2, {1: "+5V", 2: "GNDD", 3: "+15V", 4: "GNDD", 5: "-15V", 6: "GNDD",
+                                                  7: "SPI_SCK", 8: "GNDD", 9: "SPI_MOSI", 10: "SPI_MISO",
+                                                  11: "SPI_CS_N", 12: "MUTE_ALL_N", 13: "RESET_N", 14: "GNDD"},
            value="CONTROL (ribbon)")
-    for i, n in enumerate(("+5V", "+15V", "-15V", "GND")):
+    for i, n in enumerate(("+5V", "+15V", "-15V", "GNDD")):
         d.part("PWR_FLAG", f"#FLG40{i}", 2, 4 + i * 0.6, {1: n}, value="PWR_FLAG")
     R(d, "R401", 3, 1, "RESET_N", "+5V", "10k")
-    R(d, "R402", 3, 3, "MUTE_ALL_N", "GND", "100k")
+    R(d, "R402", 3, 3, "MUTE_ALL_N", "GNDD", "100k")
     gp = {21: "EX_ICL", 22: "EX_ICR", 23: "EX_ILD", 24: "EX_PCL", 25: "EX_PCR", 26: "EX_PLD", 27: "EX_UNMUTE",
           28: "EX_RLY_BL3", 1: "CTL_S1A", 2: "CTL_S1B", 3: "CTL_S2A", 4: "CTL_S3A", 5: "CTL_S3B",
           6: "EX_RLY_BL2", 7: "EX_RLY_S5", 8: "EX_RLY_C2"}
     nets = dict(gp)
-    nets.update({9: "+5V", 10: "GND", 11: "SPI_CS_N", 12: "SPI_SCK", 13: "SPI_MOSI", 14: "SPI_MISO",
-                 15: "GND", 16: "GND", 17: "GND", 18: "RESET_N", 19: "NC", 20: "NC"})
+    nets.update({9: "+5V", 10: "GNDD", 11: "SPI_CS_N", 12: "SPI_SCK", 13: "SPI_MOSI", 14: "SPI_MISO",
+                 15: "GNDD", 16: "GNDD", 17: "GNDD", 18: "RESET_N", 19: "NC", 20: "NC"})
     d.part("MCP23S17x-x-SS", "U401", 6, 3, nets, value="MCP23S17-E/SS")
-    C(d, "C401", 6, 0, "+5V", "GND", "100n", rot=0)
+    C(d, "C401", 6, 0, "+5V", "GNDD", "100n", rot=0)
     for k, (pin, n) in enumerate(sorted(gp.items(), key=lambda x: x[1])):
-        R(d, f"R41{k:02d}"[:5] if k < 10 else f"R4{20 + k}", 9 + (k % 8) * 1.6, 8 + (k // 8) * 1.4, n, "GND", "100k")
-    d.part("74LVC1G08", "U404", 9, 5, {1: "EX_UNMUTE", 2: "MUTE_ALL_N", 3: "GND", 4: "SW_UNMUTE", 5: "+5V"},
+        R(d, f"R41{k:02d}"[:5] if k < 10 else f"R4{20 + k}", 9 + (k % 8) * 1.6, 8 + (k // 8) * 1.4, n, "GNDD", "100k")
+    d.part("74LVC1G08", "U404", 9, 5, {1: "EX_UNMUTE", 2: "MUTE_ALL_N", 3: "GNDD", 4: "SW_UNMUTE", 5: "+5V"},
            value="74LVC1G08")
     sw = [("EX_ICL", "JDRV_ICL"), ("EX_ICR", "JDRV_ICR"), ("EX_ILD", "JDRV_ILD"), ("EX_PCL", "JDRV_PCL"),
-          ("EX_PCR", "JDRV_PCR"), ("EX_PLD", "JDRV_PLD"), ("SW_UNMUTE", "JDRV_MUTE"), ("GND", "NC")]
+          ("EX_PCR", "JDRV_PCR"), ("EX_PLD", "JDRV_PLD"), ("SW_UNMUTE", "JDRV_MUTE"), ("GNDD", "NC")]
     pins = [(1, 2, 3), (8, 7, 6), (9, 10, 11), (16, 15, 14)]   # (IN, D, S) per KiCad unit 1-4 (switches 1, 4, 3, 2)
     for j in range(2):
         ref = f"U40{2 + j}"
@@ -307,16 +314,19 @@ def sheet04(d):
             ex, drv = sw[j * 4 + u]
             d.part("DG411xY", ref, 13 + u * 2.2, 2 + j * 4, {inp: ex, dpin: drv, spin: "-15V" if drv != "NC" else "NC"},
                    value="DG412DY", unit=u + 1)
-        d.part("DG411xY", ref, 22, 2 + j * 4, {4: "-15V", 5: "GND", 12: "+5V", 13: "+15V"}, value="DG412DY", unit=5)
-        C(d, f"C40{2 + j}", 23.5, 1 + j * 4, "+15V", "GND", "100n")
-        C(d, f"C40{4 + j}", 24.5, 1 + j * 4, "-15V", "GND", "100n")
+        d.part("DG411xY", ref, 22, 2 + j * 4, {4: "-15V", 5: "GNDD", 12: "+5V", 13: "+15V"}, value="DG412DY", unit=5)
+        C(d, f"C40{2 + j}", 23.5, 1 + j * 4, "+15V", "GNDD", "100n")
+        C(d, f"C40{4 + j}", 24.5, 1 + j * 4, "-15V", "GNDD", "100n")
     for k, (_, drv) in enumerate(sw[:7]):
-        R(d, f"R43{k}", 13 + k * 1.3, 10.5, drv, "GND", "100k")      # 0 V = JFET on (muting)
+        R(d, f"R43{k}", 13 + k * 1.3, 10.5, drv, "GNDA", "100k")      # 0 V = JFET on (muting); AGND: the JFET's reference
     d.part("ULN2003", "U406", 15, 13, {1: "EX_RLY_BL2", 2: "EX_RLY_S5", 3: "EX_RLY_C2", 4: "EX_RLY_BL3",
-                                       5: "GND", 6: "GND", 7: "GND", 8: "GND", 9: "+5V", 16: "RLY_BL2_N",
+                                       5: "GNDD", 6: "GNDD", 7: "GNDD", 8: "GNDD", 9: "+5V", 16: "RLY_BL2_N",
                                        15: "RLY_S5_N", 14: "RLY_C2_N", 13: "RLY_BL3_N", 12: "NC", 11: "NC", 10: "NC"},
            value="ULN2003A")
-    C(d, "C407", 17, 12, "+5V", "GND", "100n")
+    C(d, "C407", 17, 12, "+5V", "GNDD", "100n")
+    d.text("DGND -> AGND soft tie (the only DGND-AGND link, next to J401; grounding.md §5a)", 3, 12.3)
+    R(d, "R440", 3, 13, "GNDD", "GNDA", "10")
+    C(d, "C440", 4.5, 13, "GNDD", "GNDA", "100n")
 
 
 # ------------------------------------------------------------------ sheet 05
@@ -326,7 +336,8 @@ def sheet05(d):
            "bias, heaters with the reference jumper (D12), pot ribbons, output.", 0, -1.0, 2)
     # INTERFACE CONTRACT: J501-J507 pinouts (tabs, pot ribbons, output) are in tube_amplifier_kicad
     # docs/interfaces.md ("preamp rev B draft (2026-11-20)"). Propose changes via the main session first.
-    d.part("Conn_01x02", "J501", 0, 1, {1: "BP_RAW", 2: "GND"}, value="B+ RAW 430V (tab)")
+    d.part("Conn_01x02", "J501", 0, 1, {1: "BP_RAW", 2: "GND"}, value="B+ RAW 430V (tab)")   # pin 2: the AGND entry
+    d.part("PWR_FLAG", "#FLG503", 1, 2.5, {1: "GND"}, value="PWR_FLAG")
     d.part("Q_NMOS_Depletion", "Q501", 2, 1, {"D": "BP_RAW", "G": "ZT", "S": "CS"}, value="LND150")
     R(d, "R501", 3, 2, "CS", "ZT", "330")
     for i in range(3):
@@ -368,7 +379,9 @@ def sheet05(d):
         for k in range(13):
             nets[2 + 2 * k] = sig[k] if k < len(sig) else "GND"
         d.part("Conn_02x13_Odd_Even", f"J5{i + 4}", 16 + i * 4, 10, nets, value=f"POTS {name.upper()} (ribbon)")
-    d.part("Conn_01x03", "J507", 0, 13, {1: "OUT", 2: "GND", 3: "GND"}, value="OUT to FX send / PI")
+    d.part("Conn_01x03", "J507", 0, 13, {1: "OUT", 2: "GND", 3: "SHLD_OUT"}, value="OUT to FX send / PI")
+    R(d, "R540", 2, 14, "SHLD_OUT", "GND", "10")      # shield soft tie here, solid at the PI + FX end
+    C(d, "C540", 3, 14, "SHLD_OUT", "GND", "100n")
     d.text("Post-gain pot top = treble pot wiper (POT_TR_x_W): joined on the pot board. Pot bottoms of gain / post = GND pins.", 15, 15.5)
 
 
