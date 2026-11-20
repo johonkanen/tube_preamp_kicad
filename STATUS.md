@@ -7,7 +7,7 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 | 0 Skeleton and inventory | **done** 2026-11-20 (Opus 5.5) |
 | 1 Schematic | **done** 2026-11-20 (preparation Opus 5.5, transcription Fable 5.2): 5 sheets, 163/163 parts, netlist = IPC, ERC 0 / 0 |
 | 2 Footprints | **done** 2026-11-20 (Opus 5.5): 163/163 parts fit the IPC pads (worst residual 0.001 mm, pcbnew placement 0.001 mm), 16 footprints (13 project + 3 KiCad, + 1 board-only), pin order checked; open: noval socket side (finding 13), KiCad drills smaller than Proteus on RLY1-RLY5, C1/C5/C7/C10, the Orange Drops, C4/C14 |
-| 3 PCB | **stopped for a user decision** 2026-11-20 (Opus 5.5): board generated and reproducible, copper 0 shorts / 0 orphans / 0 opens, check_board OK; DRC 0 shorts / 0 unconnected / 0 parity but **2 clearance errors at the KiCad TO-92 square pad 1 of Q4 / Q6** (user question, "Phase 3") |
+| 3 PCB | **done** 2026-11-20 (Opus 5.5): board generated and reproducible (`tools/make_pcb.sh`), copper 0 shorts / 0 orphans / 0 opens, check_board OK, **DRC 0 shorts / 0 unconnected / 0 parity, no unaccepted errors** (TO-92 pad 1 round on Q1-Q9, user decision); negative tests done |
 | 4 Verification | not started |
 | 5 Clean-up | not started |
 
@@ -465,7 +465,7 @@ check_pin_order fails on `POLARITY` (before `POLARITY` was added this was not ca
 14). (4) noval expectation set to unmirrored → check_pin_order FAILED. (5) `kicad/fp-lib-table`
 removed → `--check` exit 1. All pass again with the committed files.
 
-## Phase 3 – PCB – stopped for a user decision (Opus 5.5, 2026-11-20)
+## Phase 3 – PCB – done (Opus 5.5, 2026-11-20)
 
 `kicad/tube_preamp.kicad_pcb` is generated: `tools/make_pcb.sh` runs the shared tools (a few
 seconds), two runs give a byte-identical board; `tools/make_pcb.sh --check` (in `check_all.sh`)
@@ -475,9 +475,10 @@ the board. `build_pcb` writes the design rules into `kicad/tube_preamp.kicad_pro
 Scripts taken from the power amp pilot (read only): `make_pcb.sh` (+ the hole rename step) and
 `tools/measure_gaps.py` (unchanged copy).
 
-**Stopped at step 4 (DRC)**: the DRC has 2 clearance errors caused by a KiCad footprint pad shape
-(below). Per the rules that is a user decision; the DRC step and the remaining negative tests are
-not in `check_all.sh` yet.
+The first session stopped at the DRC: 2 clearance errors caused by the KiCad TO-92 square pad 1
+(below). **User decision 2026-11-20: option (a), a round pad 1 at the KiCad size 1.5 mm on Q1-Q9.**
+Applied board-locally in `tools/gen_footprints.py` (spec key `pad_shapes`, below); since then the DRC
+has no unaccepted errors and is a step of `check_all.sh` ("DRC with schematic parity", `p2k drc`).
 
 ### Steps (tools/make_pcb.sh)
 
@@ -490,7 +491,7 @@ not in `check_all.sh` yet.
 | 3e | `p2k.place_refdes` | 119 references kept, 57 moved (sizes 1.0, 0.8 mm) – as the pilot. |
 | check | `p2k.check_board` | 339 pads within 0.001 mm and on the IPC nets (98 IPC nets 1:1), 13 mounting holes (size, plating, no net), 747 tracks, 14 vias, 0 zones: **OK**. |
 | check | `p2k.assign_nets --check` | KiCad geometry: 114 groups, 0 shorts, 0 orphans, 0 opens, 0 items with a foreign net: **OK**. |
-| check | `p2k drc` | **0 shorts, 0 unconnected, 0 parity**; 2 clearance errors (not accepted, below); accepted types below. |
+| check | `p2k drc` | **0 shorts, 0 unconnected, 0 parity, 0 unaccepted errors** (176 items: 54 + 16 accepted errors, 106 warnings, below). In `check_all.sh`. |
 
 Hole refdes vs README's mechanical table (positions relative to the lower-left outline corner):
 H101 = README H7 (5.492, 66.05), H102 = H12, H103 = H13, H104 = H2, H105 = H8, H106 = H1, H107 = H3,
@@ -512,7 +513,7 @@ Thickness **1.6 mm**: the 2010 fab READ-ME has no stack-up; the 2026 export's RE
 8's default 2-layer stack (2 × 0.036 Cu + 1.483 FR4 = 1.555 mm + resist), written when the design was
 re-saved – not the 2010 order (as the pilot; change `PCB_THICKNESS` if the board measures otherwise).
 
-### KiCad pads: the larger pads are fine, the TO-92 square pad 1 is not (USER DECISION)
+### KiCad pads: the larger pads are fine; TO-92 pad 1 made round (user decision (a))
 
 The KiCad pads larger than Proteus (2 W resistors R6, R7, R22, R23, R33, R62-R67: 2.4 vs 2.286; CAP20
 discs C18, C22, C26: 2.0 vs 1.778) give **no** DRC error at 0.38 mm. The drills are decided
@@ -535,32 +536,68 @@ practically round (corner radius ≥ 0.62 mm). **Options for the user**: (a) rou
 Proteus pads (round 1.524 / 0.762, `ipc_sizes`) on Q1-Q9 (gap 0.421, as built); (c) keep the square
 pad and accept the two errors (0.122 mm copper gap; not recommended, and `DRC_ACCEPTED` works per
 error type, so it would also hide every other clearance error). (a) or (b) only on Q4 / Q6 would need
-a second footprint. Recommended: (a) or (b); the agent did not change it.
+a second footprint.
+
+**Applied: (a)** (user, 2026-11-20). `TO-92_Inline_P2.03mm` keeps KiCad's 1.5 mm pads / 0.8 mm drills
+and the derived positions; only pad 1's shape changes from `rect` to `circle`. The shared
+`footprints.derive()` has no pad-shape override, so `tools/gen_footprints.py` wraps it
+(`derive_with_pad_shapes`, reads the board-local spec key `pad_shapes={"1": "circle"}`; fails if a
+named pad is not exactly one `rect` pad in the base, or a circle would get a non-square size; p2k
+candidate 22). The footprint name is unchanged (the sheets were not re-run); the library file and
+the 9 Q footprints in the board differ only in the pad-1 shape, the pin-1 dot (below) and the descr
+("…, round pad 1, pin-1 dot"). Re-checked: `check_footprints`
+163/163, worst residual 0.001 mm (position-only check, unchanged); `check_pin_order` OK unchanged
+(it fits the unmoved KiCad base; TO-92 has no `POLARITY` entry: the body marker decides, as
+recorded in "Pin order"); measured on the rebuilt board (pcbnew, pad circle vs track centre line):
+**Q4 0.433 mm, Q6 0.433 mm** (= the "round 1.5 pad" column above).
+
+**Pin 1 marking without the square pad**: KiCad's TO-92 silk (F.SilkS) and fab (F.Fab) outline is
+the body with the flat side as a straight line on the +y side and the round back as arcs, but it is
+**left-right symmetric** about the middle pad: it shows which way the flat side faces, not which end
+is pin 1 (only the JEDEC convention "flat side towards you, leads 1-2-3 left to right" does). KiCad's
+square pad was the only explicit pin-1 mark. So, as on the PI / FX loop board (coordinating session,
+for consistency between the 2010 boards; `~/dev/tube_pi_fxloop_kicad` `PIN1_DOT`, read only),
+`gen_footprints.py` adds a **filled dot, radius 0.2 mm, on F.SilkS (stroke 0.12) and F.Fab (0.1) at
+(-0.45, 1.35)** in the footprint frame (spec key `pin1_dot`, value `PIN1_DOT`): left of pad 1 on the
+flat side, about 0.6 mm from the pad-1 copper (centre 1.655 mm from the pad centre), inside the
+courtyard (x ≥ -1.01). The generated dot is byte-identical to the PI / FX one (same derived
+footprint, pad 1 at (0.508, 0)). Nothing on this board argues against it: the DRC counts are
+unchanged (silk_over_copper 74, silk_overlap 31; no DRC item names a Q dot), and Phase 2 checked
+that the KiCad flat side lies on the Proteus flat side on all nine J112s, so the dot sits at the
+drain (pad 1) on every part. Proteus' TO92 had round pads for all three pins.
 
 ### Remaining DRC items (`DRC_ACCEPTED`)
 
 | Type | Count | Why it stays |
 |---|---|---|
 | shorting_items / unconnected / schematic parity | 0 / 0 / 0 | – |
-| clearance (error) | 2 | **not accepted**: Q4 / Q6 TO-92 square pad 1 (user decision, above) |
+| clearance (error) | 0 | (was 2 at the square TO-92 pad 1 of Q4 / Q6; pad 1 round since the user decision) |
 | courtyards_overlap (error) | 54 | KiCad courtyards vs the Proteus placement (parts exactly at the Proteus positions): U1-U3 (courtyard = the Proteus Top Assembly rectangle 26.4 × 25.4) with their three mounting holes each (H103/H106/H109, H104/H107/H110, H105/H108/H111) and C4, R1, R5, C9, Q5, R18, R30, R33, H5; film caps / resistors closer than KiCad's courtyards (C1/R6, C8/R22, C16/C17, C20/C21, C20/R40/R42, C24/C25, R24/R25, R25/C13, R44/C15, R62/C28, C37/R67, C30/R48, R7/R15, R3/R11, R4/R5, R4/C4, R9/R10, R12/R5, R23/R49/R50, R29/R31, R36/C25, R43/C24/C25, R36/C16), Q7/Q8, Q8/Q9, terminals at film caps (HI1X/C19, HI2X/C23, HI3X/C27, LO1W/C16/C17, LO2W/C17, LO3O/C16, EQOUT/C29). Accepted. |
 | pth_inside_courtyard (error) | 16 | same placement: H103-H105 inside the U1-U3 body rectangle; R1, C4 (U1), R18, C9, R30 (U2); R50 ×2 (R23), R67 (C37), R36 (C16), R40 (C20), R43 (C24), R4 (C4), R44 (C15). Accepted. |
 | silk_over_copper / silk_overlap (warning) | 74 / 31 | KiCad footprint silk and reference positions on the Proteus placement (Phase 5). |
 | track_dangling (warning) | 1 | a 0.0635 mm Proteus track stub on B.Cu at (88.9, 0.762) → (88.9, 0.6985), Net-(RLY4B-COM1), inside the 0.508 mm track bend (finding 16). Harmless; reproduces the Proteus copper. |
 
-### Negative tests (so far; restored, board byte-identical afterwards)
+### Negative tests (restored; the board is byte-identical afterwards, sha1 3e0c122c…)
 
-| Change | make_pcb --check | check_board | assign_nets --check |
-|---|---|---|---|
-| a via (H4, (-91.821, 9.271) IPC) deleted from the board file | not up to date (exit 1) | **IPC via … H4: no board via** | **open H4: 2 groups** |
+Each change made in the board file (scratch script `build/tmp/negtest.sh`, not committed), then
+`make_pcb.sh --check`, `check_board`, `assign_nets --check`, `p2k drc`:
 
-Still to do after the decision: the DRC step in `check_all.sh` and the negative tests "move a track"
-and "change a net" (the pilot's pitfall: a segment's net edited in the file is re-derived from the pads
-on load, so only the byte compare catches it).
+| Change | make_pcb --check | check_board | assign_nets --check | p2k drc |
+|---|---|---|---|---|
+| a via (H4, (-91.821, 9.271) IPC) deleted (first session) | not up to date (exit 1) | **IPC via … H4: no board via** | **open H4: 2 groups** | – |
+| track moved 1 mm (F.Cu (83.185, 3.175) → (73.66, 3.175), Net-(U3B-A2), y + 1) | **not up to date** | OK (no track geometry check) | **open Net-(U3B-A2): [R51-1] [U3-6]** | **1 unconnected** (FAILED) |
+| a segment's net changed in the file (F.Cu (71.12, 0.635) → (71.12, -8.18): Net-(U3B-A2) → PRE-GND) | **not up to date** | OK | OK | OK |
+| a pad net changed (R51 pad 1: Net-(U3B-A2) → PRE-GND) | **not up to date** | **IPC net #00068 spans KiCad nets …, R51-1 / U3-6 wrong** | **IPC net #00068 spans KiCad nets** (exit 1) | **1 short, 1 unconnected, 1 parity, 1 solder_mask_bridge** |
+| footprint moved 0.5 mm (Q4 x + 0.5) | **not up to date** | **Q4-1/2/3: 0.500 mm from the IPC pad** | OK (pads still touch their tracks) | **2 clearance** (0.079 mm) |
+
+As on the pilot: **a segment's net edited in the file is caught only by the byte compare** of
+`make_pcb.sh --check` (pcbnew re-derives the track nets from the connected pads on load, so
+check_board, assign_nets and DRC all pass). Every change fails at least one `check_all.sh` step. (Run on the board before and after the pin-1
+dot: same results.)
 
 ## Last check output
 
-`tools/check_all.sh` (2026-11-20, Phase 3 stopped at the DRC; the DRC step is not in it yet):
+`tools/check_all.sh` (2026-11-20, end of Phase 3, with the DRC step):
 
 ```
 == KiCad environment
@@ -645,6 +682,14 @@ check_board: OK
 == Board copper connectivity (KiCad geometry)
 assign_nets: after zone fill: 114 groups, 0 shorts, 0 orphans, 0 opens, 0 items with a foreign net
 assign_nets: OK (report reports/assign_nets.txt)
+== DRC with schematic parity
+drc: 176 violations, 0 shorts, 0 unconnected, 0 parity issues (reports/drc.json)
+drc:     54 error    courtyards_overlap  accepted: KiCad courtyards vs the Proteus placement (54 pairs, parts exactly at the Proteus positions): the noval socket bodies U1-U3 (Proteus Top Assembly rectangle) with their three mounting holes and nearby R / C / Q, film caps and resistors packed closer than the KiCad courtyards, Q7-Q9, terminals
+drc:     16 error    pth_inside_courtyard  accepted: the same Proteus placement: 16 pads (mounting holes H103-H105 in the noval socket bodies, R / C pads in neighbouring film-cap / resistor / socket courtyards)
+drc:     74 warning  silk_over_copper
+drc:     31 warning  silk_overlap
+drc:      1 warning  track_dangling
+drc: OK
 
 ALL CHECKS PASSED
 ```
@@ -830,6 +875,15 @@ ALL CHECKS PASSED
     `check_footprints` note per part where the KiCad pad extends beyond the Proteus pad (polygon, not
     size) would flag such Phase 3 DRC conflicts in Phase 2.
 
+22. **`footprints.derive()` has no pad-shape override**: KiCad's square pin-1 pad cannot be made round
+    from the spec (here the TO-92 pad 1, user decision (a); `ipc_sizes` would also change size and
+    drill). Board-local answer: `tools/gen_footprints.py` wraps `footprints.derive` with
+    `derive_with_pad_shapes` (spec keys `pad_shapes={pad: shape}` and `pin1_dot=(x, y, r)`, the
+    same pin-1 dot as tube_pi_fxloop_kicad) and assigns it to the module
+    attribute, which `build_library()` calls. The shared tool would need: a spec key `pad_shapes` (or
+    `pad_overrides` with shape / size / drill per pad) in `derive()`, plus a pin-1 marker option
+    for footprints whose only pin-1 mark was the square pad (two boards now).
+
 ## Decisions
 
 - Sheet names (no title blocks in the PDF): Input stage / Second stage / EQ stage / Tone stacks /
@@ -877,9 +931,13 @@ ALL CHECKS PASSED
   the pilot); mounting holes renamed H101-H113 (`tools/rename_holes.py`, p2k candidate 18);
   `place_refdes` in `make_pcb.sh` as the pilot; `DRC_ACCEPTED` = courtyards_overlap and
   pth_inside_courtyard (Proteus placement).
-- **Open for the user** (Phase 3, blocks the DRC step): **the TO-92 pad 1 of Q1-Q9** ("Phase 3":
-  KiCad's square 1.5 mm pad 1 is 0.122 mm from a track on Q4 and Q6; Proteus' round pad 0.421):
-  (a) round KiCad-size pad 1 (1.5 mm) on the TO-92 footprint, (b) the Proteus pads (round 1.524 /
-  0.762) on Q1-Q9, or (c) keep the square pad and accept the 2 clearance errors (not recommended).
+- **User decision 2026-11-20** (through the coordinating session, Phase 3): **TO-92 pad 1 = option
+  (a), a ROUND pad at the KiCad size 1.5 mm on Q1-Q9** (instead of KiCad's square pin-1 pad, which
+  was 0.122 mm from a track on Q4 and Q6; round: 0.433). Applied in `tools/gen_footprints.py`
+  (`pad_shapes`, p2k candidate 22); drills stay KiCad's 0.8 mm. Pin 1 (the outline is symmetric) is
+  marked by a filled 0.2 mm dot added on silk and fab, same position as the PI / FX loop board (coordinating session, for
+  consistency; "Phase 3").
+- Phase 3 finish (agent's choices): the DRC step in `check_all.sh` with the existing `DRC_ACCEPTED`
+  (courtyards_overlap, pth_inside_courtyard).
 - **Still open for the user**: the values of R13, R22, R27, R30, R34, R51 and Q4 (findings 1, 7, 11;
   the schematic values are used).

@@ -29,9 +29,10 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools", "p2k"))  # proteus2kicad
-from p2k import footprints, gerber  # noqa: E402
+from p2k import footprints, gerber, sexpr  # noqa: E402
 
 P = "tube_preamp:"
+PIN1_DOT = (-0.45, 1.35, 0.2)   # TO-92 pin-1 dot: x, y (KiCad footprint frame, Y down), radius mm
 
 # (symbol, conditions, footprint, note). Conditions: n = pad count, tht, span (mm, +-0.02),
 # pad = (w, h) of the IPC pads, drill, package / device (lib/part_map.csv columns), refdes.
@@ -140,9 +141,16 @@ PROJECT = {
         descr="DO-41 diode P10.16, pads K (KiCad pad 1, band) / A"),
     # TO-92 at the Proteus 2.032 mm (80 mil) pitch: KiCad has 1.27 (Inline) and 2.54 (Inline_Wide).
     # J112 (TO-92): 1 = D, 2 = S, 3 = G = the KiCad pad numbers, no renumbering.
+    # pad_shapes (board-local key, see derive_with_pad_shapes): pad 1 ROUND at the KiCad size 1.5 mm
+    # instead of KiCad's square pin-1 pad (user decision 2026-11-20, option (a): the square corner
+    # was 0.122 mm from the source track of Q4 / Q6; round 0.433). Pin 1 is then marked by the
+    # pin1_dot (board-local key): KiCad's TO-92 outline is left-right symmetric, so the square pad
+    # was the only pin-1 mark; a filled dot on F.SilkS / F.Fab left of pad 1 on the flat side
+    # replaces it (same key value and position as tube_pi_fxloop_kicad, STATUS.md "Phase 3").
     "TO-92_Inline_P2.03mm": dict(
-        base="Package_TO_SOT_THT:TO-92_Inline_Wide", ipc="Q1",
-        descr="TO-92 inline, pads 1-3 2.032 mm apart (Proteus TO92)"),
+        base="Package_TO_SOT_THT:TO-92_Inline_Wide", ipc="Q1", pad_shapes={"1": "circle"},
+        pin1_dot=PIN1_DOT,
+        descr="TO-92 inline, pads 1-3 2.032 mm apart (Proteus TO92), round pad 1, pin-1 dot"),
     # Omron G5V-2: Proteus G5V-2(HI) pin ids on the Omron pads. The Proteus coil pin 4 / pole-1
     # column (4, 2, 3, 1) sits on the Omron 16 / 13 / 11 / 9 column (STATUS.md "Phase 2": the pattern
     # and the relay are mirror-symmetric, so this is the renumbering that fits without a mirror).
@@ -172,6 +180,44 @@ FP_LIB_TABLE = """(fp_lib_table
 \t(lib (name "tube_preamp")(type "KiCad")(uri "${KIPRJMOD}/../lib/tube_preamp.pretty")(options "")(descr "Project footprints, pad numbers = IPC pin ids (tools/gen_footprints.py)"))
 )
 """
+
+
+_derive = footprints.derive
+
+
+def derive_with_pad_shapes(name, spec, ipc):
+    """p2k.footprints.derive plus two board-local spec keys (STATUS.md "p2k candidates" 22):
+    `pad_shapes` ({pad number: shape}; the shared derive() has no pad-shape override; only the shape
+    changes, size / drill / position stay as derive() made them) and `pin1_dot` ((x, y, r): a filled
+    dot on F.SilkS and F.Fab, placed before pad 1). Guard: a pad made round must be exactly one
+    `rect` pad in the base (the KiCad square pin-1 pad), so a library change is noticed."""
+    node = _derive(name, spec, ipc)
+    shapes = dict(spec.get("pad_shapes", {}))
+    for num, shape in shapes.items():
+        pads = [p for p in sexpr.find_all(node, "pad") if str(p[1]) == num]
+        if len(pads) != 1 or str(pads[0][3]) != "rect":
+            raise SystemExit(f"gen_footprints: {name}: expected one rect pad {num} in the base, got "
+                             f"{[str(p[3]) for p in pads]}")
+        size = sexpr.find(pads[0], "size")
+        if shape == "circle" and float(size[1]) != float(size[2]):
+            raise SystemExit(f"gen_footprints: {name} pad {num}: circle needs a square size, not {size[1:]}")
+        pads[0][3] = sexpr.Sym(shape)
+    if spec.get("pin1_dot"):
+        x, y, r = spec["pin1_dot"]
+        pad1 = [p for p in sexpr.find_all(node, "pad") if str(p[1]) == "1"][0]
+        i = node.index(pad1)
+        node[i:i] = [_dot(x, y, r, "F.SilkS", 0.12), _dot(x, y, r, "F.Fab", 0.1)]
+    return node
+
+
+def _dot(x, y, r, layer, width):
+    Sym = sexpr.Sym
+    return [Sym("fp_circle"), [Sym("center"), x, y], [Sym("end"), round(x + r, 4), y],
+            [Sym("stroke"), [Sym("width"), width], [Sym("type"), Sym("solid")]], [Sym("fill"), Sym("yes")],
+            [Sym("layer"), layer]]
+
+
+footprints.derive = derive_with_pad_shapes   # build_library() calls the module-level derive
 
 
 def fp_lib_table(check):

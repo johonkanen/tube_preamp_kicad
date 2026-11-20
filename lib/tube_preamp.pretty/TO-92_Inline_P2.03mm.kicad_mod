@@ -3,7 +3,7 @@
 	(generator "tube_preamp_gen_footprints")
 	(generator_version "10.0")
 	(layer "F.Cu")
-	(descr "TO-92 inline, pads 1-3 2.032 mm apart (Proteus TO92) (tube_preamp, derived from Package_TO_SOT_THT:TO-92_Inline_Wide)")
+	(descr "TO-92 inline, pads 1-3 2.032 mm apart (Proteus TO92), round pad 1, pin-1 dot (tube_preamp, derived from Package_TO_SOT_THT:TO-92_Inline_Wide)")
 	(tags "to-92 sc-43 sc-43a sot54 PA33 transistor")
 	(property "Reference" "REF**"
 		(at 2.54 -3.56 0)
@@ -192,7 +192,27 @@
 			)
 		)
 	)
-	(pad "1" thru_hole rect
+	(fp_circle
+		(center -0.45 1.35)
+		(end -0.25 1.35)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+	)
+	(fp_circle
+		(center -0.45 1.35)
+		(end -0.25 1.35)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Fab")
+	)
+	(pad "1" thru_hole circle
 		(at 0.508 0)
 		(size 1.5 1.5)
 		(drill 0.8)
