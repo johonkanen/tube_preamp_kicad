@@ -147,15 +147,15 @@ PCB_RULES = dict(
     via_drill=0.508,
 )
 # DRC error types that remain by design (p2k drc; STATUS.md "Phase 3", remaining DRC items).
-# NOT accepted: the 2 clearance errors at the KiCad TO-92 square pad 1 of Q4 / Q6 (user decision).
+# NOT accepted: clearance (the TO-92 pad 1 is round on Q1-Q9, user decision; 0 clearance errors).
 DRC_ACCEPTED = {
-    "courtyards_overlap": "KiCad courtyards vs the Proteus placement (54 pairs, parts exactly at the "
-                          "Proteus positions): the noval socket bodies U1-U3 (Proteus Top Assembly "
-                          "rectangle) with their three mounting holes and nearby R / C / Q, film caps "
-                          "and resistors packed closer than the KiCad courtyards, Q7-Q9, terminals",
-    "pth_inside_courtyard": "the same Proteus placement: 16 pads (mounting holes H103-H105 in the noval "
-                            "socket bodies, R / C pads in neighbouring film-cap / resistor / socket "
-                            "courtyards)",
+    "courtyards_overlap": "KiCad courtyards vs the Proteus placement (36 pairs, parts exactly at the "
+                          "Proteus positions): film caps and resistors packed closer than the KiCad "
+                          "courtyards, Q7-Q9, terminals at film caps (the noval sockets U1-U3 are on "
+                          "the bottom side since Phase 5)",
+    "pth_inside_courtyard": "the same Proteus placement: 16 pads (R / C pads in neighbouring film-cap / "
+                            "resistor courtyards; mounting holes H103-H105 and R1, C4, R18, C9, R30 in "
+                            "the B-side noval socket courtyards: a THT pad is on both sides)",
 }
 
 # --- Phase 4 checks (p2k.ipc356_diff, p2k.gerber_roundtrip) ---------------------------

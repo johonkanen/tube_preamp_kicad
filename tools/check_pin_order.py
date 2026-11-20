@@ -19,12 +19,20 @@ pads describe the same relay: the one used by tools/gen_footprints.py (Proteus 4
 16/13/11/9 column, fits unmirrored) and the column-for-column reading of the Phase 1 symbol mapping
 (Proteus 4/2/3/1 on Omron 1/4/6/8, fits only mirrored). Both are checked.
 
+Phase 5 (user decision 2026-11-20: the sockets are on the BOTTOM side): the project footprint
+tube_preamp:Valve_Noval_Belton_PCD21.00mm has the standard noval numbering in its own view (fits
+the ideal standard noval unmirrored, not mirrored), fits the IPC pads only mirrored (so
+check_footprints places it on the bottom), reports/footprint_fit.csv has U1-U3 on the bottom and
+every other part on top, and the board has U1-U3 on B.Cu and every other footprint on F.Cu
+(bottom_side_noval(), as the pilot's bottom_side_octal()).
+
 Adapted from the power amp pilot (~/dev/tube_power_amp_kicad/tools/check_pin_order.py, octal).
 
 Usage: tools/p2k/bin/kipy tools/check_pin_order.py [--render]   (python3 works without --render;
        --render needs matplotlib, e.g. the system python3)
 Exit 1 when a result differs from EXPECT (so a changed footprint or renumbering is noticed).
 """
+import csv
 import glob
 import math
 import os
@@ -33,7 +41,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools", "p2k"))
 os.chdir(ROOT)
-from p2k import fpgeom, sexpr  # noqa: E402
+from p2k import fpgeom, pcb, sexpr  # noqa: E402
 from p2k.footprints import footprint_path  # noqa: E402
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 sys.dont_write_bytecode = True   # no stale tools/__pycache__/gen_footprints.pyc (same-second edits)
@@ -41,6 +49,7 @@ from gen_footprints import PROJECT  # noqa: E402  (the renumberings checked here
 
 # refdes group -> (KiCad base footprint, Proteus renumbering of the base pads)
 NOVALS = "U1 U2 U3"
+NOVAL = "tube_preamp:Valve_Noval_Belton_PCD21.00mm"
 RELAY_FP = PROJECT["Relay_DPDT_Omron_G5V-2_ProteusPins"]["renumber"]
 RELAY_SYM = {"1": "4", "4": "2", "6": "3", "8": "1", "16": "5", "13": "6", "11": "7", "9": "8"}
 CHECKS = [
@@ -217,6 +226,41 @@ def render(ref, fpid, fr, ipc_pads, out):
     plt.close(fig)
 
 
+def bottom_side_noval(ipc):
+    """Phase 5: the noval footprint is the standard noval and U1-U3 are on the bottom side."""
+    bad = []
+    refs = NOVALS.split()
+    fp = fpgeom.load_footprint(footprint_path(NOVAL))
+    target = [dict(p, pin=p["num"], x_mm=p["x"], y_mm=p["y"], pad_w=p["w"]) for p in ideal_noval()]   # as IPC pads
+    ideal = {m: fpgeom.fit(fp, target, m)["max_res"] for m in (False, True)}
+    on_ipc = {m: max(fpgeom.fit(fp, ipc[r], m)["max_res"] for r in refs) for m in (False, True)}
+    name = NOVAL.split(":")[1]
+    print(f"{'(footprint)':38s} {name + ' vs ideal noval':44s} {ideal[False]:7.3f}{'':11s} "
+          f"{ideal[True]:7.3f}{'':11s}  {'unmirrored' if ideal[False] < ideal[True] else 'mirrored'}")
+    print(f"{NOVALS:38s} {name + ' (project)':44s} {on_ipc[False]:7.3f}{'':11s} "
+          f"{on_ipc[True]:7.3f}{'':11s}  {'mirrored = bottom side' if on_ipc[True] < on_ipc[False] else 'unmirrored'}")
+    if not (ideal[False] < 0.02 < ideal[True]):
+        bad.append(f"{name}: expected the standard noval numbering in the footprint's own view")
+    if not (on_ipc[True] < 0.02 < on_ipc[False]):
+        bad.append(f"{name}: expected to fit the IPC pads only mirrored (bottom side)")
+    with open("reports/footprint_fit.csv") as f:
+        rows = list(csv.DictReader(l for l in f if not l.startswith("# ")))
+    wrong = [r["refdes"] for r in rows if (r["side"] == "bottom") != (r["refdes"] in refs)]
+    if wrong:
+        bad.append(f"reports/footprint_fit.csv: wrong side for {wrong} (bottom = exactly {refs})")
+    layers = {}
+    board = os.path.relpath(pcb.board_file())   # kicad/tube_preamp.kicad_pcb (P2K_PCB overrides)
+    for node in sexpr.find_all(sexpr.load(board), "footprint"):
+        ref = next((p[2] for p in sexpr.find_all(node, "property") if p[1] == "Reference"), "")
+        layers[ref] = sexpr.find(node, "layer")[1]
+    wrong = sorted(r for r, l in layers.items() if l != ("B.Cu" if r in refs else "F.Cu"))
+    if wrong or not set(refs) <= set(layers):
+        bad.append(f"{board}: wrong layer for {wrong or refs} (B.Cu = exactly {refs})")
+    else:
+        print(f"{'':38s} footprint_fit.csv and board: U1-U3 bottom (B.Cu), the other {len(layers) - 3} footprints top")
+    return bad
+
+
 def main():
     do_render = "--render" in sys.argv[1:]
     ipc = fpgeom.ipc_pads_by_refdes()
@@ -275,6 +319,7 @@ def main():
           f"{nov[True]:7.3f}{'':11s}  {'mirrored' if nov[True] < nov[False] else 'unmirrored'}")
     if not (nov[True] < 0.02 < nov[False]):
         bad.append("ideal noval: expected only the mirrored standard noval to fit")
+    bad += bottom_side_noval(ipc)
     for b in bad:
         print("check_pin_order: ERROR " + b)
     print("check_pin_order: " + ("FAILED" if bad else "OK (results as recorded in STATUS.md)"))

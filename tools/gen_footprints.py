@@ -22,6 +22,7 @@ footprints built from the IPC pads - noval socket, fly-lead terminal - have the 
 tools/p2k check_footprints verifies every footprint against the IPC pads (residual < 0.05 mm per
 pad) and reports the pad size / drill differences.
 """
+import copy
 import glob
 import math
 import os
@@ -29,7 +30,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools", "p2k"))  # proteus2kicad
-from p2k import footprints, gerber, sexpr  # noqa: E402
+from p2k import footprints, fpgeom, gerber, sexpr  # noqa: E402
 
 P = "tube_preamp:"
 PIN1_DOT = (-0.45, 1.35, 0.2)   # TO-92 pin-1 dot: x, y (KiCad footprint frame, Y down), radius mm
@@ -79,7 +80,8 @@ RULES = [
      P + "Relay_DPDT_Omron_G5V-2_ProteusPins", "G5V-2(HI): Omron G5V-2, pads = Proteus pin ids"),
     # --- tubes
     ("12AX7", dict(package="9-PIN BELTON NOVAL", n=9, pad=(4.318, 4.318), drill=1.727),
-     P + "Valve_Noval_Belton_PCD21.00mm", "9-PIN BELTON NOVAL: noval socket, Proteus pads and pin ids"),
+     P + "Valve_Noval_Belton_PCD21.00mm",
+     "9-PIN BELTON NOVAL: noval socket, Proteus pads and pin ids, standard noval numbering, bottom side"),
     # --- terminals (fly leads)
     ("PIN", dict(package="PIN", n=1, pad=(3.048, 3.048), drill=1.524),
      P + "FlyLead_Pad_D3.048mm_Drill1.524mm", "PIN: fly-lead terminal pad"),
@@ -103,7 +105,8 @@ def noval_body():
 
 
 # Project footprints (spec keys: see p2k.footprints). `ipc` = refdes whose IPC pads give the
-# pad centres. All parts are THT and on the top side (Proteus Top Assembly).
+# pad centres. All parts are THT and on the top side (Proteus Top Assembly), except the noval
+# sockets U1-U3 (bottom side, user decision 2026-11-20).
 PROJECT = {
     "R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal": dict(
         base="Resistor_THT:R_Axial_DIN0414_L11.9mm_D4.5mm_P20.32mm_Horizontal", ipc="R6",
@@ -161,12 +164,18 @@ PROJECT = {
         descr="Omron G5V-2 DPDT relay, pads = Proteus G5V-2(HI) ids: 4/5 coil, 2/3/1 COM/NC/NO pole 1, "
               "6/7/8 COM/NC/NO pole 2"),
     # Noval socket built from the IPC pads: KiCad's Valve_Noval_P is on a 2.54 mm grid, Proteus has
-    # a 21.00 mm pitch circle (10 positions at 36 deg, 1-9 with the gap between 9 and 1). Pad ids as
-    # Proteus (see STATUS.md "Phase 2": numbering vs the noval standard).
+    # a 21.00 mm pitch circle (10 positions at 36 deg, 1-9 with the gap between 9 and 1). Pad ids =
+    # the IPC pin ids. The sockets are mounted on the BOTTOM (solder) side (user decision 2026-11-20,
+    # STATUS.md finding 13): the footprint is built mirrored (`bottom`, board-local key, see
+    # build_library below), so in the footprint's own view the pads run in the standard noval
+    # direction (as KiCad's Valve_Noval_P) and check_footprints places U1-U3 on B (graphics,
+    # courtyard on the B layers; pad positions and nets unchanged), as the power amp's octal sockets.
+    # A plain pcbnew Flip of the old top footprint would mirror the pad ids too (wrong numbering).
     "Valve_Noval_Belton_PCD21.00mm": dict(
-        ipc="U1", body_poly=noval_body(),
-        descr="Noval tube socket (Proteus 9-PIN BELTON NOVAL): 9 pads 4.318 mm / drill 1.727 on a "
-              "21.00 mm pitch circle, pad 9 without a net, body = the Proteus assembly outline"),
+        ipc="U1", body_poly=noval_body(), bottom=True,
+        descr="Noval tube socket (Proteus 9-PIN BELTON NOVAL), standard noval numbering, mounted on the "
+              "solder side: 9 pads 4.318 mm / drill 1.727 on a 21.00 mm pitch circle, pad 9 without a "
+              "net, body = the Proteus assembly outline"),
     "FlyLead_Pad_D3.048mm_Drill1.524mm": dict(
         ipc="GTR_IN", descr="Fly-lead terminal (Proteus PIN): one 3.048 mm pad, drill 1.524"),
     # Board-only (no symbol; placed by p2k.build_pcb at the 13 IPC 'hole' records)
@@ -218,6 +227,24 @@ def _dot(x, y, r, layer, width):
 
 
 footprints.derive = derive_with_pad_shapes   # build_library() calls the module-level derive
+
+_build_library = footprints.build_library
+
+
+def build_library(project_fps, ipc=None):
+    """footprints.build_library with the board-local spec key `bottom` (as the power amp pilot): the
+    IPC pads of the spec's `ipc` refdes are marked bottom side, so from_ipc builds the footprint
+    mirrored (the shared tool mirrors only bottom SMD parts; THT pads are 'both' in the IPC file).
+    STATUS.md "p2k candidates"."""
+    ipc = copy.deepcopy(ipc or fpgeom.ipc_pads_by_refdes())
+    for spec in project_fps.values():
+        if spec.get("bottom"):
+            for p in ipc[spec["ipc"]]:
+                p["side"] = "bottom"
+    return _build_library(project_fps, ipc)
+
+
+footprints.build_library = build_library   # footprints.run calls it through the module
 
 
 def fp_lib_table(check):

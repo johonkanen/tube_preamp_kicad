@@ -160,6 +160,6 @@ RLY5,tube_preamp:G5V-2,tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins,"G5V-2(HI)
 SW1,tube_preamp:PIN,tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm,PIN: fly-lead terminal pad
 SW2,tube_preamp:PIN,tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm,PIN: fly-lead terminal pad
 SW3,tube_preamp:PIN,tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm,PIN: fly-lead terminal pad
-U1,tube_preamp:12AX7,tube_preamp:Valve_Noval_Belton_PCD21.00mm,"9-PIN BELTON NOVAL: noval socket, Proteus pads and pin ids"
-U2,tube_preamp:12AX7,tube_preamp:Valve_Noval_Belton_PCD21.00mm,"9-PIN BELTON NOVAL: noval socket, Proteus pads and pin ids"
-U3,tube_preamp:12AX7,tube_preamp:Valve_Noval_Belton_PCD21.00mm,"9-PIN BELTON NOVAL: noval socket, Proteus pads and pin ids"
+U1,tube_preamp:12AX7,tube_preamp:Valve_Noval_Belton_PCD21.00mm,"9-PIN BELTON NOVAL: noval socket, Proteus pads and pin ids, standard noval numbering, bottom side"
+U2,tube_preamp:12AX7,tube_preamp:Valve_Noval_Belton_PCD21.00mm,"9-PIN BELTON NOVAL: noval socket, Proteus pads and pin ids, standard noval numbering, bottom side"
+U3,tube_preamp:12AX7,tube_preamp:Valve_Noval_Belton_PCD21.00mm,"9-PIN BELTON NOVAL: noval socket, Proteus pads and pin ids, standard noval numbering, bottom side"

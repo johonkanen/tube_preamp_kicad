@@ -160,6 +160,6 @@ RLY5,tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins,top,180,117.3480,-13.9700,11
 SW1,tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm,top,0,-104.7750,-21.5900,-104.7750,21.5900,0,0.0000,0.000,0.000,0
 SW2,tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm,top,0,-88.9000,-26.6700,-88.9000,26.6700,0,0.0000,0.000,0.000,0
 SW3,tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm,top,0,118.7450,-26.0350,118.7450,26.0350,0,0.0000,0.000,0.000,0
-U1,tube_preamp:Valve_Noval_Belton_PCD21.00mm,top,0,-156.1000,6.1700,-156.1000,-6.1700,0,0.0000,0.000,0.000,0
-U2,tube_preamp:Valve_Noval_Belton_PCD21.00mm,top,0,-17.0350,6.1700,-17.0350,-6.1700,0,0.0000,0.000,0.000,0
-U3,tube_preamp:Valve_Noval_Belton_PCD21.00mm,top,0,66.7841,6.1700,66.7841,-6.1700,0,0.0009,0.000,0.000,0
+U1,tube_preamp:Valve_Noval_Belton_PCD21.00mm,bottom,0,-156.1000,6.1700,-156.1000,-6.1700,180,0.0000,0.000,0.000,0
+U2,tube_preamp:Valve_Noval_Belton_PCD21.00mm,bottom,0,-17.0350,6.1700,-17.0350,-6.1700,180,0.0000,0.000,0.000,0
+U3,tube_preamp:Valve_Noval_Belton_PCD21.00mm,bottom,0,66.7841,6.1700,66.7841,-6.1700,180,0.0009,0.000,0.000,0
