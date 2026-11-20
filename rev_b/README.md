@@ -55,8 +55,8 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
   MOSFET sources, their gate caps, the JFET-gate pull-downs R419-R425) are AGND. Sheet 04's logic,
   expander pull-downs, ULN2003, relay coils and DG412 GND / rail decoupling are a DGND (GNDD) island
   joined to AGND only by R426 10 Ω ∥ C407 100 nF next to J401. Chassis bond: the CHASSIS pad J102
-  next to J101 (bolted tag; the input jack type, insulated + tag or metal bushing, is still open,
-  never both). J507 pin 3 is the shield, soft-tied here (R517 10 Ω ∥ C509 100 nF), solid at the
+  next to J101: insulated input jack plus a bolted chassis tag wired to J102 (user, 2026-11-21;
+  interfaces.md IF-1). J507 pin 3 is the shield, soft-tied here (R517 10 Ω ∥ C509 100 nF), solid at the
   PI + FX end. Heater reference stays on J503.
 - Layout constraint (user decision 2026-11-20, after tube_amplifier_kicad mechanical/chassis_fit.md):
   one long front-panel board carries all 21 pots; its connectors sit more than about 25 mm below
