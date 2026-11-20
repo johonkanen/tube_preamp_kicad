@@ -7,7 +7,7 @@ board outline -195.357 .. 187.433 x -45.73 .. 26.175 mm
    raw XOR 260.90 mm^2; after 0.05 mm tolerance: only Proteus 188.53 mm^2, only KiCad 12.69 mm^2, 828 clusters (489 below 0.01 mm^2)
    pad shape   339 clusters, 200.52 mm^2
    coverage: Proteus 401 draws / 366 flashes, 0 not on KiCad copper (0 explained by clearance / pad shape); KiCad 397 draws / 366 flashes, 0 not on Proteus copper (0 explained by pad shape)
-   pad shape    43 clusters, only KiCad   0.00 mm^2, only Proteus 123.96 mm^2  tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins  (5 parts: RLY1 RLY2 RLY3 RLY4 RLY5)
+   pad shape    43 clusters, only KiCad   0.00 mm^2, only Proteus 123.96 mm^2  Relay_THT:Relay_DPDT_Omron_G5V-2  (5 parts: RLY1 RLY2 RLY3 RLY4 RLY5)
    pad shape    30 clusters, only KiCad   0.00 mm^2, only Proteus  25.56 mm^2  tube_preamp:C_Rect_L16.5mm_W7.0mm_P9.70mm  (14 parts: C11 C12 C13 C16 C17 C19 ...)
    pad shape   108 clusters, only KiCad   0.00 mm^2, only Proteus  19.84 mm^2  Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal  (46 parts: R1 R10 R11 R12 R13 R14 ...)
    pad shape     9 clusters, only KiCad   0.00 mm^2, only Proteus  12.11 mm^2  tube_preamp:C_Rect_L13.0mm_W6.0mm_P9.70mm  (4 parts: C1 C10 C5 C7)
@@ -20,44 +20,44 @@ board outline -195.357 .. 187.433 x -45.73 .. 26.175 mm
    pad shape     7 clusters, only KiCad   0.00 mm^2, only Proteus   1.28 mm^2  Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2  (3 parts: C3 C6 C9)
    pad shape     6 clusters, only KiCad   0.00 mm^2, only Proteus   1.10 mm^2  tube_preamp:CP_Radial_D6.3mm_P2.54mm_PM  (1 parts: C2)
    pad shape     3 clusters, only KiCad   0.00 mm^2, only Proteus   0.22 mm^2  tube_preamp:C_Rect_L24.0mm_W7.0mm_P20.00mm  (1 parts: C15)
-   pad shape  only Proteus  3.395 mm^2 at ( -97.919,   -1.913) 2.58x2.58 mm  near RLY2-3 (#00021) 0.01 mm, via (H4) 12.74 mm
-   pad shape  only Proteus  3.395 mm^2 at ( -53.469,   -1.913) 2.58x2.58 mm  near RLY3-7 (PRE2) 0.01 mm, via (J2) 27.12 mm
-   pad shape  only Proteus  3.395 mm^2 at (-110.619,   -6.988) 2.58x2.58 mm  near RLY1-6 (#00017) 0.00 mm, via (J2) 17.14 mm
-   pad shape  only Proteus  3.395 mm^2 at ( -61.094,   -6.988) 2.58x2.58 mm  near RLY3-2 (PRE1) 0.01 mm, via (J2) 21.75 mm
-   pad shape  only Proteus  3.395 mm^2 at ( -53.469,   -6.988) 2.58x2.58 mm  near RLY3-6 (EQ) 0.00 mm, via (J2) 22.15 mm
-   pad shape  only Proteus  3.395 mm^2 at ( -97.919,  -14.613) 2.58x2.58 mm  near RLY2-4 (H4) 0.01 mm, via (J2) 15.77 mm
-   pad shape  only Proteus  3.395 mm^2 at ( -61.094,  -14.613) 2.58x2.58 mm  near RLY3-4 (H4) 0.01 mm, via (J2) 14.22 mm
+   pad shape  only Proteus  3.395 mm^2 at ( -97.919,   -1.913) 2.58x2.58 mm  near RLY2-11 (#00021) 0.01 mm, via (H4) 12.74 mm
+   pad shape  only Proteus  3.395 mm^2 at ( -53.469,   -1.913) 2.58x2.58 mm  near RLY3-6 (PRE2) 0.01 mm, via (J2) 27.12 mm
+   pad shape  only Proteus  3.395 mm^2 at (-110.619,   -6.988) 2.58x2.58 mm  near RLY1-4 (#00017) 0.00 mm, via (J2) 17.14 mm
+   pad shape  only Proteus  3.395 mm^2 at ( -61.094,   -6.988) 2.58x2.58 mm  near RLY3-13 (PRE1) 0.01 mm, via (J2) 21.75 mm
+   pad shape  only Proteus  3.395 mm^2 at ( -53.469,   -6.988) 2.58x2.58 mm  near RLY3-4 (EQ) 0.00 mm, via (J2) 22.15 mm
+   pad shape  only Proteus  3.395 mm^2 at ( -97.919,  -14.613) 2.58x2.58 mm  near RLY2-16 (H4) 0.01 mm, via (J2) 15.77 mm
+   pad shape  only Proteus  3.395 mm^2 at ( -61.094,  -14.613) 2.58x2.58 mm  near RLY3-16 (H4) 0.01 mm, via (J2) 14.22 mm
    pad shape  only Proteus  3.348 mm^2 at ( 117.336,    3.812) 2.55x2.58 mm  near RLY5-8 (EQ3) 0.01 mm, via (H4) 20.96 mm
-   pad shape  only Proteus  3.348 mm^2 at ( 102.106,   -1.282) 2.58x2.55 mm  near RLY4-7 (EQ1) 0.01 mm, via (H4) 5.33 mm
-   pad shape  only Proteus  3.348 mm^2 at ( 109.731,   -1.282) 2.58x2.55 mm  near RLY5-3 (#00086) 0.01 mm, via (H4) 11.99 mm
-   pad shape  only Proteus  3.348 mm^2 at ( 102.106,   -6.357) 2.58x2.55 mm  near RLY4-6 (#00082) 0.01 mm, via (H4) 3.96 mm
-   pad shape  only Proteus  3.348 mm^2 at ( 109.731,  -13.982) 2.58x2.55 mm  near RLY5-4 (H4) 0.01 mm, via (H4) 14.44 mm
-   pad shape  only Proteus  3.348 mm^2 at (-118.225,  -14.613) 2.55x2.58 mm  near RLY1-4 (H4) 0.01 mm, via (J2) 12.26 mm
-   pad shape  only Proteus  3.287 mm^2 at (  94.500,   -1.282) 2.55x2.55 mm  near RLY4-3 (#00079) 0.02 mm, via (H4) 5.42 mm
-   pad shape  only Proteus  3.287 mm^2 at ( 117.336,   -1.282) 2.55x2.55 mm  near RLY5-7 (EQ2) 0.02 mm, via (H4) 19.35 mm
-   pad shape  only Proteus  3.287 mm^2 at (  94.500,   -6.357) 2.55x2.55 mm  near RLY4-2 (#00073) 0.01 mm, via (H4) 4.07 mm
+   pad shape  only Proteus  3.348 mm^2 at ( 102.106,   -1.282) 2.58x2.55 mm  near RLY4-6 (EQ1) 0.01 mm, via (H4) 5.33 mm
+   pad shape  only Proteus  3.348 mm^2 at ( 109.731,   -1.282) 2.58x2.55 mm  near RLY5-11 (#00086) 0.01 mm, via (H4) 11.99 mm
+   pad shape  only Proteus  3.348 mm^2 at ( 102.106,   -6.357) 2.58x2.55 mm  near RLY4-4 (#00082) 0.01 mm, via (H4) 3.96 mm
+   pad shape  only Proteus  3.348 mm^2 at ( 109.731,  -13.982) 2.58x2.55 mm  near RLY5-16 (H4) 0.01 mm, via (H4) 14.44 mm
+   pad shape  only Proteus  3.348 mm^2 at (-118.225,  -14.613) 2.55x2.58 mm  near RLY1-16 (H4) 0.01 mm, via (J2) 12.26 mm
+   pad shape  only Proteus  3.287 mm^2 at (  94.500,   -1.282) 2.55x2.55 mm  near RLY4-11 (#00079) 0.02 mm, via (H4) 5.42 mm
+   pad shape  only Proteus  3.287 mm^2 at ( 117.336,   -1.282) 2.55x2.55 mm  near RLY5-6 (EQ2) 0.02 mm, via (H4) 19.35 mm
+   pad shape  only Proteus  3.287 mm^2 at (  94.500,   -6.357) 2.55x2.55 mm  near RLY4-13 (#00073) 0.01 mm, via (H4) 4.07 mm
    pad shape  only Proteus  3.079 mm^2 at ( 102.033,    3.885) 2.58x2.58 mm  near RLY4-8 (#00084) 0.11 mm, via (H4) 9.69 mm
-   pad shape  only Proteus  3.079 mm^2 at (-110.692,   -1.840) 2.58x2.58 mm  near RLY1-7 (#00018) 0.10 mm, via (H4) 21.90 mm
-   pad shape  only Proteus  3.079 mm^2 at ( -90.367,   -1.985) 2.58x2.58 mm  near RLY2-7 (#00024) 0.11 mm, via (H4) 11.35 mm
-   pad shape  only Proteus  3.079 mm^2 at ( -97.847,   -7.060) 2.58x2.58 mm  near RLY2-2 (#00014) 0.10 mm, via (H4) 17.41 mm
-   pad shape  only Proteus  3.079 mm^2 at ( -90.222,   -7.060) 2.58x2.58 mm  near RLY2-6 (#00018) 0.11 mm, via (H4) 16.41 mm
-   pad shape  only Proteus  3.069 mm^2 at ( -61.177,   -1.845) 2.58x2.58 mm  near RLY3-3 (#00046) 0.11 mm, via (J2) 26.87 mm
-   pad shape  only Proteus  3.059 mm^2 at ( 109.731,    3.702) 2.58x2.53 mm  near RLY5-1 (#00090) 0.11 mm, via (H4) 14.37 mm
-   pad shape  only Proteus  3.033 mm^2 at ( 109.804,   -6.431) 2.58x2.55 mm  near RLY5-2 (#00085) 0.11 mm, via (H4) 11.52 mm
-   pad shape  only Proteus  3.031 mm^2 at (-118.297,   -1.838) 2.55x2.58 mm  near RLY1-3 (#00014) 0.09 mm, via (J2) 23.62 mm
-   pad shape  only Proteus  3.028 mm^2 at ( -97.825,    3.231) 2.58x2.55 mm  near RLY2-1 (#00026) 0.11 mm, via (H4) 8.52 mm
+   pad shape  only Proteus  3.079 mm^2 at (-110.692,   -1.840) 2.58x2.58 mm  near RLY1-6 (#00018) 0.10 mm, via (H4) 21.90 mm
+   pad shape  only Proteus  3.079 mm^2 at ( -90.367,   -1.985) 2.58x2.58 mm  near RLY2-6 (#00024) 0.11 mm, via (H4) 11.35 mm
+   pad shape  only Proteus  3.079 mm^2 at ( -97.847,   -7.060) 2.58x2.58 mm  near RLY2-13 (#00014) 0.10 mm, via (H4) 17.41 mm
+   pad shape  only Proteus  3.079 mm^2 at ( -90.222,   -7.060) 2.58x2.58 mm  near RLY2-4 (#00018) 0.11 mm, via (H4) 16.41 mm
+   pad shape  only Proteus  3.069 mm^2 at ( -61.177,   -1.845) 2.58x2.58 mm  near RLY3-11 (#00046) 0.11 mm, via (J2) 26.87 mm
+   pad shape  only Proteus  3.059 mm^2 at ( 109.731,    3.702) 2.58x2.53 mm  near RLY5-9 (#00090) 0.11 mm, via (H4) 14.37 mm
+   pad shape  only Proteus  3.033 mm^2 at ( 109.804,   -6.431) 2.58x2.55 mm  near RLY5-13 (#00085) 0.11 mm, via (H4) 11.52 mm
+   pad shape  only Proteus  3.031 mm^2 at (-118.297,   -1.838) 2.55x2.58 mm  near RLY1-11 (#00014) 0.09 mm, via (J2) 23.62 mm
+   pad shape  only Proteus  3.028 mm^2 at ( -97.825,    3.231) 2.58x2.55 mm  near RLY2-9 (#00026) 0.11 mm, via (H4) 8.52 mm
    pad shape  only Proteus  3.022 mm^2 at ( -90.219,    3.107) 2.58x2.55 mm  near RLY2-8 (#00025) 0.10 mm, via (H4) 6.37 mm
-   pad shape  only Proteus  3.013 mm^2 at (  94.390,    3.812) 2.50x2.58 mm  near RLY4-1 (#00085) 0.10 mm, via (H4) 9.74 mm
+   pad shape  only Proteus  3.013 mm^2 at (  94.390,    3.812) 2.50x2.58 mm  near RLY4-9 (#00085) 0.10 mm, via (H4) 9.74 mm
    pad shape  only Proteus  3.013 mm^2 at (-110.619,    3.072) 2.58x2.50 mm  near RLY1-8 (#00019) 0.10 mm, via (H4) 19.79 mm
-   pad shape  only Proteus  3.000 mm^2 at ( -61.211,    3.182) 2.53x2.55 mm  near RLY3-1 (#00062) 0.12 mm, via (H4) 31.21 mm
+   pad shape  only Proteus  3.000 mm^2 at ( -61.211,    3.182) 2.53x2.55 mm  near RLY3-9 (#00062) 0.12 mm, via (H4) 31.21 mm
    pad shape  only Proteus  3.000 mm^2 at ( -53.353,    3.182) 2.53x2.55 mm  near RLY3-8 (#00062) 0.11 mm, via (J2) 32.16 mm
-   pad shape  only Proteus  2.989 mm^2 at (-118.258,   -6.874) 2.55x2.58 mm  near RLY1-2 (#00005) 0.11 mm, via (J2) 18.92 mm
-   pad shape  only Proteus  2.955 mm^2 at (-118.111,    3.182) 2.50x2.55 mm  near RLY1-1 (#00020) 0.13 mm, via (H4) 26.99 mm
-   pad shape  only Proteus  2.939 mm^2 at ( 117.453,   -6.358) 2.50x2.55 mm  near RLY5-6 (#00084) 0.11 mm, via (H4) 19.13 mm
-   pad shape  only Proteus  2.772 mm^2 at ( 117.333,  -13.985) 2.55x2.55 mm  near RLY5-5 (SW3) 0.02 mm, via (H4) 20.96 mm
-   pad shape  only Proteus  2.674 mm^2 at ( -90.354,  -14.554) 2.58x2.58 mm  near RLY2-5 (SW2) 0.08 mm, via (J2) 22.30 mm
-   pad shape  only Proteus  2.631 mm^2 at ( 102.046,  -13.928) 2.58x2.55 mm  near RLY4-5 (#00081) 0.07 mm, via (H4) 9.58 mm
-   pad shape  only Proteus  1.959 mm^2 at (-111.049,  -14.613) 1.95x2.58 mm  near RLY1-5 (SW1) 0.43 mm, via (J2) 9.53 mm
+   pad shape  only Proteus  2.989 mm^2 at (-118.258,   -6.874) 2.55x2.58 mm  near RLY1-13 (#00005) 0.11 mm, via (J2) 18.92 mm
+   pad shape  only Proteus  2.955 mm^2 at (-118.111,    3.182) 2.50x2.55 mm  near RLY1-9 (#00020) 0.13 mm, via (H4) 26.99 mm
+   pad shape  only Proteus  2.939 mm^2 at ( 117.453,   -6.358) 2.50x2.55 mm  near RLY5-4 (#00084) 0.11 mm, via (H4) 19.13 mm
+   pad shape  only Proteus  2.772 mm^2 at ( 117.333,  -13.985) 2.55x2.55 mm  near RLY5-1 (SW3) 0.02 mm, via (H4) 20.96 mm
+   pad shape  only Proteus  2.674 mm^2 at ( -90.354,  -14.554) 2.58x2.58 mm  near RLY2-1 (SW2) 0.08 mm, via (J2) 22.30 mm
+   pad shape  only Proteus  2.631 mm^2 at ( 102.046,  -13.928) 2.58x2.55 mm  near RLY4-1 (#00081) 0.07 mm, via (H4) 9.58 mm
+   pad shape  only Proteus  1.959 mm^2 at (-111.049,  -14.613) 1.95x2.58 mm  near RLY1-1 (SW1) 0.43 mm, via (J2) 9.53 mm
    pad shape  only Proteus  1.582 mm^2 at ( -68.610,    0.028) 2.55x2.55 mm  near C5-1 (#00000) 0.04 mm, via (H4) 24.98 mm
    pad shape  only Proteus  1.582 mm^2 at (   7.590,   -7.478) 2.55x2.55 mm  near C7-2 (#00053) 0.04 mm, via (J1) 18.03 mm
    pad shape  only Proteus  1.582 mm^2 at ( -68.610,   -9.672) 2.55x2.55 mm  near C5-2 (#00031) 0.04 mm, via (J2) 21.47 mm
@@ -65,10 +65,10 @@ board outline -195.357 .. 187.433 x -45.73 .. 26.175 mm
    pad shape  only Proteus  1.582 mm^2 at (-146.479,  -22.197) 2.55x2.55 mm  near C1-2 (#00017) 0.04 mm, via (J2) 36.04 mm
    pad shape  only Proteus  1.449 mm^2 at (-156.177,  -22.089) 2.55x2.50 mm  near C1-1 (#00001) 0.14 mm, via (J2) 45.73 mm
    pad shape  only Proteus  1.435 mm^2 at (  42.595,   15.823) 2.55x2.55 mm  near C10-1 (EQ) 0.07 mm, via (J4) 47.90 mm
-   pad shape  only Proteus  1.374 mm^2 at (  95.042,  -14.516) 1.93x1.95 mm  near RLY4-4 (H4) 0.78 mm, via (H4) 10.00 mm
-   pad shape  only Proteus  1.294 mm^2 at (  93.936,  -13.418) 1.93x1.93 mm  near RLY4-4 (H4) 0.78 mm, via (H4) 9.44 mm
-   pad shape  only Proteus  1.239 mm^2 at ( -52.916,  -14.059) 1.95x1.95 mm  near RLY3-5 (SW1) 0.78 mm, via (J2) 15.53 mm
-   pad shape  only Proteus  1.239 mm^2 at ( -54.023,  -15.166) 1.95x1.95 mm  near RLY3-5 (SW1) 0.79 mm, via (J2) 14.11 mm
+   pad shape  only Proteus  1.374 mm^2 at (  95.042,  -14.516) 1.93x1.95 mm  near RLY4-16 (H4) 0.78 mm, via (H4) 10.00 mm
+   pad shape  only Proteus  1.294 mm^2 at (  93.936,  -13.418) 1.93x1.93 mm  near RLY4-16 (H4) 0.78 mm, via (H4) 9.44 mm
+   pad shape  only Proteus  1.239 mm^2 at ( -52.916,  -14.059) 1.95x1.95 mm  near RLY3-1 (SW1) 0.78 mm, via (J2) 15.53 mm
+   pad shape  only Proteus  1.239 mm^2 at ( -54.023,  -15.166) 1.95x1.95 mm  near RLY3-1 (SW1) 0.79 mm, via (J2) 14.11 mm
    pad shape  only Proteus  1.079 mm^2 at (  42.185,    6.533) 2.50x2.50 mm  near C10-2 (#00075) 0.51 mm, via (J4) 38.75 mm
    pad shape  only Proteus  0.998 mm^2 at (  29.206,   -6.813) 2.58x2.58 mm  near C13-2 (#00064) 0.01 mm, via (J1) 24.39 mm
    pad shape  only Proteus  0.998 mm^2 at ( 161.931,   -6.988) 2.58x2.58 mm  near C17-1 (#00105) 0.01 mm, via (J2) 26.07 mm
@@ -97,7 +97,7 @@ board outline -195.357 .. 187.433 x -45.73 .. 26.175 mm
    pad shape  only Proteus  0.866 mm^2 at ( 104.296,   17.220) 2.55x2.58 mm  near C29-2 (#00095) 0.08 mm, via (H4) 23.08 mm
    pad shape  only Proteus  0.866 mm^2 at (  -6.287,  -22.165) 2.53x2.55 mm  near C8-1 (C) 0.13 mm, via (#00081) 10.42 mm
    pad shape  only Proteus  0.826 mm^2 at ( 161.421,   14.471) 2.55x2.55 mm  near C24-1 (#00118) 0.19 mm, via (J2) 45.30 mm
-   pad shape  only Proteus  0.513 mm^2 at (-109.595,  -14.606) 0.53x1.33 mm  near RLY1-5 (SW1) 1.02 mm, via (J2) 9.57 mm
+   pad shape  only Proteus  0.513 mm^2 at (-109.595,  -14.606) 0.53x1.33 mm  near RLY1-1 (SW1) 1.02 mm, via (J2) 9.57 mm
    pad shape  only Proteus  0.497 mm^2 at (-138.058,   -3.124) 1.80x1.80 mm  near C4-2 (#00035) 0.08 mm, via (J2) 34.66 mm
    pad shape  only Proteus  0.449 mm^2 at (   7.139,   -1.250) 1.75x1.80 mm  near C14-2 (#00042) 0.16 mm, via (J1) 24.16 mm
    pad shape  only Proteus  0.448 mm^2 at (-143.065,   -3.025) 1.80x1.75 mm  near C4-1 (#00006) 0.16 mm, via (J2) 38.81 mm
@@ -365,7 +365,7 @@ board outline -195.357 .. 187.433 x -45.73 .. 26.175 mm
    raw XOR 264.42 mm^2; after 0.05 mm tolerance: only Proteus 190.62 mm^2, only KiCad 12.56 mm^2, 830 clusters (513 below 0.01 mm^2)
    pad shape   317 clusters, 202.43 mm^2
    coverage: Proteus 345 draws / 366 flashes, 0 not on KiCad copper (0 explained by clearance / pad shape); KiCad 341 draws / 366 flashes, 0 not on Proteus copper (0 explained by pad shape)
-   pad shape    42 clusters, only KiCad   0.00 mm^2, only Proteus 124.99 mm^2  tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins  (5 parts: RLY1 RLY2 RLY3 RLY4 RLY5)
+   pad shape    42 clusters, only KiCad   0.00 mm^2, only Proteus 124.99 mm^2  Relay_THT:Relay_DPDT_Omron_G5V-2  (5 parts: RLY1 RLY2 RLY3 RLY4 RLY5)
    pad shape    31 clusters, only KiCad   0.00 mm^2, only Proteus  25.48 mm^2  tube_preamp:C_Rect_L16.5mm_W7.0mm_P9.70mm  (14 parts: C11 C12 C13 C16 C17 C19 ...)
    pad shape    99 clusters, only KiCad   0.00 mm^2, only Proteus  20.25 mm^2  Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal  (46 parts: R1 R10 R11 R12 R13 R14 ...)
    pad shape     8 clusters, only KiCad   0.00 mm^2, only Proteus  11.82 mm^2  tube_preamp:C_Rect_L13.0mm_W6.0mm_P9.70mm  (4 parts: C1 C10 C5 C7)
@@ -379,45 +379,45 @@ board outline -195.357 .. 187.433 x -45.73 .. 26.175 mm
    pad shape     5 clusters, only KiCad   0.00 mm^2, only Proteus   1.40 mm^2  tube_preamp:CP_Radial_D6.3mm_P2.50mm_PM  (1 parts: C30)
    pad shape     2 clusters, only KiCad   0.00 mm^2, only Proteus   0.23 mm^2  tube_preamp:C_Rect_L24.0mm_W7.0mm_P20.00mm  (1 parts: C15)
    pad shape  only Proteus  3.395 mm^2 at ( 102.106,    3.812) 2.58x2.58 mm  near RLY4-8 (#00084) 0.00 mm, via (H4) 9.65 mm
-   pad shape  only Proteus  3.395 mm^2 at ( 109.731,    3.812) 2.58x2.58 mm  near RLY5-1 (#00090) 0.00 mm, via (H4) 14.43 mm
-   pad shape  only Proteus  3.395 mm^2 at (-110.619,   -1.913) 2.58x2.58 mm  near RLY1-7 (#00018) 0.01 mm, via (H4) 21.87 mm
-   pad shape  only Proteus  3.395 mm^2 at ( -90.294,   -1.913) 2.58x2.58 mm  near RLY2-7 (#00024) 0.01 mm, via (H4) 11.29 mm
-   pad shape  only Proteus  3.395 mm^2 at ( -61.094,   -1.913) 2.58x2.58 mm  near RLY3-3 (#00046) 0.01 mm, via (J2) 26.80 mm
-   pad shape  only Proteus  3.395 mm^2 at ( -97.919,   -6.988) 2.58x2.58 mm  near RLY2-2 (#00014) 0.00 mm, via (H4) 17.36 mm
-   pad shape  only Proteus  3.395 mm^2 at ( -90.294,   -6.988) 2.58x2.58 mm  near RLY2-6 (#00018) 0.00 mm, via (H4) 16.33 mm
-   pad shape  only Proteus  3.348 mm^2 at (  94.500,    3.812) 2.55x2.58 mm  near RLY4-1 (#00085) 0.01 mm, via (H4) 9.69 mm
+   pad shape  only Proteus  3.395 mm^2 at ( 109.731,    3.812) 2.58x2.58 mm  near RLY5-9 (#00090) 0.00 mm, via (H4) 14.43 mm
+   pad shape  only Proteus  3.395 mm^2 at (-110.619,   -1.913) 2.58x2.58 mm  near RLY1-6 (#00018) 0.01 mm, via (H4) 21.87 mm
+   pad shape  only Proteus  3.395 mm^2 at ( -90.294,   -1.913) 2.58x2.58 mm  near RLY2-6 (#00024) 0.01 mm, via (H4) 11.29 mm
+   pad shape  only Proteus  3.395 mm^2 at ( -61.094,   -1.913) 2.58x2.58 mm  near RLY3-11 (#00046) 0.01 mm, via (J2) 26.80 mm
+   pad shape  only Proteus  3.395 mm^2 at ( -97.919,   -6.988) 2.58x2.58 mm  near RLY2-13 (#00014) 0.00 mm, via (H4) 17.36 mm
+   pad shape  only Proteus  3.395 mm^2 at ( -90.294,   -6.988) 2.58x2.58 mm  near RLY2-4 (#00018) 0.00 mm, via (H4) 16.33 mm
+   pad shape  only Proteus  3.348 mm^2 at (  94.500,    3.812) 2.55x2.58 mm  near RLY4-9 (#00085) 0.01 mm, via (H4) 9.69 mm
    pad shape  only Proteus  3.348 mm^2 at (-110.619,    3.182) 2.58x2.55 mm  near RLY1-8 (#00019) 0.01 mm, via (H4) 19.76 mm
-   pad shape  only Proteus  3.348 mm^2 at ( -97.919,    3.182) 2.58x2.55 mm  near RLY2-1 (#00026) 0.01 mm, via (H4) 8.62 mm
+   pad shape  only Proteus  3.348 mm^2 at ( -97.919,    3.182) 2.58x2.55 mm  near RLY2-9 (#00026) 0.01 mm, via (H4) 8.62 mm
    pad shape  only Proteus  3.348 mm^2 at ( -90.294,    3.182) 2.58x2.55 mm  near RLY2-8 (#00025) 0.01 mm, via (H4) 6.28 mm
-   pad shape  only Proteus  3.348 mm^2 at ( -61.094,    3.182) 2.58x2.55 mm  near RLY3-1 (#00062) 0.01 mm, via (H4) 31.32 mm
+   pad shape  only Proteus  3.348 mm^2 at ( -61.094,    3.182) 2.58x2.55 mm  near RLY3-9 (#00062) 0.01 mm, via (H4) 31.32 mm
    pad shape  only Proteus  3.348 mm^2 at ( -53.469,    3.182) 2.58x2.55 mm  near RLY3-8 (#00062) 0.01 mm, via (J2) 32.14 mm
-   pad shape  only Proteus  3.348 mm^2 at (-118.225,   -1.913) 2.55x2.58 mm  near RLY1-3 (#00014) 0.01 mm, via (J2) 23.53 mm
-   pad shape  only Proteus  3.348 mm^2 at ( 109.731,   -6.357) 2.58x2.55 mm  near RLY5-2 (#00085) 0.01 mm, via (H4) 11.44 mm
-   pad shape  only Proteus  3.287 mm^2 at (-118.225,    3.182) 2.55x2.55 mm  near RLY1-1 (#00020) 0.01 mm, via (H4) 27.10 mm
-   pad shape  only Proteus  3.287 mm^2 at ( 117.336,   -6.357) 2.55x2.55 mm  near RLY5-6 (#00084) 0.01 mm, via (H4) 19.02 mm
-   pad shape  only Proteus  3.079 mm^2 at ( -97.847,   -1.985) 2.58x2.58 mm  near RLY2-3 (#00021) 0.11 mm, via (H4) 12.77 mm
-   pad shape  only Proteus  3.079 mm^2 at ( -53.397,   -7.060) 2.58x2.58 mm  near RLY3-6 (EQ) 0.10 mm, via (J2) 22.09 mm
-   pad shape  only Proteus  3.079 mm^2 at ( -61.022,  -14.540) 2.58x2.58 mm  near RLY3-4 (H4) 0.09 mm, via (J2) 14.27 mm
-   pad shape  only Proteus  3.059 mm^2 at ( -53.580,   -1.913) 2.53x2.58 mm  near RLY3-7 (PRE2) 0.11 mm, via (J2) 27.10 mm
-   pad shape  only Proteus  3.059 mm^2 at ( -60.984,   -6.988) 2.53x2.58 mm  near RLY3-2 (PRE1) 0.10 mm, via (J2) 21.74 mm
-   pad shape  only Proteus  3.042 mm^2 at ( 109.801,   -1.354) 2.58x2.55 mm  near RLY5-3 (#00086) 0.11 mm, via (H4) 12.03 mm
-   pad shape  only Proteus  3.031 mm^2 at (-118.297,  -14.538) 2.55x2.58 mm  near RLY1-4 (H4) 0.09 mm, via (J2) 12.37 mm
-   pad shape  only Proteus  3.028 mm^2 at (-118.118,   -6.988) 2.50x2.58 mm  near RLY1-2 (#00005) 0.12 mm, via (J2) 18.76 mm
-   pad shape  only Proteus  3.022 mm^2 at ( 102.181,   -6.282) 2.58x2.55 mm  near RLY4-6 (#00082) 0.10 mm, via (H4) 4.00 mm
+   pad shape  only Proteus  3.348 mm^2 at (-118.225,   -1.913) 2.55x2.58 mm  near RLY1-11 (#00014) 0.01 mm, via (J2) 23.53 mm
+   pad shape  only Proteus  3.348 mm^2 at ( 109.731,   -6.357) 2.58x2.55 mm  near RLY5-13 (#00085) 0.01 mm, via (H4) 11.44 mm
+   pad shape  only Proteus  3.287 mm^2 at (-118.225,    3.182) 2.55x2.55 mm  near RLY1-9 (#00020) 0.01 mm, via (H4) 27.10 mm
+   pad shape  only Proteus  3.287 mm^2 at ( 117.336,   -6.357) 2.55x2.55 mm  near RLY5-4 (#00084) 0.01 mm, via (H4) 19.02 mm
+   pad shape  only Proteus  3.079 mm^2 at ( -97.847,   -1.985) 2.58x2.58 mm  near RLY2-11 (#00021) 0.11 mm, via (H4) 12.77 mm
+   pad shape  only Proteus  3.079 mm^2 at ( -53.397,   -7.060) 2.58x2.58 mm  near RLY3-4 (EQ) 0.10 mm, via (J2) 22.09 mm
+   pad shape  only Proteus  3.079 mm^2 at ( -61.022,  -14.540) 2.58x2.58 mm  near RLY3-16 (H4) 0.09 mm, via (J2) 14.27 mm
+   pad shape  only Proteus  3.059 mm^2 at ( -53.580,   -1.913) 2.53x2.58 mm  near RLY3-6 (PRE2) 0.11 mm, via (J2) 27.10 mm
+   pad shape  only Proteus  3.059 mm^2 at ( -60.984,   -6.988) 2.53x2.58 mm  near RLY3-13 (PRE1) 0.10 mm, via (J2) 21.74 mm
+   pad shape  only Proteus  3.042 mm^2 at ( 109.801,   -1.354) 2.58x2.55 mm  near RLY5-11 (#00086) 0.11 mm, via (H4) 12.03 mm
+   pad shape  only Proteus  3.031 mm^2 at (-118.297,  -14.538) 2.55x2.58 mm  near RLY1-16 (H4) 0.09 mm, via (J2) 12.37 mm
+   pad shape  only Proteus  3.028 mm^2 at (-118.118,   -6.988) 2.50x2.58 mm  near RLY1-13 (#00005) 0.12 mm, via (J2) 18.76 mm
+   pad shape  only Proteus  3.022 mm^2 at ( 102.181,   -6.282) 2.58x2.55 mm  near RLY4-4 (#00082) 0.10 mm, via (H4) 4.00 mm
    pad shape  only Proteus  3.014 mm^2 at ( 117.334,    3.701) 2.55x2.53 mm  near RLY5-8 (EQ3) 0.11 mm, via (H4) 20.91 mm
-   pad shape  only Proteus  3.014 mm^2 at ( 101.994,   -1.284) 2.53x2.55 mm  near RLY4-7 (EQ1) 0.12 mm, via (H4) 5.25 mm
-   pad shape  only Proteus  3.013 mm^2 at ( 109.731,  -13.872) 2.58x2.50 mm  near RLY5-4 (H4) 0.10 mm, via (H4) 14.37 mm
-   pad shape  only Proteus  2.991 mm^2 at (  94.571,   -1.353) 2.55x2.55 mm  near RLY4-3 (#00079) 0.12 mm, via (H4) 5.32 mm
-   pad shape  only Proteus  2.991 mm^2 at ( 117.265,   -1.353) 2.55x2.55 mm  near RLY5-7 (EQ2) 0.12 mm, via (H4) 19.27 mm
-   pad shape  only Proteus  2.982 mm^2 at (  94.574,   -6.429) 2.55x2.55 mm  near RLY4-2 (#00073) 0.12 mm, via (H4) 4.02 mm
-   pad shape  only Proteus  2.953 mm^2 at (  94.502,  -13.870) 2.55x2.50 mm  near RLY4-4 (H4) 0.10 mm, via (H4) 9.60 mm
-   pad shape  only Proteus  2.880 mm^2 at (-110.619,  -14.613) 2.58x2.58 mm  near RLY1-5 (SW1) 0.01 mm, via (J2) 9.52 mm
-   pad shape  only Proteus  2.880 mm^2 at ( -90.294,  -14.613) 2.58x2.58 mm  near RLY2-5 (SW2) 0.01 mm, via (J2) 22.33 mm
-   pad shape  only Proteus  2.880 mm^2 at ( -53.469,  -14.613) 2.58x2.58 mm  near RLY3-5 (SW1) 0.01 mm, via (J2) 14.81 mm
-   pad shape  only Proteus  2.833 mm^2 at ( 102.106,  -13.985) 2.58x2.55 mm  near RLY4-5 (#00081) 0.02 mm, via (H4) 9.66 mm
-   pad shape  only Proteus  2.451 mm^2 at ( 117.330,  -13.855) 2.55x2.50 mm  near RLY5-5 (SW3) 0.12 mm, via (H4) 20.90 mm
-   pad shape  only Proteus  2.231 mm^2 at (-110.176,   -6.988) 1.95x2.58 mm  near RLY1-6 (#00017) 0.44 mm, via (J2) 17.15 mm
-   pad shape  only Proteus  1.793 mm^2 at ( -98.495,  -14.364) 1.95x2.50 mm  near RLY2-4 (H4) 0.63 mm, via (J2) 15.47 mm
+   pad shape  only Proteus  3.014 mm^2 at ( 101.994,   -1.284) 2.53x2.55 mm  near RLY4-6 (EQ1) 0.12 mm, via (H4) 5.25 mm
+   pad shape  only Proteus  3.013 mm^2 at ( 109.731,  -13.872) 2.58x2.50 mm  near RLY5-16 (H4) 0.10 mm, via (H4) 14.37 mm
+   pad shape  only Proteus  2.991 mm^2 at (  94.571,   -1.353) 2.55x2.55 mm  near RLY4-11 (#00079) 0.12 mm, via (H4) 5.32 mm
+   pad shape  only Proteus  2.991 mm^2 at ( 117.265,   -1.353) 2.55x2.55 mm  near RLY5-6 (EQ2) 0.12 mm, via (H4) 19.27 mm
+   pad shape  only Proteus  2.982 mm^2 at (  94.574,   -6.429) 2.55x2.55 mm  near RLY4-13 (#00073) 0.12 mm, via (H4) 4.02 mm
+   pad shape  only Proteus  2.953 mm^2 at (  94.502,  -13.870) 2.55x2.50 mm  near RLY4-16 (H4) 0.10 mm, via (H4) 9.60 mm
+   pad shape  only Proteus  2.880 mm^2 at (-110.619,  -14.613) 2.58x2.58 mm  near RLY1-1 (SW1) 0.01 mm, via (J2) 9.52 mm
+   pad shape  only Proteus  2.880 mm^2 at ( -90.294,  -14.613) 2.58x2.58 mm  near RLY2-1 (SW2) 0.01 mm, via (J2) 22.33 mm
+   pad shape  only Proteus  2.880 mm^2 at ( -53.469,  -14.613) 2.58x2.58 mm  near RLY3-1 (SW1) 0.01 mm, via (J2) 14.81 mm
+   pad shape  only Proteus  2.833 mm^2 at ( 102.106,  -13.985) 2.58x2.55 mm  near RLY4-1 (#00081) 0.02 mm, via (H4) 9.66 mm
+   pad shape  only Proteus  2.451 mm^2 at ( 117.330,  -13.855) 2.55x2.50 mm  near RLY5-1 (SW3) 0.12 mm, via (H4) 20.90 mm
+   pad shape  only Proteus  2.231 mm^2 at (-110.176,   -6.988) 1.95x2.58 mm  near RLY1-4 (#00017) 0.44 mm, via (J2) 17.15 mm
+   pad shape  only Proteus  1.793 mm^2 at ( -98.495,  -14.364) 1.95x2.50 mm  near RLY2-16 (H4) 0.63 mm, via (J2) 15.47 mm
    pad shape  only Proteus  1.582 mm^2 at (  42.515,   15.903) 2.55x2.55 mm  near C10-1 (EQ) 0.04 mm, via (J4) 47.97 mm
    pad shape  only Proteus  1.582 mm^2 at (  42.515,    6.203) 2.55x2.55 mm  near C10-2 (#00075) 0.04 mm, via (J4) 38.51 mm
    pad shape  only Proteus  1.449 mm^2 at (   7.513,   -7.407) 2.55x2.55 mm  near C7-2 (#00053) 0.11 mm, via (J1) 18.12 mm
@@ -440,7 +440,7 @@ board outline -195.357 .. 187.433 x -45.73 .. 26.175 mm
    pad shape  only Proteus  0.951 mm^2 at ( 160.656,    7.680) 2.58x2.55 mm  near C25-1 (#00120) 0.06 mm, via (J2) 38.63 mm
    pad shape  only Proteus  0.951 mm^2 at ( 161.348,  -14.613) 2.55x2.58 mm  near C20-1 (#00111) 0.06 mm, via (J2) 19.79 mm
    pad shape  only Proteus  0.951 mm^2 at (  -6.169,  -22.170) 2.58x2.55 mm  near C8-1 (C) 0.06 mm, via (#00081) 10.50 mm
-   pad shape  only Proteus  0.948 mm^2 at ( -97.066,  -14.956) 0.98x1.90 mm  near RLY2-4 (H4) 0.92 mm, via (J2) 16.26 mm
+   pad shape  only Proteus  0.948 mm^2 at ( -97.066,  -14.956) 0.98x1.90 mm  near RLY2-16 (H4) 0.92 mm, via (J2) 16.26 mm
    pad shape  only Proteus  0.917 mm^2 at ( 171.631,   -7.094) 2.58x2.53 mm  near C17-2 (#00107) 0.11 mm, via (J2) 32.44 mm
    pad shape  only Proteus  0.917 mm^2 at ( 170.356,  -21.694) 2.58x2.53 mm  near C21-2 (#00114) 0.10 mm, via (J2) 24.04 mm
    pad shape  only Proteus  0.916 mm^2 at (  29.281,   -6.888) 2.58x2.58 mm  near C13-2 (#00064) 0.11 mm, via (J1) 24.38 mm
@@ -455,7 +455,7 @@ board outline -195.357 .. 187.433 x -45.73 .. 26.175 mm
    pad shape  only Proteus  0.813 mm^2 at ( 161.408,   -0.036) 2.55x2.55 mm  near C16-1 (#00103) 0.12 mm, via (J2) 31.83 mm
    pad shape  only Proteus  0.724 mm^2 at ( 170.889,    0.265) 2.55x2.55 mm  near C16-2 (#00107) 0.28 mm, via (J2) 37.25 mm
    pad shape  only Proteus  0.613 mm^2 at ( 170.992,   14.984) 2.55x2.23 mm  near C24-2 (#00121) 0.38 mm, via (J2) 49.58 mm
-   pad shape  only Proteus  0.533 mm^2 at (-111.636,   -6.988) 0.58x1.33 mm  near RLY1-6 (#00017) 1.02 mm, via (J2) 17.18 mm
+   pad shape  only Proteus  0.533 mm^2 at (-111.636,   -6.988) 0.58x1.33 mm  near RLY1-4 (#00017) 1.02 mm, via (J2) 17.18 mm
    pad shape  only Proteus  0.524 mm^2 at ( 170.759,  -13.976) 2.50x2.12 mm  near C20-2 (#00114) 0.67 mm, via (J2) 27.61 mm
    pad shape  only Proteus  0.497 mm^2 at (   7.044,    3.749) 1.80x1.80 mm  near C14-1 (#00057) 0.09 mm, via (J1) 29.07 mm
    pad shape  only Proteus  0.497 mm^2 at (   7.044,   -1.251) 1.80x1.80 mm  near C14-2 (#00042) 0.09 mm, via (J1) 24.18 mm
@@ -710,7 +710,7 @@ board outline -195.357 .. 187.433 x -45.73 .. 26.175 mm
      47 x Proteus 1.5240 mm -> KiCad 1.5240 mm
      27 x Proteus 1.7272 mm -> KiCad 1.7270 mm
      13 x Proteus 3.0000 mm -> KiCad 3.0000 mm
-== excellon (fab_2010_drill_metric.drl): 364 holes vs 366 drill gerber flashes, 364 matched within 0.05 mm, 2 mismatches
+== excellon (etunen - CADCAM Drill.TXT): 364 holes vs 366 drill gerber flashes, 364 matched within 0.05 mm, 2 mismatches
      12 x Excellon 0.5080 mm = gerber 0.5080 mm
     139 x Excellon 0.7620 mm = gerber 0.7620 mm
      36 x Excellon 1.0160 mm = gerber 1.0160 mm

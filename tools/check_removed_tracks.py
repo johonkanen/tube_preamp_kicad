@@ -27,7 +27,7 @@ from p2k.board import config  # noqa: E402
 
 # (layer, x1, y1, x2, y2), IPC / Gerber frame (Y up), as the Proteus draws (STATUS.md findings 16, 20)
 EXPECTED = {
-    ("B.Cu", 88.9, -0.762, 88.9, -0.6985),              # finding 16: dangling stub, RLY4-2 track
+    ("B.Cu", 88.9, -0.762, 88.9, -0.6985),              # finding 16: dangling stub, RLY4-13 track
     ("F.Cu", -61.087, -1.905, -61.087, -1.905),         # finding 20: zero length
     ("F.Cu", -61.722, -22.225, -61.722, -22.225),       # finding 20: zero length
     ("F.Cu", -139.7635, -16.5735, -139.7635, -16.4465),

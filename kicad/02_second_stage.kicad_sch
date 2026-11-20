@@ -546,17 +546,13 @@
 			(embedded_fonts no)
 		)
 		(symbol "tube_preamp:G5V-2"
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "RLY"
-				(at 6.35 1.27 0)
+				(at 16.51 3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -567,7 +563,7 @@
 				)
 			)
 			(property "Value" "G5V-2(HI)"
-				(at 6.35 -1.27 0)
+				(at 16.51 1.27 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -578,7 +574,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at 6.35 -3.81 0)
+				(at 16.51 -1.27 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -600,21 +596,11 @@
 					)
 				)
 			)
-			(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
+			(property "Description" "Omron G5V-2 DPDT relay, Omron pin numbers (coil 1 / 16, pole 1 COM 4 NC 6 NO 8, pole 2 COM 13 NC 11 NO 9); KiCad Relay:G5V-2 unchanged"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -643,10 +629,10 @@
 					)
 				)
 			)
-			(symbol "G5V-2_1_1"
+			(symbol "G5V-2_0_1"
 				(rectangle
-					(start -5.08 5.08)
-					(end 5.08 -5.08)
+					(start -15.24 5.08)
+					(end 15.24 -5.08)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -656,8 +642,8 @@
 					)
 				)
 				(rectangle
-					(start -3.175 1.905)
-					(end 3.175 -1.905)
+					(start -13.335 1.905)
+					(end -6.985 -1.905)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -668,7 +654,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.54 -1.905) (xy 2.54 1.905)
+						(xy -12.7 -1.905) (xy -7.62 1.905)
 					)
 					(stroke
 						(width 0.254)
@@ -680,7 +666,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 5.08) (xy 0 1.905)
+						(xy -10.16 5.08) (xy -10.16 1.905)
 					)
 					(stroke
 						(width 0)
@@ -692,7 +678,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 -5.08) (xy 0 -1.905)
+						(xy -10.16 -5.08) (xy -10.16 -1.905)
 					)
 					(stroke
 						(width 0)
@@ -702,44 +688,54 @@
 						(type none)
 					)
 				)
-				(pin passive line
-					(at 0 7.62 270)
-					(length 2.54)
-					(name "COIL1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(polyline
+					(pts
+						(xy -6.985 0) (xy -6.35 0)
 					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "COIL16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(polyline
+					(pts
+						(xy -5.715 0) (xy -5.08 0)
 					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
-			)
-			(symbol "G5V-2_3_1"
+				(polyline
+					(pts
+						(xy -4.445 0) (xy -3.81 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.175 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(polyline
 					(pts
 						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
@@ -750,6 +746,30 @@
 					)
 					(fill
 						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.635 0) (xy 0 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 				(polyline
@@ -778,6 +798,30 @@
 				)
 				(polyline
 					(pts
+						(xy 0.635 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 0) (xy 2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
 					)
 					(stroke
@@ -788,65 +832,57 @@
 						(type none)
 					)
 				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "COM4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "NC6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "NO8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "G5V-2_2_1"
 				(polyline
 					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
+						(xy 3.175 0) (xy 3.81 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.445 0) (xy 5.08 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.715 0) (xy 6.35 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 6.985 0) (xy 7.62 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 5.08) (xy 7.62 2.54) (xy 8.255 3.175) (xy 7.62 3.81)
 					)
 					(stroke
 						(width 0)
@@ -858,7 +894,19 @@
 				)
 				(polyline
 					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
+						(xy 8.255 0) (xy 8.89 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -2.54) (xy 8.255 3.81)
 					)
 					(stroke
 						(width 0.508)
@@ -870,7 +918,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
+						(xy 10.16 -2.54) (xy 10.16 -5.08)
 					)
 					(stroke
 						(width 0)
@@ -882,7 +930,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
+						(xy 12.7 5.08) (xy 12.7 2.54) (xy 12.065 3.175) (xy 12.7 3.81)
 					)
 					(stroke
 						(width 0)
@@ -892,10 +940,12 @@
 						(type none)
 					)
 				)
+			)
+			(symbol "G5V-2_1_1"
 				(pin passive line
-					(at 2.54 7.62 270)
+					(at -10.16 7.62 270)
 					(length 2.54)
-					(name "NO9"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -911,16 +961,16 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 7.62 270)
+					(at 0 -7.62 90)
 					(length 2.54)
-					(name "NC11"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "3"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -929,16 +979,106 @@
 					)
 				)
 				(pin passive line
-					(at 0 -7.62 90)
+					(at -2.54 7.62 270)
 					(length 2.54)
-					(name "COM13"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "2"
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 7.62 270)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 12.7 7.62 270)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 7.62 270)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 -7.62 90)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 -7.62 90)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "16"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1946,7 +2086,7 @@
 	)
 	(symbol
 		(lib_id "tube_preamp:G5V-2")
-		(at 78.74 115.57 0)
+		(at 78.74 87.63 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1954,7 +2094,7 @@
 		(dnp no)
 		(uuid "ffe08acd-a03b-5cd6-830a-d043337bcb6e")
 		(property "Reference" "RLY3"
-			(at 63.5 114.3 0)
+			(at 78.74 104.14 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1962,15 +2102,15 @@
 			)
 		)
 		(property "Value" "G5V-2(HI)"
-			(at 63.5 116.84 0)
+			(at 78.74 106.045 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
-			(at 85.09 119.38 0)
+		(property "Footprint" "Relay_THT:Relay_DPDT_Omron_G5V-2"
+			(at 77.47 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1980,7 +2120,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 78.74 115.57 0)
+			(at 78.74 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1988,76 +2128,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
-			(at 78.74 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "6e3d6e5d-7850-50ab-9643-2b04240dd798")
-		)
-		(pin "4"
-			(uuid "e8dd5056-13c9-5d56-868a-b64c59d60fc3")
-		)
-		(instances
-			(project "tube_preamp"
-				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
-					(reference "RLY3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "tube_preamp:G5V-2")
-		(at 78.74 97.79 270)
-		(unit 2)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e529abb3-b410-568f-b92d-6c82dbcff005")
-		(property "Reference" "RLY3"
-			(at 76.2 92.075 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "G5V-2(HI)"
-			(at 76.2 93.98 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
-			(at 74.93 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 78.74 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
-			(at 78.74 97.79 0)
+		(property "Description" "Omron G5V-2 DPDT relay, Omron pin numbers (coil 1 / 16, pole 1 COM 4 NC 6 NO 8, pole 2 COM 13 NC 11 NO 9); KiCad Relay:G5V-2 unchanged"
+			(at 78.74 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2066,90 +2138,34 @@
 			)
 		)
 		(pin "1"
-			(uuid "2c1b6588-002e-54e6-8ebc-a394ff45528b")
+			(uuid "a846ed61-7706-549f-8a9e-fb1b17b97818")
 		)
-		(pin "3"
-			(uuid "c04b28ec-6c78-5e95-973f-d908f17c9bb6")
-		)
-		(pin "2"
-			(uuid "6bd5115a-3ec0-532c-b752-6d92d5fb87c5")
-		)
-		(instances
-			(project "tube_preamp"
-				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
-					(reference "RLY3")
-					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "tube_preamp:G5V-2")
-		(at 78.74 87.63 270)
-		(unit 3)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "9ce051ae-1f13-55dd-b38b-29e0810a9e04")
-		(property "Reference" "RLY3"
-			(at 76.2 81.915 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "G5V-2(HI)"
-			(at 76.2 83.82 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
-			(at 74.93 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 78.74 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
-			(at 78.74 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
+		(pin "4"
+			(uuid "e8dd5056-13c9-5d56-868a-b64c59d60fc3")
 		)
 		(pin "6"
-			(uuid "0ed2406e-a55e-5c94-90ec-f1b0d64d144b")
-		)
-		(pin "7"
-			(uuid "472d2ade-8d07-51cc-b5cf-976cd6aa945d")
+			(uuid "803c09cf-b923-5900-8b30-36bd0800766e")
 		)
 		(pin "8"
-			(uuid "b08404aa-10ba-5015-800d-1f358ef3264c")
+			(uuid "790335e1-32ea-5a76-8ff5-b8dc2c414333")
+		)
+		(pin "9"
+			(uuid "61ff4f9c-cd44-5275-87ae-7da8d8e913d6")
+		)
+		(pin "11"
+			(uuid "bd72d73c-d2b2-5f81-943c-52f20d692d30")
+		)
+		(pin "13"
+			(uuid "f610b33d-3940-5dc6-8fab-f7b43095b073")
+		)
+		(pin "16"
+			(uuid "53835bf1-46ba-57f3-86c7-bf56b4fc27d6")
 		)
 		(instances
 			(project "tube_preamp"
 				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/7ba9aa0c-8e57-463f-b13c-8b68f3cb280e"
 					(reference "RLY3")
-					(unit 3)
+					(unit 1)
 				)
 			)
 		)
@@ -2270,7 +2286,7 @@
 	)
 	(symbol
 		(lib_id "tube_preamp:D")
-		(at 87.63 115.57 270)
+		(at 78.74 69.85 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2278,7 +2294,7 @@
 		(dnp no)
 		(uuid "0bce8d31-4294-5368-8b4c-78fb4ddeef95")
 		(property "Reference" "D3"
-			(at 91.27 114.3 90)
+			(at 78.74 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2286,7 +2302,7 @@
 			)
 		)
 		(property "Value" "1N4001"
-			(at 93.47 116.84 90)
+			(at 78.74 67.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2294,7 +2310,7 @@
 			)
 		)
 		(property "Footprint" "tube_preamp:D_DO-41_SOD81_P10.16mm_Horizontal_AK"
-			(at 87.63 115.57 0)
+			(at 78.74 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2303,7 +2319,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 87.63 115.57 0)
+			(at 78.74 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2312,7 +2328,7 @@
 			)
 		)
 		(property "Description" "Diode, Proteus pins A/K"
-			(at 87.63 115.57 0)
+			(at 78.74 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2337,7 +2353,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 107.95) (xy 87.63 107.95)
+			(xy 71.12 77.47) (xy 71.12 69.85)
 		)
 		(stroke
 			(width 0)
@@ -2347,7 +2363,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 107.95) (xy 87.63 111.76)
+			(xy 71.12 69.85) (xy 74.93 69.85)
 		)
 		(stroke
 			(width 0)
@@ -2357,7 +2373,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 123.19) (xy 87.63 123.19)
+			(xy 86.36 77.47) (xy 86.36 69.85)
 		)
 		(stroke
 			(width 0)
@@ -2367,7 +2383,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 123.19) (xy 87.63 119.38)
+			(xy 86.36 69.85) (xy 82.55 69.85)
 		)
 		(stroke
 			(width 0)
@@ -2377,7 +2393,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 123.19) (xy 78.74 130.81)
+			(xy 71.12 69.85) (xy 71.12 67.31)
 		)
 		(stroke
 			(width 0)
@@ -2387,35 +2403,35 @@
 	)
 	(global_label "H4"
 		(shape passive)
-		(at 78.74 130.81 270)
+		(at 71.12 67.31 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "436319a7-c887-504b-b654-d3d55e783b93")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 78.74 130.81 0)
+			(at 71.12 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(junction
-		(at 78.74 123.19)
+		(at 71.12 69.85)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "40beb732-7c6b-5966-b823-ebf396b14c46")
 	)
 	(wire
 		(pts
-			(xy 78.74 107.95) (xy 71.12 107.95)
+			(xy 86.36 69.85) (xy 86.36 67.31)
 		)
 		(stroke
 			(width 0)
@@ -2423,43 +2439,33 @@
 		)
 		(uuid "fa19db91-a19d-5a4a-bb92-89a307e0bc03")
 	)
-	(wire
-		(pts
-			(xy 71.12 107.95) (xy 71.12 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1c12408e-bb01-5f7f-9d8b-394473a6cc33")
-	)
 	(global_label "SW1"
 		(shape passive)
-		(at 71.12 130.81 270)
+		(at 86.36 67.31 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
-		(uuid "46850650-8d5e-5c7c-ac1d-e0d8fa5c08b1")
+		(uuid "1c12408e-bb01-5f7f-9d8b-394473a6cc33")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 71.12 130.81 0)
+			(at 86.36 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(junction
-		(at 78.74 107.95)
+		(at 86.36 69.85)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "13774a76-1e7d-5063-9d95-e9e4ac9bc39f")
+		(uuid "46850650-8d5e-5c7c-ac1d-e0d8fa5c08b1")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -2536,7 +2542,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3fb41785-9372-5fe3-b5ad-745c562c200b")
+		(uuid "13774a76-1e7d-5063-9d95-e9e4ac9bc39f")
 	)
 	(wire
 		(pts
@@ -2546,7 +2552,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "141ff77e-087b-550d-9098-b8b989aa6f68")
+		(uuid "3fb41785-9372-5fe3-b5ad-745c562c200b")
 	)
 	(wire
 		(pts
@@ -2556,7 +2562,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2f5a5077-3d1b-562d-bb87-cec9869ef53c")
+		(uuid "141ff77e-087b-550d-9098-b8b989aa6f68")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -2633,7 +2639,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d6458a52-d7d1-58cd-8f50-a0eef7df3796")
+		(uuid "2f5a5077-3d1b-562d-bb87-cec9869ef53c")
 	)
 	(wire
 		(pts
@@ -2643,7 +2649,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "866db8c6-d8de-5df0-a362-9af108c32854")
+		(uuid "d6458a52-d7d1-58cd-8f50-a0eef7df3796")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -2720,13 +2726,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "21714c9e-2edd-5ded-9c91-70a4eff3165c")
+		(uuid "866db8c6-d8de-5df0-a362-9af108c32854")
 	)
 	(junction
 		(at 105.41 128.27)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "82763727-3ecc-5d5a-8850-0ccbc0240ec8")
+		(uuid "21714c9e-2edd-5ded-9c91-70a4eff3165c")
 	)
 	(wire
 		(pts
@@ -2736,13 +2742,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "231f0081-2a43-5741-86a8-f13e2d7fb1e6")
+		(uuid "82763727-3ecc-5d5a-8850-0ccbc0240ec8")
 	)
 	(junction
 		(at 105.41 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "1809256f-1f60-5d9c-a070-18706590361b")
+		(uuid "231f0081-2a43-5741-86a8-f13e2d7fb1e6")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -2819,13 +2825,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c1d2de8a-a1a0-55bf-b28a-b700471644fd")
+		(uuid "1809256f-1f60-5d9c-a070-18706590361b")
 	)
 	(junction
 		(at 118.11 128.27)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "85a9205b-db42-54da-962d-f7cafd4edaf0")
+		(uuid "c1d2de8a-a1a0-55bf-b28a-b700471644fd")
 	)
 	(wire
 		(pts
@@ -2835,7 +2841,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "78f49067-ae40-52f2-ab30-06ae6f0eab82")
+		(uuid "85a9205b-db42-54da-962d-f7cafd4edaf0")
 	)
 	(symbol
 		(lib_id "tube_preamp:J112")
@@ -2915,13 +2921,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e2165107-524a-5097-8088-30d5c5942391")
+		(uuid "78f49067-ae40-52f2-ab30-06ae6f0eab82")
 	)
 	(junction
 		(at 118.11 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f92ea45d-c4f5-53a5-bb25-ded311fe518d")
+		(uuid "e2165107-524a-5097-8088-30d5c5942391")
 	)
 	(wire
 		(pts
@@ -2931,7 +2937,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f1d1fc59-9179-536e-a1b5-cb1680433f7c")
+		(uuid "f92ea45d-c4f5-53a5-bb25-ded311fe518d")
 	)
 	(wire
 		(pts
@@ -2941,7 +2947,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8db28be0-3178-5d2c-9a30-7825963c3eaf")
+		(uuid "f1d1fc59-9179-536e-a1b5-cb1680433f7c")
 	)
 	(wire
 		(pts
@@ -2951,7 +2957,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "de509d11-96b5-5728-bb79-098ce2a31ded")
+		(uuid "8db28be0-3178-5d2c-9a30-7825963c3eaf")
 	)
 	(global_label "J1"
 		(shape passive)
@@ -2963,7 +2969,7 @@
 			)
 			(justify left)
 		)
-		(uuid "c16fed4c-0d67-5ea0-a511-44b6c23a38fd")
+		(uuid "de509d11-96b5-5728-bb79-098ce2a31ded")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 146.05 204.47 0)
 			(effects
@@ -3047,7 +3053,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7f366644-ca8b-5d6b-b16b-b17bb8bd8a0c")
+		(uuid "c16fed4c-0d67-5ea0-a511-44b6c23a38fd")
 	)
 	(wire
 		(pts
@@ -3057,7 +3063,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e11c9fe1-0946-5811-b711-e432356c7b7e")
+		(uuid "7f366644-ca8b-5d6b-b16b-b17bb8bd8a0c")
 	)
 	(wire
 		(pts
@@ -3067,7 +3073,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "aa195393-b74c-5acf-a7e6-edbcc13ac7bc")
+		(uuid "e11c9fe1-0946-5811-b711-e432356c7b7e")
 	)
 	(symbol
 		(lib_id "tube_preamp:C")
@@ -3144,7 +3150,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4622ce35-9bef-59ae-88d0-8235d4c7dbaf")
+		(uuid "aa195393-b74c-5acf-a7e6-edbcc13ac7bc")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -3221,13 +3227,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ca4100ae-3a60-52e7-a946-5cec849d95a4")
+		(uuid "4622ce35-9bef-59ae-88d0-8235d4c7dbaf")
 	)
 	(junction
 		(at 153.67 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f5ebdc87-29f2-5209-b724-7f39b3998e4d")
+		(uuid "ca4100ae-3a60-52e7-a946-5cec849d95a4")
 	)
 	(wire
 		(pts
@@ -3237,7 +3243,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4667882c-b359-5f7b-8b1e-771e09729062")
+		(uuid "f5ebdc87-29f2-5209-b724-7f39b3998e4d")
 	)
 	(wire
 		(pts
@@ -3247,7 +3253,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a15255f3-ec03-5f55-872a-8fc447c7be9f")
+		(uuid "4667882c-b359-5f7b-8b1e-771e09729062")
 	)
 	(wire
 		(pts
@@ -3257,13 +3263,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "13ef2796-e509-50d1-b9e2-a501fff90fc9")
+		(uuid "a15255f3-ec03-5f55-872a-8fc447c7be9f")
 	)
 	(junction
 		(at 138.43 156.21)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "df848703-c644-5932-8902-1c04940d4d6b")
+		(uuid "13ef2796-e509-50d1-b9e2-a501fff90fc9")
 	)
 	(symbol
 		(lib_id "tube_preamp:J112")
@@ -3343,13 +3349,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c26bf00c-e450-523c-8054-aa4eb38dcf71")
+		(uuid "df848703-c644-5932-8902-1c04940d4d6b")
 	)
 	(junction
 		(at 138.43 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "3f4cefde-e490-51f4-b186-f0a50f2daf07")
+		(uuid "c26bf00c-e450-523c-8054-aa4eb38dcf71")
 	)
 	(wire
 		(pts
@@ -3359,7 +3365,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "97f81071-4c49-55e5-818f-72430c4a36b5")
+		(uuid "3f4cefde-e490-51f4-b186-f0a50f2daf07")
 	)
 	(wire
 		(pts
@@ -3369,7 +3375,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "400baae7-3e33-53c3-a5e7-8fee2b22c735")
+		(uuid "97f81071-4c49-55e5-818f-72430c4a36b5")
 	)
 	(wire
 		(pts
@@ -3379,7 +3385,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c1dd3e12-7800-5a59-9626-6d5e0fed409a")
+		(uuid "400baae7-3e33-53c3-a5e7-8fee2b22c735")
 	)
 	(global_label "J1"
 		(shape passive)
@@ -3391,7 +3397,7 @@
 			)
 			(justify left)
 		)
-		(uuid "a109f4cf-1d77-59e0-9bc8-bb9bc8cb6e15")
+		(uuid "c1dd3e12-7800-5a59-9626-6d5e0fed409a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 162.56 191.77 0)
 			(effects
@@ -3478,13 +3484,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "104653c8-c6cf-5503-9a99-25ad32d695c8")
+		(uuid "a109f4cf-1d77-59e0-9bc8-bb9bc8cb6e15")
 	)
 	(junction
 		(at 163.83 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "570f6568-54e8-50ed-a444-bce00eb38852")
+		(uuid "104653c8-c6cf-5503-9a99-25ad32d695c8")
 	)
 	(wire
 		(pts
@@ -3494,13 +3500,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2566ab68-47af-5354-8e20-a2f65880cc57")
+		(uuid "570f6568-54e8-50ed-a444-bce00eb38852")
 	)
 	(junction
 		(at 163.83 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "39f50732-9911-56ae-8468-e34929e5b270")
+		(uuid "2566ab68-47af-5354-8e20-a2f65880cc57")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -3577,7 +3583,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a8e1cb4c-b541-535f-8a45-af7e3106381c")
+		(uuid "39f50732-9911-56ae-8468-e34929e5b270")
 	)
 	(wire
 		(pts
@@ -3587,7 +3593,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "78657669-5986-5eb1-8f0c-eb1d5effbc72")
+		(uuid "a8e1cb4c-b541-535f-8a45-af7e3106381c")
 	)
 	(wire
 		(pts
@@ -3597,7 +3603,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7674d5f7-6e3e-5d72-8b09-8fcc475a3d6e")
+		(uuid "78657669-5986-5eb1-8f0c-eb1d5effbc72")
 	)
 	(global_label "C"
 		(shape passive)
@@ -3609,7 +3615,7 @@
 			)
 			(justify left)
 		)
-		(uuid "5f37eee6-f8f4-5108-a560-310065c4c048")
+		(uuid "7674d5f7-6e3e-5d72-8b09-8fcc475a3d6e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 190.5 41.91 0)
 			(effects
@@ -3625,7 +3631,7 @@
 		(at 173.99 41.91)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "54d679a1-cb97-5582-92c1-0cc38ba0652c")
+		(uuid "5f37eee6-f8f4-5108-a560-310065c4c048")
 	)
 	(symbol
 		(lib_id "tube_preamp:C")
@@ -3702,7 +3708,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ad186813-ad7a-57fa-b385-9a9dcc611ebd")
+		(uuid "54d679a1-cb97-5582-92c1-0cc38ba0652c")
 	)
 	(wire
 		(pts
@@ -3712,7 +3718,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9eb127fb-f164-5964-9dff-9610a76353d0")
+		(uuid "ad186813-ad7a-57fa-b385-9a9dcc611ebd")
 	)
 	(wire
 		(pts
@@ -3722,13 +3728,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e3cf01b0-1fb5-5019-b944-324c80fcfa75")
+		(uuid "9eb127fb-f164-5964-9dff-9610a76353d0")
 	)
 	(junction
 		(at 173.99 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "10c39b1b-27eb-560e-80ad-0260a6908031")
+		(uuid "e3cf01b0-1fb5-5019-b944-324c80fcfa75")
 	)
 	(symbol
 		(lib_id "tube_preamp:C")
@@ -3805,7 +3811,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2a9a87bd-4f28-5046-b402-8df8d563dc23")
+		(uuid "10c39b1b-27eb-560e-80ad-0260a6908031")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -4016,7 +4022,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "553fbd7c-6eab-5845-bd8a-028818303516")
+		(uuid "2a9a87bd-4f28-5046-b402-8df8d563dc23")
 	)
 	(wire
 		(pts
@@ -4026,7 +4032,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e5cf8eb0-5190-55b9-915a-1455c56a77c2")
+		(uuid "553fbd7c-6eab-5845-bd8a-028818303516")
 	)
 	(wire
 		(pts
@@ -4036,7 +4042,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b1887519-f06c-5479-8d1c-f6acfb575a68")
+		(uuid "e5cf8eb0-5190-55b9-915a-1455c56a77c2")
 	)
 	(wire
 		(pts
@@ -4046,7 +4052,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "eaee87a6-6fd3-5825-9844-3466fdda388d")
+		(uuid "b1887519-f06c-5479-8d1c-f6acfb575a68")
 	)
 	(symbol
 		(lib_id "tube_preamp:C")
@@ -4123,13 +4129,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b90dffd7-e151-5d4f-a6bc-63500389b8ed")
+		(uuid "eaee87a6-6fd3-5825-9844-3466fdda388d")
 	)
 	(junction
 		(at 252.73 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "9ee46f05-37fd-5de3-b89d-e6f56d806e5a")
+		(uuid "b90dffd7-e151-5d4f-a6bc-63500389b8ed")
 	)
 	(symbol
 		(lib_id "tube_preamp:C")
@@ -4206,7 +4212,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "81a1d25f-5661-56f1-bf0b-e2c2b0a989e6")
+		(uuid "9ee46f05-37fd-5de3-b89d-e6f56d806e5a")
 	)
 	(wire
 		(pts
@@ -4216,7 +4222,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ed63d20e-6157-5161-9d02-65f379a2c6b8")
+		(uuid "81a1d25f-5661-56f1-bf0b-e2c2b0a989e6")
 	)
 	(wire
 		(pts
@@ -4226,13 +4232,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "22e34f40-3247-5769-adf1-11d9285aa7cc")
+		(uuid "ed63d20e-6157-5161-9d02-65f379a2c6b8")
 	)
 	(junction
 		(at 283.21 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "7dc44274-7a1a-5a66-8adb-9fc2a2ba4996")
+		(uuid "22e34f40-3247-5769-adf1-11d9285aa7cc")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -4309,7 +4315,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "388cec4c-b2ed-581d-a5f4-e5f57357845e")
+		(uuid "7dc44274-7a1a-5a66-8adb-9fc2a2ba4996")
 	)
 	(wire
 		(pts
@@ -4319,13 +4325,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c3c90140-f571-51f3-af69-35e48395f5cb")
+		(uuid "388cec4c-b2ed-581d-a5f4-e5f57357845e")
 	)
 	(junction
 		(at 252.73 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c1ae2cde-42bd-5e21-8fcd-e3f56eaa409c")
+		(uuid "c3c90140-f571-51f3-af69-35e48395f5cb")
 	)
 	(wire
 		(pts
@@ -4335,13 +4341,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "201b7118-e6cd-5206-98d2-567468ff7353")
+		(uuid "c1ae2cde-42bd-5e21-8fcd-e3f56eaa409c")
 	)
 	(junction
 		(at 273.05 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "45412e53-fd4f-5b5e-8d16-4f8e8e5730a6")
+		(uuid "201b7118-e6cd-5206-98d2-567468ff7353")
 	)
 	(symbol
 		(lib_id "tube_preamp:C")
@@ -4418,7 +4424,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "02288334-f721-5fc3-b36b-6bd5bab0ef38")
+		(uuid "45412e53-fd4f-5b5e-8d16-4f8e8e5730a6")
 	)
 	(wire
 		(pts
@@ -4428,13 +4434,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "683c852e-db4e-5e93-bae5-c701be314082")
+		(uuid "02288334-f721-5fc3-b36b-6bd5bab0ef38")
 	)
 	(junction
 		(at 283.21 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "eb644415-8811-5109-bc41-407a27d3313e")
+		(uuid "683c852e-db4e-5e93-bae5-c701be314082")
 	)
 	(wire
 		(pts
@@ -4444,7 +4450,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1e6bdfe0-c220-5e1f-8a68-8afc062dd0ce")
+		(uuid "eb644415-8811-5109-bc41-407a27d3313e")
 	)
 	(wire
 		(pts
@@ -4454,13 +4460,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3140f1d8-1e18-51fd-81c1-a8a5204c848c")
+		(uuid "1e6bdfe0-c220-5e1f-8a68-8afc062dd0ce")
 	)
 	(junction
 		(at 283.21 128.27)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "e7dd9f62-57c6-56f0-921a-8a7e89112368")
+		(uuid "3140f1d8-1e18-51fd-81c1-a8a5204c848c")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -4537,7 +4543,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c39dbbd0-f6e6-5c29-a82d-d2e05a227f5b")
+		(uuid "e7dd9f62-57c6-56f0-921a-8a7e89112368")
 	)
 	(wire
 		(pts
@@ -4547,13 +4553,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a0356281-cf80-52d4-a3d5-643a61573236")
+		(uuid "c39dbbd0-f6e6-5c29-a82d-d2e05a227f5b")
 	)
 	(junction
 		(at 283.21 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "b042debe-5db3-5ab5-97c8-a6bab63712d7")
+		(uuid "a0356281-cf80-52d4-a3d5-643a61573236")
 	)
 	(wire
 		(pts
@@ -4563,7 +4569,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "53dce682-20c8-561b-a797-aa53bbcaa190")
+		(uuid "b042debe-5db3-5ab5-97c8-a6bab63712d7")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -4640,13 +4646,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "18295c11-5961-5a94-b36b-a3400d7484b7")
+		(uuid "53dce682-20c8-561b-a797-aa53bbcaa190")
 	)
 	(junction
 		(at 295.91 128.27)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "e3355d6f-d97d-57e6-b474-32340e382185")
+		(uuid "18295c11-5961-5a94-b36b-a3400d7484b7")
 	)
 	(wire
 		(pts
@@ -4656,7 +4662,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "52e79919-988b-5ad1-bc69-29275d390f46")
+		(uuid "e3355d6f-d97d-57e6-b474-32340e382185")
 	)
 	(symbol
 		(lib_id "tube_preamp:J112")
@@ -4736,13 +4742,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7a4b4867-60b3-50a6-ba94-550703793a9a")
+		(uuid "52e79919-988b-5ad1-bc69-29275d390f46")
 	)
 	(junction
 		(at 295.91 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ff169a20-0800-54ce-8075-3e97ac5ac496")
+		(uuid "7a4b4867-60b3-50a6-ba94-550703793a9a")
 	)
 	(wire
 		(pts
@@ -4752,7 +4758,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b1659b9d-a808-58c1-a179-e44de70fe90c")
+		(uuid "ff169a20-0800-54ce-8075-3e97ac5ac496")
 	)
 	(global_label "J4"
 		(shape passive)
@@ -4764,7 +4770,7 @@
 			)
 			(justify left)
 		)
-		(uuid "48f4ec04-131b-581a-83b5-3faabedb98ed")
+		(uuid "b1659b9d-a808-58c1-a179-e44de70fe90c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 317.5 170.18 0)
 			(effects
@@ -4851,7 +4857,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "936cd4f7-18f9-5655-9742-ea004db2886a")
+		(uuid "48f4ec04-131b-581a-83b5-3faabedb98ed")
 	)
 	(wire
 		(pts
@@ -4861,13 +4867,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "240f625d-abde-59eb-b9d3-334f3e79ce2d")
+		(uuid "936cd4f7-18f9-5655-9742-ea004db2886a")
 	)
 	(junction
 		(at 194.31 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "60a33fed-86b0-5358-82cb-e6f758114f9b")
+		(uuid "240f625d-abde-59eb-b9d3-334f3e79ce2d")
 	)
 	(wire
 		(pts
@@ -4877,13 +4883,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "575dd56a-2cf4-5e60-8245-ae6f791b5dbe")
+		(uuid "60a33fed-86b0-5358-82cb-e6f758114f9b")
 	)
 	(junction
 		(at 194.31 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "afbf5d56-d838-53af-8eb3-39393159913c")
+		(uuid "575dd56a-2cf4-5e60-8245-ae6f791b5dbe")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -4960,13 +4966,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e3fb7ec4-8b86-5c79-a048-67ccf59168a1")
+		(uuid "afbf5d56-d838-53af-8eb3-39393159913c")
 	)
 	(junction
 		(at 207.01 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "aa270e2a-61d8-5d2e-8522-d483e59396a3")
+		(uuid "e3fb7ec4-8b86-5c79-a048-67ccf59168a1")
 	)
 	(wire
 		(pts
@@ -4976,13 +4982,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8b12f20b-903c-577d-bb7e-b13302ae530b")
+		(uuid "aa270e2a-61d8-5d2e-8522-d483e59396a3")
 	)
 	(junction
 		(at 207.01 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c3d8e6be-bdf2-5dbd-93cb-2208a887b511")
+		(uuid "8b12f20b-903c-577d-bb7e-b13302ae530b")
 	)
 	(symbol
 		(lib_id "tube_preamp:C")
@@ -5059,13 +5065,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "97684977-6b7e-5e50-8f7a-13404a663a6b")
+		(uuid "c3d8e6be-bdf2-5dbd-93cb-2208a887b511")
 	)
 	(junction
 		(at 224.79 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "87225c5c-42f9-556d-b184-df612f9a0b51")
+		(uuid "97684977-6b7e-5e50-8f7a-13404a663a6b")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -5142,7 +5148,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "65511138-d026-5aea-baa2-fb3eca6de7f5")
+		(uuid "87225c5c-42f9-556d-b184-df612f9a0b51")
 	)
 	(wire
 		(pts
@@ -5152,7 +5158,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8f7dccd9-1788-5e10-89eb-cde35c4c7b48")
+		(uuid "65511138-d026-5aea-baa2-fb3eca6de7f5")
 	)
 	(wire
 		(pts
@@ -5162,7 +5168,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cdbb982c-2865-5624-9821-615076216135")
+		(uuid "8f7dccd9-1788-5e10-89eb-cde35c4c7b48")
 	)
 	(wire
 		(pts
@@ -5172,13 +5178,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c41a150d-55a7-5732-9b70-ab52eacffbf1")
+		(uuid "cdbb982c-2865-5624-9821-615076216135")
 	)
 	(junction
 		(at 224.79 158.75)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "dccf2d25-cc15-55ce-9d63-a6f91c469d40")
+		(uuid "c41a150d-55a7-5732-9b70-ab52eacffbf1")
 	)
 	(symbol
 		(lib_id "tube_preamp:J112")
@@ -5258,13 +5264,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "08bc5b2f-e32e-57b1-844c-f3866cd67c50")
+		(uuid "dccf2d25-cc15-55ce-9d63-a6f91c469d40")
 	)
 	(junction
 		(at 224.79 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d300f09c-b7d1-547c-82db-c3c96223f8ec")
+		(uuid "08bc5b2f-e32e-57b1-844c-f3866cd67c50")
 	)
 	(wire
 		(pts
@@ -5274,7 +5280,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f5c16686-ff01-550a-8bb7-a6677883eae0")
+		(uuid "d300f09c-b7d1-547c-82db-c3c96223f8ec")
 	)
 	(wire
 		(pts
@@ -5284,7 +5290,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4712eca4-85a7-5353-a3f8-8b4caaff33ab")
+		(uuid "f5c16686-ff01-550a-8bb7-a6677883eae0")
 	)
 	(wire
 		(pts
@@ -5294,7 +5300,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "28e8e279-de7c-589d-8f1c-7864b6e0a7bb")
+		(uuid "4712eca4-85a7-5353-a3f8-8b4caaff33ab")
 	)
 	(global_label "J1"
 		(shape passive)
@@ -5306,7 +5312,7 @@
 			)
 			(justify left)
 		)
-		(uuid "6a9fd860-1fba-5fdc-9d42-e7b1d0499fc6")
+		(uuid "28e8e279-de7c-589d-8f1c-7864b6e0a7bb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 254 194.31 0)
 			(effects
@@ -5393,7 +5399,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "227e035a-139c-5aa9-bc15-8857e9d89439")
+		(uuid "6a9fd860-1fba-5fdc-9d42-e7b1d0499fc6")
 	)
 	(wire
 		(pts
@@ -5403,7 +5409,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8801979f-14c4-50e4-9870-999a6fd7b67c")
+		(uuid "227e035a-139c-5aa9-bc15-8857e9d89439")
 	)
 	(global_label "D"
 		(shape passive)
@@ -5415,7 +5421,7 @@
 			)
 			(justify left)
 		)
-		(uuid "3588c01e-d93f-5cfe-9430-70eeb26b92fc")
+		(uuid "8801979f-14c4-50e4-9870-999a6fd7b67c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 198.12 74.93 0)
 			(effects
@@ -5435,7 +5441,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b12b02a4-2e3b-560f-b512-af57472f8d5b")
+		(uuid "3588c01e-d93f-5cfe-9430-70eeb26b92fc")
 	)
 	(wire
 		(pts
@@ -5445,13 +5451,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "634e616f-9898-5ed8-abe4-46b51579a56f")
+		(uuid "b12b02a4-2e3b-560f-b512-af57472f8d5b")
 	)
 	(junction
 		(at 191.77 100.33)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ac15da78-b5c9-5eb7-a86a-b190fa84b68f")
+		(uuid "634e616f-9898-5ed8-abe4-46b51579a56f")
 	)
 	(label "PRE2"
 		(at 223.52 100.33 0)
@@ -5461,7 +5467,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "65943052-bcfb-56ee-a095-1fe312da3b82")
+		(uuid "ac15da78-b5c9-5eb7-a86a-b190fa84b68f")
 	)
 	(symbol
 		(lib_id "tube_preamp:R")
@@ -5538,13 +5544,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7b178bf9-f36f-50de-a8eb-c6f05a188bc8")
+		(uuid "65943052-bcfb-56ee-a095-1fe312da3b82")
 	)
 	(junction
 		(at 217.17 100.33)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "6aa29469-3bec-58c3-9da2-4ec071a1181d")
+		(uuid "7b178bf9-f36f-50de-a8eb-c6f05a188bc8")
 	)
 	(wire
 		(pts
@@ -5554,13 +5560,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6dcc3941-c9f7-5862-a499-33db69b77e24")
+		(uuid "6aa29469-3bec-58c3-9da2-4ec071a1181d")
 	)
 	(junction
 		(at 217.17 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5dc6241a-20e7-598d-ab18-f19318148d11")
+		(uuid "6dcc3941-c9f7-5862-a499-33db69b77e24")
 	)
 	(wire
 		(pts
@@ -5570,7 +5576,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "25c30ed2-efd7-5dc5-8bb2-85900cac684c")
+		(uuid "5dc6241a-20e7-598d-ab18-f19318148d11")
 	)
 	(global_label "H4"
 		(shape passive)
@@ -5582,7 +5588,7 @@
 			)
 			(justify right)
 		)
-		(uuid "ef1506a3-b58f-5cad-938e-4443029009c7")
+		(uuid "25c30ed2-efd7-5dc5-8bb2-85900cac684c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 175.26 168.91 0)
 			(effects
@@ -5602,7 +5608,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9f5ba373-2f83-5502-8746-6024f43e8fc0")
+		(uuid "ef1506a3-b58f-5cad-938e-4443029009c7")
 	)
 	(global_label "H5"
 		(shape passive)
@@ -5614,7 +5620,7 @@
 			)
 			(justify right)
 		)
-		(uuid "f7607463-0739-5a1c-ab61-d6d5bd43727a")
+		(uuid "9f5ba373-2f83-5502-8746-6024f43e8fc0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 180.34 168.91 0)
 			(effects
@@ -5634,7 +5640,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "45828e58-71af-5ccf-a8d3-90f2882b5ba8")
+		(uuid "f7607463-0739-5a1c-ab61-d6d5bd43727a")
 	)
 	(global_label "PRE-GND"
 		(shape passive)
@@ -5646,7 +5652,7 @@
 			)
 			(justify right)
 		)
-		(uuid "7746aea4-a493-569f-a002-fe5abbca4cff")
+		(uuid "45828e58-71af-5ccf-a8d3-90f2882b5ba8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 93.98 184.15 0)
 			(effects
@@ -5667,7 +5673,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "a6322a74-f1d2-53bd-8049-abaea070d5ad")
+		(uuid "7746aea4-a493-569f-a002-fe5abbca4cff")
 	)
 	(text "PDF terminal name POT-GND = POT_GND. Q4's value is NADA in the Proteus schematic (the part on the board is a J112). U2 pin 9 has no net (as in Proteus)."
 		(exclude_from_sim no)
@@ -5678,7 +5684,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "178a34e1-6821-54ab-8222-db121897fcf4")
+		(uuid "a6322a74-f1d2-53bd-8049-abaea070d5ad")
 	)
 	(embedded_fonts no)
 )

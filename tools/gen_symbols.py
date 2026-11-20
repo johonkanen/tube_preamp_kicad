@@ -2,16 +2,16 @@
 """Generate lib/tube_preamp.kicad_sym, the project symbol library (helpers: p2k.symgen).
 
 Adapted from the power amp pilot (~/dev/tube_power_amp_kicad/tools/gen_symbols.py). Pin numbers
-equal the Proteus/IPC pin ids (STATUS.md "Phase 1 preparation"). All part symbols are copied
-from the KiCad 10 standard library (flattened, pins renumbered where needed). The Proteus pin
+equal the IPC pin ids (STATUS.md "Phase 1 preparation"; for the relays the Omron numbers). All part
+symbols are copied from the KiCad 10 standard library (flattened, pins renumbered where needed). The Proteus pin
 definitions in ROOT.DSN (read by hand, pilot p2k candidate 4):
   12AX7 (*PINOUT 9-PIN BELTON NOVAL)  A1=1 G1=2 K1=3 H1=4 H2=5 A2=6 G2=7 K2=8 HCT=9;
                                       pin 9 is N/C in the IPC (U1-U3)
   J112 (device $PINSHORT, TO92)       D=1 S=2 G=3   (= KiCad Q_NJFET_DSG; source / drain swap per part
                                       on the board, see STATUS.md: follow the IPC per refdes)
   G5V-2(HI) (*PINOUT G5V-2(HI))       AC1=1 COM1=2 NC1=3 DC1=4 DC2=5 COM2=6 NC2=7 AC2=8
-                                      (AC = the make / normally open contact, DC = coil); the
-                                      symbol uses Omron's terminal names (finding 14, g5v2())
+                                      (AC = the make / normally open contact, DC = coil); renamed
+                                      to the Omron pin numbers by IPC_PIN_IDS (g5v2())
   1N4001                              A, K
   electrolytics                       C2 / C30: +, - ; C28 / C33-C37 (*PINOUT ELEC D16 R7.5): 1 = -, 2 = +
 No power symbols: the IPC has no =POWER nets.
@@ -26,34 +26,6 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "p2k
 from p2k.symgen import *  # noqa: E402,F401,F403
 from p2k.symgen import run  # noqa: E402
 
-def pin_types(sym, types):
-    """Set the electrical type of pins {number: type}."""
-    seen = set()
-    for pin in walk(sym, "pin"):
-        num = find(pin, "number")[1]
-        if num in types:
-            pin[1] = Sym(types[num])
-            seen.add(num)
-    assert seen == set(types), (sym[1], set(types) - seen)
-    return sym
-
-
-def swap_units(sym, a, b):
-    """Swap the unit numbers a and b of the sub-symbols (NAME_<unit>_<style>)."""
-    name = sym[1]
-    for sub in find_all(sym, "symbol"):
-        unit, style = sub[1][len(name) + 1:].split("_")
-        if unit in (str(a), str(b)):
-            sub[1] = f"{name}_{b if unit == str(a) else a}_{style}"
-    return sym
-
-
-def hide_pin_names(sym):
-    """Pin names stay in the symbol (Proteus names, for the netlist / ERC texts) but are not drawn."""
-    sym[:] = [c for c in sym if not (isinstance(c, list) and c and c[0] == "pin_names")]
-    sym.insert(2, [Sym("pin_names"), [Sym("offset"), 0], [Sym("hide"), Sym("yes")]])
-    return sym
-
 
 def ecc83():
     # KiCad Valve:ECC83 (extends ECC81): unit 1 = triode 6/7/8, unit 2 = triode 1/2/3, unit 3 =
@@ -67,37 +39,23 @@ def ecc83():
     # KiCad 10 keeps a no_connect pin in its own unconnected-(...) net even when a wire joins it
     # (ERC only warns no_connect_connected), so compare_netlists could not see such a mistake;
     # a passive pin on a wire joins the net and compare reports the N/C mismatch.
-    sym = from_std("Valve", "ECC83", "12AX7", "U", desc="12AX7 / ECC83 double triode, noval; Proteus pin ids "
-                   "A1=1 G1=2 K1=3 H1=4 H2=5 A2=6 G2=7 K2=8 HCT=9 (N/C: no-connect flag); unit A = pins 1-3, B = 6-8, C = heater",
-                   pins={str(n): str(n) for n in range(1, 10)},
-                   names={"1": "A1", "2": "G1", "3": "K1", "4": "H1", "5": "H2", "6": "A2", "7": "G2",
-                          "8": "K2", "9": "HCT"})
-    swap_units(sym, 1, 2)
-    return pin_types(sym, {"1": PAS, "3": PAS, "6": PAS, "8": PAS, "4": PAS, "5": PAS, "9": PAS})
+    return from_std("Valve", "ECC83", "12AX7", "U", desc="12AX7 / ECC83 double triode, noval; Proteus pin ids "
+                    "A1=1 G1=2 K1=3 H1=4 H2=5 A2=6 G2=7 K2=8 HCT=9 (N/C: no-connect flag); unit A = pins 1-3, B = 6-8, C = heater",
+                    pins={str(n): str(n) for n in range(1, 10)},
+                    names={"1": "A1", "2": "G1", "3": "K1", "4": "H1", "5": "H2", "6": "A2", "7": "G2",
+                           "8": "K2", "9": "HCT"},
+                    pin_types={"1": PAS, "3": PAS, "6": PAS, "8": PAS, "4": PAS, "5": PAS, "9": PAS},
+                    units={1: 2, 2: 1})
 
 
 def g5v2():
-    # Omron G5V-2 (finding 14, user decision 2026-11-20: relabelled to Omron's terminals). KiCad's
-    # G5V-2_Split: unit 1 = coil 1 (top) / 16 (bottom), unit 2 = pole COM 4 / NC 6 / NO 8, unit 3 =
-    # pole COM 13 / NC 11 / NO 9 (poles drawn identically). The Proteus pads sit on the Omron
-    # terminals as the footprint renumbering says (tools/gen_footprints.py, checked by
-    # tools/check_pin_order.py): Proteus 4 / 2 / 3 / 1 on Omron 16 / 13 / 11 / 9 and Proteus
-    # 5 / 6 / 7 / 8 on Omron 1 / 4 / 6 / 8. The symbol now uses the same physical mapping (Phase 1
-    # had the mirror image, Proteus 4 on Omron 1). Pin NUMBERS stay the Proteus / IPC ids (every
-    # check compares against the IPC); pin NAMES are Omron's terminal names (hidden, as before; they
-    # appear in KiCad's net names, e.g. Net-(RLY4B-COM13)). Units 2 and 3 are swapped so that unit
-    # B stays the Proteus pole 1 (Omron 13 / 11 / 9) and unit C the Proteus pole 2 (Omron 4 / 6 / 8),
-    # and the sheets place the coil unrotated (Proteus 5 = Omron 1 at the top). Electrically
-    # identical to the Phase 1 symbol: every pin number on the same net.
-    sym = from_std("Relay", "G5V-2_Split", "G5V-2", "RLY", "G5V-2(HI)",
-                   desc="Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: "
-                        "unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; "
-                        "unit C pole COM4 = 6, NC6 = 7, NO8 = 8",
-                   pins={"16": "4", "1": "5", "13": "2", "11": "3", "9": "1", "4": "6", "6": "7", "8": "8"},
-                   names={"4": "COIL16", "5": "COIL1", "2": "COM13", "3": "NC11", "1": "NO9",
-                          "6": "COM4", "7": "NC6", "8": "NO8"})
-    swap_units(sym, 2, 3)
-    return hide_pin_names(sym)
+    # Omron G5V-2: KiCad's Relay:G5V-2 unchanged (one unit: coil 1 / 16, pole 1 COM 4 / NC 6 / NO 8,
+    # pole 2 COM 13 / NC 11 / NO 9). The IPC pin ids of RLY1-RLY5 are the Omron pin numbers
+    # (p2k_config.py IPC_PIN_IDS; design change 2026-11-20, "PR relays"): Proteus 1 / 2 / 3 = NO 9 /
+    # COM 13 / NC 11, 4 / 5 = coil 16 / 1, 6 / 7 / 8 = COM 4 / NC 6 / NO 8.
+    return from_std("Relay", "G5V-2", "G5V-2", "RLY", "G5V-2(HI)",
+                    desc="Omron G5V-2 DPDT relay, Omron pin numbers (coil 1 / 16, pole 1 COM 4 NC 6 NO 8, "
+                         "pole 2 COM 13 NC 11 NO 9); KiCad Relay:G5V-2 unchanged")
 
 
 def build():

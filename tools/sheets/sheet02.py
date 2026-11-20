@@ -8,8 +8,8 @@ anode R23 from D (net PRE2, R50 to ground).
 
 Differences from the PDF drawing (same nets): the KiCad 12AX7 is three units (triode A, triode B
 mirrored, heater between the cathode networks), so everything right of the tube is further right;
-the relay poles are KiCad's G5V-2 units turned so that COM is on the left, NC the upper and NO the
-lower contact; R50 runs straight down to the ground rail."""
+the relay is KiCad's one-unit G5V-2 (Omron pin numbers) turned so that the coil is on top with its
+diode above it, COM on the left, NC the upper and NO the lower contact; R50 runs straight down to the ground rail."""
 from _common import *  # noqa: F401,F403
 
 sh = sheet("02_second_stage.kicad_sch")
@@ -22,13 +22,6 @@ def V(ref, x, y, top):
     return vert2(sh, sym(ref), ref, *P(x, y), sh_value(ref), top=top)[1:]
 
 
-def gnd(p):
-    """Wire from p straight down to the PRE-GND rail, with a junction on the rail."""
-    q = (p[0], P(0, GND)[1])
-    sh.wire(p, q)
-    sh.junction(*q)
-
-
 def jfet(ref, x, y):
     """J112 with the gate on the right, source (pin 2) at the top at P(x, y), drain (pin 1) on the
     PRE-GND rail (Q3-Q6: rotation 180). Returns the gate point."""
@@ -37,25 +30,26 @@ def jfet(ref, x, y):
     q = sh.place(sym(ref), ref, cx, cy, 180, value=sh_value(ref),
                  ref_at=(tx, round(cy + g(3), 4), 0, None), value_at=(tx, round(cy + g(5), 4), 0, None))
     assert q.pin(2) == P(x, y), (ref, q.pins)
-    gnd(q.pin(1))
+    rail(sh, q.pin(1), y=P(0, GND)[1])
     return q.pin(3)
 
 
 ua, ub, uh = tube(sh, "U2", P(97, GRID), P(111, GRID), P(100, 91), mirror_b=True)
 
-# --- RLY3: pole 2 EQ -> PRE2 (NC), pole 1 PRE1 -> R16 (NC); both NO contacts joined (#00062) ----------
-kc, kp1, kp2 = relay(sh, "RLY3", P(22, 61), P(22, 47), P(22, 39), rot1=270, rot2=270)
-glabel_left(sh, "EQ", kp2.pin(6), 4)
-glabel_left(sh, "PRE1", kp1.pin(2), 4)
-label_right(sh, "PRE2", kp2.pin(7), 5)
-sh.wire(kp2.pin(8), P(32, 41), P(32, 49))
-sh.wire(P(32, 49), kp1.pin(1))
-coil_block(sh, kc, "D3", "SW1")
+# --- RLY3 (Omron pins): pole 4 / 6 / 8 EQ -> PRE2 (NC), pole 13 / 11 / 9 PRE1 -> R16 (NC); both NO
+# contacts joined (#00062) -----------------------------------------------------------------------------
+k = relay(sh, "RLY3", P(22, 39))
+glabel_left(sh, "EQ", k.pin(4), 4)
+glabel_left(sh, "PRE1", k.pin(13), 4)
+label_right(sh, "PRE2", k.pin(6), 5)
+sh.wire(k.pin(8), P(32, 41), P(32, 49))
+sh.wire(P(32, 49), k.pin(9))
+coil_block(sh, k, "D3", "SW1")
 
 # --- triode A ---------------------------------------------------------------------------------------
-# grid: R16 (#00046) from RLY3 NC 1; node #00047 with R17 to ground, R19 / Q3 (#00049, J1), R18 (#00043)
+# grid: R16 (#00046) from RLY3 NC 11; node #00047 with R17 to ground, R19 / Q3 (#00049, J1), R18 (#00043)
 t, b = V("R16", 43, 62, 1)
-sh.wire(kp1.pin(3), P(43, 45), t)
+sh.wire(k.pin(11), P(43, 45), t)
 sh.wire(b, P(43, GRID))
 _, r18l, r18r = horiz2(sh, "R", "R18", *P(66, GRID), sh_value("R18"), left=2)
 sh.wire(P(43, GRID), r18l)
@@ -63,7 +57,7 @@ sh.wire(r18r, ua.pin(2))
 t, b = V("R17", 43, 86, 2)
 sh.wire(P(43, GRID), t)
 sh.junction(*P(43, GRID))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 t, b = V("R19", 53, 86, 1)
 sh.wire(P(53, GRID), t)
 sh.junction(*P(53, GRID))
@@ -91,7 +85,7 @@ sh.glabel("J1", *P(88, 121), 0)
 t, b = V("R21", 89, 100, 2)
 sh.wire(P(89, KBUS), t)
 sh.junction(*P(89, KBUS))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 # anode (#00037): R22 and C8 from C, C7 to the network
 t, b = V("R22", 97, 12, 2)
 sh.wire(b, ua.pin(1))
@@ -124,7 +118,7 @@ sh.junction(*P(183, 53))
 _, t, b = vert2(sh, "R", "R31", *P(175, 88), sh_value("R31"), top=1, text="left")
 sh.wire(P(159, 43), P(175, 43), t)
 sh.junction(*P(159, 43))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 c12t, c12b = V("C12", 193, 53, 2)
 sh.wire(P(183, 37), P(193, 37), c12t)
 sh.junction(*P(183, 37))
@@ -136,7 +130,7 @@ sh.wire(r26b, P(183, GRID))
 sh.junction(*P(183, GRID))
 t, b = V("R27", 183, 78, 2)
 sh.wire(P(183, GRID), t)
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 sh.wire(c12b, P(193, GRID))
 t, b = V("R29", 193, 78, 1)
 sh.wire(P(193, GRID), t)
@@ -148,13 +142,13 @@ sh.glabel("J4", *P(210, 104), 0)
 # cathode (#00042): C9, R28 to ground, C14 / R30 through Q5 (#00057, J1)
 t, b = V("C9", 113, 104, 2)
 sh.wire(ub.pin(8), t)
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 sh.wire(P(113, KBUS), P(147, KBUS))
 sh.junction(*P(113, KBUS))
 t, b = V("R28", 123, 100, 2)
 sh.wire(P(123, KBUS), t)
 sh.junction(*P(123, KBUS))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 t, c14b = V("C14", 137, 88, 2)
 sh.wire(P(137, KBUS), t)
 sh.junction(*P(137, KBUS))
@@ -167,7 +161,7 @@ q5g = jfet("Q5", 137, 100)
 sh.wire(q5g, P(153, 104), P(153, 123))
 sh.wire(P(153, 123), P(160, 123))
 sh.glabel("J1", *P(160, 123), 0)
-# anode = PRE2: R23 from D, R50 to ground, RLY3 NC 2 (label)
+# anode = PRE2: R23 from D, R50 to ground, RLY3 NC 6 (label)
 t, b = V("R23", 111, 38, 2)
 sh.wire(t, P(111, 29), P(116, 29))
 sh.glabel("D", *P(116, 29), 0)
@@ -178,7 +172,7 @@ sh.label("PRE2", *P(136, 49), 0)
 t, b = V("R50", 131, 62, 1)
 sh.wire(P(131, 49), t)
 sh.junction(*P(131, 49))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 
 # --- heater (unit C): pin 4 = H4, pin 5 = H5 ---------------------------------------------------------
 for pin, net in ((4, "H4"), (5, "H5")):
