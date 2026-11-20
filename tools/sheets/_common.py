@@ -107,3 +107,71 @@ def relay(sh, ref, coil, pole1, pole2, rot_coil=0, rot1=0, rot2=0):
     AC2/NO = 8) at `pole2`. Returns (coil, pole1, pole2) Placed objects."""
     return tuple(sh.place(sym(ref), ref, *p, rot, unit=u, value=sh_value(ref))
                  for u, p, rot in ((1, coil, rot_coil), (2, pole1, rot1), (3, pole2, rot2)))
+
+
+# --- horizontal capacitors ---------------------------------------------------------------------------
+def hcap(sh, ref, x, y, left=1):
+    """Horizontal capacitor (symbol / value from the part map) with pin `left` on the left; the
+    reference goes above and the value below the plates (the default text placement of
+    sch_builder for horizontal two-pin parts is made for resistors and overlaps the plates).
+    Returns (left_point, right_point)."""
+    rot = _two_pin_rot(sym(ref), left, "left")
+    fa = {0: 0, 90: 270, 180: 0, 270: 90}[rot]
+    p = sh.place(sym(ref), ref, x, y, rot, value=sh_value(ref),
+                 ref_at=(x, round(y - 3.81, 4), fa, None), value_at=(x, round(y + 3.81, 4), fa, None))
+    a, b = sorted(p.pins.values())
+    return a, b
+
+
+# --- sheet 4: one tone stack ---------------------------------------------------------------------------
+def tone_stack(sh, n, x0, y0, eq, c_hi, r_top, c_lo1, c_lo2, r_mid, r_bot, c_gnd, xc=16, xeq=-8, xw=-18):
+    """One of the three identical tone stacks of sheet 4. (x0, y0) = PDF render position (10 px
+    units) of the EQn input node above r_top. eq = net of the input (global label); c_hi (250p) to
+    HInO; r_top (220k) down to LOnX / c_lo1 (1N); c_lo1 and c_lo2 (4N7) join at LOnW and r_mid (220K) to
+    HInW; LOnO / c_lo2 / r_bot (4k7) to the ground node; c_gnd (2N2) from the ground node to HInX.
+    xc = column of c_hi / c_gnd, xeq / xw = columns of the EQn label and the LOnW terminal (offsets
+    from x0). Returns the ground node point (bottom of r_bot)."""
+    def Q(dx, dy):
+        return P(x0 + dx, y0 + dy)
+
+    def cap(ref, dx, dy):
+        return hcap(sh, ref, *Q(dx, dy), left=1)
+
+    # EQn input, c_hi to HInO
+    sh.glabel(eq, *Q(xeq, 0), 180)
+    l, r = cap(c_hi, xc, 0)
+    sh.wire(Q(xeq, 0), l)
+    sh.wire(r, Q(40, 0))
+    term(sh, f"HI{n}O", *Q(40, 0), "right")
+    sh.junction(*Q(0, 0))
+    # r_top to the LOnX node, c_lo1
+    _, t, b = vert2(sh, sym(r_top), r_top, *Q(0, 7), sh_value(r_top), top=2)
+    sh.wire(Q(0, 0), t)
+    sh.wire(b, Q(0, 14))
+    term(sh, f"LO{n}X", *Q(-8, 14), "left")
+    l, r = cap(c_lo1, 12, 14)
+    sh.wire(Q(-8, 14), l)
+    sh.junction(*Q(0, 14))
+    sh.wire(r, Q(22, 14), Q(22, 26))
+    # LOnW node, r_mid to HInW
+    term(sh, f"LO{n}W", *Q(xw, 20), "left")
+    _, l, r2 = horiz2(sh, sym(r_mid), r_mid, *Q(29, 20), sh_value(r_mid), left=1)
+    sh.wire(Q(xw, 20), l)
+    sh.junction(*Q(22, 20))
+    sh.wire(r2, Q(40, 20))
+    term(sh, f"HI{n}W", *Q(40, 20), "right")
+    # LOnO node, c_lo2, r_bot
+    term(sh, f"LO{n}O", *Q(-8, 26), "left")
+    l, r = cap(c_lo2, 12, 26)
+    sh.wire(Q(-8, 26), l)
+    sh.wire(r, Q(22, 26))
+    sh.junction(*Q(0, 26))
+    _, t, b = vert2(sh, sym(r_bot), r_bot, *Q(0, 33), sh_value(r_bot), top=1)
+    sh.wire(Q(0, 26), t)
+    sh.wire(b, Q(0, 40))
+    # ground node, c_gnd to HInX
+    l, r = cap(c_gnd, xc, 40)
+    sh.wire(Q(0, 40), l)
+    sh.wire(r, Q(40, 40))
+    term(sh, f"HI{n}X", *Q(40, 40), "right")
+    return Q(0, 40)

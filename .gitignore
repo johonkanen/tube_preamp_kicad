@@ -16,3 +16,4 @@ build/
 reports/erc.rpt
 reports/drc.json
 reports/next/
+reports/render/
