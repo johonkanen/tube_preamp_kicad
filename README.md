@@ -27,9 +27,15 @@ tables from the IPC netlist. Phase 1 (schematic) done 2026-11-20: `lib/part_map.
 163/163 parts, the KiCad netlist equals the Proteus IPC netlist (98 nets, 0 wrong-net pins), ERC
 0 errors / 0 warnings. Phase 2 (footprints) done 2026-11-20: `tools/gen_footprints.py` →
 `lib/footprint_map.csv` and `lib/tube_preamp.pretty`, all 163 parts fit the IPC pads (worst residual
-0.001 mm), pin order checked (`tools/check_pin_order.py`); open user questions: the noval socket side
-and the KiCad drills smaller than Proteus (STATUS.md "Decisions"). `tools/check_all.sh` passes.
-Next: Phase 3 PCB (next_prompt.md).
+0.001 mm), pin order checked (`tools/check_pin_order.py`). User decisions 2026-11-20: the noval
+sockets are on the solder side (bottom footprint in Phase 5), the KiCad drills are kept (`DRILL_SMALLER`).
+Phase 3 (PCB) **stopped for a user decision** 2026-11-20: `tools/make_pcb.sh` builds
+`kicad/tube_preamp.kicad_pcb` reproducibly (747 tracks, 14 vias, 13 mounting holes H101-H113), copper
+0 shorts / 0 orphans / 0 opens, `check_board` OK, DRC 0 shorts / 0 unconnected / 0 parity, but 2
+clearance errors at the KiCad TO-92 square pad 1 of Q4 / Q6: round pad or Proteus pads? (STATUS.md
+"Phase 3" / "Decisions"). Also open: the values of R13, R22, R27, R30, R34, R51 and Q4.
+`tools/check_all.sh` passes (DRC step not yet in it). Next: finish Phase 3 after the decision
+(next_prompt.md), then Phase 4.
 
 Built in about 2010 from the June 2010 Gerbers (`source/fab_2010/`). The Proteus layout was edited in October 2010: Q6 pin 3 moves from net J1 to a new net J4 (Q6-3, Q9-3, pad D), plus a ground reroute. The export in `source/cadcam/` is the October version. Holes, outline and tube sockets are identical to the fabricated board. Accepted as the baseline, since the board gets redesigned.
 
@@ -46,7 +52,8 @@ From the export (the fit reference for the redesign; the KiCad file is
 ```
 outline: 382.79 x 71.91 mm, lower-left corner at (-195.357, -45.730) in the Proteus frame
 copper layers: 2; components: 163; mounting holes: 13
-mounting holes (relative to the lower-left outline corner, mm):
+mounting holes (relative to the lower-left outline corner, mm; KiCad refdes H101-H113,
+mapping in STATUS.md "Phase 3"):
   H1: x   55.992  y   58.550  drill 3.00 plated
   H2: x  163.492  y   61.550  drill 3.00 plated
   H3: x  194.492  y   58.550  drill 3.00 plated

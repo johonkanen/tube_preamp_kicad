@@ -128,3 +128,43 @@ OFF_BOARD_PARTS = {}
 # The 13 IPC 'hole' records: plated 3.0 mm holes with a 6.35 mm pad on both layers, no net.
 HOLE_FOOTPRINT = "tube_preamp:MountingHole_3.0mm_PTH_Pad6.35mm"
 HOLE_VALUE = "MountingHole_3.0mm"
+# Board thickness: 1.6 mm, the 2010 standard; the 2010 fab READ-ME (source/fab_2010) gives no
+# stack-up. The 2026 export's READ-ME lists Proteus 8's default 2-layer stack (2 x 0.036 Cu +
+# 1.483 FR4 = 1.555 mm, + 2 x 0.01 resist), written when the design was re-saved, not the 2010 order.
+PCB_THICKNESS = 1.6
+# Design rules from the Proteus copper as built (STATUS.md "Phase 3", tools/measure_gaps.py), mm.
+PCB_RULES = dict(
+    min_track=0.5,        # thinnest conductor draw 0.508 (20 mil)
+    min_via=1.2,          # the 14 Proteus vias: 1.27 mm pad
+    min_annular=0.3,      # via (1.27 - 0.508) / 2 = 0.381; smallest KiCad pad ring 0.35 (G5V-2 1.4/0.7, TO-92 1.5/0.8)
+    min_drill=0.5,        # smallest drill 0.508 (vias); components >= 0.7 (KiCad G5V-2)
+    clearance=0.38,       # smallest different-net gap 0.381 (15 mil: pad-track, track-via); track-track 0.390, pad-pad 0.468
+    hole_clearance=0.25,  # drill to other-net copper: >= 0.381 gap + annular ring
+    hole_to_hole=1.0,     # smallest drill-to-drill 1.270 (Proteus, TO-92), 1.232 with the KiCad TO-92 0.8 drills
+    edge_clearance=0.5,   # copper to outline >= 0.521 (terminal H4)
+    track=0.508,          # Default netclass
+    via=1.27,             # Default netclass = the Proteus via 1.27 / 0.508
+    via_drill=0.508,
+)
+# DRC error types that remain by design (p2k drc; STATUS.md "Phase 3", remaining DRC items).
+# NOT accepted: the 2 clearance errors at the KiCad TO-92 square pad 1 of Q4 / Q6 (user decision).
+DRC_ACCEPTED = {
+    "courtyards_overlap": "KiCad courtyards vs the Proteus placement (54 pairs, parts exactly at the "
+                          "Proteus positions): the noval socket bodies U1-U3 (Proteus Top Assembly "
+                          "rectangle) with their three mounting holes and nearby R / C / Q, film caps "
+                          "and resistors packed closer than the KiCad courtyards, Q7-Q9, terminals",
+    "pth_inside_courtyard": "the same Proteus placement: 16 pads (mounting holes H103-H105 in the noval "
+                            "socket bodies, R / C pads in neighbouring film-cap / resistor / socket "
+                            "courtyards)",
+}
+
+# --- Phase 4 checks (p2k.ipc356_diff, p2k.gerber_roundtrip) ---------------------------
+
+# KiCad footprint drills smaller than the Proteus drill, kept by the user (2026-11-20;
+# STATUS.md "Decisions"). Matched within 0.005 mm; reported, not failed.
+DRILL_SMALLER = {
+    (1.143, 0.7): "RLY1-RLY5: KiCad G5V-2 0.7 mm drills kept (Proteus 1.143 = 45 mil); user decision 2026-11-20",
+    (1.143, 1.0): "C1/C5/C7/C10: KiCad C_Rect 1.0 mm drills kept (Proteus 1.143); user decision 2026-11-20",
+    (1.143, 1.1): "Orange Drops C8, C11-C13, C16, C17, C19-C21, C23-C25, C27, C29: KiCad C_Rect 1.1 mm drills kept (Proteus 1.143); user decision 2026-11-20",
+    (0.762, 0.75): "C4/C14: KiCad C_Rect 0.75 mm drills kept (Proteus 0.762 = 30 mil); user decision 2026-11-20",
+}
