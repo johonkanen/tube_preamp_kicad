@@ -22,13 +22,6 @@ def V(ref, x, y, top):
     return vert2(sh, sym(ref), ref, *P(x, y), sh_value(ref), top=top)[1:]
 
 
-def gnd(p):
-    """Wire from p straight down to the PRE-GND rail, with a junction on the rail."""
-    q = (p[0], P(0, GND)[1])
-    sh.wire(p, q)
-    sh.junction(*q)
-
-
 def jfet(ref, x, y):
     """J112 with the gate on the right, source (pin 2) at the top at P(x, y), drain (pin 1) on the
     PRE-GND rail (Q3-Q6: rotation 180). Returns the gate point."""
@@ -37,7 +30,7 @@ def jfet(ref, x, y):
     q = sh.place(sym(ref), ref, cx, cy, 180, value=sh_value(ref),
                  ref_at=(tx, round(cy + g(3), 4), 0, None), value_at=(tx, round(cy + g(5), 4), 0, None))
     assert q.pin(2) == P(x, y), (ref, q.pins)
-    gnd(q.pin(1))
+    rail(sh, q.pin(1), y=P(0, GND)[1])
     return q.pin(3)
 
 
@@ -63,7 +56,7 @@ sh.wire(r18r, ua.pin(2))
 t, b = V("R17", 43, 86, 2)
 sh.wire(P(43, GRID), t)
 sh.junction(*P(43, GRID))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 t, b = V("R19", 53, 86, 1)
 sh.wire(P(53, GRID), t)
 sh.junction(*P(53, GRID))
@@ -91,7 +84,7 @@ sh.glabel("J1", *P(88, 121), 0)
 t, b = V("R21", 89, 100, 2)
 sh.wire(P(89, KBUS), t)
 sh.junction(*P(89, KBUS))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 # anode (#00037): R22 and C8 from C, C7 to the network
 t, b = V("R22", 97, 12, 2)
 sh.wire(b, ua.pin(1))
@@ -124,7 +117,7 @@ sh.junction(*P(183, 53))
 _, t, b = vert2(sh, "R", "R31", *P(175, 88), sh_value("R31"), top=1, text="left")
 sh.wire(P(159, 43), P(175, 43), t)
 sh.junction(*P(159, 43))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 c12t, c12b = V("C12", 193, 53, 2)
 sh.wire(P(183, 37), P(193, 37), c12t)
 sh.junction(*P(183, 37))
@@ -136,7 +129,7 @@ sh.wire(r26b, P(183, GRID))
 sh.junction(*P(183, GRID))
 t, b = V("R27", 183, 78, 2)
 sh.wire(P(183, GRID), t)
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 sh.wire(c12b, P(193, GRID))
 t, b = V("R29", 193, 78, 1)
 sh.wire(P(193, GRID), t)
@@ -148,13 +141,13 @@ sh.glabel("J4", *P(210, 104), 0)
 # cathode (#00042): C9, R28 to ground, C14 / R30 through Q5 (#00057, J1)
 t, b = V("C9", 113, 104, 2)
 sh.wire(ub.pin(8), t)
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 sh.wire(P(113, KBUS), P(147, KBUS))
 sh.junction(*P(113, KBUS))
 t, b = V("R28", 123, 100, 2)
 sh.wire(P(123, KBUS), t)
 sh.junction(*P(123, KBUS))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 t, c14b = V("C14", 137, 88, 2)
 sh.wire(P(137, KBUS), t)
 sh.junction(*P(137, KBUS))
@@ -178,7 +171,7 @@ sh.label("PRE2", *P(136, 49), 0)
 t, b = V("R50", 131, 62, 1)
 sh.wire(P(131, 49), t)
 sh.junction(*P(131, 49))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 
 # --- heater (unit C): pin 4 = H4, pin 5 = H5 ---------------------------------------------------------
 for pin, net in ((4, "H4"), (5, "H5")):

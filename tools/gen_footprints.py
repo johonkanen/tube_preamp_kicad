@@ -6,8 +6,7 @@ Writes (through the shared generator tools/p2k/p2k/footprints.py)
   lib/tube_preamp.pretty/      project footprints: derived from KiCad library footprints (pads
                                renumbered to the Proteus ids, pad centres moved onto the Proteus
                                positions) or built from the IPC-D-356A pads where KiCad has nothing
-  kicad/fp-lib-table           registers the project library (board-local: footprints.run does
-                               not write it; STATUS.md "p2k candidates")
+  kicad/fp-lib-table           registers the project library (p2k_config.py FP_LIB_TABLE = True)
 
 Usage: python3 tools/gen_footprints.py [--check]      (needs the KiCad AppImage mount)
 
@@ -22,15 +21,12 @@ footprints built from the IPC pads - noval socket, fly-lead terminal - have the 
 tools/p2k check_footprints verifies every footprint against the IPC pads (residual < 0.05 mm per
 pad) and reports the pad size / drill differences.
 """
-import copy
-import glob
-import math
 import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools", "p2k"))  # proteus2kicad
-from p2k import footprints, fpgeom, gerber, sexpr  # noqa: E402
+from p2k import footprints  # noqa: E402
 
 P = "tube_preamp:"
 PIN1_DOT = (-0.45, 1.35, 0.2)   # TO-92 pin-1 dot: x, y (KiCad footprint frame, Y down), radius mm
@@ -88,22 +84,6 @@ RULES = [
 ]
 
 
-def noval_body():
-    """The noval socket outline of the Proteus Top Assembly layer (a 26.4 x 25.4 mm rectangle
-    around the socket): the closed 4-segment loop around U1's pads, board coordinates."""
-    path = glob.glob(os.path.join(ROOT, "source", "cadcam", "*Top Assembly.GBR"))[0]
-    draws = gerber.parse(path).of(gerber.Draw)
-    cx, cy = -156.100, 6.168   # U1: centre of the 21.00 mm pitch circle (reference/ipc356_pads.csv)
-    pts = []
-    for d in draws:
-        if math.hypot(d.x2 - d.x1, d.y2 - d.y1) > 20 and \
-                all(math.hypot(x - cx, y - cy) < 19 for x, y in ((d.x1, d.y1), (d.x2, d.y2))):
-            pts.append((round(d.x1, 3), round(d.y1, 3)))
-    if len(pts) != 4 or any(abs(abs(x - cx) - 13.22) > 0.01 or abs(abs(y - cy) - 12.70) > 0.01 for x, y in pts):
-        raise SystemExit(f"gen_footprints: U1 assembly outline not found as expected: {pts}")
-    return sorted(pts, key=lambda p: math.atan2(p[1] - cy, p[0] - cx))
-
-
 # Project footprints (spec keys: see p2k.footprints). `ipc` = refdes whose IPC pads give the
 # pad centres. All parts are THT and on the top side (Proteus Top Assembly), except the noval
 # sockets U1-U3 (bottom side, user decision 2026-11-20).
@@ -144,14 +124,15 @@ PROJECT = {
         descr="DO-41 diode P10.16, pads K (KiCad pad 1, band) / A"),
     # TO-92 at the Proteus 2.032 mm (80 mil) pitch: KiCad has 1.27 (Inline) and 2.54 (Inline_Wide).
     # J112 (TO-92): 1 = D, 2 = S, 3 = G = the KiCad pad numbers, no renumbering.
-    # pad_shapes (board-local key, see derive_with_pad_shapes): pad 1 ROUND at the KiCad size 1.5 mm
-    # instead of KiCad's square pin-1 pad (user decision 2026-11-20, option (a): the square corner
-    # was 0.122 mm from the source track of Q4 / Q6; round 0.433). Pin 1 is then marked by the
-    # pin1_dot (board-local key): KiCad's TO-92 outline is left-right symmetric, so the square pad
+    # pads: pad 1 ROUND at the KiCad size 1.5 mm instead of KiCad's square pin-1 pad (user decision
+    # 2026-11-20, option (a): the square corner was 0.122 mm from the source track of Q4 / Q6; round
+    # 0.433); expect_shape guards that the base still has exactly one rect pad 1. Pin 1 is then marked
+    # by the pin1_dot: KiCad's TO-92 outline is left-right symmetric, so the square pad
     # was the only pin-1 mark; a filled dot on F.SilkS / F.Fab left of pad 1 on the flat side
     # replaces it (same key value and position as tube_pi_fxloop_kicad, STATUS.md "Phase 3").
     "TO-92_Inline_P2.03mm": dict(
-        base="Package_TO_SOT_THT:TO-92_Inline_Wide", ipc="Q1", pad_shapes={"1": "circle"},
+        base="Package_TO_SOT_THT:TO-92_Inline_Wide", ipc="Q1",
+        pads={"1": dict(shape="circle", expect_shape="rect")},
         pin1_dot=PIN1_DOT,
         descr="TO-92 inline, pads 1-3 2.032 mm apart (Proteus TO92), round pad 1, pin-1 dot"),
     # Omron G5V-2: Proteus G5V-2(HI) pin ids on the Omron pads. The Proteus coil pin 4 / pole-1
@@ -166,13 +147,15 @@ PROJECT = {
     # Noval socket built from the IPC pads: KiCad's Valve_Noval_P is on a 2.54 mm grid, Proteus has
     # a 21.00 mm pitch circle (10 positions at 36 deg, 1-9 with the gap between 9 and 1). Pad ids =
     # the IPC pin ids. The sockets are mounted on the BOTTOM (solder) side (user decision 2026-11-20,
-    # STATUS.md finding 13): the footprint is built mirrored (`bottom`, board-local key, see
-    # build_library below), so in the footprint's own view the pads run in the standard noval
+    # STATUS.md finding 13): the footprint is built mirrored (`bottom`), so in the footprint's own view the pads run in the standard noval
     # direction (as KiCad's Valve_Noval_P) and check_footprints places U1-U3 on B (graphics,
     # courtyard on the B layers; pad positions and nets unchanged), as the power amp's octal sockets.
     # A plain pcbnew Flip of the old top footprint would mirror the pad ids too (wrong numbering).
+    # body_from: the noval socket outline of the Proteus Top Assembly layer (a 26.4 x 25.4 mm
+    # rectangle around the socket): the closed 4-segment loop around U1's pads (centre = the 21.00 mm
+    # pitch circle, reference/ipc356_pads.csv).
     "Valve_Noval_Belton_PCD21.00mm": dict(
-        ipc="U1", body_poly=noval_body(), bottom=True,
+        ipc="U1", body_from=dict(centre=(-156.1, 6.168), min_len=20, radius=19, expect=4), bottom=True,
         descr="Noval tube socket (Proteus 9-PIN BELTON NOVAL), standard noval numbering, mounted on the "
               "solder side: 9 pads 4.318 mm / drill 1.727 on a 21.00 mm pitch circle, pad 9 without a "
               "net, body = the Proteus assembly outline"),
@@ -184,86 +167,5 @@ PROJECT = {
         descr="Plated 3.0 mm mounting hole with a 6.35 mm pad on both layers, no net"),
 }
 
-FP_LIB_TABLE = """(fp_lib_table
-\t(version 7)
-\t(lib (name "tube_preamp")(type "KiCad")(uri "${KIPRJMOD}/../lib/tube_preamp.pretty")(options "")(descr "Project footprints, pad numbers = IPC pin ids (tools/gen_footprints.py)"))
-)
-"""
-
-
-_derive = footprints.derive
-
-
-def derive_with_pad_shapes(name, spec, ipc):
-    """p2k.footprints.derive plus two board-local spec keys (STATUS.md "p2k candidates" 22):
-    `pad_shapes` ({pad number: shape}; the shared derive() has no pad-shape override; only the shape
-    changes, size / drill / position stay as derive() made them) and `pin1_dot` ((x, y, r): a filled
-    dot on F.SilkS and F.Fab, placed before pad 1). Guard: a pad made round must be exactly one
-    `rect` pad in the base (the KiCad square pin-1 pad), so a library change is noticed."""
-    node = _derive(name, spec, ipc)
-    shapes = dict(spec.get("pad_shapes", {}))
-    for num, shape in shapes.items():
-        pads = [p for p in sexpr.find_all(node, "pad") if str(p[1]) == num]
-        if len(pads) != 1 or str(pads[0][3]) != "rect":
-            raise SystemExit(f"gen_footprints: {name}: expected one rect pad {num} in the base, got "
-                             f"{[str(p[3]) for p in pads]}")
-        size = sexpr.find(pads[0], "size")
-        if shape == "circle" and float(size[1]) != float(size[2]):
-            raise SystemExit(f"gen_footprints: {name} pad {num}: circle needs a square size, not {size[1:]}")
-        pads[0][3] = sexpr.Sym(shape)
-    if spec.get("pin1_dot"):
-        x, y, r = spec["pin1_dot"]
-        pad1 = [p for p in sexpr.find_all(node, "pad") if str(p[1]) == "1"][0]
-        i = node.index(pad1)
-        node[i:i] = [_dot(x, y, r, "F.SilkS", 0.12), _dot(x, y, r, "F.Fab", 0.1)]
-    return node
-
-
-def _dot(x, y, r, layer, width):
-    Sym = sexpr.Sym
-    return [Sym("fp_circle"), [Sym("center"), x, y], [Sym("end"), round(x + r, 4), y],
-            [Sym("stroke"), [Sym("width"), width], [Sym("type"), Sym("solid")]], [Sym("fill"), Sym("yes")],
-            [Sym("layer"), layer]]
-
-
-footprints.derive = derive_with_pad_shapes   # build_library() calls the module-level derive
-
-_build_library = footprints.build_library
-
-
-def build_library(project_fps, ipc=None):
-    """footprints.build_library with the board-local spec key `bottom` (as the power amp pilot): the
-    IPC pads of the spec's `ipc` refdes are marked bottom side, so from_ipc builds the footprint
-    mirrored (the shared tool mirrors only bottom SMD parts; THT pads are 'both' in the IPC file).
-    STATUS.md "p2k candidates"."""
-    ipc = copy.deepcopy(ipc or fpgeom.ipc_pads_by_refdes())
-    for spec in project_fps.values():
-        if spec.get("bottom"):
-            for p in ipc[spec["ipc"]]:
-                p["side"] = "bottom"
-    return _build_library(project_fps, ipc)
-
-
-footprints.build_library = build_library   # footprints.run calls it through the module
-
-
-def fp_lib_table(check):
-    path = os.path.join(ROOT, "kicad", "fp-lib-table")
-    cur = open(path).read() if os.path.exists(path) else None
-    if cur == FP_LIB_TABLE:
-        return True
-    if check:
-        print("gen_footprints: out of date: kicad/fp-lib-table")
-        return False
-    with open(path, "w") as f:
-        f.write(FP_LIB_TABLE)
-    print("gen_footprints: wrote kicad/fp-lib-table")
-    return True
-
-
 if __name__ == "__main__":
-    ok = fp_lib_table("--check" in sys.argv[1:])
-    try:
-        footprints.run(RULES, PROJECT)
-    except SystemExit as e:
-        sys.exit(e.code if ok else 1)
+    footprints.run(RULES, PROJECT)

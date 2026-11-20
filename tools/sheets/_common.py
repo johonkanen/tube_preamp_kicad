@@ -1,7 +1,7 @@
 """Helpers for the per-sheet transcription scripts (tools/sheets/sheetNN.py).
 
 Adapted from the power amp pilot (~/dev/tube_power_amp_kicad/tools/sheets/_common.py): part map
-lookups, term(), P(), place_mirrored(); plus tube() / relay() that place every unit of the
+lookups, term(), P(); plus tube() / relay() that place every unit of the
 multi-unit symbols (STATUS.md "Transcription rules").
 
 The generic helpers come from p2k.sheetkit (grid g(), sheet(), left/right/up/down,
@@ -17,7 +17,6 @@ TOOLS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(TOOLS, "p2k"))  # proteus2kicad
 from p2k.sch_builder import Sheet  # noqa: E402,F401
 from p2k.sheetkit import *  # noqa: E402,F401,F403
-from p2k.sheetkit import _two_pin_rot  # noqa: E402
 
 _PART_MAP = None
 
@@ -42,17 +41,9 @@ def sym(ref):
 
 
 def term(sh, ref, x, y, direction="up"):
-    """Proteus TERMINAL part as sheetkit.terminal does it (connection point (x, y), circle
-    pointing in `direction`, texts horizontal), but with the symbol and value of the part map
-    (PIN, value TERMINAL). sheetkit.terminal always places value "PIN" and justifies the texts of
-    left / right terminals over the circle (pilot p2k candidates 3, 7)."""
-    rot = {"up": 0, "left": 90, "down": 180, "right": 270}[direction]
-    kw = {}
-    if direction == "right":     # KiCad mirrors justification for rot 270
-        kw = dict(ref_at=(x + 5.08, y - 1.27, 90, "left"), value_at=(x + 5.08, y + 1.27, 90, "left"))
-    elif direction == "left":
-        kw = dict(ref_at=(x - 5.08, y - 1.27, 270, "right"), value_at=(x - 5.08, y + 1.27, 270, "right"))
-    return sh.place(sym(ref), ref, x, y, rot, value=sh_value(ref), **kw)
+    """Proteus TERMINAL part: sheetkit.terminal with the symbol and value of the part map (PIN,
+    value TERMINAL) and the texts beside the circle, away from the wire (justify="away")."""
+    return terminal(sh, ref, x, y, direction, symbol=sym(ref), value=sh_value(ref), justify="away")
 
 
 # --- PDF coordinates ---------------------------------------------------------------------------------
@@ -65,29 +56,6 @@ OX, OY = 40, 30
 def P(x, y):
     """Sheet point (mm, on the 1.27 mm grid) of PDF render position (x, y) in units of 10 px."""
     return (g(x + OX), g(y + OY))
-
-
-# --- mirrored symbols --------------------------------------------------------------------------------
-def place_mirrored(sh, name, ref, x, y, axis="x", **kw):
-    """sh.place() at rotation 0 with the symbol mirrored: axis 'x' = about the X axis (top and
-    bottom swapped), 'y' = about the Y axis (left and right swapped). p2k.sch_builder.Sheet.place has
-    no mirror option (p2k candidate), so the node it wrote gets a (mirror ...) entry here and the
-    returned pin points are mirrored about the symbol origin. Pass ref_at / value_at for the texts
-    (KiCad keeps field positions absolute)."""
-    from p2k.sexpr import Sym, find
-    p = sh.place(name, ref, x, y, 0, **kw)
-    unit = kw.get("unit", 1)
-    for node in sh.tree:
-        if (isinstance(node, list) and node and str(node[0]) == "symbol" and find(node, "unit")[1] == unit
-                and any(c[1:3] == ["Reference", ref] for c in node if isinstance(c, list) and str(c[0]) == "property")):
-            node.insert(next(i for i, c in enumerate(node) if isinstance(c, list) and str(c[0]) == "at") + 1,
-                        [Sym("mirror"), Sym(axis)])
-            break
-    else:
-        raise KeyError(ref)
-    for num, (px, py) in list(p.pins.items()):
-        p.pins[num] = (px, round(2 * y - py, 4)) if axis == "x" else (round(2 * x - px, 4), py)
-    return p
 
 
 # --- multi-unit symbols ------------------------------------------------------------------------------
@@ -108,7 +76,7 @@ def tube(sh, ref, a, b, heater, rot_a=0, rot_b=0, rot_h=0, mirror_b=False):
 
     ua = sh.place(sym(ref), ref, *a, rot_a, unit=1, value=val, **texts(*a, -1, rot_a))
     if mirror_b:
-        ub = place_mirrored(sh, sym(ref), ref, *b, axis="y", unit=2, value=val, **texts(*b, 1, 0))
+        ub = sh.place(sym(ref), ref, *b, 0, unit=2, value=val, mirror="y", **texts(*b, 1, 0))
     else:
         ub = sh.place(sym(ref), ref, *b, rot_b, unit=2, value=val, **texts(*b, 1, rot_b))
     uh = sh.place(sym(ref), ref, *heater, rot_h, unit=3, value=val)
@@ -162,14 +130,10 @@ def coil_block(sh, coil, dref, sw, xd=7, xsw=-6, ylab=6, sw_label=True):
 # --- horizontal capacitors ---------------------------------------------------------------------------
 def hcap(sh, ref, x, y, left=1):
     """Horizontal capacitor (symbol / value from the part map) with pin `left` on the left; the
-    reference goes above and the value below the plates (the default text placement of
-    sch_builder for horizontal two-pin parts is made for resistors and overlaps the plates).
+    reference 3.81 mm above and the value 3.81 mm below the plates (text_gap; the default text
+    placement for horizontal two-pin parts is made for resistors and overlaps the plates).
     Returns (left_point, right_point)."""
-    rot = _two_pin_rot(sym(ref), left, "left")
-    fa = {0: 0, 90: 270, 180: 0, 270: 90}[rot]
-    p = sh.place(sym(ref), ref, x, y, rot, value=sh_value(ref),
-                 ref_at=(x, round(y - 3.81, 4), fa, None), value_at=(x, round(y + 3.81, 4), fa, None))
-    a, b = sorted(p.pins.values())
+    _, a, b = horiz2(sh, sym(ref), ref, x, y, sh_value(ref), left=left, text_gap=3.81)
     return a, b
 
 

@@ -22,13 +22,6 @@ def R(ref, x, y, top):
     return vert2(sh, sym(ref), ref, *P(x, y), sh_value(ref), top=top)[1:]
 
 
-def gnd(p):
-    """Wire from p straight down to the PRE-GND rail, with a junction on the rail."""
-    q = (p[0], P(0, GND)[1])
-    sh.wire(p, q)
-    sh.junction(*q)
-
-
 ua, ub, uh = tube(sh, "U1", P(83, 75), P(97, 75), P(177, 88), mirror_b=True)
 
 # --- triode A ---------------------------------------------------------------------------------------
@@ -40,23 +33,23 @@ sh.wire(r1r, ua.pin(2))
 t, b = R("R2", 41, 98, 2)
 sh.wire(P(41, GRID), t)
 sh.junction(*P(41, GRID))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 # cathode (#00008): C2, R11 to ground, R3 through Q1 (#00011, gate J1)
 sh.wire(ua.pin(3), P(81, 87), P(53, 87))
 t, b = R("C2", 53, 98, "+")
 sh.wire(P(53, 87), t)
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 t, b = R("R11", 63, 98, 1)
 sh.wire(P(63, 87), t)
 sh.junction(*P(63, 87))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 t, b = R("R3", 73, 98, 2)
 sh.wire(P(73, 87), t)
 sh.junction(*P(73, 87))
-q1 = place_mirrored(sh, sym("Q1"), "Q1", *P(75, 113), axis="y", value=sh_value("Q1"),
-                    ref_at=(P(66, 0)[0], P(0, 112)[1], 0, None), value_at=(P(66, 0)[0], P(0, 114)[1], 0, None))
+q1 = sh.place(sym("Q1"), "Q1", *P(75, 113), 0, mirror="y", value=sh_value("Q1"),
+              ref_at=(P(66, 0)[0], P(0, 112)[1], 0, None), value_at=(P(66, 0)[0], P(0, 114)[1], 0, None))
 sh.wire(b, q1.pin(1))
-gnd(q1.pin(2))
+rail(sh, q1.pin(2), y=P(0, GND)[1])
 sh.wire(q1.pin(3), P(88, 113))
 sh.glabel("J1", *P(88, 113), 0)
 # anode (#00001): R6 from A, C1 to RLY1 pole 2
@@ -94,17 +87,17 @@ sh.junction(*P(123, GRID))
 sh.junction(*P(131, GRID))
 t, b = R("R4", 149, 82, 2)
 sh.wire(P(149, GRID), t)
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 # cathode (#00006): R5, C3 to ground; R12 and C4 through Q2 (#00035, gate J2)
 sh.wire(ub.pin(8), P(99, 87), P(133, 87))
 t, b = R("R5", 103, 98, 1)
 sh.wire(P(103, 87), t)
 sh.junction(*P(103, 87))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 t, b = R("C3", 111, 99, 2)
 sh.wire(P(111, 87), t)
 sh.junction(*P(111, 87))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 t, r12b = R("R12", 123, 96, 2)
 sh.wire(P(123, 87), t)
 sh.junction(*P(123, 87))
@@ -115,7 +108,7 @@ q2 = sh.place(sym("Q2"), "Q2", *P(125, 109), 180, value=sh_value("Q2"),
 sh.wire(r12b, q2.pin(2))
 sh.wire(c4b, P(133, 103), P(123, 103))
 sh.junction(*P(123, 103))
-gnd(q2.pin(1))
+rail(sh, q2.pin(1), y=P(0, GND)[1])
 sh.wire(q2.pin(3), P(156, 109))
 sh.glabel("J2", *P(156, 109), 0)
 
@@ -124,7 +117,7 @@ t, b = R("R47", 113, 64, 2)
 sh.wire(P(113, 25), t)
 sh.junction(*P(113, 25))
 sh.wire(b, P(113, 91), P(93, 91))
-gnd(P(93, 91))
+rail(sh, P(93, 91), y=P(0, GND)[1])
 
 # --- relays -----------------------------------------------------------------------------------------
 # pole units turned 270: COM on the left, NC upper right, NO lower right

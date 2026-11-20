@@ -22,13 +22,6 @@ def V(ref, x, y, top, **kw):
     return vert2(sh, sym(ref), ref, *P(x, y), sh_value(ref), top=top, **kw)[1:]
 
 
-def gnd(p):
-    """Wire from p straight down to the PRE-GND rail, with a junction on the rail."""
-    q = (p[0], P(0, GND)[1])
-    sh.wire(p, q)
-    sh.junction(*q)
-
-
 ua, ub, uh = tube(sh, "U3", P(57, GRID), P(71, GRID), P(165, 22), mirror_b=True)
 
 # --- triode A (cathode follower) ----------------------------------------------------------------------
@@ -41,14 +34,14 @@ sh.wire(P(27, GRID), t)
 sh.junction(*P(27, GRID))
 c30t, c30b = V("C30", 27, 104, "+")
 sh.wire(b, c30t)
-gnd(c30b)
+rail(sh, c30b, y=P(0, GND)[1])
 r33t, r33b = V("R33", 37, 62, 2)
 r48t, r48b = V("R48", 37, 102, 2)
 sh.wire(r33b, r48t)
 sh.wire(P(27, 87), P(37, 87))
 sh.junction(*P(27, 87))
 sh.junction(*P(37, 87))
-gnd(r48b)
+rail(sh, r48b, y=P(0, GND)[1])
 # anode = E, R33 pin 2
 sh.wire(ua.pin(1), P(57, 22))
 sh.glabel("E", *P(57, 22), 90)
@@ -58,21 +51,21 @@ sh.junction(*P(57, 31))
 t, b = V("R32", 45, 116, 2)
 sh.wire(ua.pin(3), P(55, 53), P(45, 53))
 sh.wire(P(45, 53), t)
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 c15l, c15r = hcap(sh, "C15", *P(55, 73), left=1)
 sh.wire(P(45, 73), c15l)
 sh.junction(*P(45, 73))
 t, b = V("R45", 67, 102, 2)
 sh.wire(P(67, 73), t)
 sh.junction(*P(67, 73))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 
 # --- triode B ---------------------------------------------------------------------------------------
 # cathode (#00074): R44 to ground
 t, b = V("R44", 81, 100, 1)
 sh.wire(ub.pin(8), P(73, 53), P(81, 53))
 sh.wire(P(81, 53), t)
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 # anode (#00068): R51 to the output node (#00092: R34 from F, EQOUT, C29 to PRES #00095)
 r51t, r51b = V("R51", 71, 28, 2)
 sh.wire(r51b, ub.pin(6))
@@ -93,17 +86,17 @@ t, b = V("R46", 135, 96, 2)
 sh.wire(ub.pin(7), P(153, GRID))
 sh.wire(P(135, GRID), t)
 sh.junction(*P(135, GRID))
-gnd(b)
+rail(sh, b, y=P(0, GND)[1])
 
 # --- PRES1-PRES3 pads grounded by Q7-Q9 (#00098 / J3, #00096 / J2, #00097 / J4) ------------------------
 for q, pad, net, x in (("Q7", "PRES1", "J3", 89), ("Q8", "PRES2", "J2", 105), ("Q9", "PRES3", "J4", 121)):
     cx, cy = P(x + 2, 117)
     tx = round(cx + g(4.5), 4)
-    f = place_mirrored(sh, sym(q), q, cx, cy, axis="y", value=sh_value(q),
-                       ref_at=(tx, round(cy + g(3), 4), 0, None), value_at=(tx, round(cy + g(5), 4), 0, None))
+    f = sh.place(sym(q), q, cx, cy, 0, mirror="y", value=sh_value(q),
+                 ref_at=(tx, round(cy + g(3), 4), 0, None), value_at=(tx, round(cy + g(5), 4), 0, None))
     term(sh, pad, *P(x, 100), "up")
     sh.wire(P(x, 100), f.pin(1))
-    gnd(f.pin(2))
+    rail(sh, f.pin(2), y=P(0, GND)[1])
     sh.wire(f.pin(3), P(x + 11, 117), P(x + 11, 133))
     sh.wire(P(x + 11, 133), P(x + 15, 133))
     sh.glabel(net, *P(x + 15, 133), 0)

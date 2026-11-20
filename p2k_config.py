@@ -114,6 +114,13 @@ DRILL_NONPLATED = None    # no NonPlated drill file: the mounting holes are plat
 OUTLINE = "Mechanical 1"
 OUTLINE_RECT = (-195.357, -45.73, 382.79, 71.905)  # x, y, width, height
 
+# --- ERC (p2k erc; was tools/erc.sh) -------------------------------------------------------------
+
+# ERC warnings that fail: a no-connect pin that is wired (for this conversion a netlist error; Phase 5,
+# as the PI / FX loop board) and a Footprint field naming a missing library / footprint (e.g. without
+# kicad/fp-lib-table). Other warnings are listed only; report reports/erc.rpt.
+ERC_FATAL_WARNINGS = {"no_connect_connected", "footprint_link_issues"}
+
 # --- Footprints (Phase 2, tools/gen_footprints.py, p2k check_footprints) ---------------
 
 # Pad sizes: "kicad" (KiCad library pad sizes and drills, pad centres on the Proteus positions;
@@ -122,17 +129,84 @@ OUTLINE_RECT = (-195.357, -45.73, 382.79, 71.905)  # x, y, width, height
 FOOTPRINT_PAD_SIZES = "kicad"
 # Every part of lib/part_map.csv is on the board (no off-board parts).
 OFF_BOARD_PARTS = {}
+# tools/gen_footprints.py (footprints.run) writes / --checks kicad/fp-lib-table (default descr).
+FP_LIB_TABLE = True
+
+# --- Pin order (p2k check_pin_order; was tools/check_pin_order.py, STATUS.md "Phase 2" and
+# "Shared-tool migration 2026-11-20") ---------------------------------------------------------
+
+# The UNMOVED KiCad base footprints with the Proteus renumbering fitted onto the IPC pads: a small
+# residual on the expected side confirms that the Proteus pin ids sit on the pads the renumbering
+# says. Two-pad and inline parts fit both ways round: `polarity` (the IPC pin id on the marked base
+# pad 1: square pad + '+' silk of CP_Radial, band of DO-41, stated from the Proteus pinouts) and the
+# renders (--render, reports/pin_order/) decide. The noval socket: KiCad's Valve_Noval_P is on a
+# 2.54 mm grid (never a small residual), so the chirality is shown by the mirrored fit and by an
+# ideal standard noval on the Proteus 21.00 mm pitch circle (10 positions at 36 deg, gap between 9
+# and 1); since Phase 5 the sockets are on the bottom side (the project footprint has the standard
+# numbering in its own view and fits the IPC pads only mirrored).
+_NOVAL_IDEAL = dict(n=9, pcd=21.0, step=36, start=-54, pad=4.318, drill=1.727)
+_NOVALS = "U1 U2 U3"
+_RELAYS = "RLY1 RLY2 RLY3 RLY4 RLY5"
+PIN_ORDER = [
+    dict(spec="TO-92_Inline_P2.03mm", refs="Q1 Q2 Q3 Q4 Q5 Q6 Q7 Q8 Q9", mirror=False, res=0.51,
+         note="TO-92_Inline_Wide is P2.54, Proteus P2.032"),
+    dict(spec="D_DO-41_SOD81_P10.16mm_Horizontal_AK", refs="D1 D2 D3 D4 D5 D8 D9", mirror=False, res=0.01,
+         polarity="K"),                                    # 1N4001: A / K
+    dict(spec="CP_Radial_D6.3mm_P2.54mm_PM", refs="C2", mirror=False, res=0.03, polarity="+",
+         note="P2.50 vs P2.54"),                           # ELEC-RAD10: pins + / -
+    dict(spec="CP_Radial_D6.3mm_P2.50mm_PM", refs="C30", mirror=False, res=0.01, polarity="+"),   # 22U 100V
+    dict(spec="CP_Radial_D16.0mm_P7.50mm_Pin2Plus", refs="C28 C33 C34 C35 C36 C37", mirror=False, res=0.01,
+         polarity="2"),                                    # ELEC D16 R7.5: + = 2, - = 1
+    # G5V-2: the pad pattern (2 columns x 4 rows) is mirror-symmetric; the footprint renumbering
+    # (Proteus 4/2/3/1 on the Omron 16/13/11/9 column) fits unmirrored, and the symbol's Omron pin
+    # names (finding 14) must name the same Omron terminals (fit unmirrored; Phase 1: mirrored).
+    dict(spec="Relay_DPDT_Omron_G5V-2_ProteusPins", refs=_RELAYS, mirror=False, res=0.01),
+    dict(name=_RELAYS + " (symbol map)", footprint="Relay_THT:Relay_DPDT_Omron_G5V-2",
+         symbol_renumber=dict(symbol="G5V-2", pattern=r"(COIL|COM|NC|NO)(\d+)"), refs=_RELAYS,
+         mirror=False, res=0.01, note="Omron pin names (finding 14)"),
+    # noval: only the MIRRORED KiCad noval matches the Proteus numbering
+    dict(footprint="Valve:Valve_Noval_P", refs=_NOVALS, mirror=True, res=3.1),
+    dict(name=_NOVALS + " (ideal)", ideal=_NOVAL_IDEAL, refs=_NOVALS, mirror=True, res=0.02, other=0.02,
+         note="ideal standard noval, PCD 21.00 mm"),
+    dict(name="noval footprint vs ideal", footprint="tube_preamp:Valve_Noval_Belton_PCD21.00mm",
+         on_ideal=_NOVAL_IDEAL, mirror=False, res=0.02, other=0.02,
+         note="standard noval numbering in the footprint's own view"),
+    dict(name=_NOVALS + " (project)", footprint="tube_preamp:Valve_Noval_Belton_PCD21.00mm", refs=_NOVALS,
+         mirror=True, res=0.02, other=0.02, note="fits only mirrored = bottom side"),
+]
+# reports/footprint_fit.csv and the board: exactly these parts on the bottom side (Phase 5)
+PIN_ORDER_BOTTOM = {"U1", "U2", "U3"}
+# Derived project footprints: how far their pads may sit from the renumbered base pads (footprint
+# frame, mm); a wrong renumbering moves pads by a pitch while the graphics (band, '+', pin-1 mark)
+# stay.
+PIN_ORDER_MAX_MOVE = {
+    "R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal": 0.64,   # P20.32 -> P19.05
+    "C_Rect_L13.0mm_W6.0mm_P9.70mm": 0.16,                        # P10.00 -> P9.70
+    "C_Rect_L16.5mm_W7.0mm_P9.70mm": 2.66,                        # P15.00 -> P9.70
+    "C_Rect_L24.0mm_W7.0mm_P20.00mm": 1.26,                       # P22.50 -> P20.00
+    "C_Disc_D7.5mm_W2.5mm_P5.08mm": 0.05,                         # P5.00 -> P5.08
+    "CP_Radial_D6.3mm_P2.54mm_PM": 0.03,                          # P2.50 -> P2.54
+    "CP_Radial_D6.3mm_P2.50mm_PM": 0.001,
+    "CP_Radial_D16.0mm_P7.50mm_Pin2Plus": 0.001,
+    "D_DO-41_SOD81_P10.16mm_Horizontal_AK": 0.001,
+    "TO-92_Inline_P2.03mm": 0.51,                                 # P2.54 -> P2.032
+    "Relay_DPDT_Omron_G5V-2_ProteusPins": 0.001,
+}
 
 # --- PCB (Phase 3, build_pcb) ----------------------------------------------------------
 
 # The 13 IPC 'hole' records: plated 3.0 mm holes with a 6.35 mm pad on both layers, no net.
 HOLE_FOOTPRINT = "tube_preamp:MountingHole_3.0mm_PTH_Pad6.35mm"
 HOLE_VALUE = "MountingHole_3.0mm"
+# The holes are H101-H113 (build_pcb's hole n = H(100 + n), top row first, left to right; STATUS.md
+# "Phase 3" maps them to README's mechanical table): the schematic has the heater terminals H4 / H5,
+# so H1-H13 would collide (was tools/rename_holes.py, p2k candidate 18).
+HOLE_START = 101
 # Board thickness: 1.6 mm, the 2010 standard; the 2010 fab READ-ME (source/fab_2010) gives no
 # stack-up. The 2026 export's READ-ME lists Proteus 8's default 2-layer stack (2 x 0.036 Cu +
 # 1.483 FR4 = 1.555 mm, + 2 x 0.01 resist), written when the design was re-saved, not the 2010 order.
 PCB_THICKNESS = 1.6
-# Design rules from the Proteus copper as built (STATUS.md "Phase 3", tools/measure_gaps.py), mm.
+# Design rules from the Proteus copper as built (STATUS.md "Phase 3", `kipy -m p2k.measure_gaps`), mm.
 PCB_RULES = dict(
     min_track=0.5,        # thinnest conductor draw 0.508 (20 mil)
     min_via=1.2,          # the 14 Proteus vias: 1.27 mm pad
@@ -183,23 +257,28 @@ REMOVED_TRACKS = {
 
 # KiCad footprint drills smaller than the Proteus drill, kept by the user (2026-11-20;
 # STATUS.md "Decisions"). Matched within 0.005 mm; reported, not failed.
+# With the pad sets (reason, refdes) both tools require the smaller drills of each pair to be
+# exactly those parts' pads (80 holes: RLY1-RLY5 40, C1/C5/C7/C10 8, the 14 Orange Drops 28, C4/C14
+# 4; was tools/check_drill_smaller.py, p2k candidate 26).
 DRILL_SMALLER = {
-    (1.143, 0.7): "RLY1-RLY5: KiCad G5V-2 0.7 mm drills kept (Proteus 1.143 = 45 mil); user decision 2026-11-20",
-    (1.143, 1.0): "C1/C5/C7/C10: KiCad C_Rect 1.0 mm drills kept (Proteus 1.143); user decision 2026-11-20",
-    (1.143, 1.1): "Orange Drops C8, C11-C13, C16, C17, C19-C21, C23-C25, C27, C29: KiCad C_Rect 1.1 mm drills kept (Proteus 1.143); user decision 2026-11-20",
-    (0.762, 0.75): "C4/C14: KiCad C_Rect 0.75 mm drills kept (Proteus 0.762 = 30 mil); user decision 2026-11-20",
+    (1.143, 0.7): ("RLY1-RLY5: KiCad G5V-2 0.7 mm drills kept (Proteus 1.143 = 45 mil); user decision 2026-11-20",
+                   {"RLY1", "RLY2", "RLY3", "RLY4", "RLY5"}),
+    (1.143, 1.0): ("C1/C5/C7/C10: KiCad C_Rect 1.0 mm drills kept (Proteus 1.143); user decision 2026-11-20",
+                   {"C1", "C5", "C7", "C10"}),
+    (1.143, 1.1): ("Orange Drops C8, C11-C13, C16, C17, C19-C21, C23-C25, C27, C29: KiCad C_Rect 1.1 mm drills kept (Proteus 1.143); user decision 2026-11-20",
+                   {"C8", "C11", "C12", "C13", "C16", "C17", "C19", "C20", "C21", "C23", "C24", "C25", "C27", "C29"}),
+    (0.762, 0.75): ("C4/C14: KiCad C_Rect 0.75 mm drills kept (Proteus 0.762 = 30 mil); user decision 2026-11-20",
+                    {"C4", "C14"}),
 }
 # The June 2010 fab Excellon drill file (source/fab_2010/etunen - CADCAM Drill.TXT: inch, 364 hits,
-# same frame as the X2 export): gerber_roundtrip compares it with the Proteus plated drill gerber.
-# The shared reader is metric-only, so the file is converted by tools/excellon_metric.py. It lacks
-# exactly the 2 vias added in October 2010 (33.02, -31.115) and (-29.337, -42.545): run the round
-# trip through tools/roundtrip.py, which expects those two by position (the shared tool alone
-# reports 2 drill mismatches).
-DRILL_EXCELLON = "reference/fab_2010_drill_metric.drl"
-
-# --- Strict checks (p2k batch Z, decision D-Z: every id in board.STRICT_DEFAULT is on) ----------
-
-# Temporary (shared-tool migration step 1, STATUS.md "Shared-tool migration 2026-11-20"): the
-# schematic has the heater terminals H4 / H5, and the mounting holes are H4 / H5 until the
-# migration replaces tools/rename_holes.py with HOLE_START = 101.
-STRICT_CHECKS_OFF = {"hole_refdes": "H4 / H5 until the HOLE_START = 101 migration"}
+# same frame as the X2 export): gerber_roundtrip compares it with the Proteus plated drill gerber,
+# read in its own unit (inch; R1: was converted to metric by tools/excellon_metric.py).
+DRILL_EXCELLON = "source/fab_2010/etunen - CADCAM Drill.TXT"
+# It lacks exactly the 2 vias added in October 2010 (STATUS.md "Phase 0": Q6-3 moved from net J1 to
+# J4, and the PRE-GND reroute); each entry must match exactly one "not in the Excellon file" mismatch.
+# The labels keep the report words of the former tools/roundtrip.py (p2k candidate 3).
+EXCELLON_MISSING = {
+    (33.02, -31.115, 0.508): "via on J4: Q6-3 top track -> bottom track to Q9-3 (October edit)",
+    (-29.337, -42.545, 0.508): "via on PRE-GND: joins the bottom track end to the top PRE-GND track (October reroute)",
+}
+EXCELLON_MISSING_LABELS = dict(file="2010 Excellon file", items="expected October vias", source="tools/roundtrip.py")
