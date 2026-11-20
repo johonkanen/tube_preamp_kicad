@@ -110,9 +110,9 @@ for q, pad, net, x in (("Q7", "PRES1", "J3", 89), ("Q8", "PRES2", "J2", 105), ("
 
 # --- relays -----------------------------------------------------------------------------------------
 # pole units turned 270: COM on the left, NC upper right, NO lower right
-k4c, k4p1, k4p2 = relay(sh, "RLY4", P(169, 97), P(163, 81), P(163, 73), rot_coil=180, rot1=270, rot2=270,
+k4c, k4p1, k4p2 = relay(sh, "RLY4", P(169, 97), P(163, 81), P(163, 73), rot1=270, rot2=270,
                         coil_text=-10)
-k5c, k5p1, k5p2 = relay(sh, "RLY5", P(209, 111), P(203, 93), P(203, 83), rot_coil=180, rot1=270, rot2=270)
+k5c, k5p1, k5p2 = relay(sh, "RLY5", P(209, 111), P(203, 93), P(203, 83), rot1=270, rot2=270)
 sh.wire(c15r, k4p2.pin(6))                              # #00082
 sh.wire(P(153, GRID), P(153, 81), k4p1.pin(2))          # #00073
 glabel_right(sh, "EQ1", k4p2.pin(7), 6)

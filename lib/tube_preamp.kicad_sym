@@ -1067,7 +1067,7 @@
 				)
 			)
 		)
-		(property "Description" "Omron G5V-2 DPDT relay; Proteus ids DC1=4 DC2=5 (coil, unit A), COM1=2 NC1=3 AC1(NO)=1 (unit B), COM2=6 NC2=7 AC2(NO)=8 (unit C)"
+		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1172,25 +1172,7 @@
 			(pin passive line
 				(at 0 7.62 270)
 				(length 2.54)
-				(name "DC1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "4"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 0 -7.62 90)
-				(length 2.54)
-				(name "DC2"
+				(name "COIL1"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1205,103 +1187,17 @@
 					)
 				)
 			)
-		)
-		(symbol "G5V-2_2_1"
-			(polyline
-				(pts
-					(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type outline)
-				)
-			)
-			(polyline
-				(pts
-					(xy 0 -2.54) (xy -1.905 3.81)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy 0 -2.54) (xy 0 -5.08)
-				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
 			(pin passive line
 				(at 0 -7.62 90)
 				(length 2.54)
-				(name "COM1"
+				(name "COIL16"
 					(effects
 						(font
 							(size 1.27 1.27)
 						)
 					)
 				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at -2.54 7.62 270)
-				(length 2.54)
-				(name "NC1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "3"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 2.54 7.62 270)
-				(length 2.54)
-				(name "AC1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
+				(number "4"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1360,16 +1256,16 @@
 				)
 			)
 			(pin passive line
-				(at 2.54 7.62 270)
+				(at 0 -7.62 90)
 				(length 2.54)
-				(name "AC2"
+				(name "COM4"
 					(effects
 						(font
 							(size 1.27 1.27)
 						)
 					)
 				)
-				(number "8"
+				(number "6"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1380,7 +1276,7 @@
 			(pin passive line
 				(at -2.54 7.62 270)
 				(length 2.54)
-				(name "NC2"
+				(name "NC6"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1396,16 +1292,120 @@
 				)
 			)
 			(pin passive line
-				(at 0 -7.62 90)
+				(at 2.54 7.62 270)
 				(length 2.54)
-				(name "COM2"
+				(name "NO8"
 					(effects
 						(font
 							(size 1.27 1.27)
 						)
 					)
 				)
-				(number "6"
+				(number "8"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(symbol "G5V-2_2_1"
+			(polyline
+				(pts
+					(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type outline)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 -2.54) (xy -1.905 3.81)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 -2.54) (xy 0 -5.08)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin passive line
+				(at 2.54 7.62 270)
+				(length 2.54)
+				(name "NO9"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -2.54 7.62 270)
+				(length 2.54)
+				(name "NC11"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -7.62 90)
+				(length 2.54)
+				(name "COM13"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
 					(effects
 						(font
 							(size 1.27 1.27)

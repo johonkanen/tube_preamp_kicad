@@ -10,7 +10,8 @@ definitions in ROOT.DSN (read by hand, pilot p2k candidate 4):
   J112 (device $PINSHORT, TO92)       D=1 S=2 G=3   (= KiCad Q_NJFET_DSG; source / drain swap per part
                                       on the board, see STATUS.md: follow the IPC per refdes)
   G5V-2(HI) (*PINOUT G5V-2(HI))       AC1=1 COM1=2 NC1=3 DC1=4 DC2=5 COM2=6 NC2=7 AC2=8
-                                      (AC = the make / normally open contact, DC = coil)
+                                      (AC = the make / normally open contact, DC = coil); the
+                                      symbol uses Omron's terminal names (finding 14, g5v2())
   1N4001                              A, K
   electrolytics                       C2 / C30: +, - ; C28 / C33-C37 (*PINOUT ELEC D16 R7.5): 1 = -, 2 = +
 No power symbols: the IPC has no =POWER nets.
@@ -75,6 +76,30 @@ def ecc83():
     return pin_types(sym, {"1": PAS, "3": PAS, "6": PAS, "8": PAS, "4": PAS, "5": PAS, "9": PAS})
 
 
+def g5v2():
+    # Omron G5V-2 (finding 14, user decision 2026-11-20: relabelled to Omron's terminals). KiCad's
+    # G5V-2_Split: unit 1 = coil 1 (top) / 16 (bottom), unit 2 = pole COM 4 / NC 6 / NO 8, unit 3 =
+    # pole COM 13 / NC 11 / NO 9 (poles drawn identically). The Proteus pads sit on the Omron
+    # terminals as the footprint renumbering says (tools/gen_footprints.py, checked by
+    # tools/check_pin_order.py): Proteus 4 / 2 / 3 / 1 on Omron 16 / 13 / 11 / 9 and Proteus
+    # 5 / 6 / 7 / 8 on Omron 1 / 4 / 6 / 8. The symbol now uses the same physical mapping (Phase 1
+    # had the mirror image, Proteus 4 on Omron 1). Pin NUMBERS stay the Proteus / IPC ids (every
+    # check compares against the IPC); pin NAMES are Omron's terminal names (hidden, as before; they
+    # appear in KiCad's net names, e.g. Net-(RLY4B-COM13)). Units 2 and 3 are swapped so that unit
+    # B stays the Proteus pole 1 (Omron 13 / 11 / 9) and unit C the Proteus pole 2 (Omron 4 / 6 / 8),
+    # and the sheets place the coil unrotated (Proteus 5 = Omron 1 at the top). Electrically
+    # identical to the Phase 1 symbol: every pin number on the same net.
+    sym = from_std("Relay", "G5V-2_Split", "G5V-2", "RLY", "G5V-2(HI)",
+                   desc="Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: "
+                        "unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; "
+                        "unit C pole COM4 = 6, NC6 = 7, NO8 = 8",
+                   pins={"16": "4", "1": "5", "13": "2", "11": "3", "9": "1", "4": "6", "6": "7", "8": "8"},
+                   names={"4": "COIL16", "5": "COIL1", "2": "COM13", "3": "NC11", "1": "NO9",
+                          "6": "COM4", "7": "NC6", "8": "NO8"})
+    swap_units(sym, 2, 3)
+    return hide_pin_names(sym)
+
+
 def build():
     syms = [
         from_std("Device", "R", "R", "R", "R"),
@@ -87,12 +112,7 @@ def build():
         from_std("Device", "D", "D", "D", desc="Diode, Proteus pins A/K", pins={"1": "K", "2": "A"}),
         from_std("Device", "Q_NJFET_DSG", "J112", "Q", "J112",
                  desc="N-channel JFET J112, TO-92; Proteus ids 1=D 2=S 3=G"),
-        hide_pin_names(from_std("Relay", "G5V-2_Split", "G5V-2", "RLY", "G5V-2(HI)",
-                 desc="Omron G5V-2 DPDT relay; Proteus ids DC1=4 DC2=5 (coil, unit A), "
-                      "COM1=2 NC1=3 AC1(NO)=1 (unit B), COM2=6 NC2=7 AC2(NO)=8 (unit C)",
-                 pins={"1": "4", "16": "5", "4": "2", "6": "3", "8": "1", "13": "6", "11": "7", "9": "8"},
-                 names={"4": "DC1", "5": "DC2", "2": "COM1", "3": "NC1", "1": "AC1", "6": "COM2",
-                        "7": "NC2", "8": "AC2"})),
+        g5v2(),
         ecc83(),
         from_std("Connector", "TestPoint", "PIN", "J", "TERMINAL",
                  desc="Proteus TERMINAL: one fly-lead pad (package PIN)"),

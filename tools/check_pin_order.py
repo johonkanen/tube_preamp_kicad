@@ -17,7 +17,10 @@ positions at 36 deg, gap between 9 and 1) on the Proteus pitch circle.
 The G5V-2 pad pattern (2 columns x 4 rows) is mirror-symmetric, so two renumberings of the Omron
 pads describe the same relay: the one used by tools/gen_footprints.py (Proteus 4/2/3/1 on the Omron
 16/13/11/9 column, fits unmirrored) and the column-for-column reading of the Phase 1 symbol mapping
-(Proteus 4/2/3/1 on Omron 1/4/6/8, fits only mirrored). Both are checked.
+(Proteus 4/2/3/1 on Omron 1/4/6/8, fits only mirrored). Since the design fixes of 2026-11-20
+(finding 14) the symbol carries Omron's terminal names (COIL16, COM13, NO9, ...): the Omron numbers
+are read from the pin names of lib/tube_preamp.kicad_sym and must fit the IPC pads unmirrored, i.e.
+name the same Omron terminals as the footprint renumbering (relay_symbol_map()).
 
 Phase 5 (user decision 2026-11-20: the sockets are on the BOTTOM side): the project footprint
 tube_preamp:Valve_Noval_Belton_PCD21.00mm has the standard noval numbering in its own view (fits
@@ -51,7 +54,26 @@ from gen_footprints import PROJECT  # noqa: E402  (the renumberings checked here
 NOVALS = "U1 U2 U3"
 NOVAL = "tube_preamp:Valve_Noval_Belton_PCD21.00mm"
 RELAY_FP = PROJECT["Relay_DPDT_Omron_G5V-2_ProteusPins"]["renumber"]
-RELAY_SYM = {"1": "4", "4": "2", "6": "3", "8": "1", "16": "5", "13": "6", "11": "7", "9": "8"}
+
+
+def relay_symbol_map():
+    """{Omron terminal: pin number} from the G5V-2 symbol of the generated library: each pin name is
+    Omron's terminal name (COIL / COM / NC / NO + the Omron terminal number), the pin number the
+    Proteus id (finding 14)."""
+    import re
+    lib = sexpr.load(os.path.join("lib", "tube_preamp.kicad_sym"))
+    sym = next(s for s in sexpr.find_all(lib, "symbol") if s[1] == "G5V-2")
+    out = {}
+    for pin in sexpr.walk(sym, "pin"):
+        name, num = sexpr.find(pin, "name")[1], sexpr.find(pin, "number")[1]
+        m = re.fullmatch(r"(COIL|COM|NC|NO)(\d+)", name)
+        assert m, f"G5V-2 pin {num}: name {name!r} is not an Omron terminal name"
+        out[m.group(2)] = num
+    assert len(out) == 8, out
+    return out
+
+
+RELAY_SYM = relay_symbol_map()
 CHECKS = [
     ("Q1 Q2 Q3 Q4 Q5 Q6 Q7 Q8 Q9", "Package_TO_SOT_THT:TO-92_Inline_Wide",
      PROJECT["TO-92_Inline_P2.03mm"].get("renumber", {})),
@@ -73,7 +95,7 @@ EXPECT = {
     "C30": (False, 0.01),
     "C28 C33 C34 C35 C36 C37": (False, 0.01),
     "RLY1 RLY2 RLY3 RLY4 RLY5": (False, 0.01),
-    "RLY1 RLY2 RLY3 RLY4 RLY5 (symbol map)": (True, 0.01),
+    "RLY1 RLY2 RLY3 RLY4 RLY5 (symbol map)": (False, 0.01),   # Omron pin names (finding 14); Phase 1: mirrored
     NOVALS: (True, 3.1),           # only the MIRRORED KiCad noval matches the Proteus numbering
 }
 # Derived project footprints (gen_footprints PROJECT with a base): how far their pads may sit from

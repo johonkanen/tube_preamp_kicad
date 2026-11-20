@@ -128,8 +128,8 @@ gnd(P(93, 91))
 
 # --- relays -----------------------------------------------------------------------------------------
 # pole units turned 270: COM on the left, NC upper right, NO lower right
-k1c, k1p1, k1p2 = relay(sh, "RLY1", P(149, 46), P(148, 33), P(148, 25), rot_coil=180, rot1=270, rot2=270)
-k2c, k2p1, k2p2 = relay(sh, "RLY2", P(191, 46), P(190, 31), P(190, 23), rot_coil=180, rot1=270, rot2=270)
+k1c, k1p1, k1p2 = relay(sh, "RLY1", P(149, 46), P(148, 33), P(148, 25), rot1=270, rot2=270)
+k2c, k2p1, k2p2 = relay(sh, "RLY2", P(191, 46), P(190, 31), P(190, 23), rot1=270, rot2=270)
 sh.wire(c1r, k1p2.pin(6))                               # #00017
 sh.wire(P(131, GRID), P(131, 33), k1p1.pin(2))          # #00005
 sh.wire(k1p2.pin(7), k2p2.pin(6))                       # #00018

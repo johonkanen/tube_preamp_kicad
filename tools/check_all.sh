@@ -40,6 +40,9 @@ step "Gerber round trip vs Proteus (copper XOR, coverage, drills, 2010 Excellon)
 # Phase 5: ipc356_diff / gerber_roundtrip accept DRILL_SMALLER by diameter pair only; this board-local
 # check (ported from the PI / FX loop board) requires the smaller drills to be exactly the decided pads.
 step "Smaller KiCad drills are exactly the 80 decided holes" tools/p2k/bin/kipy tools/check_drill_smaller.py
+# Design fixes 2026-11-20: the Proteus track pieces of findings 16 / 20 are not built (REMOVED_TRACKS);
+# the removed pieces are exactly the decided ones and none is on the board.
+step "Removed Proteus track pieces are exactly the 9 decided ones" python3 tools/check_removed_tracks.py
 
 echo
 [ $fail -eq 0 ] && echo "ALL CHECKS PASSED" || echo "SOME CHECKS FAILED"

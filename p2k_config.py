@@ -158,6 +158,27 @@ DRC_ACCEPTED = {
                             "the B-side noval socket courtyards: a THT pad is on both sides)",
 }
 
+# --- Recorded copper deviations (p2k.pcb: gerber_to_tracks, gerber_roundtrip) ---------
+
+# Proteus Conductor draws not built (user decision 2026-11-20, "Design fixes 2026-11-20" in
+# STATUS.md; reverses Phase 5 decision 3): the dangling stub of finding 16 and the zero-length /
+# very short track pieces of finding 20. Each lies on its own net's copper (a joint of the 2010
+# routing), so removing it changes no connection (assign_nets / check_board / DRC parity unchanged).
+# Key (layer, x1, y1, x2, y2) in the IPC / Gerber frame (Y up), exactly as the Proteus draw; every
+# entry must match a draw (gerber_to_tracks fails otherwise).
+REMOVED_TRACKS = {
+    ("B.Cu", 88.9, -0.762, 88.9, -0.6985):
+        "finding 16: 0.0635 mm dangling stub inside the RLY4-2 track bend (Net-(RLY4B-COM13)), DRC track_dangling",
+    ("F.Cu", -61.087, -1.905, -61.087, -1.905): "finding 20: zero-length draw on the RLY3 NC track (Net-(RLY3B-NC11))",
+    ("F.Cu", -61.722, -22.225, -61.722, -22.225): "finding 20: zero-length draw on H4",
+    ("F.Cu", -139.7635, -16.5735, -139.7635, -16.4465): "finding 20: 0.127 mm piece on PRE-GND",
+    ("F.Cu", -130.81, -38.735, -130.8735, -38.7985): "finding 20: 0.090 mm piece on PRE-GND",
+    ("F.Cu", -60.96, -1.905, -61.087, -1.905): "finding 20: 0.127 mm piece on the RLY3 NC track (Net-(RLY3B-NC11))",
+    ("B.Cu", -18.87074, 24.13, -19.05, 24.13): "finding 20: 0.179 mm piece on H5",
+    ("B.Cu", -114.427, -18.415, -114.3, -18.415): "finding 20: 0.127 mm piece on H4",
+    ("B.Cu", -43.942, -6.858, -43.942, -6.985): "finding 20: 0.127 mm piece on PRE-GND",
+}
+
 # --- Phase 4 checks (p2k.ipc356_diff, p2k.gerber_roundtrip) ---------------------------
 
 # KiCad footprint drills smaller than the Proteus drill, kept by the user (2026-11-20;

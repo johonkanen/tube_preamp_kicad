@@ -117,9 +117,10 @@ def tube(sh, ref, a, b, heater, rot_a=0, rot_b=0, rot_h=0, mirror_b=False):
 
 
 def relay(sh, ref, coil, pole1, pole2, rot_coil=0, rot1=0, rot2=0, coil_text=-12):
-    """All three units of a G5V-2 relay (RLY1-RLY5): unit 1 = coil (DC1 = 4, DC2 = 5) at `coil`,
-    unit 2 = pole 1 (COM1 = 2, NC1 = 3, AC1/NO = 1) at `pole1`, unit 3 = pole 2 (COM2 = 6, NC2 = 7,
-    AC2/NO = 8) at `pole2`. Texts (centred, horizontal): beside the coil (coil_text grid units from
+    """All three units of a G5V-2 relay (RLY1-RLY5): unit 1 = coil (Proteus DC1 = 4 on Omron COIL16,
+    DC2 = 5 on Omron COIL1; unrotated: pin 5 at the top) at `coil`, unit 2 = Proteus pole 1 (COM1 = 2,
+    NC1 = 3, AC1/NO = 1 on Omron COM13 / NC11 / NO9) at `pole1`, unit 3 = Proteus pole 2 (COM2 = 6,
+    NC2 = 7, AC2/NO = 8 on Omron COM4 / NC6 / NO8) at `pole2` (finding 14). Texts (centred, horizontal): beside the coil (coil_text grid units from
     its centre) and above each pole. Returns (coil, pole1, pole2) Placed objects."""
     out = []
     for u, (x, y), rot in ((1, coil, rot_coil), (2, pole1, rot1), (3, pole2, rot2)):

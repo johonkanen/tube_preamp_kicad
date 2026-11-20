@@ -600,7 +600,7 @@
 					)
 				)
 			)
-			(property "Description" "Omron G5V-2 DPDT relay; Proteus ids DC1=4 DC2=5 (coil, unit A), COM1=2 NC1=3 AC1(NO)=1 (unit B), COM2=6 NC2=7 AC2(NO)=8 (unit C)"
+			(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -705,25 +705,7 @@
 				(pin passive line
 					(at 0 7.62 270)
 					(length 2.54)
-					(name "DC1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "DC2"
+					(name "COIL1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -738,103 +720,17 @@
 						)
 					)
 				)
-			)
-			(symbol "G5V-2_2_1"
-				(polyline
-					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(pin passive line
 					(at 0 -7.62 90)
 					(length 2.54)
-					(name "COM1"
+					(name "COIL16"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "NC1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "AC1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -893,16 +789,16 @@
 					)
 				)
 				(pin passive line
-					(at 2.54 7.62 270)
+					(at 0 -7.62 90)
 					(length 2.54)
-					(name "AC2"
+					(name "COM4"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "8"
+					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -913,7 +809,7 @@
 				(pin passive line
 					(at -2.54 7.62 270)
 					(length 2.54)
-					(name "NC2"
+					(name "NC6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -929,16 +825,120 @@
 					)
 				)
 				(pin passive line
-					(at 0 -7.62 90)
+					(at 2.54 7.62 270)
 					(length 2.54)
-					(name "COM2"
+					(name "NO8"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "6"
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "G5V-2_2_1"
+				(polyline
+					(pts
+						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy -1.905 3.81)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 0 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 2.54 7.62 270)
+					(length 2.54)
+					(name "NO9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -2.54 7.62 270)
+					(length 2.54)
+					(name "NC11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "COM13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1946,7 +1946,7 @@
 	)
 	(symbol
 		(lib_id "tube_preamp:G5V-2")
-		(at 78.74 115.57 180)
+		(at 78.74 115.57 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1970,12 +1970,12 @@
 			)
 		)
 		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
-			(at 72.39 111.76 0)
+			(at 85.09 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -1988,7 +1988,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Omron G5V-2 DPDT relay; Proteus ids DC1=4 DC2=5 (coil, unit A), COM1=2 NC1=3 AC1(NO)=1 (unit B), COM2=6 NC2=7 AC2(NO)=8 (unit C)"
+		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
 			(at 78.74 115.57 0)
 			(effects
 				(font
@@ -1997,11 +1997,11 @@
 				(hide yes)
 			)
 		)
-		(pin "4"
-			(uuid "e8dd5056-13c9-5d56-868a-b64c59d60fc3")
-		)
 		(pin "5"
 			(uuid "6e3d6e5d-7850-50ab-9643-2b04240dd798")
+		)
+		(pin "4"
+			(uuid "e8dd5056-13c9-5d56-868a-b64c59d60fc3")
 		)
 		(instances
 			(project "tube_preamp"
@@ -2056,7 +2056,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Omron G5V-2 DPDT relay; Proteus ids DC1=4 DC2=5 (coil, unit A), COM1=2 NC1=3 AC1(NO)=1 (unit B), COM2=6 NC2=7 AC2(NO)=8 (unit C)"
+		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
 			(at 78.74 97.79 0)
 			(effects
 				(font
@@ -2065,14 +2065,14 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "6bd5115a-3ec0-532c-b752-6d92d5fb87c5")
+		(pin "1"
+			(uuid "2c1b6588-002e-54e6-8ebc-a394ff45528b")
 		)
 		(pin "3"
 			(uuid "c04b28ec-6c78-5e95-973f-d908f17c9bb6")
 		)
-		(pin "1"
-			(uuid "2c1b6588-002e-54e6-8ebc-a394ff45528b")
+		(pin "2"
+			(uuid "6bd5115a-3ec0-532c-b752-6d92d5fb87c5")
 		)
 		(instances
 			(project "tube_preamp"
@@ -2127,7 +2127,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Omron G5V-2 DPDT relay; Proteus ids DC1=4 DC2=5 (coil, unit A), COM1=2 NC1=3 AC1(NO)=1 (unit B), COM2=6 NC2=7 AC2(NO)=8 (unit C)"
+		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
 			(at 78.74 87.63 0)
 			(effects
 				(font
@@ -2136,14 +2136,14 @@
 				(hide yes)
 			)
 		)
-		(pin "8"
-			(uuid "b08404aa-10ba-5015-800d-1f358ef3264c")
+		(pin "6"
+			(uuid "0ed2406e-a55e-5c94-90ec-f1b0d64d144b")
 		)
 		(pin "7"
 			(uuid "472d2ade-8d07-51cc-b5cf-976cd6aa945d")
 		)
-		(pin "6"
-			(uuid "0ed2406e-a55e-5c94-90ec-f1b0d64d144b")
+		(pin "8"
+			(uuid "b08404aa-10ba-5015-800d-1f358ef3264c")
 		)
 		(instances
 			(project "tube_preamp"

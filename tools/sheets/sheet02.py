@@ -44,7 +44,7 @@ def jfet(ref, x, y):
 ua, ub, uh = tube(sh, "U2", P(97, GRID), P(111, GRID), P(100, 91), mirror_b=True)
 
 # --- RLY3: pole 2 EQ -> PRE2 (NC), pole 1 PRE1 -> R16 (NC); both NO contacts joined (#00062) ----------
-kc, kp1, kp2 = relay(sh, "RLY3", P(22, 61), P(22, 47), P(22, 39), rot_coil=180, rot1=270, rot2=270)
+kc, kp1, kp2 = relay(sh, "RLY3", P(22, 61), P(22, 47), P(22, 39), rot1=270, rot2=270)
 glabel_left(sh, "EQ", kp2.pin(6), 4)
 glabel_left(sh, "PRE1", kp1.pin(2), 4)
 label_right(sh, "PRE2", kp2.pin(7), 5)

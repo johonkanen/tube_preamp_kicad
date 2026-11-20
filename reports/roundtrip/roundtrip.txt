@@ -2,10 +2,11 @@ Gerber round trip: KiCad plot of kicad/tube_preamp.kicad_pcb vs the Proteus CADC
 raster 0.025 mm/px, tolerance 0.05 mm, clusters >= 0.01 mm^2 counted, positions in the IPC frame (mm, Y up)
 board outline -195.357 .. 187.433 x -45.73 .. 26.175 mm
 
+== F.Cu: Proteus objects not compared (recorded deviations): 5 Conductor draws (REMOVED_TRACKS)
 == F.Cu: Proteus copper 3951.6 mm^2, KiCad copper 3736.4 mm^2
    raw XOR 260.90 mm^2; after 0.05 mm tolerance: only Proteus 188.53 mm^2, only KiCad 12.69 mm^2, 828 clusters (489 below 0.01 mm^2)
    pad shape   339 clusters, 200.52 mm^2
-   coverage: Proteus 406 draws / 366 flashes, 0 not on KiCad copper (0 explained by clearance / pad shape); KiCad 402 draws / 366 flashes, 0 not on Proteus copper (0 explained by pad shape)
+   coverage: Proteus 401 draws / 366 flashes, 0 not on KiCad copper (0 explained by clearance / pad shape); KiCad 397 draws / 366 flashes, 0 not on Proteus copper (0 explained by pad shape)
    pad shape    43 clusters, only KiCad   0.00 mm^2, only Proteus 123.96 mm^2  tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins  (5 parts: RLY1 RLY2 RLY3 RLY4 RLY5)
    pad shape    30 clusters, only KiCad   0.00 mm^2, only Proteus  25.56 mm^2  tube_preamp:C_Rect_L16.5mm_W7.0mm_P9.70mm  (14 parts: C11 C12 C13 C16 C17 C19 ...)
    pad shape   108 clusters, only KiCad   0.00 mm^2, only Proteus  19.84 mm^2  Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal  (46 parts: R1 R10 R11 R12 R13 R14 ...)
@@ -359,10 +360,11 @@ board outline -195.357 .. 187.433 x -45.73 .. 26.175 mm
    pad shape  only Proteus  0.011 mm^2 at ( 131.831,  -39.629) 0.38x0.38 mm  near C37-1 (PRE-GND) 1.26 mm, via (J2) 19.03 mm
    pad shape  only KiCad    0.010 mm^2 at ( 104.323,  -26.069) 0.08x0.20 mm  near D4-K (#00081) 1.24 mm, via (J2) 14.37 mm
 
-== B.Cu: Proteus copper 3586.7 mm^2, KiCad copper 3368.3 mm^2
+== B.Cu: Proteus objects not compared (recorded deviations): 4 Conductor draws (REMOVED_TRACKS)
+== B.Cu: Proteus copper 3586.6 mm^2, KiCad copper 3368.3 mm^2
    raw XOR 264.42 mm^2; after 0.05 mm tolerance: only Proteus 190.62 mm^2, only KiCad 12.56 mm^2, 830 clusters (513 below 0.01 mm^2)
    pad shape   317 clusters, 202.43 mm^2
-   coverage: Proteus 349 draws / 366 flashes, 0 not on KiCad copper (0 explained by clearance / pad shape); KiCad 345 draws / 366 flashes, 0 not on Proteus copper (0 explained by pad shape)
+   coverage: Proteus 345 draws / 366 flashes, 0 not on KiCad copper (0 explained by clearance / pad shape); KiCad 341 draws / 366 flashes, 0 not on Proteus copper (0 explained by pad shape)
    pad shape    42 clusters, only KiCad   0.00 mm^2, only Proteus 124.99 mm^2  tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins  (5 parts: RLY1 RLY2 RLY3 RLY4 RLY5)
    pad shape    31 clusters, only KiCad   0.00 mm^2, only Proteus  25.48 mm^2  tube_preamp:C_Rect_L16.5mm_W7.0mm_P9.70mm  (14 parts: C11 C12 C13 C16 C17 C19 ...)
    pad shape    99 clusters, only KiCad   0.00 mm^2, only Proteus  20.25 mm^2  Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal  (46 parts: R1 R10 R11 R12 R13 R14 ...)

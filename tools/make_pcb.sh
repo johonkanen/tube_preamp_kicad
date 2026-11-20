@@ -20,12 +20,14 @@ set -eu
 cd "$(dirname "$0")/.."
 K=tools/p2k/bin/kipy
 PCB=kicad/tube_preamp.kicad_pcb
+# Each step returns on failure explicitly: `run ... || {...}` below disables set -e inside run
+# (found 2026-11-20: a gerber_to_tracks error was passed over and filtered from the --check output).
 run() {
-    $K -m p2k.build_pcb
-    $K tools/rename_holes.py
-    $K -m p2k.gerber_to_tracks
-    $K -m p2k.assign_nets
-    $K -m p2k.place_refdes
+    $K -m p2k.build_pcb || return 1
+    $K tools/rename_holes.py || return 1
+    $K -m p2k.gerber_to_tracks || return 1
+    $K -m p2k.assign_nets || return 1
+    $K -m p2k.place_refdes || return 1
 }
 if [ "${1:-}" = "--check" ]; then
     tmp="$PWD/build/tmp/make_pcb_check"
