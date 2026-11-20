@@ -91,22 +91,71 @@ def place_mirrored(sh, name, ref, x, y, axis="x", **kw):
 
 
 # --- multi-unit symbols ------------------------------------------------------------------------------
-def tube(sh, ref, a, b, heater, rot_a=0, rot_b=0, rot_h=0):
+_FIELD_ANGLE = {0: 0, 90: 270, 180: 0, 270: 90}    # field angle that reads horizontally on a rotated symbol
+
+
+def tube(sh, ref, a, b, heater, rot_a=0, rot_b=0, rot_h=0, mirror_b=False):
     """All three units of a 12AX7 (U1-U3): unit 1 = triode A (A1 G1 K1 = pins 1 2 3) at `a`, unit 2 =
     triode B (A2 G2 K2 = 6 7 8) at `b`, unit 3 = heater (H1 H2 = 4 5) at `heater`; pin 9 (HCT, N/C
-    in Proteus) gets a no-connect flag here. Returns (unit1, unit2, unit3) Placed objects (.pin(n))."""
-    units = tuple(sh.place(sym(ref), ref, *p, rot, unit=u, value=sh_value(ref))
-                  for u, p, rot in ((1, a, rot_a), (2, b, rot_b), (3, heater, rot_h)))
-    sh.no_connect(*units[2].pin("9"))
-    return units
+    in Proteus) gets a no-connect flag here. mirror_b: triode B mirrored about the Y axis (grid and
+    cathode on the right, as the right half of the Proteus dual-triode symbol; rot_b must be 0).
+    Returns (unit1, unit2, unit3) Placed objects (.pin(n))."""
+    val = sh_value(ref)
+    def texts(x, y, side, rot):          # reference and value beside the top of the envelope
+        tx = round(x + side * g(6), 4)
+        fa = _FIELD_ANGLE[rot % 360]
+        return dict(ref_at=(tx, round(y - g(8), 4), fa, None), value_at=(tx, round(y - g(6.5), 4), fa, None))
+
+    ua = sh.place(sym(ref), ref, *a, rot_a, unit=1, value=val, **texts(*a, -1, rot_a))
+    if mirror_b:
+        ub = place_mirrored(sh, sym(ref), ref, *b, axis="y", unit=2, value=val, **texts(*b, 1, 0))
+    else:
+        ub = sh.place(sym(ref), ref, *b, rot_b, unit=2, value=val, **texts(*b, 1, rot_b))
+    uh = sh.place(sym(ref), ref, *heater, rot_h, unit=3, value=val)
+    sh.no_connect(*uh.pin("9"))
+    return ua, ub, uh
 
 
-def relay(sh, ref, coil, pole1, pole2, rot_coil=0, rot1=0, rot2=0):
+def relay(sh, ref, coil, pole1, pole2, rot_coil=0, rot1=0, rot2=0, coil_text=-12):
     """All three units of a G5V-2 relay (RLY1-RLY5): unit 1 = coil (DC1 = 4, DC2 = 5) at `coil`,
     unit 2 = pole 1 (COM1 = 2, NC1 = 3, AC1/NO = 1) at `pole1`, unit 3 = pole 2 (COM2 = 6, NC2 = 7,
-    AC2/NO = 8) at `pole2`. Returns (coil, pole1, pole2) Placed objects."""
-    return tuple(sh.place(sym(ref), ref, *p, rot, unit=u, value=sh_value(ref))
-                 for u, p, rot in ((1, coil, rot_coil), (2, pole1, rot1), (3, pole2, rot2)))
+    AC2/NO = 8) at `pole2`. Texts (centred, horizontal): beside the coil (coil_text grid units from
+    its centre) and above each pole. Returns (coil, pole1, pole2) Placed objects."""
+    out = []
+    for u, (x, y), rot in ((1, coil, rot_coil), (2, pole1, rot1), (3, pole2, rot2)):
+        fa = _FIELD_ANGLE[rot % 360]
+        if u == 1:
+            tx, ty1, ty2 = round(x + g(coil_text), 4), round(y - g(1), 4), round(y + g(1), 4)
+        else:
+            tx, ty1, ty2 = round(x - g(2), 4), round(y - g(4.5), 4), round(y - g(3), 4)
+        out.append(sh.place(sym(ref), ref, x, y, rot, unit=u, value=sh_value(ref),
+                            ref_at=(tx, ty1, fa, None), value_at=(tx, ty2, fa, None)))
+    return tuple(out)
+
+
+# --- relay coil with its diode -------------------------------------------------------------------------
+def coil_block(sh, coil, dref, sw, xd=7, xsw=-6, ylab=6, sw_label=True):
+    """Diode `dref` across a relay coil (unit 1 placed with relay(), pin 5 at the top) and the
+    labels below it: cathode on coil pin 5 (the switch net `sw`, taken xsw grid units to the side
+    and down), anode on coil pin 4 = H4 (finding 4: the anode is on H4). xd = column of the diode
+    relative to the coil. sw_label=False: no label on the pin 5 node (RLY4: net #00081).
+    Returns (pin 5 node, pin 4 node)."""
+    top, bot = coil.pin("5"), coil.pin("4")
+    assert top[1] < bot[1] and top[0] == bot[0], "coil pin 5 must be at the top"
+    xdm = round(top[0] + g(xd), 4)
+    _, dt, db = vert2(sh, sym(dref), dref, xdm, round((top[1] + bot[1]) / 2, 4), sh_value(dref), top="K")
+    sh.wire(top, (xdm, top[1]), dt)
+    sh.wire(bot, (xdm, bot[1]), db)
+    yl = round(bot[1] + g(ylab), 4)
+    sh.wire(bot, (bot[0], yl))
+    sh.glabel("H4", bot[0], yl, 270)
+    sh.junction(*bot)
+    if sw_label:
+        xs = round(top[0] + g(xsw), 4)
+        sh.wire(top, (xs, top[1]), (xs, yl))
+        sh.glabel(sw, xs, yl, 270)
+        sh.junction(*top)
+    return top, bot
 
 
 # --- horizontal capacitors ---------------------------------------------------------------------------
