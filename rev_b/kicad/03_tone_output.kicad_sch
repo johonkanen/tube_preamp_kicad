@@ -1,0 +1,9018 @@
+(kicad_sch
+	(version 20260101)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "a452ee89-1eef-5d25-9948-fce74543cebe")
+	(paper "A2")
+	(title_block
+		(title "Tube preamp rev B - CF, Baxandalls, post gain, S4, output")
+		(company "Tube amplifier")
+		(rev "rev B (design D) - first draft")
+		(comment 1 "From tube_amplifier_kicad sim/preamp_voicing (design D) and docs/preamp_board_plan.md")
+	)
+	(lib_symbols
+		(symbol "tube_preamp_revb:C"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C"
+				(at 0.635 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Unpolarized capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_0_1"
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp_revb:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp_revb:ECC83"
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 3.302 7.874 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "ECC83"
+				(at 8.89 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Valve:Valve_Noval_P"
+				(at 6.858 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "http://www.r-type.org/pdfs/ecc83.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "double triode"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "triode valve"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "VALVE*NOVAL*P*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "ECC83_0_1"
+				(polyline
+					(pts
+						(xy -5.08 2.54) (xy -5.08 -2.54) (xy -5.08 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.08 2.54)
+					(mid 0 7.5979)
+					(end 5.08 2.54)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 5.08 -2.54)
+					(mid 0 -7.5979)
+					(end -5.08 -2.54)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 5.08 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "ECC83_1_0"
+				(polyline
+					(pts
+						(xy -2.54 -5.08) (xy -2.54 -7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 5.08) (xy 0 7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "ECC83_1_1"
+				(polyline
+					(pts
+						(xy -5.08 0) (xy -3.175 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 5.08) (xy 2.794 5.08) (xy 2.794 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 0) (xy -3.175 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.635 0) (xy 0.635 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.54 -5.08)
+					(mid 0 -3.0968)
+					(end 2.54 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 0) (xy 3.175 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin output line
+					(at 0 10.16 270)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -10.16 90)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "ECC83_2_0"
+				(polyline
+					(pts
+						(xy -2.54 -5.08) (xy -2.54 -7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 5.08) (xy 0 7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "ECC83_2_1"
+				(polyline
+					(pts
+						(xy -5.08 0) (xy -3.175 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 5.08) (xy 2.794 5.08) (xy 2.794 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 0) (xy -3.175 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.635 0) (xy 0.635 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.54 -5.08)
+					(mid 0 -3.0968)
+					(end 2.54 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 0) (xy 3.175 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin output line
+					(at 0 10.16 270)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -10.16 90)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "ECC83_3_1"
+				(arc
+					(start -2.54 -6.35)
+					(mid -1.27 -5.5651)
+					(end 0 -6.35)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -6.35)
+					(mid 1.27 -5.5651)
+					(end 2.54 -6.35)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -11.43 90)
+					(length 5.08)
+					(name "F1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 2.54 -11.43 90)
+					(length 5.08)
+					(name "F1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -11.43 90)
+					(length 5.08)
+					(name "F2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp_revb:GND"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "GND"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "GND_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp_revb:MMBFJ113"
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "Q"
+				(at 5.08 1.905 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "MMBFJ113"
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 5.08 -1.905 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+				)
+			)
+			(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBFJ113-D.PDF"
+				(at 5.08 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Description" "2mA min, 35V, 100mOhm max, 0.5-3V Vgs(off), N-Channel JFET, SOT-23"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "N-Channel FET Transistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "MMBFJ113_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy -1.016 0.381) (xy -1.016 -0.381) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 1.905) (xy 0.254 -1.905)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.27 0)
+					(radius 2.8194)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 2.54) (xy 2.54 1.397) (xy 0.254 1.397)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -2.54) (xy 2.54 -1.397) (xy 0.254 -1.397)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MMBFJ113_1_1"
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "S"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp_revb:C_Polarized"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Polarized"
+				(at 0.635 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Polarized capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "CP_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_Polarized_0_1"
+				(rectangle
+					(start -2.286 0.508)
+					(end 2.286 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 2.286) (xy -0.762 2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 2.794) (xy -1.27 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 2.286 -0.508)
+					(end -2.286 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "C_Polarized_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(text "03 Self-biased CF, three Baxandalls (each channel's own pots on its ribbon; TS-5 values with the fitted cap scaling), JFET-selected post-gain outputs into S4, attenuator and output mute (design D)."
+		(exclude_from_sim no)
+		(at 30.48 17.78 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "25a76d29-2928-547a-b4b3-d25ce8bc8d8e")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 30.48 53.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "70cc13f8-6696-5388-959c-e8f4b56102f5")
+		(property "Reference" "C301"
+			(at 35.22 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22n/630V"
+			(at 37.42 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 31.4452 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 30.48 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 30.48 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "310436f8-9682-592f-864b-e9305c245b22")
+		)
+		(pin "2"
+			(uuid "7c84d521-550b-5340-826a-f7288f4ad35c")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C301")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 30.48 49.53) (xy 30.48 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f25c0a95-7688-52cf-93e1-96e80b7419b3")
+	)
+	(global_label "P3"
+		(shape passive)
+		(at 30.48 46.99 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f023c3e2-10c0-544e-913d-c80613034068")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 30.48 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 30.48 57.15) (xy 30.48 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "993e4686-ed43-5034-80cf-ca9faab7dbe2")
+	)
+	(label "GCB"
+		(at 30.48 59.69 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5589a7df-db12-53ad-984a-b4dde529b1f5")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 50.8 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6a8afb4e-0bef-597f-876c-5572f4f3754a")
+		(property "Reference" "R301"
+			(at 50.8 33.02 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1M"
+			(at 50.8 38.1 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 50.8 37.338 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 50.8 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 50.8 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "77a5ede3-770d-53c4-be00-4de689a85ad9")
+		)
+		(pin "2"
+			(uuid "bc5e1552-2738-5ae2-8571-246e19454279")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R301")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 46.99 35.56) (xy 44.45 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f326fca1-c333-543d-bd7e-1abf23e26db5")
+	)
+	(global_label "VB90"
+		(shape passive)
+		(at 44.45 35.56 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b9e3b3b1-6b5a-5491-a6dc-e9bf4d8e2a8d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 44.45 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 54.61 35.56) (xy 57.15 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b738e09-1c84-5ff3-88a3-6f903a7a2cc0")
+	)
+	(label "GCB"
+		(at 57.15 35.56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e589ba0b-659c-50c7-b66f-477770d81deb")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:ECC83")
+		(at 91.44 53.34 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "40a3a2ac-0533-5191-8470-58bfc1dbc6b1")
+		(property "Reference" "V3"
+			(at 94.742 45.466 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "12AX7"
+			(at 100.33 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Valve:Valve_Noval_P"
+			(at 98.298 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.r-type.org/pdfs/ecc83.pdf"
+			(at 91.44 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "double triode"
+			(at 91.44 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7680997e-5754-57ea-afed-1eee5a41bfaf")
+		)
+		(pin "2"
+			(uuid "3b3535ed-c5ea-5fb9-b3c0-12fcd418e55e")
+		)
+		(pin "3"
+			(uuid "ccdfd647-9a36-5dd7-b894-6de6732004e8")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "V3")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 91.44 43.18) (xy 91.44 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ceba674d-4465-5e56-b988-2aff259aba7c")
+	)
+	(global_label "BP4"
+		(shape passive)
+		(at 91.44 40.64 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ac62a83d-ea6c-5402-b17e-cdf10dbe9974")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 91.44 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 83.82 53.34) (xy 81.28 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3440cd99-1b91-57e6-8d0a-9c865110d59b")
+	)
+	(label "GCB"
+		(at 81.28 53.34 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "84ebe514-af89-5620-ae49-05957a0e235f")
+	)
+	(wire
+		(pts
+			(xy 88.9 63.5) (xy 88.9 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5641c13d-e11c-54f1-9b76-b88368a340c1")
+	)
+	(label "KCF"
+		(at 88.9 66.04 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "adcd9c67-5ff9-564f-9e8e-e3b7bc5e870e")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 91.44 88.9 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ab03c4b2-a6cb-51a2-9f09-4e720f1e2864")
+		(property "Reference" "R302"
+			(at 91.44 86.36 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47k"
+			(at 91.44 91.44 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 91.44 90.678 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 91.44 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 91.44 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "33354669-f313-5d60-97b2-893aa25ab7e8")
+		)
+		(pin "2"
+			(uuid "042df2da-769c-57fc-8746-f84335e5ec77")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R302")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 87.63 88.9) (xy 85.09 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0264c613-c281-5f99-8957-66333b9bbd30")
+	)
+	(label "KCF"
+		(at 85.09 88.9 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0bafe5b6-1c8f-5413-8d2f-e5814c4f901b")
+	)
+	(wire
+		(pts
+			(xy 95.25 88.9) (xy 97.79 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "40a1a3b7-a004-5845-9f4a-b50c4f7575f4")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 97.79 88.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "14d042c5-5fc3-5fde-b7af-75626011a62f")
+		(property "Reference" "#PWR301"
+			(at 97.79 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 97.79 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 97.79 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 97.79 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "aeca8b89-c949-5bd9-a600-5e391b1c905e")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR301")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 111.76 53.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5921f9cf-993b-5ef5-9605-7dcef37060ee")
+		(property "Reference" "C302"
+			(at 116.5 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470n/250V"
+			(at 119.25 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 112.7252 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 111.76 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 111.76 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "43789168-8cb0-51bb-aa25-2548dfdf0001")
+		)
+		(pin "2"
+			(uuid "291c9376-f3e6-58fd-9430-23abc3100d5b")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C302")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 111.76 49.53) (xy 111.76 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4070a305-a434-55c1-be1c-71171a712c29")
+	)
+	(label "KCF"
+		(at 111.76 46.99 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5939a89a-eed1-52fb-91d3-413212a80cfd")
+	)
+	(wire
+		(pts
+			(xy 111.76 57.15) (xy 111.76 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eb0f11b2-97e0-53f8-9f32-43892a09c744")
+	)
+	(label "SIN"
+		(at 111.76 59.69 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "147cb120-af60-5527-891c-d06f8d01fd4f")
+	)
+	(text "clean Baxandall: bass / treble / post pots on J54"
+		(exclude_from_sim no)
+		(at 152.4 34.29 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8fa92e6a-e6c2-5870-99db-1925e8fe47de")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 152.4 44.45 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ecae1d29-fa89-56ad-88e9-6ca793c32b7f")
+		(property "Reference" "R303"
+			(at 157.14 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 157.14 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 150.622 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 152.4 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bedf5855-fd48-53ad-9f05-db6fae00bda0")
+		)
+		(pin "2"
+			(uuid "d9c05413-5e8f-59c5-916d-88dd8f0269d1")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R303")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 152.4 40.64) (xy 152.4 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fa4dfe0b-6638-5503-a9d6-4487c9a37214")
+	)
+	(label "SIN"
+		(at 152.4 38.1 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "03ae257f-442e-5003-871d-02655b3d45ab")
+	)
+	(wire
+		(pts
+			(xy 152.4 48.26) (xy 152.4 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3ae6b46d-66f4-54eb-bdf5-c868b11320c1")
+	)
+	(global_label "POT_BS_CL_TOP"
+		(shape passive)
+		(at 152.4 50.8 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "509a8284-2692-50c7-b728-044e604771f9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 152.4 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 172.72 62.23 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "aab5f802-621f-586e-8d69-2d6c815e3ae5")
+		(property "Reference" "C303"
+			(at 172.72 59.69 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "560p"
+			(at 172.72 64.77 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 176.53 61.2648 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 172.72 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 172.72 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "687b6592-cf96-5f8d-aaf8-580815282f7e")
+		)
+		(pin "2"
+			(uuid "353beaee-1627-5996-a5dd-0b93e8e6cd42")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C303")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 168.91 62.23) (xy 166.37 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f3b8c4c-919b-594f-a3d0-a2442fcbaa91")
+	)
+	(global_label "POT_BS_CL_TOP"
+		(shape passive)
+		(at 166.37 62.23 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "994f9987-607f-5451-aba3-e3e4a9960f69")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 166.37 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 176.53 62.23) (xy 179.07 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "970f5155-d82c-5968-bc11-cd8a18828b69")
+	)
+	(global_label "POT_BS_CL_W"
+		(shape passive)
+		(at 179.07 62.23 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3be8f354-294e-5b12-ac8a-847373398304")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 179.07 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 193.04 62.23 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dfd2a3ed-0bcc-5183-b53c-d96750b89b69")
+		(property "Reference" "C304"
+			(at 193.04 59.69 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "5.6n"
+			(at 193.04 64.77 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 196.85 61.2648 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 193.04 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "af28dc9e-e883-5ded-8cf9-b9fa99cb9559")
+		)
+		(pin "2"
+			(uuid "8f6e4313-1349-5f07-bdb9-33c7084ca04c")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C304")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 189.23 62.23) (xy 186.69 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "924319bf-5a16-5df3-a741-ff5f32b02850")
+	)
+	(global_label "POT_BS_CL_W"
+		(shape passive)
+		(at 186.69 62.23 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "cbd0bfd9-72cb-5a32-a12f-bc3cade671f5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 186.69 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 196.85 62.23) (xy 199.39 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9804832c-5f90-516b-ae35-acdd04aadb63")
+	)
+	(global_label "POT_BS_CL_BOT"
+		(shape passive)
+		(at 199.39 62.23 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "61957301-41f9-580e-b5d7-5f3cfa3676b8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 199.39 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 193.04 97.79 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e26f142b-5ebf-5928-a079-0f139ec44d23")
+		(property "Reference" "R304"
+			(at 193.04 95.25 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22k"
+			(at 193.04 100.33 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 99.568 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 193.04 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d6597586-7231-51fb-9f4e-cb984179e7f4")
+		)
+		(pin "2"
+			(uuid "1f137164-aed1-56c9-88f4-403345e3dab6")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R304")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 189.23 97.79) (xy 186.69 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21aa5340-495f-5c4d-ba7d-4ff096890277")
+	)
+	(global_label "POT_BS_CL_BOT"
+		(shape passive)
+		(at 186.69 97.79 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "75b8104d-254a-5dee-9edf-d0fa8af37989")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 186.69 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 196.85 97.79) (xy 199.39 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e74ff9f4-7940-544e-9dac-777f6ff36481")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 199.39 97.79 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5f56e643-4010-5490-834f-39739e0256d6")
+		(property "Reference" "#PWR302"
+			(at 199.39 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 199.39 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 199.39 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 199.39 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 199.39 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d18cf1d8-9852-5d8a-af02-23e84c57ab17")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR302")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 213.36 44.45 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bd591d49-5508-593f-98e4-a738d6ea7588")
+		(property "Reference" "R305"
+			(at 218.1 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 218.1 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 211.582 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 213.36 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 213.36 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5307700c-57fe-5071-9499-7ba685f7c622")
+		)
+		(pin "2"
+			(uuid "74044b07-8268-5501-b392-50c2bf900eae")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R305")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 213.36 40.64) (xy 213.36 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5f86959c-7694-50d9-b775-dd77fed32b24")
+	)
+	(global_label "POT_BS_CL_W"
+		(shape passive)
+		(at 213.36 38.1 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2bc23c29-b514-512f-91e2-4d755b5dc387")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 213.36 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 213.36 48.26) (xy 213.36 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68d95e7f-3c32-5a52-bfe1-2af2bb6bcec2")
+	)
+	(global_label "POT_TR_CL_W"
+		(shape passive)
+		(at 213.36 50.8 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a2e7d745-fb24-5c9a-bcdd-60837a71a0e0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 213.36 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 233.68 44.45 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1b363e40-6289-544e-91d0-34f25ec46bbe")
+		(property "Reference" "C305"
+			(at 238.42 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470p"
+			(at 238.42 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 234.6452 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 233.68 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 233.68 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4bfb0d46-dcd2-5d54-8f9b-4b4a54d94798")
+		)
+		(pin "2"
+			(uuid "4c9c7a75-e746-5ff9-88d6-f448eb1d8cb6")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C305")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 233.68 40.64) (xy 233.68 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07877a38-6f79-5d8d-9adf-a5078d1194b3")
+	)
+	(label "SIN"
+		(at 233.68 38.1 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bb226888-9a21-5988-9b2d-5dc5e1be5fd0")
+	)
+	(wire
+		(pts
+			(xy 233.68 48.26) (xy 233.68 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "df0bf9b1-e89c-5098-a104-e55871fd2d7a")
+	)
+	(global_label "POT_TR_CL_TOP"
+		(shape passive)
+		(at 233.68 50.8 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7435b942-7229-5e73-adeb-323584f91a56")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 233.68 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 254 62.23 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "eb0cac2f-ef38-51d3-b18f-6d9780067b16")
+		(property "Reference" "C306"
+			(at 254 59.69 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "3.3n"
+			(at 254 64.77 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 257.81 61.2648 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 254 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5e70240c-2dd7-520c-8ea0-21dd7803788d")
+		)
+		(pin "2"
+			(uuid "2a56f652-3dfc-5d18-ac8d-58c000aa7f62")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C306")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 250.19 62.23) (xy 247.65 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "988f0539-209d-5056-bd9a-181db51a3469")
+	)
+	(global_label "POT_TR_CL_BOT"
+		(shape passive)
+		(at 247.65 62.23 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4ca35a20-edae-5e41-9547-4ec645d53141")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 247.65 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 257.81 62.23) (xy 260.35 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e70b4061-491d-5df4-9edb-2a2ed75cb590")
+	)
+	(label "TR_CL"
+		(at 260.35 62.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "17ea7a9c-706e-513d-8e4d-2d645fb7fe3b")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 254 97.79 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "349371bc-5905-5392-b810-107e17e3ccfd")
+		(property "Reference" "R306"
+			(at 254 95.25 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22k"
+			(at 254 100.33 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 254 99.568 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 254 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6bd16336-3449-5987-8b53-a9a68743653f")
+		)
+		(pin "2"
+			(uuid "98dc850b-a515-548c-bddc-3412d4e60c7b")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R306")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 250.19 97.79) (xy 247.65 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1ae05c84-2d82-5814-be14-b3c427bcce71")
+	)
+	(label "TR_CL"
+		(at 247.65 97.79 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5dbdd2ba-7fc7-526b-aed4-bd0dd319543d")
+	)
+	(wire
+		(pts
+			(xy 257.81 97.79) (xy 260.35 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cf3215ad-262c-5be1-a261-7950b7077373")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 260.35 97.79 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5da2b24e-2793-55be-9e3e-795737004847")
+		(property "Reference" "#PWR303"
+			(at 260.35 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 260.35 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 260.35 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 260.35 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 260.35 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a84b2c2a-cafa-523a-bcf8-d70b81edfca7")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR303")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 294.64 44.45 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "48dd57d8-9d5a-5309-b6a0-97a0fb88b986")
+		(property "Reference" "R307"
+			(at 299.38 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 299.38 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 292.862 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 294.64 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 294.64 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5e1e8073-d341-5af6-9b23-73b296e332b8")
+		)
+		(pin "2"
+			(uuid "c003a190-7cf2-5508-8cbc-037c8ca51568")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R307")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 294.64 40.64) (xy 294.64 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eddc7130-560c-5d59-be09-e216e6668d65")
+	)
+	(global_label "POT_P_CL_W"
+		(shape passive)
+		(at 294.64 38.1 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2d0f2295-60ff-5987-bdb9-4be24f4af9f1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 294.64 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 294.64 48.26) (xy 294.64 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1407a99-70ef-5e4e-9bfc-f92c0bd4b980")
+	)
+	(label "XP_CL"
+		(at 294.64 50.8 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "bc2260c7-c0fb-5f79-a8da-6b0e0afe7f2b")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:MMBFJ113")
+		(at 335.28 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "873f9336-7a88-5e8c-a5b0-ed3c266f740c")
+		(property "Reference" "Q301"
+			(at 340.36 60.325 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MMBFJ113"
+			(at 340.36 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 340.36 64.135 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBFJ113-D.PDF"
+			(at 340.36 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "2mA min, 35V, 100mOhm max, 0.5-3V Vgs(off), N-Channel JFET, SOT-23"
+			(at 335.28 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8d8986bb-762e-5824-b902-5c58c043159c")
+		)
+		(pin "2"
+			(uuid "0569b590-218f-57a0-86ce-08ef55222cc9")
+		)
+		(pin "3"
+			(uuid "b5dab529-dfb7-5963-bff9-dc9fd250bb5e")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "Q301")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 337.82 57.15) (xy 337.82 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "34a304c2-51d0-56c9-ad22-6538d71a2677")
+	)
+	(label "XP_CL"
+		(at 337.82 54.61 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fad0de7c-798a-56f9-8c69-e1cac98fd38e")
+	)
+	(wire
+		(pts
+			(xy 337.82 67.31) (xy 337.82 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f3d583e-6565-5b63-ab11-53569770f488")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 337.82 69.85 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "24c6427a-ac73-5dc9-9485-0c1c322943a2")
+		(property "Reference" "#PWR304"
+			(at 337.82 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 337.82 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 337.82 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 337.82 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 337.82 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ef4d0ea7-07e6-521b-8580-5dcc0c88ba2a")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR304")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 330.2 62.23) (xy 327.66 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "192b9804-ef58-542c-8998-77dde3b70c6f")
+	)
+	(label "G_PCL"
+		(at 327.66 62.23 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "553c6a40-2167-5faf-9275-5d1041e56e79")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 314.96 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c5e0d553-75b8-5374-bd07-5284a069b8c2")
+		(property "Reference" "R308"
+			(at 319.7 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 319.7 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 313.182 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 314.96 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 314.96 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "afec92e1-9e25-5d17-807d-c2c1b8cd729a")
+		)
+		(pin "2"
+			(uuid "1f212cde-5744-58bb-8e98-04e87e6db57b")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R308")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 314.96 58.42) (xy 314.96 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8969335-a10b-5baa-9081-d89810e68258")
+	)
+	(global_label "JDRV_PCL"
+		(shape passive)
+		(at 314.96 55.88 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "428fcf82-3bab-5ff0-9b09-89fa227d3add")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 314.96 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 314.96 66.04) (xy 314.96 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c88954c4-6c1f-517a-b1e2-79cb98736c5c")
+	)
+	(label "G_PCL"
+		(at 314.96 68.58 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "72188eee-1e27-5a5a-93bf-4053f5c03c64")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 314.96 80.01 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3fe1ed1d-6620-5a21-8e98-9a08c32facd8")
+		(property "Reference" "C307"
+			(at 314.96 77.47 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10n"
+			(at 314.96 82.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 311.15 80.9752 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 314.96 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 314.96 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "64f7733a-5bca-5c04-a979-4bf61d0705ca")
+		)
+		(pin "2"
+			(uuid "32148304-079d-5f8d-90ca-665caaea7781")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C307")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 80.01) (xy 321.31 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d64cb77-d422-5095-bd01-edca45818307")
+	)
+	(label "G_PCL"
+		(at 321.31 80.01 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "26ceff06-395e-5ace-bd33-2b266e1fc741")
+	)
+	(wire
+		(pts
+			(xy 311.15 80.01) (xy 308.61 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b015427a-c887-5c44-8265-6f05b8775d27")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 308.61 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8ed58caa-b184-5ad3-ba84-5236bb5f93b4")
+		(property "Reference" "#PWR305"
+			(at 308.61 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 308.61 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 308.61 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 308.61 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 308.61 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "77cc9e77-14cf-59b7-9bfa-0069b20c86ce")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR305")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 355.6 44.45 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1bdc804b-1f1b-5d80-beab-648673859769")
+		(property "Reference" "R309"
+			(at 360.34 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 360.34 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 353.822 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 355.6 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 355.6 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2071072f-8ddb-5beb-b0df-5ebdc88413db")
+		)
+		(pin "2"
+			(uuid "39330bb1-a2d6-5969-85ad-14f8d5db9eae")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R309")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 355.6 40.64) (xy 355.6 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "88f433ce-9dd1-596b-95bb-3e398e7a8bc0")
+	)
+	(label "XP_CL"
+		(at 355.6 38.1 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ad5fd73f-d7f9-5e12-9e48-33ff8d9eba08")
+	)
+	(wire
+		(pts
+			(xy 355.6 48.26) (xy 355.6 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f0d388b7-5f52-576d-a973-5b4cfe18f04e")
+	)
+	(label "GX4"
+		(at 355.6 50.8 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d38b0c35-a180-56fd-8127-582f8fa6e213")
+	)
+	(text "crunch Baxandall: bass / treble / post pots on J55"
+		(exclude_from_sim no)
+		(at 152.4 114.3 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0d8f7d76-9338-5d55-aac3-274ccc4d7e91")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 152.4 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "33091b47-a7e4-5899-9037-7d094f29c47a")
+		(property "Reference" "R310"
+			(at 157.14 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 157.14 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 150.622 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 152.4 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4d15f8a7-f6cf-5e9c-bb9e-270ead84026b")
+		)
+		(pin "2"
+			(uuid "027ef40f-ce91-5c04-bce5-f2fe899e6f57")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R310")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 152.4 120.65) (xy 152.4 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a5bd0f0f-e1e4-58fa-91ec-0d7ca98c8e86")
+	)
+	(label "SIN"
+		(at 152.4 118.11 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "88bf8957-c0c8-5ad8-91ed-786d6417d88f")
+	)
+	(wire
+		(pts
+			(xy 152.4 128.27) (xy 152.4 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "29103c0a-2968-57df-bb17-3378f9d181f7")
+	)
+	(global_label "POT_BS_CR_TOP"
+		(shape passive)
+		(at 152.4 130.81 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "882070f6-ea15-5050-beee-0012a5d706b1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 152.4 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 172.72 142.24 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b49bac29-1306-5af6-bfd4-3e23aae2e06a")
+		(property "Reference" "C308"
+			(at 172.72 139.7 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2.2n"
+			(at 172.72 144.78 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 176.53 141.2748 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 172.72 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 172.72 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fa9e9024-0333-56c8-8376-f7ec5c4d80a6")
+		)
+		(pin "2"
+			(uuid "7e1c1b06-ce11-54d9-9841-303a297abcd7")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C308")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 168.91 142.24) (xy 166.37 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f06e72f8-233b-5c68-b664-8d1f9270b704")
+	)
+	(global_label "POT_BS_CR_TOP"
+		(shape passive)
+		(at 166.37 142.24 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "497d3256-8ff0-5898-87b2-7af3e13153a7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 166.37 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 176.53 142.24) (xy 179.07 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "520d1763-3b9e-5e78-aba7-1c8cc1419da2")
+	)
+	(global_label "POT_BS_CR_W"
+		(shape passive)
+		(at 179.07 142.24 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "909f9bff-9893-536a-834b-41d002db389d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 179.07 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 193.04 142.24 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "96752380-c04a-572d-8121-69f6c7b92e1f")
+		(property "Reference" "C309"
+			(at 193.04 139.7 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22n"
+			(at 193.04 144.78 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 196.85 141.2748 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 193.04 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "faddd214-e2bf-5f0f-839a-870a862e3847")
+		)
+		(pin "2"
+			(uuid "7f5ffd3e-5b51-5ba7-b5bf-4a6ee9526666")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C309")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 189.23 142.24) (xy 186.69 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e38b6c28-b5de-5d2e-84b6-e678a67057af")
+	)
+	(global_label "POT_BS_CR_W"
+		(shape passive)
+		(at 186.69 142.24 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b2228095-9c4a-55d8-9363-2aba48c62700")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 186.69 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 196.85 142.24) (xy 199.39 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "507d205a-bce1-5d6f-97c3-9c6e4c11db3d")
+	)
+	(global_label "POT_BS_CR_BOT"
+		(shape passive)
+		(at 199.39 142.24 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "693a5e17-0404-56c6-bdba-56d286a605de")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 199.39 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 193.04 177.8 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "aa4caafa-4bd5-5a77-adee-9ca3b7bc3164")
+		(property "Reference" "R311"
+			(at 193.04 175.26 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22k"
+			(at 193.04 180.34 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 179.578 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 193.04 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6c893753-8873-513d-ab2e-1712c96d9ed2")
+		)
+		(pin "2"
+			(uuid "1f18a42a-bb72-53cc-af4e-03492fbc3fed")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R311")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 189.23 177.8) (xy 186.69 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e11df788-1690-5037-85e2-95a24cd7039f")
+	)
+	(global_label "POT_BS_CR_BOT"
+		(shape passive)
+		(at 186.69 177.8 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f12db3f7-51a6-57c7-89cb-331d12ed2e82")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 186.69 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 196.85 177.8) (xy 199.39 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eafe6b92-dd60-5480-bd12-09e0fb84ffcd")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 199.39 177.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5d53fc52-9cd6-52fb-850a-9b4f5c01336b")
+		(property "Reference" "#PWR306"
+			(at 199.39 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 199.39 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 199.39 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 199.39 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 199.39 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "05241dd9-3505-56d5-8f31-a36450364e49")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR306")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 213.36 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "126a4646-b3ea-5dc8-8e69-bf3bdf15ad0a")
+		(property "Reference" "R312"
+			(at 218.1 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 218.1 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 211.582 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 213.36 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 213.36 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fc2b5528-dcd9-5089-ba58-ac5cc97f365f")
+		)
+		(pin "2"
+			(uuid "06da1f36-447f-5c49-99de-258376fa1857")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R312")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 213.36 120.65) (xy 213.36 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c37321b-5f2f-594b-a93c-a76083773fbf")
+	)
+	(global_label "POT_BS_CR_W"
+		(shape passive)
+		(at 213.36 118.11 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "026c5b5e-97c1-5387-be08-68c538bc0510")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 213.36 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 213.36 128.27) (xy 213.36 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fa8f941c-af8c-599f-a188-29c12ba175ec")
+	)
+	(global_label "POT_TR_CR_W"
+		(shape passive)
+		(at 213.36 130.81 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c24965ae-6c44-527a-ac40-69f2f0e4083d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 213.36 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 233.68 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "afcfc11a-048d-5efd-a6fc-da27621731b8")
+		(property "Reference" "C310"
+			(at 238.42 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "120p"
+			(at 238.42 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 234.6452 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 233.68 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 233.68 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6a7d5f0d-0299-5b58-bb22-65d0abd24632")
+		)
+		(pin "2"
+			(uuid "db819906-3f1b-504d-960d-4cd2e27f1b22")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C310")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 233.68 120.65) (xy 233.68 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e2b7c87-a9a7-5975-b2a1-a774ae7d64c8")
+	)
+	(label "SIN"
+		(at 233.68 118.11 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "519f60bb-0e5c-5c8b-b987-44ad52d748dd")
+	)
+	(wire
+		(pts
+			(xy 233.68 128.27) (xy 233.68 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "923760f1-e572-581a-818d-2abe9b06d1cd")
+	)
+	(global_label "POT_TR_CR_TOP"
+		(shape passive)
+		(at 233.68 130.81 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a6f7b6db-9704-5ada-a945-03a52979c086")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 233.68 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 254 142.24 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7dcf0658-46ce-58dd-812c-42fe68c37449")
+		(property "Reference" "C311"
+			(at 254 139.7 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "820p"
+			(at 254 144.78 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 257.81 141.2748 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 254 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d8a48e63-9e7e-5775-b278-3b82d6b4a5af")
+		)
+		(pin "2"
+			(uuid "e6ecd862-eea9-5de0-af4c-f8acc02e8fa7")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C311")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 250.19 142.24) (xy 247.65 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3525861c-9462-593d-896d-fd6fd1ab4ffd")
+	)
+	(global_label "POT_TR_CR_BOT"
+		(shape passive)
+		(at 247.65 142.24 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b0d98cc0-77b2-5352-a991-9e9d5686ca4f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 247.65 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 257.81 142.24) (xy 260.35 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b788682f-fa5a-513e-a607-69e06458f2c1")
+	)
+	(label "TR_CR"
+		(at 260.35 142.24 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cd23fb7b-a462-5747-948a-d8b06c608b1d")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 254 177.8 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3662d981-9461-57c4-a823-9465944932aa")
+		(property "Reference" "R313"
+			(at 254 175.26 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22k"
+			(at 254 180.34 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 254 179.578 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 254 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "be9498b8-33b9-5be9-b46d-0953a013e2ab")
+		)
+		(pin "2"
+			(uuid "6fc11439-c30f-5ad4-b812-1239087e9397")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R313")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 250.19 177.8) (xy 247.65 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3b444b5c-f7c5-583d-af75-6ea5602fb250")
+	)
+	(label "TR_CR"
+		(at 247.65 177.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4a0ff607-5ae7-5896-8a5d-4975d7e9ae07")
+	)
+	(wire
+		(pts
+			(xy 257.81 177.8) (xy 260.35 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f38b1b36-60a4-56f9-94a4-b0fc82ce58f0")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 260.35 177.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9cecbc2d-c761-58c2-8432-3280de48cc89")
+		(property "Reference" "#PWR307"
+			(at 260.35 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 260.35 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 260.35 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 260.35 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 260.35 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8383346a-4ac1-5693-8db8-e9b736ce72f1")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR307")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 294.64 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d6a7d5ab-875f-51a0-82a5-5671ea53ad7d")
+		(property "Reference" "R314"
+			(at 299.38 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 299.38 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 292.862 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 294.64 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 294.64 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a762142d-9f2a-5f1b-976b-02541b7ff9bf")
+		)
+		(pin "2"
+			(uuid "2044bc44-e69f-5c16-b3b1-8bbf500cda48")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R314")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 294.64 120.65) (xy 294.64 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bda62709-42a2-579a-9377-e9ce85f24cab")
+	)
+	(global_label "POT_P_CR_W"
+		(shape passive)
+		(at 294.64 118.11 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "14f673b1-3321-5cbf-a1ed-0af94b1850c8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 294.64 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 294.64 128.27) (xy 294.64 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a35ac03-20a0-518f-9043-d1d368538377")
+	)
+	(label "XP_CR"
+		(at 294.64 130.81 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a643078b-8019-53f5-8150-5b65769cc1cf")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:MMBFJ113")
+		(at 335.28 142.24 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5e7e820c-0dc4-58ad-a6e9-5e140217a09f")
+		(property "Reference" "Q302"
+			(at 340.36 140.335 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MMBFJ113"
+			(at 340.36 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 340.36 144.145 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBFJ113-D.PDF"
+			(at 340.36 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "2mA min, 35V, 100mOhm max, 0.5-3V Vgs(off), N-Channel JFET, SOT-23"
+			(at 335.28 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4dcb61d0-b27c-5ad6-b5a0-cb9ddc515ba4")
+		)
+		(pin "2"
+			(uuid "40e020c0-283f-5dec-a3e9-9d14fddb2b9e")
+		)
+		(pin "3"
+			(uuid "b00b45de-3d4b-5e98-858e-319258fc51b7")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "Q302")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 337.82 137.16) (xy 337.82 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d9ab9f2d-7895-51ab-a9af-b0d98f06b5db")
+	)
+	(label "XP_CR"
+		(at 337.82 134.62 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b7ae20e8-73d0-5891-b81f-2a057509eb82")
+	)
+	(wire
+		(pts
+			(xy 337.82 147.32) (xy 337.82 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0ea12ea-4340-5fa6-98a2-03c17b4f94b4")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 337.82 149.86 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "069e5e20-13be-56bc-ab33-a0347e41523d")
+		(property "Reference" "#PWR308"
+			(at 337.82 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 337.82 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 337.82 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 337.82 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 337.82 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "254ff27d-4a63-53fd-9304-4c8005cce8b2")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR308")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 330.2 142.24) (xy 327.66 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68db3499-d1af-50c3-8585-7e6ae387b3a0")
+	)
+	(label "G_PCR"
+		(at 327.66 142.24 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3ccea394-c4e2-5a7d-a224-0968581c7fac")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 314.96 142.24 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "aa28aac6-4a2d-5e2e-ac84-0d1fb6f21492")
+		(property "Reference" "R315"
+			(at 319.7 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 319.7 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 313.182 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 314.96 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 314.96 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b1cf3a56-aa9b-571b-ab85-fbb84a9074e1")
+		)
+		(pin "2"
+			(uuid "bf1856de-7532-5993-a4cb-cfa6505c2ff5")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R315")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 314.96 138.43) (xy 314.96 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1ccae592-6082-5aee-a835-f40fffa28d1e")
+	)
+	(global_label "JDRV_PCR"
+		(shape passive)
+		(at 314.96 135.89 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8e841768-f3be-5c95-be5a-f03129ac513e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 314.96 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 314.96 146.05) (xy 314.96 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39303bf3-0d25-56e7-8780-0dc3e5e746bc")
+	)
+	(label "G_PCR"
+		(at 314.96 148.59 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3d5cd39f-70bf-5aad-b9ad-12712fd59297")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 314.96 160.02 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9eb656d8-0a36-5f39-8975-437f3790abcc")
+		(property "Reference" "C312"
+			(at 314.96 157.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10n"
+			(at 314.96 162.56 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 311.15 160.9852 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 314.96 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 314.96 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fecfa018-1d6f-5157-b728-0cd21f96d9c6")
+		)
+		(pin "2"
+			(uuid "c0f27acf-ad06-5834-a143-cfbc9869d400")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C312")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 160.02) (xy 321.31 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5e9705ec-03b8-5666-a9f5-7705b9cc56ad")
+	)
+	(label "G_PCR"
+		(at 321.31 160.02 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0252cb80-c0c4-560e-ab92-b67183c8c6f2")
+	)
+	(wire
+		(pts
+			(xy 311.15 160.02) (xy 308.61 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e29de533-5a24-5f5b-b2a6-0d4e97aab1de")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 308.61 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "34e8f250-62b9-58c6-8b6f-4dcdf3f4e3ea")
+		(property "Reference" "#PWR309"
+			(at 308.61 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 308.61 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 308.61 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 308.61 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 308.61 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "12aa3974-6e67-5e66-aa8d-cad696facba1")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR309")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 355.6 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "672be756-2a20-5404-a50e-f09b3e5795b2")
+		(property "Reference" "R316"
+			(at 360.34 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 360.34 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 353.822 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 355.6 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 355.6 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "51a78e66-7dd6-50e0-a35d-b01d3ae717db")
+		)
+		(pin "2"
+			(uuid "379f492f-77f6-5450-890b-b964c20b84e3")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R316")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 355.6 120.65) (xy 355.6 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "474fce36-d234-5bf2-b035-6475aa66e65b")
+	)
+	(label "XP_CR"
+		(at 355.6 118.11 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "57341fe7-ca22-5d24-8dbf-4bde5b1a3ed2")
+	)
+	(wire
+		(pts
+			(xy 355.6 128.27) (xy 355.6 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f1ff9a18-5b6a-5455-bfe8-cea723fd3238")
+	)
+	(label "GX4"
+		(at 355.6 130.81 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8aee3be7-0e6f-5544-acf3-8a343086e999")
+	)
+	(text "lead Baxandall: bass / treble / post pots on J56"
+		(exclude_from_sim no)
+		(at 152.4 194.31 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e29209cf-96c7-5680-85cb-b301a5a8d051")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 152.4 204.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bdb27ca2-6ead-530b-8418-abaaa0b841c5")
+		(property "Reference" "R317"
+			(at 157.14 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 157.14 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 150.622 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 152.4 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "15b8bac6-dd77-539b-bbf9-0549a4f64cc8")
+		)
+		(pin "2"
+			(uuid "ebcc2040-487c-5da8-92fe-39c08a16e8f0")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R317")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 152.4 200.66) (xy 152.4 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2ac1eb0-1dd9-5003-bc77-bad87b630cb5")
+	)
+	(label "SIN"
+		(at 152.4 198.12 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d91463dc-9959-5f2f-aae9-42c05ac3ad46")
+	)
+	(wire
+		(pts
+			(xy 152.4 208.28) (xy 152.4 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d7f3be5-a9e2-56fc-8fe5-b97c0b70592b")
+	)
+	(global_label "POT_BS_LD_TOP"
+		(shape passive)
+		(at 152.4 210.82 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fe1881f3-0716-505d-bb64-415ebd556444")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 152.4 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 172.72 222.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "028b029a-4299-5848-ab39-eca33ffeaf7c")
+		(property "Reference" "C313"
+			(at 172.72 219.71 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "560p"
+			(at 172.72 224.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 176.53 221.2848 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 172.72 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 172.72 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c46e50ac-3072-5c07-b644-91509ed57e02")
+		)
+		(pin "2"
+			(uuid "9e783947-eb12-584f-947a-6550f09b31fd")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C313")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 168.91 222.25) (xy 166.37 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "adb2a8dc-d47e-5712-8a04-4edc32508301")
+	)
+	(global_label "POT_BS_LD_TOP"
+		(shape passive)
+		(at 166.37 222.25 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "55d94e2d-6377-5827-a5a6-1b82ca850783")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 166.37 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 176.53 222.25) (xy 179.07 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "51da14d6-296f-5ed8-b75a-6a75d180e0f0")
+	)
+	(global_label "POT_BS_LD_W"
+		(shape passive)
+		(at 179.07 222.25 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0935e923-ee68-5fc5-9995-5e689574a25f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 179.07 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 193.04 222.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "29b197e2-e39c-5f89-8f43-2c1ced16e84e")
+		(property "Reference" "C314"
+			(at 193.04 219.71 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "5.6n"
+			(at 193.04 224.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 196.85 221.2848 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 193.04 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f71018d0-a3bd-52d3-944b-7ad1c5f8c95e")
+		)
+		(pin "2"
+			(uuid "f3c600a8-f1ff-58ff-9320-4d7bb515700d")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C314")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 189.23 222.25) (xy 186.69 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e61ac81-8140-598a-b327-c3c17d6b0a3a")
+	)
+	(global_label "POT_BS_LD_W"
+		(shape passive)
+		(at 186.69 222.25 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "bebd3538-0fc8-51c0-9cc5-ba719033801a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 186.69 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 196.85 222.25) (xy 199.39 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ede9c206-2e07-5fb0-958d-6ab9ddbe0308")
+	)
+	(global_label "POT_BS_LD_BOT"
+		(shape passive)
+		(at 199.39 222.25 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a25815f9-d80f-5f48-8fb7-cc1f53990a77")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 199.39 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 193.04 257.81 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6aef6c6e-6e91-5bf4-a875-7ac9e9eab301")
+		(property "Reference" "R318"
+			(at 193.04 255.27 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22k"
+			(at 193.04 260.35 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 259.588 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 193.04 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "54fc356d-88e9-5e49-8a80-acc4f0d63ef9")
+		)
+		(pin "2"
+			(uuid "f7519e5b-3313-5b3b-a816-c6fea5227676")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R318")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 189.23 257.81) (xy 186.69 257.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "582cf586-1b4f-54f5-b692-6216623a680f")
+	)
+	(global_label "POT_BS_LD_BOT"
+		(shape passive)
+		(at 186.69 257.81 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0d1b39ba-cc6e-59e3-9ca1-ba43e8d1cd66")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 186.69 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 196.85 257.81) (xy 199.39 257.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd259243-27b8-5961-986f-c0444718547d")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 199.39 257.81 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "99da3324-3b5a-513c-b4cf-5aa813f2ae90")
+		(property "Reference" "#PWR310"
+			(at 199.39 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 199.39 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 199.39 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 199.39 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 199.39 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "693312e3-34f0-5844-be91-c4a64344c652")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR310")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 213.36 204.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b031fc35-139a-5522-a8c2-253a7caca96e")
+		(property "Reference" "R319"
+			(at 218.1 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 218.1 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 211.582 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 213.36 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 213.36 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "78315f6d-04e9-5d60-8d52-518c11df8a38")
+		)
+		(pin "2"
+			(uuid "da9e22d6-f0ca-594e-afc1-9016790f60e6")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R319")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 213.36 200.66) (xy 213.36 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d922b646-1a4a-50f0-a035-3536f96af1a7")
+	)
+	(global_label "POT_BS_LD_W"
+		(shape passive)
+		(at 213.36 198.12 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6619772d-69ad-51d7-9c53-6d44d2a9902b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 213.36 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 213.36 208.28) (xy 213.36 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee108423-8f31-5cd0-bdb4-b6aa95299a8f")
+	)
+	(global_label "POT_TR_LD_W"
+		(shape passive)
+		(at 213.36 210.82 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "185ec724-b7c4-5f14-9be5-3c913e5de57b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 213.36 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 233.68 204.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "64d83b6b-9099-576a-bdc9-96b5c7d4bf25")
+		(property "Reference" "C315"
+			(at 238.42 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470p"
+			(at 238.42 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 234.6452 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 233.68 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 233.68 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5682e673-cb00-5809-aabe-679a2f38bc4c")
+		)
+		(pin "2"
+			(uuid "2bd05fc1-0db5-5551-91f5-4b612cb16aa8")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C315")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 233.68 200.66) (xy 233.68 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8ca511bd-40d6-5fb1-aeed-840fbf891989")
+	)
+	(label "SIN"
+		(at 233.68 198.12 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "39ce49ee-c85e-5d2e-9845-bf8046e62f34")
+	)
+	(wire
+		(pts
+			(xy 233.68 208.28) (xy 233.68 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "136d3a1a-c5ce-5cb2-964c-d408bd5bae98")
+	)
+	(global_label "POT_TR_LD_TOP"
+		(shape passive)
+		(at 233.68 210.82 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d02ed2f4-3cb6-594b-935f-fed7ff24443a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 233.68 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 254 222.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ea2a84c6-4085-5f52-98f7-97c4df7c4e82")
+		(property "Reference" "C316"
+			(at 254 219.71 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "3.3n"
+			(at 254 224.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 257.81 221.2848 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 254 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9c66c810-0d28-58dd-8558-6c31bf025e24")
+		)
+		(pin "2"
+			(uuid "32fae80d-d91c-522e-b7b0-48a0bab48338")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C316")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 250.19 222.25) (xy 247.65 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a2a0445-fe6c-5b41-826e-633e65cfe4dc")
+	)
+	(global_label "POT_TR_LD_BOT"
+		(shape passive)
+		(at 247.65 222.25 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5fd0d4de-b7ab-598e-9349-21a03ac9d54d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 247.65 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 257.81 222.25) (xy 260.35 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f8dbdd3-1e42-535b-8fab-aae6a164b8ec")
+	)
+	(label "TR_LD"
+		(at 260.35 222.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4c3a0dc4-e109-5c0a-9428-7deb437f3a35")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 254 257.81 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b4dc5d65-0ff7-584a-ae6e-af7f121bb5ef")
+		(property "Reference" "R320"
+			(at 254 255.27 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22k"
+			(at 254 260.35 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 254 259.588 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 254 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "032c7a3b-9330-57b4-9048-32ab912b94c5")
+		)
+		(pin "2"
+			(uuid "c6af1aa3-2c67-526c-9f35-9f50ca29587e")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R320")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 250.19 257.81) (xy 247.65 257.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d261dab7-65cc-540b-a6a6-933731b8c48a")
+	)
+	(label "TR_LD"
+		(at 247.65 257.81 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "40a72be1-9072-52e1-a3a4-413be90179a3")
+	)
+	(wire
+		(pts
+			(xy 257.81 257.81) (xy 260.35 257.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "940bc586-3194-5995-86f8-9648109ad5a8")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 260.35 257.81 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a0ff40af-f673-5340-b496-0bde85a11d78")
+		(property "Reference" "#PWR311"
+			(at 260.35 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 260.35 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 260.35 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 260.35 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 260.35 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "32cff400-52bf-5a76-a93a-938e4a167012")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR311")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 294.64 204.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b3c1af6a-24e2-5398-940a-51cfba150423")
+		(property "Reference" "R321"
+			(at 299.38 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 299.38 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 292.862 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 294.64 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 294.64 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "057845a4-4b13-542f-9733-3e68049f065c")
+		)
+		(pin "2"
+			(uuid "5e6aff25-d1d2-59a9-b1d0-38ba4f72a694")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R321")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 294.64 200.66) (xy 294.64 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb4b72aa-daa3-5fe3-9cb7-687690791211")
+	)
+	(global_label "POT_P_LD_W"
+		(shape passive)
+		(at 294.64 198.12 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "69429460-656b-5597-8932-1492d3ea42fb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 294.64 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 294.64 208.28) (xy 294.64 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f77b81fc-b179-5397-ae74-3ab81fa82f57")
+	)
+	(label "XP_LD"
+		(at 294.64 210.82 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a5e266e3-6fce-5e51-8f89-a7b98e6f6217")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:MMBFJ113")
+		(at 335.28 222.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "024eee2c-5fc7-53c9-9fc8-080f3acb0e59")
+		(property "Reference" "Q303"
+			(at 340.36 220.345 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MMBFJ113"
+			(at 340.36 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 340.36 224.155 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBFJ113-D.PDF"
+			(at 340.36 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "2mA min, 35V, 100mOhm max, 0.5-3V Vgs(off), N-Channel JFET, SOT-23"
+			(at 335.28 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "38ec5359-0ede-5bf2-abcf-b753b8acfd84")
+		)
+		(pin "2"
+			(uuid "d23861a8-ce3c-5ed5-bbb0-2b35acdfac58")
+		)
+		(pin "3"
+			(uuid "497d0167-1f9f-5fcd-a82b-17e503d1cbd4")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "Q303")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 337.82 217.17) (xy 337.82 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3579dfe-21eb-57c2-9102-ad9deeba1c4a")
+	)
+	(label "XP_LD"
+		(at 337.82 214.63 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "08e32bbb-d349-5dab-8241-73f1d9486902")
+	)
+	(wire
+		(pts
+			(xy 337.82 227.33) (xy 337.82 229.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9171c63f-d02a-5a62-b0b0-3b6660befe54")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 337.82 229.87 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fa97badd-0a56-5b55-9f08-dd64487b548a")
+		(property "Reference" "#PWR312"
+			(at 337.82 236.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 337.82 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 337.82 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 337.82 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 337.82 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3508c523-6c9e-57d3-86fa-d11bef1d3967")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR312")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 330.2 222.25) (xy 327.66 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2612da7a-8891-540f-b108-51903e623674")
+	)
+	(label "G_PLD"
+		(at 327.66 222.25 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f191f293-65a1-51b6-9f7b-fc61bbda1b36")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 314.96 222.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c7880733-680d-5a3a-9eb0-999cad84ecdc")
+		(property "Reference" "R322"
+			(at 319.7 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 319.7 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 313.182 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 314.96 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 314.96 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1fd2816b-d050-5509-b2cb-a7328dbab3a3")
+		)
+		(pin "2"
+			(uuid "b384747a-a9a3-5887-86f8-a55d4477c2bd")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R322")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 314.96 218.44) (xy 314.96 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6fb81d7-89a5-57e1-914f-c50f4878c0d4")
+	)
+	(global_label "JDRV_PLD"
+		(shape passive)
+		(at 314.96 215.9 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "666a3816-c2cb-5937-800d-359d70b418d9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 314.96 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 314.96 226.06) (xy 314.96 228.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a973a29-d242-5985-b48d-aeb71a9ca986")
+	)
+	(label "G_PLD"
+		(at 314.96 228.6 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f9d5d3b5-73eb-528d-927c-be4cd65ad38c")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 314.96 240.03 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9d8c835e-4340-5433-81e9-30f39b6ca64c")
+		(property "Reference" "C317"
+			(at 314.96 237.49 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10n"
+			(at 314.96 242.57 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 311.15 240.9952 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 314.96 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 314.96 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e73ee71d-8c2c-5ad4-b068-e532a494c954")
+		)
+		(pin "2"
+			(uuid "e53920f9-c0d5-5d11-8c75-0ec3d2457dc1")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C317")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 240.03) (xy 321.31 240.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd3837ae-cfe0-5c85-9efd-576bb18fb4e5")
+	)
+	(label "G_PLD"
+		(at 321.31 240.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d22994e6-8883-5f77-a951-99566573f354")
+	)
+	(wire
+		(pts
+			(xy 311.15 240.03) (xy 308.61 240.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c010de1a-804e-576c-8fde-fbb5c43e327a")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 308.61 240.03 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "085f3911-5231-55d5-b082-d2932d40ccf6")
+		(property "Reference" "#PWR313"
+			(at 308.61 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 308.61 243.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 308.61 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 308.61 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 308.61 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e9cd75d4-f190-5366-bf75-6ad194109455")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR313")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 355.6 204.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6a2758e8-d94f-5303-ae82-afba0f2dd381")
+		(property "Reference" "R323"
+			(at 360.34 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 360.34 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 353.822 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 355.6 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 355.6 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f21949b1-01d8-54f4-9b74-70af652ab2c8")
+		)
+		(pin "2"
+			(uuid "1dfd5dbb-3584-5cc2-9be6-a03bb200c44b")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R323")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 355.6 200.66) (xy 355.6 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d62daae-a49a-5b50-9124-c0e849666437")
+	)
+	(label "XP_LD"
+		(at 355.6 198.12 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7180c376-25dc-58dc-81f5-f33419c22f58")
+	)
+	(wire
+		(pts
+			(xy 355.6 208.28) (xy 355.6 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "19b86431-4410-5566-abbd-d1b812fc1110")
+	)
+	(label "GX4"
+		(at 355.6 210.82 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "697f02d2-a1a8-561b-8fa9-bafdaf6d9a75")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 396.24 71.12 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "75bacad1-6ace-5cd7-8af9-b6fe5299e4cf")
+		(property "Reference" "R324"
+			(at 396.24 68.58 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1M"
+			(at 396.24 73.66 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 396.24 72.898 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 396.24 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 396.24 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cc9379d5-1481-5cfb-b221-84431a72f7d6")
+		)
+		(pin "2"
+			(uuid "5fa9af1f-9162-5d36-a22c-f8cd2a398b15")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R324")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 392.43 71.12) (xy 389.89 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09eaf5b9-83f6-5124-a8c1-03f283c53fb9")
+	)
+	(label "GX4"
+		(at 389.89 71.12 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d83d43c8-ff26-531b-bd47-9b227fafb16f")
+	)
+	(wire
+		(pts
+			(xy 400.05 71.12) (xy 402.59 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4450cd6d-35e8-5791-a378-4c54ac54575a")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 402.59 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3e7a1f6c-d834-599f-be4b-edb8744269da")
+		(property "Reference" "#PWR314"
+			(at 402.59 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 402.59 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 402.59 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 402.59 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 402.59 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3c0dbafd-290b-52d3-9244-cdaad255e1df")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR314")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:ECC83")
+		(at 436.88 53.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d03cffde-5355-54ad-8a42-5abb98b5a345")
+		(property "Reference" "V3"
+			(at 440.182 45.466 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "12AX7"
+			(at 445.77 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Valve:Valve_Noval_P"
+			(at 443.738 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.r-type.org/pdfs/ecc83.pdf"
+			(at 436.88 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "double triode"
+			(at 436.88 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "6"
+			(uuid "fa35f8ce-ee69-5231-8363-69d29cc9634d")
+		)
+		(pin "7"
+			(uuid "45a7374d-46bd-5510-a5c5-4c427405a81f")
+		)
+		(pin "8"
+			(uuid "02239ef2-ab13-5563-ac57-879465f1db9c")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "V3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 436.88 43.18) (xy 436.88 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ecf45c22-7b8b-51e0-87d8-e68658971bc5")
+	)
+	(label "P4"
+		(at 436.88 40.64 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "804a4a61-ece3-53c1-8550-f7d804636aea")
+	)
+	(wire
+		(pts
+			(xy 429.26 53.34) (xy 426.72 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "26f7cb59-ad00-5b7e-999b-79269e8778bf")
+	)
+	(label "GX4"
+		(at 426.72 53.34 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "480d6fda-bac1-5b1a-8890-b41a1fa3091e")
+	)
+	(wire
+		(pts
+			(xy 434.34 63.5) (xy 434.34 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e676646-4b68-5aa0-9b7f-878197b0714e")
+	)
+	(label "K4"
+		(at 434.34 66.04 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6c3edd28-12a7-5267-881a-b52d0fb71f34")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 436.88 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "520faaa6-dd26-525d-ae31-ba30b0fa6b03")
+		(property "Reference" "R325"
+			(at 436.88 33.02 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 436.88 38.1 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 436.88 37.338 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 436.88 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 436.88 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "58a7bb83-99c8-57a2-910a-e6db3454bda8")
+		)
+		(pin "2"
+			(uuid "93493bca-6a4e-5ce1-82ed-9063a258d99f")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R325")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 433.07 35.56) (xy 430.53 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4c74449-8fb1-57cd-bd4b-34f7cf1193b0")
+	)
+	(global_label "BP4"
+		(shape passive)
+		(at 430.53 35.56 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e492d862-4063-59d0-8525-54c8d8ec842c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 430.53 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 440.69 35.56) (xy 443.23 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1321edf8-7d6f-5e2c-bfe1-54ea7604a7e2")
+	)
+	(label "P4"
+		(at 443.23 35.56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c462351b-a0e4-52df-8f13-16f0fb0708f5")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 436.88 88.9 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6b94dcf3-7e8c-550c-9e7e-2d438a003c58")
+		(property "Reference" "R326"
+			(at 436.88 86.36 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.5k"
+			(at 436.88 91.44 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 436.88 90.678 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 436.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 436.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "69317936-da65-58b9-a740-3098dabee10a")
+		)
+		(pin "2"
+			(uuid "e7ad1382-f16d-5e6f-8d1c-dcbbc9eb0b08")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R326")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 433.07 88.9) (xy 430.53 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c7e5ff7c-edb1-5718-bc16-fa27df406049")
+	)
+	(label "K4"
+		(at 430.53 88.9 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4ad35f3b-33b1-5422-be6c-c4d355c115a8")
+	)
+	(wire
+		(pts
+			(xy 440.69 88.9) (xy 443.23 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a7f71cf1-3e7f-5e9d-a11c-8a0f034378d2")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 443.23 88.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d4ccdc33-619a-5f21-9cf8-603d16f5144c")
+		(property "Reference" "#PWR315"
+			(at 443.23 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 443.23 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 443.23 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 443.23 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 443.23 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9521e1b3-79bd-55fa-b9cd-c5acf21f98c3")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR315")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C_Polarized")
+		(at 457.2 88.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5f48b926-2d7c-52bb-b484-27a686a0d466")
+		(property "Reference" "C318"
+			(at 461.94 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22u/25V"
+			(at 463.59 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 458.1652 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 457.2 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor"
+			(at 457.2 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6fcc8851-ad47-5c48-861e-ab845d312061")
+		)
+		(pin "2"
+			(uuid "d74fbcde-7ffa-52c7-8e8b-0ef71f02063c")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C318")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 457.2 85.09) (xy 457.2 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a441d27f-1a71-5e82-b783-2498b6b160ca")
+	)
+	(label "K4"
+		(at 457.2 82.55 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6cfa2768-558c-5392-9387-3dce86d6cf2e")
+	)
+	(wire
+		(pts
+			(xy 457.2 92.71) (xy 457.2 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "05c10adf-da4d-58b4-98b6-da054290df92")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 457.2 95.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "22c5dbfd-2906-5b90-9f0e-74b5333b9f6e")
+		(property "Reference" "#PWR316"
+			(at 457.2 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 457.2 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 457.2 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 457.2 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 457.2 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "354a987c-0572-55a7-b2cd-fa0c5203c19d")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR316")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 477.52 53.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dd4a90ab-0ab0-5ee6-90b8-7d248705049e")
+		(property "Reference" "C319"
+			(at 482.26 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22n/630V"
+			(at 484.46 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 478.4852 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 477.52 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 477.52 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c9243816-cedf-500f-a317-e21e7fde91fd")
+		)
+		(pin "2"
+			(uuid "1251b06c-c7d3-5327-b2cf-59a5b5029f89")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C319")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 477.52 49.53) (xy 477.52 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "193e5392-a1e0-5d01-8a04-3d102c56f681")
+	)
+	(label "P4"
+		(at 477.52 46.99 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "18a72759-077b-5466-a8b4-f9fdaf52f26e")
+	)
+	(wire
+		(pts
+			(xy 477.52 57.15) (xy 477.52 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c724cbb1-f032-51c0-ae5e-dff5e7d53afd")
+	)
+	(label "AT"
+		(at 477.52 59.69 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1b166079-8c2c-5b45-8d20-da4b16cad5be")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 497.84 53.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ab122ab8-bf7f-5c7b-bc47-11fb16c9c19f")
+		(property "Reference" "R327"
+			(at 502.58 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330k"
+			(at 502.58 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 496.062 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 497.84 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 497.84 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9066e48e-9ff6-5953-9925-2123369e5a72")
+		)
+		(pin "2"
+			(uuid "73881cb5-e5f4-5bec-8517-310345e0b197")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R327")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 497.84 49.53) (xy 497.84 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cf94e000-f9a4-55db-91b0-e5bb550891ad")
+	)
+	(label "AT"
+		(at 497.84 46.99 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7fe0ee25-d430-5cb5-818a-e3ca06a9520d")
+	)
+	(wire
+		(pts
+			(xy 497.84 57.15) (xy 497.84 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "00ab8f0b-7cf8-5da0-b9a6-ec6876b4eaf9")
+	)
+	(global_label "OUT"
+		(shape passive)
+		(at 497.84 59.69 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c64fbc0e-4807-593b-8dfb-73fbe0a4ab00")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 497.84 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 518.16 71.12 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "68e95a2e-e429-507a-82d9-ab4feb50fada")
+		(property "Reference" "R328"
+			(at 518.16 68.58 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220k"
+			(at 518.16 73.66 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 518.16 72.898 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 518.16 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 518.16 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "81c917a3-f4e8-5f72-8a25-f429d6d5e6d3")
+		)
+		(pin "2"
+			(uuid "d45b06ab-9891-5f89-be73-fbae6c68ff59")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R328")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 514.35 71.12) (xy 511.81 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa2d30b8-7359-5565-a033-089d53479626")
+	)
+	(global_label "OUT"
+		(shape passive)
+		(at 511.81 71.12 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "89aa8dcc-dfb5-57e3-8d20-ff7bbb773062")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 511.81 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 521.97 71.12) (xy 524.51 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "149c26d7-08e5-5bf1-804c-280753b0b844")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 524.51 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "51e86f6b-7b56-564c-9346-4a14d5bb4ecd")
+		(property "Reference" "#PWR317"
+			(at 524.51 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 524.51 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 524.51 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 524.51 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 524.51 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "59f50d3c-1f71-589d-b6fc-e8df4e7f89cf")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR317")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:MMBFJ113")
+		(at 558.8 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "58bee784-ed9e-5954-be13-8c41a61af937")
+		(property "Reference" "Q304"
+			(at 563.88 69.215 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MMBFJ113"
+			(at 563.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 563.88 73.025 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBFJ113-D.PDF"
+			(at 563.88 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "2mA min, 35V, 100mOhm max, 0.5-3V Vgs(off), N-Channel JFET, SOT-23"
+			(at 558.8 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2b17e644-af6e-55f5-8fc2-15cd0bf180c1")
+		)
+		(pin "2"
+			(uuid "552ce39d-fcf3-53f1-ac72-4d73a78a2ec8")
+		)
+		(pin "3"
+			(uuid "bf6a2e42-9c93-562a-a5ca-ad69bb92d16d")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "Q304")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 561.34 66.04) (xy 561.34 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc80780e-ebdd-5fdc-8136-453bc79de7ec")
+	)
+	(global_label "OUT"
+		(shape passive)
+		(at 561.34 63.5 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b81da78c-3544-53f0-b0c4-d3ff352b3ce9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 561.34 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 561.34 76.2) (xy 561.34 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db0075e2-131c-5d5f-9f71-0e734618135f")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 561.34 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "353c9540-f2d6-59cd-b788-029733258411")
+		(property "Reference" "#PWR318"
+			(at 561.34 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 561.34 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 561.34 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 561.34 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 561.34 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "87ade46d-3655-5bcf-91ed-1fc6ff25770c")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR318")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 553.72 71.12) (xy 551.18 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "296d1300-9329-5c8f-bf4b-e95d4052972b")
+	)
+	(label "G_MUTE"
+		(at 551.18 71.12 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b5d40056-fddf-5dcf-a514-76807235452c")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 538.48 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8125b383-8490-5b35-bb0b-219b37e12d03")
+		(property "Reference" "R329"
+			(at 543.22 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 543.22 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 536.702 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 538.48 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 538.48 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cec759d5-ef2c-5cb1-80aa-005c184c6e93")
+		)
+		(pin "2"
+			(uuid "1af4a438-d178-5227-8417-29db4de6350c")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "R329")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 538.48 67.31) (xy 538.48 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e360627-80ba-5db8-ac44-b739e0568cd4")
+	)
+	(global_label "JDRV_MUTE"
+		(shape passive)
+		(at 538.48 64.77 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "61e50e2b-8604-5b8b-b1b6-04419d24a477")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 538.48 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 538.48 74.93) (xy 538.48 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b46e0d70-51db-54f8-ae1f-93168847adb0")
+	)
+	(label "G_MUTE"
+		(at 538.48 77.47 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "54fd7a82-1f10-512a-8957-86af440e80f4")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:C")
+		(at 538.48 88.9 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "37daae63-002a-524d-b548-a8f9ad42980f")
+		(property "Reference" "C320"
+			(at 538.48 86.36 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10n"
+			(at 538.48 91.44 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 534.67 89.8652 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 538.48 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 538.48 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "71482e6b-c0de-5311-9d71-502142e7649e")
+		)
+		(pin "2"
+			(uuid "6e8f0ccb-7da5-5952-bdae-8e38ffe0e9a7")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "C320")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 542.29 88.9) (xy 544.83 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8cd6135c-6259-5b0e-909f-021d40874fde")
+	)
+	(label "G_MUTE"
+		(at 544.83 88.9 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "46bd6a4a-9cc0-516f-b90e-fc081371417b")
+	)
+	(wire
+		(pts
+			(xy 534.67 88.9) (xy 532.13 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07ab6210-3da8-59c3-84e6-e25234cd97b7")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GND")
+		(at 532.13 88.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8843c3ef-db11-5e64-a37a-30a04a3e1335")
+		(property "Reference" "#PWR319"
+			(at 532.13 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 532.13 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 532.13 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 532.13 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 532.13 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b09295aa-022c-5788-9569-42dbc397d810")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/44273019-6afa-56fb-a84b-022e46a07d67"
+					(reference "#PWR319")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

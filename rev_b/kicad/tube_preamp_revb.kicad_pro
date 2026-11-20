@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "filename": "tube_preamp_revb.kicad_pro",
+    "version": 3
+  },
+  "schematic": {},
+  "board": {},
+  "sheets": [
+    [
+      "e75f3ff5-9e50-5f30-9463-2e21335bc268",
+      "Root"
+    ],
+    [
+      "206327c2-61fd-5ba9-8af6-2e77c4ef7b86",
+      "01 Input, S1, channel gain networks"
+    ],
+    [
+      "2c3c3e93-f346-5d0a-aa66-f4840acd4a84",
+      "02 S2, S5, S3, switched voicing"
+    ],
+    [
+      "44273019-6afa-56fb-a84b-022e46a07d67",
+      "03 CF, Baxandalls, post gain, S4, output"
+    ],
+    [
+      "6a92c777-456f-50e2-b5a6-1ad866c76b03",
+      "04 Switch control"
+    ],
+    [
+      "fa24baef-5920-5116-b9d1-11e8544a9875",
+      "05 B+ regulator, decoupling, heaters, connectors"
+    ]
+  ]
+}
