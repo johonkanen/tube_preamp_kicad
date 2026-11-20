@@ -7,8 +7,8 @@ the gain pots POT1-POT3 (off the board, fly-lead pads POTn-1 / POTn-2).
 
 Differences from the PDF drawing (same nets): the KiCad 12AX7 is three units (triode A, triode B
 mirrored, heater), so the tube is wider and the heater unit (h4 / h5 of the PDF) stands at the
-lower right; the relay poles are KiCad's G5V-2 units turned so that COM is on the left, NC the
-upper and NO the lower contact; the diodes stand beside the coils, and the
+lower right; the relays are KiCad's one-unit G5V-2 (Omron pin numbers) turned so that the coil is
+on top with its diode above it, COM on the left, NC the upper and NO the lower contact, and the
 relay block is wider than in the PDF."""
 from _common import *  # noqa: F401,F403
 
@@ -52,7 +52,7 @@ sh.wire(b, q1.pin(1))
 rail(sh, q1.pin(2), y=P(0, GND)[1])
 sh.wire(q1.pin(3), P(88, 113))
 sh.glabel("J1", *P(88, 113), 0)
-# anode (#00001): R6 from A, C1 to RLY1 pole 2
+# anode (#00001): R6 from A, C1 to RLY1 COM 4
 t, b = R("R6", 83, 10, 1)
 sh.wire(t, P(83, 3), P(104, 3))
 sh.glabel("A", *P(104, 3), 0)
@@ -70,7 +70,7 @@ sh.wire(b, ub.pin(6))
 c5l, c5r = hcap(sh, "C5", *P(106, 37), left=1)
 sh.wire(P(97, 37), c5l)
 sh.junction(*P(97, 37))
-# grid (#00005): R13 - R14 (#00030) - R15 up to PRE1, RLY1 COM 1, R4 to ground
+# grid (#00005): R13 - R14 (#00030) - R15 up to PRE1, RLY1 COM 13, R4 to ground
 r15t, r15b = R("R15", 123, 42, 1)
 r14t, r14b = R("R14", 123, 56, 1)
 r13t, r13b = R("R13", 123, 68, 1)
@@ -112,7 +112,7 @@ rail(sh, q2.pin(1), y=P(0, GND)[1])
 sh.wire(q2.pin(3), P(156, 109))
 sh.glabel("J2", *P(156, 109), 0)
 
-# --- C1 output (#00017): R47 to ground, RLY1 COM 2 ---------------------------------------------------
+# --- C1 output (#00017): R47 to ground, RLY1 COM 4 ---------------------------------------------------
 t, b = R("R47", 113, 64, 2)
 sh.wire(P(113, 25), t)
 sh.junction(*P(113, 25))
@@ -120,37 +120,38 @@ sh.wire(b, P(113, 91), P(93, 91))
 rail(sh, P(93, 91), y=P(0, GND)[1])
 
 # --- relays -----------------------------------------------------------------------------------------
-# pole units turned 270: COM on the left, NC upper right, NO lower right
-k1c, k1p1, k1p2 = relay(sh, "RLY1", P(149, 46), P(148, 33), P(148, 25), rot1=270, rot2=270)
-k2c, k2p1, k2p2 = relay(sh, "RLY2", P(191, 46), P(190, 31), P(190, 23), rot1=270, rot2=270)
-sh.wire(c1r, k1p2.pin(6))                               # #00017
-sh.wire(P(131, GRID), P(131, 33), k1p1.pin(2))          # #00005
-sh.wire(k1p2.pin(7), k2p2.pin(6))                       # #00018
-sh.wire(k1p1.pin(3), k2p1.pin(2))                       # #00014
-# RLY1 NO 2 -> POT1-1 (#00019); NO 1 -> R8 -> POT1-2 (#00020, #00027)
+# G5V-2 turned 270 (relay()): coil on top, COM on the left, NC upper right, NO lower right; Omron pins
+# (Proteus pole 2 = Omron 4 / 6 / 8 on top, Proteus pole 1 = Omron 13 / 11 / 9 below)
+k1 = relay(sh, "RLY1", P(148, 25))
+k2 = relay(sh, "RLY2", P(190, 23))
+sh.wire(c1r, k1.pin(4))                                 # #00017
+sh.wire(P(131, GRID), P(131, 33), k1.pin(13))           # #00005
+sh.wire(k1.pin(6), k2.pin(4))                           # #00018
+sh.wire(k1.pin(11), k2.pin(13))                         # #00014
+# RLY1 NO 8 -> POT1-1 (#00019); NO 9 -> R8 -> POT1-2 (#00020, #00027)
 term(sh, "POT1_1", *P(160, 11), "up")
-sh.wire(k1p2.pin(8), P(160, 27), P(160, 11))
+sh.wire(k1.pin(8), P(160, 27), P(160, 11))
 t, b = R("R8", 167, 44, 1)
-sh.wire(k1p1.pin(1), P(167, 35), t)
+sh.wire(k1.pin(9), P(167, 35), t)
 term(sh, "POT1_2", *P(167, 55), "down")
 sh.wire(b, P(167, 55))
-# RLY2 NC 2 -> POT3-1 (#00024), NO 2 -> POT2-1 (#00025)
+# RLY2 NC 6 -> POT3-1 (#00024), NO 8 -> POT2-1 (#00025)
 term(sh, "POT3_1", *P(201, 11), "up")
-sh.wire(k2p2.pin(7), P(201, 21), P(201, 11))
+sh.wire(k2.pin(6), P(201, 21), P(201, 11))
 term(sh, "POT2_1", *P(213, 11), "up")
-sh.wire(k2p2.pin(8), P(213, 25), P(213, 11))
-# RLY2 NC 1 -> R9 -> POT3-2 (#00021, #00028), NO 1 -> R10 -> POT2-2 (#00026, #00029)
+sh.wire(k2.pin(8), P(213, 25), P(213, 11))
+# RLY2 NC 11 -> R9 -> POT3-2 (#00021, #00028), NO 9 -> R10 -> POT2-2 (#00026, #00029)
 t, b = R("R9", 210, 44, 1)
-sh.wire(k2p1.pin(3), P(210, 29), t)
+sh.wire(k2.pin(11), P(210, 29), t)
 term(sh, "POT3_2", *P(210, 55), "down")
 sh.wire(b, P(210, 55))
 t, b = R("R10", 222, 44, 1)
-sh.wire(k2p1.pin(1), P(222, 33), t)
+sh.wire(k2.pin(9), P(222, 33), t)
 term(sh, "POT2_2", *P(222, 55), "down")
 sh.wire(b, P(222, 55))
-# coils: pin 5 = SW1 / SW2 with the diode cathode, pin 4 = H4 with the anode
-coil_block(sh, k1c, "D1", "SW1")
-coil_block(sh, k2c, "D2", "SW2")
+# coils: pin 1 (Proteus 5) = SW1 / SW2 with the diode cathode, pin 16 (Proteus 4) = H4 with the anode
+coil_block(sh, k1, "D1", "SW1")
+coil_block(sh, k2, "D2", "SW2")
 
 # --- heater (unit C): pin 4 = H4, pin 5 = H5 ---------------------------------------------------------
 for pin, net in ((4, "H4"), (5, "H5")):

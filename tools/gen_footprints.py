@@ -73,7 +73,7 @@ RULES = [
      "TO92: inline, 1=D 2=S 3=G (J112), P2.032"),
     # --- relays
     ("G5V-2", dict(package="G5V-2(HI)", n=8, pad=(2.54, 2.54), drill=1.143),
-     P + "Relay_DPDT_Omron_G5V-2_ProteusPins", "G5V-2(HI): Omron G5V-2, pads = Proteus pin ids"),
+     "Relay_THT:Relay_DPDT_Omron_G5V-2", "G5V-2(HI): Omron G5V-2, Omron pin numbers (IPC_PIN_IDS)"),
     # --- tubes
     ("12AX7", dict(package="9-PIN BELTON NOVAL", n=9, pad=(4.318, 4.318), drill=1.727),
      P + "Valve_Noval_Belton_PCD21.00mm",
@@ -135,15 +135,6 @@ PROJECT = {
         pads={"1": dict(shape="circle", expect_shape="rect")},
         pin1_dot=PIN1_DOT,
         descr="TO-92 inline, pads 1-3 2.032 mm apart (Proteus TO92), round pad 1, pin-1 dot"),
-    # Omron G5V-2: Proteus G5V-2(HI) pin ids on the Omron pads. The Proteus coil pin 4 / pole-1
-    # column (4, 2, 3, 1) sits on the Omron 16 / 13 / 11 / 9 column (STATUS.md "Phase 2": the pattern
-    # and the relay are mirror-symmetric, so this is the renumbering that fits without a mirror).
-    "Relay_DPDT_Omron_G5V-2_ProteusPins": dict(
-        base="Relay_THT:Relay_DPDT_Omron_G5V-2",
-        renumber={"16": "4", "13": "2", "11": "3", "9": "1", "1": "5", "4": "6", "6": "7", "8": "8"},
-        ipc="RLY1",
-        descr="Omron G5V-2 DPDT relay, pads = Proteus G5V-2(HI) ids: 4/5 coil, 2/3/1 COM/NC/NO pole 1, "
-              "6/7/8 COM/NC/NO pole 2"),
     # Noval socket built from the IPC pads: KiCad's Valve_Noval_P is on a 2.54 mm grid, Proteus has
     # a 21.00 mm pitch circle (10 positions at 36 deg, 1-9 with the gap between 9 and 1). Pad ids =
     # the IPC pin ids. The sockets are mounted on the BOTTOM (solder) side (user decision 2026-11-20,

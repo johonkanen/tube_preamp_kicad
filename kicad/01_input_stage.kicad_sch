@@ -1336,17 +1336,13 @@
 			(embedded_fonts no)
 		)
 		(symbol "tube_preamp:G5V-2"
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "RLY"
-				(at 6.35 1.27 0)
+				(at 16.51 3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -1357,7 +1353,7 @@
 				)
 			)
 			(property "Value" "G5V-2(HI)"
-				(at 6.35 -1.27 0)
+				(at 16.51 1.27 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -1368,7 +1364,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at 6.35 -3.81 0)
+				(at 16.51 -1.27 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -1390,21 +1386,11 @@
 					)
 				)
 			)
-			(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
+			(property "Description" "Omron G5V-2 DPDT relay, Omron pin numbers (coil 1 / 16, pole 1 COM 4 NC 6 NO 8, pole 2 COM 13 NC 11 NO 9); KiCad Relay:G5V-2 unchanged"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1433,10 +1419,10 @@
 					)
 				)
 			)
-			(symbol "G5V-2_1_1"
+			(symbol "G5V-2_0_1"
 				(rectangle
-					(start -5.08 5.08)
-					(end 5.08 -5.08)
+					(start -15.24 5.08)
+					(end 15.24 -5.08)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -1446,8 +1432,8 @@
 					)
 				)
 				(rectangle
-					(start -3.175 1.905)
-					(end 3.175 -1.905)
+					(start -13.335 1.905)
+					(end -6.985 -1.905)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -1458,7 +1444,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.54 -1.905) (xy 2.54 1.905)
+						(xy -12.7 -1.905) (xy -7.62 1.905)
 					)
 					(stroke
 						(width 0.254)
@@ -1470,7 +1456,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 5.08) (xy 0 1.905)
+						(xy -10.16 5.08) (xy -10.16 1.905)
 					)
 					(stroke
 						(width 0)
@@ -1482,7 +1468,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 -5.08) (xy 0 -1.905)
+						(xy -10.16 -5.08) (xy -10.16 -1.905)
 					)
 					(stroke
 						(width 0)
@@ -1492,44 +1478,54 @@
 						(type none)
 					)
 				)
-				(pin passive line
-					(at 0 7.62 270)
-					(length 2.54)
-					(name "COIL1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(polyline
+					(pts
+						(xy -6.985 0) (xy -6.35 0)
 					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "COIL16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(polyline
+					(pts
+						(xy -5.715 0) (xy -5.08 0)
 					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
-			)
-			(symbol "G5V-2_3_1"
+				(polyline
+					(pts
+						(xy -4.445 0) (xy -3.81 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.175 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(polyline
 					(pts
 						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
@@ -1540,6 +1536,30 @@
 					)
 					(fill
 						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.635 0) (xy 0 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 				(polyline
@@ -1568,6 +1588,30 @@
 				)
 				(polyline
 					(pts
+						(xy 0.635 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 0) (xy 2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
 					)
 					(stroke
@@ -1578,65 +1622,57 @@
 						(type none)
 					)
 				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "COM4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "NC6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "NO8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "G5V-2_2_1"
 				(polyline
 					(pts
-						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
+						(xy 3.175 0) (xy 3.81 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.445 0) (xy 5.08 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.715 0) (xy 6.35 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 6.985 0) (xy 7.62 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 5.08) (xy 7.62 2.54) (xy 8.255 3.175) (xy 7.62 3.81)
 					)
 					(stroke
 						(width 0)
@@ -1648,7 +1684,19 @@
 				)
 				(polyline
 					(pts
-						(xy 0 -2.54) (xy -1.905 3.81)
+						(xy 8.255 0) (xy 8.89 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -2.54) (xy 8.255 3.81)
 					)
 					(stroke
 						(width 0.508)
@@ -1660,7 +1708,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 -2.54) (xy 0 -5.08)
+						(xy 10.16 -2.54) (xy 10.16 -5.08)
 					)
 					(stroke
 						(width 0)
@@ -1672,7 +1720,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
+						(xy 12.7 5.08) (xy 12.7 2.54) (xy 12.065 3.175) (xy 12.7 3.81)
 					)
 					(stroke
 						(width 0)
@@ -1682,10 +1730,12 @@
 						(type none)
 					)
 				)
+			)
+			(symbol "G5V-2_1_1"
 				(pin passive line
-					(at 2.54 7.62 270)
+					(at -10.16 7.62 270)
 					(length 2.54)
-					(name "NO9"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1701,16 +1751,16 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 7.62 270)
+					(at 0 -7.62 90)
 					(length 2.54)
-					(name "NC11"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "3"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1719,16 +1769,106 @@
 					)
 				)
 				(pin passive line
-					(at 0 -7.62 90)
+					(at -2.54 7.62 270)
 					(length 2.54)
-					(name "COM13"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "2"
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 7.62 270)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 12.7 7.62 270)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 7.62 270)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 -7.62 90)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 -7.62 90)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "16"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4268,7 +4408,7 @@
 	)
 	(symbol
 		(lib_id "tube_preamp:G5V-2")
-		(at 240.03 96.52 0)
+		(at 238.76 69.85 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4276,7 +4416,7 @@
 		(dnp no)
 		(uuid "b187ada2-ee64-5b31-be5e-53cc180da9bb")
 		(property "Reference" "RLY1"
-			(at 224.79 95.25 0)
+			(at 238.76 86.36 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4284,15 +4424,15 @@
 			)
 		)
 		(property "Value" "G5V-2(HI)"
-			(at 224.79 97.79 0)
+			(at 238.76 88.265 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
-			(at 246.38 100.33 0)
+		(property "Footprint" "Relay_THT:Relay_DPDT_Omron_G5V-2"
+			(at 237.49 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4302,7 +4442,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 240.03 96.52 0)
+			(at 238.76 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4310,8 +4450,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
-			(at 240.03 96.52 0)
+		(property "Description" "Omron G5V-2 DPDT relay, Omron pin numbers (coil 1 / 16, pole 1 COM 4 NC 6 NO 8, pole 2 COM 13 NC 11 NO 9); KiCad Relay:G5V-2 unchanged"
+			(at 238.76 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4319,298 +4459,35 @@
 				(hide yes)
 			)
 		)
-		(pin "5"
-			(uuid "09bd2e53-6849-534c-affe-d8da74593e51")
+		(pin "1"
+			(uuid "e24939aa-dad5-59e5-a817-6ad7adc1c525")
 		)
 		(pin "4"
 			(uuid "e9f1de8e-093d-5d4e-8c02-e5e37a068407")
 		)
-		(instances
-			(project "tube_preamp"
-				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/8b67a406-2a15-4cf7-bf64-ea67c0dc6696"
-					(reference "RLY1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "tube_preamp:G5V-2")
-		(at 238.76 80.01 270)
-		(unit 2)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e06c33ef-2ab4-53a2-ad1a-bdf5cc181527")
-		(property "Reference" "RLY1"
-			(at 236.22 74.295 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "G5V-2(HI)"
-			(at 236.22 76.2 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
-			(at 234.95 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 238.76 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
-			(at 238.76 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "30e21401-a286-5cc7-a545-2472ce072456")
-		)
-		(pin "3"
-			(uuid "75f3836f-b487-56ec-9f4d-cb7e59025ebe")
-		)
-		(pin "2"
-			(uuid "7f9284b0-3d12-53dc-b296-a206daffd6fb")
-		)
-		(instances
-			(project "tube_preamp"
-				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/8b67a406-2a15-4cf7-bf64-ea67c0dc6696"
-					(reference "RLY1")
-					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "tube_preamp:G5V-2")
-		(at 238.76 69.85 270)
-		(unit 3)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "85bcfd43-3ba5-56d3-a46b-bed59bc180f8")
-		(property "Reference" "RLY1"
-			(at 236.22 64.135 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "G5V-2(HI)"
-			(at 236.22 66.04 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
-			(at 234.95 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 238.76 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
-			(at 238.76 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "6"
-			(uuid "0703b076-1fbc-5766-8d90-cfb225cfa09b")
-		)
-		(pin "7"
-			(uuid "e903443a-994a-5953-9805-e93331bdccdf")
+			(uuid "7582d0c0-ccf5-5bea-823a-8768028202b6")
 		)
 		(pin "8"
-			(uuid "4c010edc-71e4-5be2-8bc5-a79693c3d184")
+			(uuid "e7be6b0d-c799-5e8f-8abc-4f18297bc1c0")
+		)
+		(pin "9"
+			(uuid "b1fbc3a9-8f20-5174-9dcf-a72bf3ea6eb8")
+		)
+		(pin "11"
+			(uuid "8d38b8bd-fa52-5776-b5b6-4fd7f9028181")
+		)
+		(pin "13"
+			(uuid "e4a0f560-b986-5d44-bfa6-7553be3be759")
+		)
+		(pin "16"
+			(uuid "0ced9acf-5ebf-5c0c-ae8e-49f04bdf05f0")
 		)
 		(instances
 			(project "tube_preamp"
 				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/8b67a406-2a15-4cf7-bf64-ea67c0dc6696"
 					(reference "RLY1")
-					(unit 3)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "tube_preamp:G5V-2")
-		(at 293.37 96.52 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "31afd0f3-446d-5428-a498-b71662636b28")
-		(property "Reference" "RLY2"
-			(at 278.13 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "G5V-2(HI)"
-			(at 278.13 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
-			(at 299.72 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 293.37 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
-			(at 293.37 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "cf597e12-ed12-5f89-8ba0-c73af55de115")
-		)
-		(pin "4"
-			(uuid "86cac72f-8b6b-5280-9302-675000ce7b56")
-		)
-		(instances
-			(project "tube_preamp"
-				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/8b67a406-2a15-4cf7-bf64-ea67c0dc6696"
-					(reference "RLY2")
 					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "tube_preamp:G5V-2")
-		(at 292.1 77.47 270)
-		(unit 2)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4776d32f-f589-547c-b352-e2b9529529f6")
-		(property "Reference" "RLY2"
-			(at 289.56 71.755 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "G5V-2(HI)"
-			(at 289.56 73.66 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
-			(at 288.29 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 292.1 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
-			(at 292.1 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c42d8460-97f6-5d0a-8b91-824036887b54")
-		)
-		(pin "3"
-			(uuid "48cbf7fe-0593-5501-bd47-ba29c31f697b")
-		)
-		(pin "2"
-			(uuid "8861ec33-03c2-5e79-aa6d-45b1a3264274")
-		)
-		(instances
-			(project "tube_preamp"
-				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/8b67a406-2a15-4cf7-bf64-ea67c0dc6696"
-					(reference "RLY2")
-					(unit 2)
 				)
 			)
 		)
@@ -4618,14 +4495,14 @@
 	(symbol
 		(lib_id "tube_preamp:G5V-2")
 		(at 292.1 67.31 270)
-		(unit 3)
+		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1828caa1-4e49-5328-9fb5-7cb9bd019dda")
+		(uuid "31afd0f3-446d-5428-a498-b71662636b28")
 		(property "Reference" "RLY2"
-			(at 289.56 61.595 90)
+			(at 292.1 83.82 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4633,15 +4510,15 @@
 			)
 		)
 		(property "Value" "G5V-2(HI)"
-			(at 289.56 63.5 90)
+			(at 292.1 85.725 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
-			(at 288.29 73.66 0)
+		(property "Footprint" "Relay_THT:Relay_DPDT_Omron_G5V-2"
+			(at 290.83 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4659,7 +4536,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Omron G5V-2 DPDT relay, Omron terminal names; pin numbers = Proteus ids: unit A coil COIL16 = 4, COIL1 = 5; unit B pole COM13 = 2, NC11 = 3, NO9 = 1; unit C pole COM4 = 6, NC6 = 7, NO8 = 8"
+		(property "Description" "Omron G5V-2 DPDT relay, Omron pin numbers (coil 1 / 16, pole 1 COM 4 NC 6 NO 8, pole 2 COM 13 NC 11 NO 9); KiCad Relay:G5V-2 unchanged"
 			(at 292.1 67.31 0)
 			(effects
 				(font
@@ -4668,20 +4545,35 @@
 				(hide yes)
 			)
 		)
-		(pin "6"
-			(uuid "b1f598b6-5776-5095-ad8c-8217e84a8ed9")
+		(pin "1"
+			(uuid "3a044656-d1e0-554f-aa8f-269fcbfdd204")
 		)
-		(pin "7"
-			(uuid "e82c2c32-dd56-5f77-bb45-2aaa28b381f4")
+		(pin "4"
+			(uuid "86cac72f-8b6b-5280-9302-675000ce7b56")
+		)
+		(pin "6"
+			(uuid "546b0d42-98d7-531d-a133-3ba5805395d7")
 		)
 		(pin "8"
-			(uuid "77edcc28-6806-5f09-a3dd-7b2ad3e3d326")
+			(uuid "74c60443-b7a0-5aa3-8b84-3c3b1fc0bbde")
+		)
+		(pin "9"
+			(uuid "6fa2e0a3-5ff8-5fb2-b18a-12a0b935e521")
+		)
+		(pin "11"
+			(uuid "e211f9a3-4699-5fcc-919c-ee7facba6ec7")
+		)
+		(pin "13"
+			(uuid "0db13eb5-1d9c-5e84-b097-b68f62a7be0e")
+		)
+		(pin "16"
+			(uuid "2fb0691c-1fe7-5268-aee7-c929273ef31a")
 		)
 		(instances
 			(project "tube_preamp"
 				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/8b67a406-2a15-4cf7-bf64-ea67c0dc6696"
 					(reference "RLY2")
-					(unit 3)
+					(unit 1)
 				)
 			)
 		)
@@ -5473,7 +5365,7 @@
 	)
 	(symbol
 		(lib_id "tube_preamp:D")
-		(at 248.92 96.52 270)
+		(at 238.76 52.07 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5481,7 +5373,7 @@
 		(dnp no)
 		(uuid "865096b0-2551-5eab-8d11-4d100fcd88f0")
 		(property "Reference" "D1"
-			(at 252.56 95.25 90)
+			(at 238.76 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5489,7 +5381,7 @@
 			)
 		)
 		(property "Value" "1N4001"
-			(at 254.76 97.79 90)
+			(at 238.76 50.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5497,7 +5389,7 @@
 			)
 		)
 		(property "Footprint" "tube_preamp:D_DO-41_SOD81_P10.16mm_Horizontal_AK"
-			(at 248.92 96.52 0)
+			(at 238.76 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5506,7 +5398,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 248.92 96.52 0)
+			(at 238.76 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5515,7 +5407,7 @@
 			)
 		)
 		(property "Description" "Diode, Proteus pins A/K"
-			(at 248.92 96.52 0)
+			(at 238.76 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5540,7 +5432,7 @@
 	)
 	(wire
 		(pts
-			(xy 240.03 88.9) (xy 248.92 88.9)
+			(xy 231.14 59.69) (xy 231.14 52.07)
 		)
 		(stroke
 			(width 0)
@@ -5550,7 +5442,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 88.9) (xy 248.92 92.71)
+			(xy 231.14 52.07) (xy 234.95 52.07)
 		)
 		(stroke
 			(width 0)
@@ -5560,7 +5452,7 @@
 	)
 	(wire
 		(pts
-			(xy 240.03 104.14) (xy 248.92 104.14)
+			(xy 246.38 59.69) (xy 246.38 52.07)
 		)
 		(stroke
 			(width 0)
@@ -5570,7 +5462,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 104.14) (xy 248.92 100.33)
+			(xy 246.38 52.07) (xy 242.57 52.07)
 		)
 		(stroke
 			(width 0)
@@ -5580,7 +5472,7 @@
 	)
 	(wire
 		(pts
-			(xy 240.03 104.14) (xy 240.03 111.76)
+			(xy 231.14 52.07) (xy 231.14 49.53)
 		)
 		(stroke
 			(width 0)
@@ -5590,35 +5482,35 @@
 	)
 	(global_label "H4"
 		(shape passive)
-		(at 240.03 111.76 270)
+		(at 231.14 49.53 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "304af242-8326-565e-bc63-695445f5a547")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 240.03 111.76 0)
+			(at 231.14 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(junction
-		(at 240.03 104.14)
+		(at 231.14 52.07)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "721adf3e-563c-585a-b94b-81ffda9d92c4")
 	)
 	(wire
 		(pts
-			(xy 240.03 88.9) (xy 232.41 88.9)
+			(xy 246.38 52.07) (xy 246.38 49.53)
 		)
 		(stroke
 			(width 0)
@@ -5626,47 +5518,37 @@
 		)
 		(uuid "f543417b-117e-5d33-a5a6-6ea79820bf69")
 	)
-	(wire
-		(pts
-			(xy 232.41 88.9) (xy 232.41 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "97bb551d-0b33-51c5-9dc8-3756c6747405")
-	)
 	(global_label "SW1"
 		(shape passive)
-		(at 232.41 111.76 270)
+		(at 246.38 49.53 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
-		(uuid "0dfd3492-c525-5221-af3e-97fa6139ba54")
+		(uuid "97bb551d-0b33-51c5-9dc8-3756c6747405")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 232.41 111.76 0)
+			(at 246.38 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(junction
-		(at 240.03 88.9)
+		(at 246.38 52.07)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "001a397d-fbaa-588d-ac12-1d88658c4a18")
+		(uuid "0dfd3492-c525-5221-af3e-97fa6139ba54")
 	)
 	(symbol
 		(lib_id "tube_preamp:D")
-		(at 302.26 96.52 270)
+		(at 292.1 49.53 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5674,7 +5556,7 @@
 		(dnp no)
 		(uuid "9261aace-8eb6-5f14-91f7-8645da77f0f8")
 		(property "Reference" "D2"
-			(at 305.9 95.25 90)
+			(at 292.1 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5682,7 +5564,7 @@
 			)
 		)
 		(property "Value" "1N4001"
-			(at 308.1 97.79 90)
+			(at 292.1 47.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5690,7 +5572,7 @@
 			)
 		)
 		(property "Footprint" "tube_preamp:D_DO-41_SOD81_P10.16mm_Horizontal_AK"
-			(at 302.26 96.52 0)
+			(at 292.1 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5699,7 +5581,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 302.26 96.52 0)
+			(at 292.1 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5708,7 +5590,7 @@
 			)
 		)
 		(property "Description" "Diode, Proteus pins A/K"
-			(at 302.26 96.52 0)
+			(at 292.1 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5733,7 +5615,17 @@
 	)
 	(wire
 		(pts
-			(xy 293.37 88.9) (xy 302.26 88.9)
+			(xy 284.48 57.15) (xy 284.48 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "001a397d-fbaa-588d-ac12-1d88658c4a18")
+	)
+	(wire
+		(pts
+			(xy 284.48 49.53) (xy 288.29 49.53)
 		)
 		(stroke
 			(width 0)
@@ -5743,7 +5635,7 @@
 	)
 	(wire
 		(pts
-			(xy 302.26 88.9) (xy 302.26 92.71)
+			(xy 299.72 57.15) (xy 299.72 49.53)
 		)
 		(stroke
 			(width 0)
@@ -5753,7 +5645,7 @@
 	)
 	(wire
 		(pts
-			(xy 293.37 104.14) (xy 302.26 104.14)
+			(xy 299.72 49.53) (xy 295.91 49.53)
 		)
 		(stroke
 			(width 0)
@@ -5763,7 +5655,7 @@
 	)
 	(wire
 		(pts
-			(xy 302.26 104.14) (xy 302.26 100.33)
+			(xy 284.48 49.53) (xy 284.48 46.99)
 		)
 		(stroke
 			(width 0)
@@ -5771,91 +5663,71 @@
 		)
 		(uuid "0e6ec459-cb2e-5d27-8e45-16fa3e9cd089")
 	)
-	(wire
-		(pts
-			(xy 293.37 104.14) (xy 293.37 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1f68f02e-69dd-50c8-89da-eab5c35c0f3c")
-	)
 	(global_label "H4"
 		(shape passive)
-		(at 293.37 111.76 270)
+		(at 284.48 46.99 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
-		(uuid "de504951-910c-5676-9c3d-a08ee224ba05")
+		(uuid "1f68f02e-69dd-50c8-89da-eab5c35c0f3c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 293.37 111.76 0)
+			(at 284.48 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(junction
-		(at 293.37 104.14)
+		(at 284.48 49.53)
 		(diameter 0)
 		(color 0 0 0 0)
+		(uuid "de504951-910c-5676-9c3d-a08ee224ba05")
+	)
+	(wire
+		(pts
+			(xy 299.72 49.53) (xy 299.72 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
 		(uuid "e07bb840-134d-56da-8f08-80b7819f0729")
-	)
-	(wire
-		(pts
-			(xy 293.37 88.9) (xy 285.75 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ee839eac-2b21-571b-b059-47e819d513e8")
-	)
-	(wire
-		(pts
-			(xy 285.75 88.9) (xy 285.75 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7606341d-7599-5577-b9a8-2ced737bac26")
 	)
 	(global_label "SW2"
 		(shape passive)
-		(at 285.75 111.76 270)
+		(at 299.72 46.99 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
-		(uuid "c3689b0d-781e-59f6-ae97-bb0bfef88546")
+		(uuid "ee839eac-2b21-571b-b059-47e819d513e8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 285.75 111.76 0)
+			(at 299.72 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(junction
-		(at 293.37 88.9)
+		(at 299.72 49.53)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "0b9a1c65-ba26-5ec1-ad04-28c75bc55248")
+		(uuid "7606341d-7599-5577-b9a8-2ced737bac26")
 	)
 	(wire
 		(pts
@@ -5865,7 +5737,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "231247d8-a1a8-51fe-8488-547056891140")
+		(uuid "c3689b0d-781e-59f6-ae97-bb0bfef88546")
 	)
 	(global_label "H4"
 		(shape passive)
@@ -5877,7 +5749,7 @@
 			)
 			(justify right)
 		)
-		(uuid "05fec7de-4764-523c-b41f-2318b38832f2")
+		(uuid "0b9a1c65-ba26-5ec1-ad04-28c75bc55248")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 273.05 166.37 0)
 			(effects
@@ -5897,7 +5769,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ea2cf8b2-6dff-51d6-8174-c91fed888bcb")
+		(uuid "231247d8-a1a8-51fe-8488-547056891140")
 	)
 	(global_label "H5"
 		(shape passive)
@@ -5909,7 +5781,7 @@
 			)
 			(justify right)
 		)
-		(uuid "124900dc-bdfe-50da-8a20-ddfc29ecc3f0")
+		(uuid "05fec7de-4764-523c-b41f-2318b38832f2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 278.13 166.37 0)
 			(effects
@@ -5995,7 +5867,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1fb47429-f391-543d-8567-9b147dda34b4")
+		(uuid "ea2cf8b2-6dff-51d6-8174-c91fed888bcb")
 	)
 	(global_label "PRE-GND"
 		(shape passive)
@@ -6007,7 +5879,7 @@
 			)
 			(justify left)
 		)
-		(uuid "55194fa0-2dd5-5198-b9ac-8707dacc3027")
+		(uuid "124900dc-bdfe-50da-8a20-ddfc29ecc3f0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 251.46 191.77 0)
 			(effects
@@ -6028,7 +5900,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "a9a40a20-098b-541f-a26f-b068b1262226")
+		(uuid "1fb47429-f391-543d-8567-9b147dda34b4")
 	)
 	(text "PDF terminal names: GTR-IN = GTR_IN, GTR-GND = GTR_GND, POTn-m = POTn_m. U1 pin 9 has no net (as in Proteus)."
 		(exclude_from_sim no)
@@ -6039,7 +5911,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d4ab1923-95fa-5fd0-bfb2-45eeb137230e")
+		(uuid "55194fa0-2dd5-5198-b9ac-8707dacc3027")
 	)
 	(embedded_fonts no)
 )

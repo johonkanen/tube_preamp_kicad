@@ -50,11 +50,13 @@ dangling / zero-length Proteus track pieces of findings 16 / 20 are not built (`
 `tools/check_removed_tracks.py`; 738 tracks), the component values stay as they are (the board will be
 redesigned) and finding 4 is unchanged. `tools/check_all.sh`: ALL CHECKS PASSED. Next: the shared-tool
 migration, then the board stops being generated (next_prompt.md).
-Shared-tool migration 2026-11-20 (STATUS.md "Shared-tool migration 2026-11-20"): p2k a9a286c; the
-board-local tools named above (`compare.py`, `erc.sh`, `check_pin_order.py`, `rename_holes.py`,
+Shared-tool migration 2026-11-20 (STATUS.md "Shared-tool migration 2026-11-20"), done: p2k a9a286c;
+the board-local tools named above (`compare.py`, `erc.sh`, `check_pin_order.py`, `rename_holes.py`,
 `roundtrip.py`, `check_drill_smaller.py`, `excellon_metric.py`, `measure_gaps.py`) are replaced by the
-shared tools and `p2k_config.py` keys (`tools/make_pcb.sh` = `p2k make_pcb`), every generated file
-identical; no strict-check opt-outs. Kept: `tools/check_removed_tracks.py`. Next: the relay design change.
+shared tools and `p2k_config.py` keys (`tools/make_pcb.sh` = `p2k make_pcb`); no strict-check opt-outs;
+kept: `tools/check_removed_tracks.py`. Design change (electrically identical, same copper): the relays
+RLY1-RLY5 carry the Omron pin numbers (`IPC_PIN_IDS`) with KiCad's stock G5V-2 symbol and footprint.
+Next (the user's call): stop generating the board (next_prompt.md).
 
 Built in about 2010 from the June 2010 Gerbers (`source/fab_2010/`). The Proteus layout was edited in October 2010: Q6 pin 3 moves from net J1 to a new net J4 (Q6-3, Q9-3, pad D), plus a ground reroute. The export in `source/cadcam/` is the October version. Holes, outline and tube sockets are identical to the fabricated board. Accepted as the baseline, since the board gets redesigned.
 

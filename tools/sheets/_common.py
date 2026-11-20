@@ -1,8 +1,8 @@
 """Helpers for the per-sheet transcription scripts (tools/sheets/sheetNN.py).
 
 Adapted from the power amp pilot (~/dev/tube_power_amp_kicad/tools/sheets/_common.py): part map
-lookups, term(), P(); plus tube() / relay() that place every unit of the
-multi-unit symbols (STATUS.md "Transcription rules").
+lookups, term(), P(); plus tube() (all three units of a 12AX7, STATUS.md "Transcription rules") and
+relay() / coil_block() (the one-unit G5V-2 with its coil diode).
 
 The generic helpers come from p2k.sheetkit (grid g(), sheet(), left/right/up/down,
 glabel_*/label_*, power_at, bus_group, flagged_power, vert2, horiz2, terminal); board helpers
@@ -84,47 +84,41 @@ def tube(sh, ref, a, b, heater, rot_a=0, rot_b=0, rot_h=0, mirror_b=False):
     return ua, ub, uh
 
 
-def relay(sh, ref, coil, pole1, pole2, rot_coil=0, rot1=0, rot2=0, coil_text=-12):
-    """All three units of a G5V-2 relay (RLY1-RLY5): unit 1 = coil (Proteus DC1 = 4 on Omron COIL16,
-    DC2 = 5 on Omron COIL1; unrotated: pin 5 at the top) at `coil`, unit 2 = Proteus pole 1 (COM1 = 2,
-    NC1 = 3, AC1/NO = 1 on Omron COM13 / NC11 / NO9) at `pole1`, unit 3 = Proteus pole 2 (COM2 = 6,
-    NC2 = 7, AC2/NO = 8 on Omron COM4 / NC6 / NO8) at `pole2` (finding 14). Texts (centred, horizontal): beside the coil (coil_text grid units from
-    its centre) and above each pole. Returns (coil, pole1, pole2) Placed objects."""
-    out = []
-    for u, (x, y), rot in ((1, coil, rot_coil), (2, pole1, rot1), (3, pole2, rot2)):
-        fa = _FIELD_ANGLE[rot % 360]
-        if u == 1:
-            tx, ty1, ty2 = round(x + g(coil_text), 4), round(y - g(1), 4), round(y + g(1), 4)
-        else:
-            tx, ty1, ty2 = round(x - g(2), 4), round(y - g(4.5), 4), round(y - g(3), 4)
-        out.append(sh.place(sym(ref), ref, x, y, rot, unit=u, value=sh_value(ref),
-                            ref_at=(tx, ty1, fa, None), value_at=(tx, ty2, fa, None)))
-    return tuple(out)
+def relay(sh, ref, centre):
+    """A G5V-2 relay (RLY1-RLY5, KiCad's one-unit Relay:G5V-2 with the Omron pin numbers, IPC_PIN_IDS)
+    turned 270: coil on top (pin 16 = Proteus 4 on the left, pin 1 = Proteus 5 on the right, 8 grid
+    units above `centre`), then the Omron pole 1 (COM 4 at `centre` on the left, NC 6 upper right, NO 8
+    lower right; Proteus pole 2 = 6 / 7 / 8) and, 8 grid units lower, the Omron pole 2 (COM 13, NC 11,
+    NO 9; Proteus pole 1 = 2 / 3 / 1). The contacts sit where the pole units of the former split symbol
+    were. Reference and value centred below the symbol. Returns the Placed object (.pin(n), Omron n)."""
+    x, y = centre
+    fa = _FIELD_ANGLE[270]
+    return sh.place(sym(ref), ref, x, y, 270, value=sh_value(ref),
+                    ref_at=(x, round(y + g(13), 4), fa, None), value_at=(x, round(y + g(14.5), 4), fa, None))
 
 
 # --- relay coil with its diode -------------------------------------------------------------------------
-def coil_block(sh, coil, dref, sw, xd=7, xsw=-6, ylab=6, sw_label=True):
-    """Diode `dref` across a relay coil (unit 1 placed with relay(), pin 5 at the top) and the
-    labels below it: cathode on coil pin 5 (the switch net `sw`, taken xsw grid units to the side
-    and down), anode on coil pin 4 = H4 (finding 4: the anode is on H4). xd = column of the diode
-    relative to the coil. sw_label=False: no label on the pin 5 node (RLY4: net #00081).
-    Returns (pin 5 node, pin 4 node)."""
-    top, bot = coil.pin("5"), coil.pin("4")
-    assert top[1] < bot[1] and top[0] == bot[0], "coil pin 5 must be at the top"
-    xdm = round(top[0] + g(xd), 4)
-    _, dt, db = vert2(sh, sym(dref), dref, xdm, round((top[1] + bot[1]) / 2, 4), sh_value(dref), top="K")
-    sh.wire(top, (xdm, top[1]), dt)
-    sh.wire(bot, (xdm, bot[1]), db)
-    yl = round(bot[1] + g(ylab), 4)
-    sh.wire(bot, (bot[0], yl))
-    sh.glabel("H4", bot[0], yl, 270)
-    sh.junction(*bot)
-    if sw_label:
-        xs = round(top[0] + g(xsw), 4)
-        sh.wire(top, (xs, top[1]), (xs, yl))
-        sh.glabel(sw, xs, yl, 270)
-        sh.junction(*top)
-    return top, bot
+def coil_block(sh, k, dref, sw, sw_label=True):
+    """Diode `dref` across the coil of relay `k` (placed with relay()), drawn above it: the coil pins
+    (16 left, 1 right) go up 6 grid units to the diode row (clear of the body), cathode on pin 1 (the switch net `sw`,
+    global label pointing up) and anode on pin 16 = H4 (finding 4: the anode is on H4; global label
+    pointing up). sw_label=False: no label on the pin 1 node (RLY4: net #00081).
+    Returns (pin 1 node, pin 16 node) on the diode row."""
+    right, left = k.pin("1"), k.pin("16")
+    assert right[1] == left[1] and left[0] < right[0], "relay coil must be horizontal, pin 16 on the left"
+    yd = round(left[1] - g(6), 4)
+    xm = round((left[0] + right[0]) / 2, 4)
+    _, da, dk = horiz2(sh, sym(dref), dref, xm, yd, sh_value(dref), left="A", text="above")
+    nl, nr = (left[0], yd), (right[0], yd)
+    sh.wire(left, nl, da)
+    sh.wire(right, nr, dk)
+    for node, net, show in ((nl, "H4", True), (nr, sw, sw_label)):
+        if show:
+            top = (node[0], round(yd - g(2), 4))
+            sh.wire(node, top)
+            sh.glabel(net, *top, 90)
+            sh.junction(*node)
+    return nr, nl
 
 
 # --- horizontal capacitors ---------------------------------------------------------------------------

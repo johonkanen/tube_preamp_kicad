@@ -78,6 +78,16 @@ KICAD_REFDES = {
 # lower case (pre-gnd, sw1-sw3, h4, h5, j4): Proteus net names ignore case, KiCad's do not.
 NET_ALIASES = {}
 
+# Pin ids renamed after parsing the IPC file (p2k ipc356, so every tool sees them). {KiCad refdes:
+# {Proteus pin id: KiCad pin id}}. RLY1-RLY5 (design change 2026-11-20, coordinating-session decision
+# "PR relays", STATUS.md "Shared-tool migration 2026-11-20"): the Proteus package G5V-2(HI) numbers the
+# pads 1-8; the Omron terminals on those pads (STATUS.md "Phase 2", finding 14) are Proteus 1 / 2 / 3 =
+# NO 9 / COM 13 / NC 11 (pole 1), 4 / 5 = coil 16 / 1, 6 / 7 / 8 = COM 4 / NC 6 / NO 8 (pole 2). With
+# the Omron numbers the symbol and footprint are KiCad's Relay:G5V-2 / Relay_THT:Relay_DPDT_Omron_G5V-2
+# unchanged (as tube_pi_fxloop_kicad's SERIES_MIX, same map); the copper and every net stay as built.
+IPC_PIN_IDS = {f"RLY{i}": {"1": "9", "2": "13", "3": "11", "4": "16", "5": "1", "6": "4", "7": "6", "8": "8"}
+               for i in range(1, 6)}
+
 # Blank-refdes records: 14 vias (0.508 mm drill, 1.27 mm pad), no free pads; the 13 records
 # without a net are the plated 3.0 mm mounting holes (6.35 mm pad on both layers).
 VIA_DRILLS = (0.508,)
@@ -147,6 +157,8 @@ FP_LIB_TABLE = True
 _NOVAL_IDEAL = dict(n=9, pcd=21.0, step=36, start=-54, pad=4.318, drill=1.727)
 _NOVALS = "U1 U2 U3"
 _RELAYS = "RLY1 RLY2 RLY3 RLY4 RLY5"
+_G5V2_PHASE1 = {o: IPC_PIN_IDS["RLY1"][p] for o, p in {"1": "4", "4": "2", "6": "3", "8": "1", "16": "5",
+                                                      "13": "6", "11": "7", "9": "8"}.items()}
 PIN_ORDER = [
     dict(spec="TO-92_Inline_P2.03mm", refs="Q1 Q2 Q3 Q4 Q5 Q6 Q7 Q8 Q9", mirror=False, res=0.51,
          note="TO-92_Inline_Wide is P2.54, Proteus P2.032"),
@@ -157,13 +169,16 @@ PIN_ORDER = [
     dict(spec="CP_Radial_D6.3mm_P2.50mm_PM", refs="C30", mirror=False, res=0.01, polarity="+"),   # 22U 100V
     dict(spec="CP_Radial_D16.0mm_P7.50mm_Pin2Plus", refs="C28 C33 C34 C35 C36 C37", mirror=False, res=0.01,
          polarity="2"),                                    # ELEC D16 R7.5: + = 2, - = 1
-    # G5V-2: the pad pattern (2 columns x 4 rows) is mirror-symmetric; the footprint renumbering
-    # (Proteus 4/2/3/1 on the Omron 16/13/11/9 column) fits unmirrored, and the symbol's Omron pin
-    # names (finding 14) must name the same Omron terminals (fit unmirrored; Phase 1: mirrored).
-    dict(spec="Relay_DPDT_Omron_G5V-2_ProteusPins", refs=_RELAYS, mirror=False, res=0.01),
-    dict(name=_RELAYS + " (symbol map)", footprint="Relay_THT:Relay_DPDT_Omron_G5V-2",
-         symbol_renumber=dict(symbol="G5V-2", pattern=r"(COIL|COM|NC|NO)(\d+)"), refs=_RELAYS,
-         mirror=False, res=0.01, note="Omron pin names (finding 14)"),
+    # G5V-2: the IPC pin ids of RLY1-RLY5 are the Omron pins (IPC_PIN_IDS), so the unmoved KiCad G5V-2
+    # must fit unmirrored. The pad pattern (2 columns x 4 rows) is mirror-symmetric: the Phase 1
+    # symbol mapping (Proteus 4 / 2 / 3 / 1 on Omron 1 / 4 / 6 / 8 and 5 / 6 / 7 / 8 on 16 / 13 / 11 / 9),
+    # expressed in today's Omron ids, must fit only mirrored, which also proves that IPC_PIN_IDS is the
+    # physical and not the mirrored mapping (as tube_pi_fxloop_kicad's SERIES_MIX).
+    dict(refs=_RELAYS, footprint="Relay_THT:Relay_DPDT_Omron_G5V-2", mirror=False, res=0.01,
+         note="Omron ids (IPC_PIN_IDS) on the unmoved KiCad G5V-2"),
+    dict(name=_RELAYS + " (Phase 1 mapping)", refs=_RELAYS, footprint="Relay_THT:Relay_DPDT_Omron_G5V-2",
+         renumber=_G5V2_PHASE1, mirror=True, res=0.01, render=False,
+         note="the Phase 1 symbol mapping fits only mirrored"),
     # noval: only the MIRRORED KiCad noval matches the Proteus numbering
     dict(footprint="Valve:Valve_Noval_P", refs=_NOVALS, mirror=True, res=3.1),
     dict(name=_NOVALS + " (ideal)", ideal=_NOVAL_IDEAL, refs=_NOVALS, mirror=True, res=0.02, other=0.02,
@@ -190,7 +205,6 @@ PIN_ORDER_MAX_MOVE = {
     "CP_Radial_D16.0mm_P7.50mm_Pin2Plus": 0.001,
     "D_DO-41_SOD81_P10.16mm_Horizontal_AK": 0.001,
     "TO-92_Inline_P2.03mm": 0.51,                                 # P2.54 -> P2.032
-    "Relay_DPDT_Omron_G5V-2_ProteusPins": 0.001,
 }
 
 # --- PCB (Phase 3, build_pcb) ----------------------------------------------------------
@@ -242,12 +256,12 @@ DRC_ACCEPTED = {
 # entry must match a draw (gerber_to_tracks fails otherwise).
 REMOVED_TRACKS = {
     ("B.Cu", 88.9, -0.762, 88.9, -0.6985):
-        "finding 16: 0.0635 mm dangling stub inside the RLY4-2 track bend (Net-(RLY4B-COM13)), DRC track_dangling",
-    ("F.Cu", -61.087, -1.905, -61.087, -1.905): "finding 20: zero-length draw on the RLY3 NC track (Net-(RLY3B-NC11))",
+        "finding 16: 0.0635 mm dangling stub inside the RLY4-13 track bend (Net-(U3B-G2); Proteus pin 2, Net-(RLY4B-COM13) before the relay design change), DRC track_dangling",
+    ("F.Cu", -61.087, -1.905, -61.087, -1.905): "finding 20: zero-length draw on the RLY3 NC track (Net-(R16-Pad1))",
     ("F.Cu", -61.722, -22.225, -61.722, -22.225): "finding 20: zero-length draw on H4",
     ("F.Cu", -139.7635, -16.5735, -139.7635, -16.4465): "finding 20: 0.127 mm piece on PRE-GND",
     ("F.Cu", -130.81, -38.735, -130.8735, -38.7985): "finding 20: 0.090 mm piece on PRE-GND",
-    ("F.Cu", -60.96, -1.905, -61.087, -1.905): "finding 20: 0.127 mm piece on the RLY3 NC track (Net-(RLY3B-NC11))",
+    ("F.Cu", -60.96, -1.905, -61.087, -1.905): "finding 20: 0.127 mm piece on the RLY3 NC track (Net-(R16-Pad1))",
     ("B.Cu", -18.87074, 24.13, -19.05, 24.13): "finding 20: 0.179 mm piece on H5",
     ("B.Cu", -114.427, -18.415, -114.3, -18.415): "finding 20: 0.127 mm piece on H4",
     ("B.Cu", -43.942, -6.858, -43.942, -6.985): "finding 20: 0.127 mm piece on PRE-GND",

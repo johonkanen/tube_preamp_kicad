@@ -11,7 +11,7 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 | 4 Verification | **done** 2026-11-20 (Fable 5.2, fresh session): `ipc356_diff` OK (366/366 records, 98 nets 1:1), `gerber_roundtrip --check` OK through `tools/roundtrip.py` (0 unexplained clusters, 0 uncovered draws / flashes, 0 drill mismatches; 2010 Excellon 364/364 + the 2 expected October vias), both in `check_all.sh`; PDF re-read against the IPC on all 5 sheets: no disagreement; findings 1-18 confirmed; negative tests done |
 | 5 Clean-up | **done** 2026-11-20 (Opus 5.5, clean context): noval sockets U1-U3 on the bottom side with the standard noval numbering (footprint built mirrored; copper, pads, nets unchanged), DRC 36 + 16 accepted errors (was 54 + 16); the PI / FX loop board's two hardened checks ported (`tools/check_drill_smaller.py`, joined no-connect pins in `tools/compare.py` / `tools/erc.sh`); negative tests done; **conversion complete** |
 | Design fixes | **done** 2026-11-20 (Opus 5.5, user decisions): G5V-2 symbol relabelled to Omron's terminal names (finding 14), the 9 Proteus track pieces of findings 16 / 20 removed (`REMOVED_TRACKS`), component values unchanged; new check `tools/check_removed_tracks.py`; `make_pcb.sh --check` now stops at a failing step; negative tests done |
-| Shared-tool migration | **in progress** 2026-11-20 (Opus 5.5): step 1 (p2k bump to a9a286c, D-R re-baseline, temporary `hole_refdes` exception) and step 2 (board-local tools → shared keys, strict opt-outs none) done; section "Shared-tool migration 2026-11-20" |
+| Shared-tool migration | **done** 2026-11-20 (Opus 5.5): step 1 p2k bump to a9a286c (D-R re-baseline), step 2 board-local tools → shared keys (R1 re-baseline, strict opt-outs none), step 3 relay design change (RLY1-RLY5 on `IPC_PIN_IDS`, stock KiCad G5V-2 symbol / footprint; electrically identical); section "Shared-tool migration 2026-11-20" |
 
 ## Phase 0 – done (Opus 5.5, 2026-11-20)
 
@@ -964,6 +964,14 @@ The coordinated migration to the shared proteus2kicad tools (the per-board promp
 relays"). Every commit is proven from a clean clone with `~/dev/proteus2kicad/tools/regress.sh a9a286c
 tube_preamp_kicad` (clone, regenerate every generated file, `check_all.sh`, clean `git status`).
 
+Commits (each pushed; regression `regress.sh a9a286c tube_preamp_kicad` per commit):
+
+| Step | Commit | Regression |
+|---|---|---|
+| 1 bump + D-R + temporary `hole_refdes` exception | 3288dc6 | PASS (80 s) |
+| 2 migration (board-local tools → shared keys) | 14039d4 | PASS (94 s) |
+| 3 relay design change | see the next commit's record | |
+
 ### Step 1: p2k bump, D-R re-baseline, temporary strict exception
 
 - `tools/p2k` c5682dd → **a9a286c** (proteus2kicad main; all code is in 2fb1563 = batch Z, a9a286c adds
@@ -1024,9 +1032,67 @@ Negative tests (scratch edits, all restored; the tree afterwards as committed):
 | E1 one October via removed from `EXCELLON_MISSING` | gerber_roundtrip FAILED: "ViaDrill 0.508 mm at (-29.337, -42.545) not in the Excellon file" |
 | H1 `HOLE_START` removed | make_pcb FAILED at step build_pcb: "ERROR mounting hole refdes equal schematic refdes: H4 H5" (strict `hole_refdes`) |
 
+### Step 3: relay design change (RLY1-RLY5 on Omron pin numbers; electrically identical)
+
+Coordinating-session decision "PR relays" (`tools/p2k/docs/CANDIDATES.md` "Decisions"; user-approved),
+as tube_pi_fxloop_kicad's SERIES_MIX:
+
+- `p2k_config.py` `IPC_PIN_IDS = {f"RLY{i}": {"1": "9", "2": "13", "3": "11", "4": "16", "5": "1", "6": "4",
+  "7": "6", "8": "8"} for i in range(1, 6)}`: the Proteus G5V-2(HI) pin ids → the Omron pin numbers (the
+  inverse of the former footprint renumbering, so the physical mapping of finding 14 / Phase 2).
+- Symbol: KiCad's stock `Relay:G5V-2` unchanged (`from_std("Relay", "G5V-2", "G5V-2", "RLY", "G5V-2(HI)")`;
+  one unit: coil 1 / 16, pole COM 4 / NC 6 / NO 8, pole COM 13 / NC 11 / NO 9); the G5V-2_Split copy with
+  Omron names on the Proteus ids (`g5v2()` of the design fixes) is gone.
+- Footprint: stock `Relay_THT:Relay_DPDT_Omron_G5V-2` (rule in `tools/gen_footprints.py`); the project
+  footprint `Relay_DPDT_Omron_G5V-2_ProteusPins` and its spec / `PIN_ORDER_MAX_MOVE` entry are deleted.
+- Sheets 1-3 redrawn for the one-unit symbol (`_common.relay()`: turned 270, coil on top, COM left, NC
+  upper / NO lower right; `coil_block()`: the coil diode above the coil, H4 / SW labels pointing up).
+  The contacts sit exactly where the pole units were (Omron pole 4 / 6 / 8 = the former unit C, pole
+  13 / 11 / 9 = unit B, 8 grid units lower), so the contact wiring is unchanged except RLY5's lower pole
+  (2 grid units higher than its former unit: the wires to RLY4 NO 9, MV2 and MV3 follow) and RLY4's coil
+  feed: D4 / D5 (#00081 from SW3 / SW2) now stand right of the coil diode instead of below the relay.
+  Rendered and checked (build/tmp, not committed).
+- `PIN_ORDER`: the relay entries as PF's: the unmoved stock G5V-2 on the Omron ids fits unmirrored
+  (0.000), and the Phase 1 symbol mapping (Proteus 4 / 2 / 3 / 1 on Omron 1 / 4 / 6 / 8) in today's ids fits
+  only mirrored (0.000 mirrored, 7.620 unmirrored), which proves `IPC_PIN_IDS` is the physical mapping.
+- `REMOVED_TRACKS` reason texts follow the new auto net names (Net-(U3B-G2), Net-(R16-Pad1); keys
+  unchanged), `tools/check_removed_tracks.py` comment likewise.
+
+Proof of "electrically identical" (old = step 2 commit, new = this commit):
+
+- Every IPC record (refdes, pin, x, y, net) of `reference/ipc356_pads.json` equals the old one with the
+  RLY pins mapped through `IPC_PIN_IDS` (366 records): every relay pin stays on its IPC net.
+- Board (pcbnew, scratch script): tracks and vias identical (752 items: start, end, width, layer); every
+  pad identical in position, size, drill and shape (352 pads, RLY pads renumbered by the map); the pad /
+  track sets per net identical (101 nets). 20 auto net names change, all `Net-(RLY…)` names of the
+  former split symbol (e.g. Net-(RLY4B-COM13) → Net-(U3B-G2), Net-(RLY3B-NC11) → Net-(R16-Pad1),
+  Net-(RLY4A-COIL1) → Net-(D4-PadK)). The board file diff is large (pad numbers, net names, item order)
+  but the copper is the same.
+- compare_netlists (98 / 98 nets, 0 wrong-net pins), ERC 0 / 0, check_footprints, check_board,
+  assign_nets, DRC (same accepted counts), ipc356_diff (366 / 366, 98 nets 1:1) and gerber_roundtrip (same
+  XOR areas and clusters; `reports/roundtrip/roundtrip.txt` equals the old one as a multiset of lines
+  after normalising the RLY pin ids, `Net-(…)` names and the relay footprint name) all pass.
+
+Expected changes (design change, electrically identical): `reference/*` (RLY pin ids), `lib/part_map.csv`
+unchanged, `lib/tube_preamp.kicad_sym` (G5V-2), `lib/footprint_map.csv` (RLY1-RLY5 footprint),
+`lib/tube_preamp.pretty/Relay_DPDT_Omron_G5V-2_ProteusPins.kicad_mod` deleted, `kicad/01-03_*.kicad_sch`,
+`kicad/tube_preamp.kicad_pcb` (RLY pad numbers, auto net names), `reports/footprint_fit.csv` /
+`footprint_pads.csv` (RLY footprint and pad ids), `reports/roundtrip/roundtrip.txt` (names). The pin-order
+renders `reports/pin_order/RLY*.png` (visual aids, not regenerated by the checks) still show the former
+`_ProteusPins` footprint; regenerate with `p2k check_pin_order --render` (needs matplotlib) if wanted.
+
+Negative tests (scratch, all restored; full regeneration and `check_all.sh` afterwards):
+
+| Test | Result |
+|---|---|
+| R1 RLY1 `IPC_PIN_IDS` with COM 13 / NC 11 swapped (`"2": "11", "3": "13"`) | check_pin_order FAILED (stock G5V-2 unmirrored 5.080; Phase 1 mapping mirrored 5.080); compare_netlists 3 wrong-net pins (#00005 / #00014 split and merged at RLY1-11 / RLY1-13); check_footprints FAILED (RLY1 residual 5.080 mm on pads 11 / 13) |
+| R2 sheet 1: RLY1 NC 6 and NO 8 swapped in the drawing | compare_netlists 3 wrong-net pins (#00018 / #00019 at RLY1-6 / RLY1-8) |
+
+**Strict opt-outs after the migration: none.**
+
 ## Last check output
 
-`tools/check_all.sh` (2026-11-20, shared-tool migration step 2: p2k a9a286c, board-local tools replaced by the shared keys, no strict opt-outs; exit status 0):
+`tools/check_all.sh` (2026-11-20, shared-tool migration step 3, relay design change: p2k a9a286c, no strict opt-outs; exit status 0):
 
 ```
 == KiCad environment
@@ -1034,6 +1100,7 @@ pcbnew 10.0.7
 == IPC-D-356A parser self-check
 ipc356: nets=98, records=366, refdes_raw=164, tht_records=366, smd_records=0, smd_top=0, smd_bottom=0, nc_pads=3, vias=14, free_pads=0, holes=13, parts=163
 ipc356: OK
+ipc356: pin ids renamed (IPC_PIN_IDS): RLY1 1->9 2->13 3->11 4->16 5->1 6->4 7->6 8->8; RLY2 1->9 2->13 3->11 4->16 5->1 6->4 7->6 8->8; RLY3 1->9 2->13 3->11 4->16 5->1 6->4 7->6 8->8; RLY4 1->9 2->13 3->11 4->16 5->1 6->4 7->6 8->8; RLY5 1->9 2->13 3->11 4->16 5->1 6->4 7->6 8->8
 == Gerber X2 export vs IPC (pads, vias, holes, drills, outline)
   8 gerbers, one SameCoordinates id
   Top Copper: Draw:Conductor 402, Draw:Profile 4, Flash:ComponentPad 339, Flash:OtherPad,Unknown 13, Flash:ViaPad 14
@@ -1074,8 +1141,7 @@ footprints: CP_Radial_D6.3mm_P2.50mm_PM: fit on C30 unmirrored, largest pad move
 footprints: CP_Radial_D16.0mm_P7.50mm_Pin2Plus: fit on C28 unmirrored, largest pad move 0.000 mm (pad 1), limit 3.750 mm
 footprints: D_DO-41_SOD81_P10.16mm_Horizontal_AK: fit on D1 unmirrored, largest pad move 0.000 mm (pad A), limit 5.080 mm
 footprints: TO-92_Inline_P2.03mm: fit on Q1 unmirrored, largest pad move 0.508 mm (pad 3), limit 1.270 mm
-footprints: Relay_DPDT_Omron_G5V-2_ProteusPins: fit on RLY1 unmirrored, largest pad move 0.000 mm (pad 8), limit 2.540 mm
-gen_footprints: 163 parts, 16 footprints (14 project), up to date
+gen_footprints: 163 parts, 16 footprints (13 project), up to date
 == Footprints vs IPC pad geometry
 check_footprints: pcbnew placement of 163 parts, worst pad offset 0.001 mm
 check_footprints: note: U1: THT pad pattern fits only mirrored -> bottom side
@@ -1094,8 +1160,8 @@ C30                      polarity: base pad 1 (marked) = pin '+' (expected '+')
 C30                      CP_Radial_D6.3mm_P2.50mm                        0.000 @   270    0.000 @    90  unmirrored 0.000
 C28 C33 C34 C35 C36 C37  polarity: base pad 1 (marked) = pin '2' (expected '2')
 C28 C33 C34 C35 C36 C37  CP_Radial_D16.0mm_P7.50mm                       0.000 @   270    0.000 @    90  unmirrored 0.000
-RLY1 RLY2 RLY3 RLY4 RLY5 Relay_DPDT_Omron_G5V-2                          0.000 @   180    7.620 @   180  unmirrored 0.000
-RLY1 RLY2 RLY3 RLY4 RLY5 (symbol map) Relay_DPDT_Omron_G5V-2                          0.000 @   180    7.620 @   180  unmirrored 0.000  (Omron pin names (finding 14))
+RLY1 RLY2 RLY3 RLY4 RLY5 Relay_DPDT_Omron_G5V-2                          0.000 @   180    7.620 @   180  unmirrored 0.000  (Omron ids (IPC_PIN_IDS) on the unmoved KiCad G5V-2)
+RLY1 RLY2 RLY3 RLY4 RLY5 (Phase 1 mapping) Relay_DPDT_Omron_G5V-2                          7.620 @   180    0.000 @   180  mirrored 0.000  (the Phase 1 symbol mapping fits only mirrored)
 U1 U2 U3                 Valve_Noval_P                                  17.631 @ 150.3    2.972 @     0  mirrored 2.972
 U1 U2 U3 (ideal)         ideal n=9 PCD 21 mm                            19.319 @   162    0.007 @   342  mirrored 0.007  (ideal standard noval, PCD 21.00 mm)
 noval footprint vs ideal Valve_Noval_Belton_PCD21.00mm                   0.007 @   342   19.319 @   198  unmirrored 0.007  (standard noval numbering in the footprint's own view)
@@ -1109,7 +1175,6 @@ derived                  C_Rect_L16.5mm_W7.0mm_P9.70mm                        pa
 derived                  C_Rect_L24.0mm_W7.0mm_P20.00mm                       pads moved  1.250 mm (limit 1.26)
 derived                  D_DO-41_SOD81_P10.16mm_Horizontal_AK                 pads moved  0.000 mm (limit 0.001)
 derived                  R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal   pads moved  0.635 mm (limit 0.64)
-derived                  Relay_DPDT_Omron_G5V-2_ProteusPins                   pads moved  0.000 mm (limit 0.001)
 derived                  TO-92_Inline_P2.03mm                                 pads moved  0.508 mm (limit 0.51)
 bottom                   footprint_fit.csv and kicad/tube_preamp.kicad_pcb: U1 U2 U3 bottom (B.Cu), the other 173 footprints top
 check_pin_order: OK (11 checks as recorded)
@@ -1426,7 +1491,7 @@ ALL CHECKS PASSED
     pin-order check reads them back from the library by a name pattern (`check_pin_order.py`
     `relay_symbol_map()`). A shared "physical terminal name" field per footprint renumbering would let
     one table drive the footprint renumbering, the symbol names and the check.
-    **Shared-tool migration 2026-11-20:** not migrated: no shared key; made moot by the relay design change (step 3: stock `Relay:G5V-2` with Omron pin numbers, `IPC_PIN_IDS`).
+    **Shared-tool migration 2026-11-20:** not migrated (no shared key); made moot by the relay design change (step 3): the IPC pin ids are the Omron numbers (`IPC_PIN_IDS`), symbol and footprint are KiCad's stock G5V-2, and `check_pin_order` fits the stock footprint directly.
 29. **`gerber_roundtrip` does not fail on a `REMOVED_TRACKS` entry without a Proteus draw** (only
     `gerber_to_tracks` does), and no shared check requires the removed set to be exactly a decided one:
     a dropped entry passes the round trip when the piece lies on its own net's copper (design fixes
