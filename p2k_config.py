@@ -196,3 +196,10 @@ DRILL_SMALLER = {
 # trip through tools/roundtrip.py, which expects those two by position (the shared tool alone
 # reports 2 drill mismatches).
 DRILL_EXCELLON = "reference/fab_2010_drill_metric.drl"
+
+# --- Strict checks (p2k batch Z, decision D-Z: every id in board.STRICT_DEFAULT is on) ----------
+
+# Temporary (shared-tool migration step 1, STATUS.md "Shared-tool migration 2026-11-20"): the
+# schematic has the heater terminals H4 / H5, and the mounting holes are H4 / H5 until the
+# migration replaces tools/rename_holes.py with HOLE_START = 101.
+STRICT_CHECKS_OFF = {"hole_refdes": "H4 / H5 until the HOLE_START = 101 migration"}
