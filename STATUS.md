@@ -8,7 +8,7 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 | 1 Schematic | **done** 2026-11-20 (preparation Opus 5.5, transcription Fable 5.2): 5 sheets, 163/163 parts, netlist = IPC, ERC 0 / 0 |
 | 2 Footprints | **done** 2026-11-20 (Opus 5.5): 163/163 parts fit the IPC pads (worst residual 0.001 mm, pcbnew placement 0.001 mm), 16 footprints (13 project + 3 KiCad, + 1 board-only), pin order checked; open: noval socket side (finding 13), KiCad drills smaller than Proteus on RLY1-RLY5, C1/C5/C7/C10, the Orange Drops, C4/C14 |
 | 3 PCB | **done** 2026-11-20 (Opus 5.5): board generated and reproducible (`tools/make_pcb.sh`), copper 0 shorts / 0 orphans / 0 opens, check_board OK, **DRC 0 shorts / 0 unconnected / 0 parity, no unaccepted errors** (TO-92 pad 1 round on Q1-Q9, user decision); negative tests done |
-| 4 Verification | not started |
+| 4 Verification | **done** 2026-11-20 (Fable 5.2, fresh session): `ipc356_diff` OK (366/366 records, 98 nets 1:1), `gerber_roundtrip --check` OK through `tools/roundtrip.py` (0 unexplained clusters, 0 uncovered draws / flashes, 0 drill mismatches; 2010 Excellon 364/364 + the 2 expected October vias), both in `check_all.sh`; PDF re-read against the IPC on all 5 sheets: no disagreement; findings 1-18 confirmed; negative tests done |
 | 5 Clean-up | not started |
 
 ## Phase 0 – done (Opus 5.5, 2026-11-20)
@@ -595,9 +595,163 @@ As on the pilot: **a segment's net edited in the file is caught only by the byte
 check_board, assign_nets and DRC all pass). Every change fails at least one `check_all.sh` step. (Run on the board before and after the pin-1
 dot: same results.)
 
+## Phase 4 – independent verification – done (Fable 5.2, fresh session, 2026-11-20)
+
+A different reader than the sessions that built the board. Nothing in `kicad/`, `lib/` or the
+generators changed: the board is still sha1 3e0c122c… and `make_pcb.sh --check` is byte-identical.
+New: `tools/excellon_metric.py`, `reference/fab_2010_drill_metric.drl`, `tools/roundtrip.py`,
+`DRILL_EXCELLON` in `p2k_config.py`, three steps in `tools/check_all.sh`, `reports/roundtrip/`.
+
+### 1. `p2k ipc356_diff` (kicad-cli ipcd356 of the board vs the Proteus IPC file)
+
+```
+ipc356_diff: Proteus 366 records, KiCad 366; matched 366 (339 pads incl. 3 N/C, 14 vias, 13 holes), worst position offset 0.002 mm (limit 0.05)
+ipc356_diff: 98 Proteus nets mapped 1:1 onto KiCad nets, 0 mismatches
+ipc356_diff: KiCad drill larger (footprint kept): 129x 0.762->0.8, 6x 0.762->1.001, 14x 1.016->1.1, 22x 1.016->1.199, 14x 1.143->1.199
+ipc356_diff: KiCad drill smaller, accepted (DRILL_SMALLER): 4x 0.762->0.749, 40x 1.143->0.701, 8x 1.143->1.001, 28x 1.143->1.1
+ipc356_diff: pads with another size in KiCad (info): C 70, D 14, Q 27, R 114, RLY 40
+ipc356_diff: OK
+```
+
+Every pad / via / hole within 0.05 mm (worst 0.002: kicad-cli writes 0.0001 inch), all THT, both
+sides, nets 1:1 by pad sets, the 3 N/C pads (U1-U3 pin 9) on `unconnected-(…)` nets, the 13 holes
+H101-H113 matched as plated board-only holes without a net (the `H\d+` pattern accepts them; the
+terminals H4 / H5 are matched as pads on the nets H4 / H5). The smaller drills are exactly the four
+recorded pairs: 4 (C4, C14), 40 (RLY1-RLY5), 8 (C1, C5, C7, C10), 28 (the 14 Orange Drops) = 80 holes.
+
+### 2. `p2k gerber_roundtrip` (KiCad gerbers + drills vs the Proteus gerbers)
+
+Run as `python3 tools/roundtrip.py --check` (below). Raster 0.025 mm, tolerance 0.05 mm.
+
+| Layer | Proteus / KiCad copper (mm²) | XOR beyond 0.05 mm: only Proteus / only KiCad | Clusters ≥ 0.01 mm² | Draws / flashes off the other copper |
+|---|---|---|---|---|
+| F.Cu | 3951.6 / 3736.4 | 188.53 / 12.69 | 339, all `pad shape` | 0 Proteus (406 draws, 366 flashes), 0 KiCad (402 draws, 366 flashes) |
+| B.Cu | 3586.7 / 3368.3 | 190.62 / 12.56 | 317, all `pad shape` | 0 / 0 |
+
+No `other`, `clearance` or `zone fill` cluster (no pours on this board): every difference is a pad
+whose KiCad size or shape differs from the Proteus flash (the Phase 2 table: relays 2.54 → 1.4,
+film caps, resistors, electrolytics; "only KiCad" = the larger 2 W resistor / CAP20 pads and the
+rounded-rectangle marked pads of the diodes and the D16 electrolytics; the per-footprint sums are in
+`roundtrip.txt`). The 4 extra Proteus draws per layer are the profile draws in the
+copper files. Overlays `reports/roundtrip/F_Cu.png`, `B_Cu.png` and the report `roundtrip.txt` are
+committed (as the pilot); two runs give byte-identical files.
+
+Drills: Proteus 366 = KiCad 366, all matched within 0.05 mm, 0 mismatches; diameters as in the
+ipc356_diff lines above (14 vias 0.508 = 0.508, 47 terminals 1.524, 27 noval 1.7272 → 1.727, 13
+holes 3.0; larger and the four accepted smaller pairs).
+
+**2010 Excellon cross-check** (`DRILL_EXCELLON = reference/fab_2010_drill_metric.drl`):
+
+- `tools/excellon_metric.py` (copy of the pilot's, source file name changed) converts
+  `source/fab_2010/etunen - CADCAM Drill.TXT` (M48 / INCH, 7 tools, 364 hits) to metric 4.3;
+  `--check` is a `check_all.sh` step. The shared reader is metric-only (p2k candidate 23).
+- The shared tool alone reports **exactly 2 mismatches**, the two vias added in October 2010:
+  `excellon: drill gerber ViaDrill 0.508 mm at (-29.337, -42.545) not in the Excellon file` (via on
+  **PRE-GND**) and `… at (33.02, -31.115) …` (via on **J4**); 364 of 364 Excellon holes match a
+  drill gerber flash within 0.05 mm (12 × 0.508, 139 × 0.762, 36 × 1.016, 90 × 1.143, 47 × 1.524,
+  27 × 1.7272, 13 × 2.9997 = 3.0).
+- `tools/roundtrip.py` (board-local wrapper, p2k candidate 3) calls the shared
+  `compare_excellon()` unchanged and takes out exactly those two errors, matched by position
+  (0.01 mm), diameter 0.508 and function `ViaDrill` (`EXPECTED_NOT_IN_EXCELLON`); it adds an error
+  if one of them is *not* reported missing, and leaves every other error in place. The report
+  lists them as "expected, not an error". This agrees with the Phase 0 comparison of the June and
+  October copper (October = June + 2 vias + the tracks at them).
+
+### 3. Independent reading of the PDF against the IPC (all 5 sheets)
+
+Phase 1 took the nets from the IPC and the PDF only for the layout. Here every connection of the
+PDF was read from the drawing first (pages rendered at 400 dpi, in quadrants; wires, junction dots,
+crossings without a dot, labels, terminal names, tube pin numbers, capacitor / diode polarity, the
+resting contact of each relay blade, the gate side of each J112), written down as nets, and then
+compared with `reference/pins_by_net.md`. KiCad equals the IPC by `compare` (0 wrong-net pins), and
+the relay / diode block of the KiCad sheet 3 render was looked at next to the PDF (blades resting
+on pins 7 / 3, diode cathodes on the coil pin-5 nodes).
+
+**Result: no disagreement between the PDF and the IPC on any sheet.** Read and compared:
+
+| Sheet | Nets read from the PDF (all of the sheet's parts) | Dense places checked |
+|---|---|---|
+| 1 Input stage (36 parts) | #00000, #00001, #00005-#00009, #00011, #00014, #00017-#00021, #00024-#00031, #00035, A, B, J1, J2, PRE1, SW1, SW2, H4, H5, PRE-GND | RLY1 / RLY2 both poles (COM, resting and other contact of each), the two coil + diode blocks, the R47 return under U1 (crosses the C5, pin-8, pin-7 and J2 wires without a dot), R13-R14-R15 / C5, Q1 (D at R3), Q2 (S at C4 / R12) |
+| 2 Second stage (33) | #00037, #00041-#00044, #00046, #00047, #00049, #00050, #00053-#00057, #00062, #00064, C, D, EQ, PRE1, PRE2, J1, J4 (`j4`), SW1, H4, H5, PRE-GND | RLY3 (the two other contacts joined, nothing else on them; the R16 wire crosses that link without a dot), the C7 / C11 / C13 / R24-R26 / C12 network, the C11-C13 node down to R31 (crosses the C13 and pin-7 wires), R50's jogged return, Q3-Q6 (S at the top), POT-GND |
+| 3 EQ stage (34) | #00068, #00073-#00076, #00079, #00081, #00082, #00084-#00086, #00090, #00092, #00095-#00098, #00102, E, F, EQ, EQ1-EQ3, J2-J4, SW2, SW3, H4, H5, PRE-GND | RLY4 / RLY5 both poles and the chain between them (#00084, #00085), D4 / D5 (cathodes on the RLY4 coil node, anodes on sw3 / sw2), D8, D9, the R34 / R51 / EQOUT / C29 column crossing four wires, U3 pin 1 on E, the H4 / H5 pads |
+| 4 Tone stacks (39) | #00103-#00124 (3 × 6 nets), EQ1-EQ3, PRE-GND | each stack: C 250p + R 220k on EQn, LOnX / LOnW / LOnO, R 220K to HInW, R 4k7 and C 2N2 on the ground rail, C 2N2 to HInX |
+| 5 Supply filter (21) | A-F, #00131, PRE-GND, J1-J4 on the pads A-D, SW1-SW3 | electrolytic pin 2 at the hollow (+) plate on the B+ node, pin 1 on PRE-GND |
+
+All 98 IPC nets are covered. What the PDF **cannot** show, so this reading cannot check (it rests on
+the Proteus pinouts of "Phase 1 preparation" and the footprint / pin-order checks of Phase 2):
+the pin id of each end of a resistor or unpolarised capacitor (the PDF prints no pin numbers there;
+only the net membership per part was compared), the relay pin numbers (not printed; read as "COM /
+resting contact / other contact" per pole and compared with COM 2 / NC 3 / NO 1 and COM 6 / NC 7 /
+NO 8 – consistent on all ten poles, and the footprint renumbering puts COM / NC / NO on the Omron
+COM / NC / NO pads 13 / 11 / 9 and 4 / 6 / 8), the coil pin 4 / 5 assignment (read as "the end on
+H4" / "the end on the switch net"), and the J112 pins 1 / 2 (read from the gate side of the
+symbol: gate drawn next to the source; Q1, Q7-Q9 source on PRE-GND, Q2-Q6 source on the signal
+node, as the table in "Phase 1 preparation").
+
+One reading trap, not a disagreement (finding 19): on sheet 3 the `H4` net terminal of U3 pin 4
+ends directly above the junction of the C15 / R45 / RLY4-COM2 wire (#00082), with the rotated
+label text between the terminal circle and the junction dot. At 1200 dpi there is no wire between
+them; the IPC agrees (#00082 = C15-2, R45-2, RLY4-6; H4 has none of them).
+
+### 4. Review of the generators and spot checks (pcbnew, scratch script in build/tmp)
+
+Read: `p2k_config.py`, `tools/gen_symbols.py`, `tools/gen_footprints.py` (specs), `tools/rename_holes.py`,
+`tools/make_pcb.sh`, `tools/compare.py`, `tools/sheets/_common.py`, `tools/check_all.sh`.
+
+| Spot check | Result |
+|---|---|
+| Mounting holes vs the terminals H4 / H5 | 13 footprints `MountingHole_3.0mm_PTH_Pad6.35mm` H101-H113, pad 6.35 / drill 3.0, no net, board-only; terminals `H4` (79.375, 24.13) on net H4 and `H5` (79.375, 20.32) on net H5, `FlyLead_Pad` 3.048 / 1.524; no duplicate reference; the `H*` references are H101-H113, H4, H5 and the nine HInX / W / O pads |
+| N/C pin 9 | U1-9, U2-9, U3-9 on `unconnected-(UnC-HCT-Pad9)`; no track end or via within 2.5 mm of any of them; IPC `N/C` × 3; symbol pin `passive` + no-connect flag (rule kept) |
+| Noval pin ids | IPC pads of U1-U3 on a 21.0 mm circle, pin k at −144° − 36°(k−1) (Y up, top view): clockwise seen from the top = mirrored against the noval standard (finding 13 confirmed); pads 1-9 on the IPC nets, offset 0.000 |
+| Relay renumbering | footprint Omron 16 / 13 / 11 / 9 → 4 / 2 / 3 / 1 and 1 / 4 / 6 / 8 → 5 / 6 / 7 / 8: G5V-2 coil 1 / 16, COM 4 / 13, NC 6 / 11, NO 8 / 9, so Proteus COM / NC / NO sit on Omron COM / NC / NO pads on both poles; RLY1 pads 1-8 on the IPC nets (finding 14 confirmed: the symbol mapping is the mirror image, electrically the same) |
+| Electrolytic polarity | C28: marked pad = `2` on net A (B+), pad 1 PRE-GND; C2 / C30: marked pad `+` on the cathode-bypass / bias node, `-` on PRE-GND; PDF: hollow plate (+) at pin 2 / `+` |
+| Diode polarity | D1, D8: marked pad `K` on SW1 / #00081, `A` on H4; D4: `A` on SW3, `K` on #00081 – as the PDF (cathodes towards the coil's switch end) |
+| TO-92 pin 1 | Q1-Q9 all three pads round 1.5 / 0.8; Q1 pad 1 on the drain net (R3), Q4 pad 1 on PRE-GND; DRC 0 clearance errors |
+| Finding 16 stub | present: B.Cu (88.9, 0.762) → (88.9, 0.6985) (KiCad frame), 0.0635 mm long, width 0.508, Net-(RLY4B-COM1); the round trip covers it both ways |
+| Single-pin nets | none in the IPC (smallest net 2 pins) besides the 3 N/C pads; 98 IPC nets ↔ 98 KiCad nets 1:1 by pads (own script) |
+| Vias | 14, all 1.27 / 0.508, on PRE-GND 2, H4 2, EQ 1, #00081 2, J1 1, J2 5, J4 1 = the IPC |
+
+**Earlier findings: all confirmed, none refuted.** 1 (Q4 `NADA` in the PDF, J112 / TO92 in
+ROOT.LYT), 2 (`j4` at Q6, `J4` at Q9 and pad D), 3, 4 (D1, D2, D3, D8, D9 anode on H4; D4 / D5
+anodes on sw3 / sw2, cathodes on #00081), 5 (CERAMIC56P / 250p), 6 (Mechanical 1 `NonPlated,1,2,NPTH`,
+`FSLAX45Y45` vs READ-ME "4.3"), 7 (ROOT.LYT read again: R13 10M, R22 100k/2W, R27 22k, R30 1k8,
+R34 100k, R51 22k, Q4 J112; the PDF has the schematic values 0R, 220k/2W, 120k, 2k2, 22k, 100k –
+note that **R34 and R51 are exactly swapped** between schematic (22k / 100k) and layout (100k /
+22k)), 8, 9, 10, 11, 12 (PDF), 13, 14 (above), 15 (C2 P2.54, C30 P2.50), 16 (above), 17 (three
+holes 16.3-18.0 mm from each socket centre), 18 (DRC clean with the round pad).
+
+New, small (added to "Findings" as 19-21): the H4 label trap of sheet 3, eight more very short
+Proteus track draws besides the stub of finding 16 (two of them of zero length), and the R34 / R51
+swap noted under finding 7.
+
+### 5. Negative tests of the new checks (all restored)
+
+Board changes on a scratch copy (`P2K_PCB` / `P2K_REPORTS` in build/tmp/neg4, scratch script
+`build/tmp/neg4.py`, not committed); Excellon / config changes in place with a restore
+(`build/tmp/neg4b.sh`). Afterwards `git status` shows only this session's files, the board is sha1
+3e0c122c… and `reports/roundtrip/*` are byte-identical (sha1 62625ba8… / acfeab39… / 8dce1b5c…).
+
+| Change | ipc356_diff | roundtrip.py --check |
+|---|---|---|
+| none (scratch copy) | OK | OK |
+| track moved 1 mm (B.Cu (-80.772, 12.7) → (-71.58, 12.7), y + 1) | OK (pads only) | **FAILED**: 2 `other` clusters (5.29 / 4.76 mm²), 2 uncovered draws |
+| that track's width 0.508 → 0.25 | OK | **FAILED**: 2 `other` clusters (only Proteus 0.88 / 0.66 mm²) |
+| pad net R51-1 → PRE-GND | **FAILED**: #00068 spans 2 KiCad nets, PRE-GND spans 2 Proteus nets | OK (no geometry change) |
+| footprint R51 shifted 0.1 mm | **FAILED**: R51-1 / -2 nearest record 0.099 mm away | **FAILED**: 4 drill mismatches |
+| via J1 (12.7, -24.765) removed | **FAILED**: Proteus via has no KiCad record | **FAILED**: 2 `other` clusters + 1 drill |
+| terminal H5 drill 1.524 → 1.4 | **FAILED**: drill … is smaller | **FAILED**: … is smaller |
+| a segment's net edited in the file | OK | OK – as in Phase 3 and on the pilot, caught only by the byte compare of `make_pcb.sh --check` |
+| one hole deleted from the converted Excellon | – (`excellon_metric --check` **not up to date**) | **FAILED**: `ComponentDrill 0.762 at (-143.002, -3.175) not in the Excellon file` |
+| October via (33.02, -31.115) added to the Excellon | – (**not up to date**) | **FAILED**: "the October via … was expected to be missing …" |
+| Excellon tool T04 0.762 → 0.8 | – (**not up to date**) | **FAILED**: 139 drill mismatches |
+| `DRILL_SMALLER` entry (1.143, 0.7) removed | **FAILED**: 40 × RLY drill is smaller | **FAILED**: 40 drill mismatches |
+| wrapper list position 33.02 → 34.02 (scratch copy of the wrapper) | – | **FAILED**: the real via reported + "expected to be missing" |
+
+Every change fails at least one `check_all.sh` step.
+
 ## Last check output
 
-`tools/check_all.sh` (2026-11-20, end of Phase 3, with the DRC step):
+`tools/check_all.sh` (2026-11-20, end of Phase 4; the steps up to the DRC are unchanged from Phase 3):
 
 ```
 == KiCad environment
@@ -690,6 +844,20 @@ drc:     74 warning  silk_over_copper
 drc:     31 warning  silk_overlap
 drc:      1 warning  track_dangling
 drc: OK
+== 2010 Excellon drill file converted to metric, up to date
+excellon_metric: reference/fab_2010_drill_metric.drl up to date (7 tools, 364 holes)
+== IPC-D-356 from the board vs Proteus (pads, vias, holes, nets)
+ipc356_diff: Proteus 366 records, KiCad 366; matched 366 (339 pads incl. 3 N/C, 14 vias, 13 holes), worst position offset 0.002 mm (limit 0.05)
+ipc356_diff: 98 Proteus nets mapped 1:1 onto KiCad nets, 0 mismatches
+ipc356_diff: KiCad drill larger (footprint kept): 129x 0.762->0.8, 6x 0.762->1.001, 14x 1.016->1.1, 22x 1.016->1.199, 14x 1.143->1.199
+ipc356_diff: KiCad drill smaller, accepted (DRILL_SMALLER): 4x 0.762->0.749, 40x 1.143->0.701, 8x 1.143->1.001, 28x 1.143->1.1
+ipc356_diff: pads with another size in KiCad (info): C 70, D 14, Q 27, R 114, RLY 40
+ipc356_diff: OK
+== Gerber round trip vs Proteus (copper XOR, coverage, drills, 2010 Excellon)
+roundtrip: F.Cu   XOR  260.90 mm^2, beyond 0.05 mm: only Proteus 188.53, only KiCad  12.69 mm^2; clusters >= 0.01 mm^2: 339 pad shape; draws/flashes off the other copper: 0 Proteus, 0 KiCad
+roundtrip: B.Cu   XOR  264.42 mm^2, beyond 0.05 mm: only Proteus 190.62, only KiCad  12.56 mm^2; clusters >= 0.01 mm^2: 317 pad shape; draws/flashes off the other copper: 0 Proteus, 0 KiCad
+roundtrip: drills 0 mismatches; KiCad drill smaller, accepted (DRILL_SMALLER): 4x 0.762->0.75, 40x 1.143->0.7, 8x 1.143->1.0, 28x 1.143->1.1; report reports/roundtrip/roundtrip.txt, overlays reports/roundtrip/*.png
+roundtrip: OK
 
 ALL CHECKS PASSED
 ```
@@ -774,6 +942,22 @@ ALL CHECKS PASSED
 18. **Two TO-92 tracks pass pad 1 at 0.421 mm** (Q4, Q6, Phase 3): fine with Proteus' round pads,
     0.122 mm with KiCad's square pad 1 (user question, "Phase 3").
 
+19. **Sheet 3: the `H4` net terminal of U3 pin 4 sits directly above a junction of another net**
+    (Phase 4 PDF reading): the terminal circle, its rotated label `H4` and then the junction dot of
+    the C15 / R45 / RLY4-COM2 wire (#00082) are in one vertical line. No wire joins them (checked at
+    1200 dpi; the IPC agrees). A reading trap in the PDF only; nothing on the board.
+20. **More very short Proteus track draws** (Phase 4), besides the stub of finding 16 (KiCad frame):
+    two of **zero length** on F.Cu at (-61.722, -22.225), H4, and (-61.087, -1.905),
+    Net-(RLY3B-NC1); and 0.09-0.18 mm pieces on F.Cu (-130.81, -38.735) and (-139.7635, -16.5735),
+    PRE-GND, (-60.96, -1.905), Net-(RLY3B-NC1), and on B.Cu (-43.942, -6.858), PRE-GND, (-19.05,
+    24.13), H5, (-114.3, -18.415), H4. All lie on their own net's copper (track joints of the 2010
+    routing); DRC reports only the finding-16 stub. Kept, as built; candidates for a Phase 5
+    tidy-up only if the user wants one (`REMOVED_TRACKS`).
+21. **R34 and R51 are exactly swapped between the schematic and the layout values** (finding 7 read
+    again in Phase 4): schematic R34 22k / R51 100k, layout R34 100k / R51 22k. They are the two
+    resistors in series from `F` to U3's anode (pin 6) with EQOUT / C29 tapped between them, so the
+    order decides the output level at EQOUT. Part of the open value question (finding 7).
+
 ## p2k candidates
 
 (Shared-tool limitations met on this board, with the board-local workaround used.)
@@ -791,7 +975,11 @@ ALL CHECKS PASSED
    here too (9 values).
 3. **`DRILL_EXCELLON` from a different revision**: the 2010 Excellon lacks the 2 October vias; if
    `gerber_roundtrip` requires a 1:1 match, Phase 4 needs an "expected extra holes" option or a
-   board-local wrapper. (Not tried yet.)
+   board-local wrapper. **Phase 4:** it does require 1:1 (2 drill mismatches, `--check` fails).
+   Board-local answer: `tools/roundtrip.py` wraps `gerber_roundtrip.compare_excellon` and accepts
+   exactly the listed positions (`EXPECTED_NOT_IN_EXCELLON`), failing if a listed one is not
+   reported missing. The shared tool would need: a config key such as `EXCELLON_MISSING = {(x, y):
+   reason}` (every entry must match a drill gerber flash absent from the Excellon file).
 4. `p2k ipc356` prints "Net aliases: ." when `NET_ALIASES` is empty (cosmetic, as on the pilot).
 5. **A `no_connect`-type symbol pin hides wiring mistakes from `compare_netlists`**: in the KiCad 10
    kicadxml netlist such a pin stays in its own `unconnected-(…)` net even when a wire joins it to a
@@ -884,6 +1072,15 @@ ALL CHECKS PASSED
     `pad_overrides` with shape / size / drill per pad) in `derive()`, plus a pin-1 marker option
     for footprints whose only pin-1 mark was the square pad (two boards now).
 
+23. **`gerber_roundtrip.parse_excellon` reads metric 4.3 only** and ignores the `INCH` header line
+    (pilot candidate): the 2010 fab drill file is inch 2.4. Board-local answer: the pilot's
+    `tools/excellon_metric.py` copied (third use would make it a shared `p2k` converter or an inch
+    branch in `parse_excellon`).
+24. `ipc356_diff` and `gerber_roundtrip` do not see a track net edited in the board file (pcbnew
+    re-derives it on load; pilot observation, repeated here in the Phase 4 negative tests): only the
+    byte compare of `make_pcb.sh --check` catches it. Once the board is edited by hand (after
+    Phase 5) that step goes away; `assign_nets --check` and the DRC remain.
+
 ## Decisions
 
 - Sheet names (no title blocks in the PDF): Input stage / Second stage / EQ stage / Tone stacks /
@@ -939,5 +1136,9 @@ ALL CHECKS PASSED
   consistency; "Phase 3").
 - Phase 3 finish (agent's choices): the DRC step in `check_all.sh` with the existing `DRC_ACCEPTED`
   (courtyards_overlap, pth_inside_courtyard).
-- **Still open for the user**: the values of R13, R22, R27, R30, R34, R51 and Q4 (findings 1, 7, 11;
-  the schematic values are used).
+- Phase 4 (agent's choices, no user decision needed): the round trip runs through the board-local
+  wrapper `tools/roundtrip.py` (the 2 October vias expected to be missing from the 2010 Excellon,
+  by position); `reports/roundtrip/` (report + overlay PNGs) committed as on the pilot; no
+  `ROUNDTRIP` overrides (defaults: raster 0.025, tolerance 0.05 mm).
+- **Still open for the user**: the values of R13, R22, R27, R30, R34, R51 and Q4 (findings 1, 7, 11,
+  21; the schematic values are used).

@@ -168,3 +168,10 @@ DRILL_SMALLER = {
     (1.143, 1.1): "Orange Drops C8, C11-C13, C16, C17, C19-C21, C23-C25, C27, C29: KiCad C_Rect 1.1 mm drills kept (Proteus 1.143); user decision 2026-11-20",
     (0.762, 0.75): "C4/C14: KiCad C_Rect 0.75 mm drills kept (Proteus 0.762 = 30 mil); user decision 2026-11-20",
 }
+# The June 2010 fab Excellon drill file (source/fab_2010/etunen - CADCAM Drill.TXT: inch, 364 hits,
+# same frame as the X2 export): gerber_roundtrip compares it with the Proteus plated drill gerber.
+# The shared reader is metric-only, so the file is converted by tools/excellon_metric.py. It lacks
+# exactly the 2 vias added in October 2010 (33.02, -31.115) and (-29.337, -42.545): run the round
+# trip through tools/roundtrip.py, which expects those two by position (the shared tool alone
+# reports 2 drill mismatches).
+DRILL_EXCELLON = "reference/fab_2010_drill_metric.drl"

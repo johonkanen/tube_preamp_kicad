@@ -33,8 +33,13 @@ Phase 3 (PCB) done 2026-11-20: `tools/make_pcb.sh` builds `kicad/tube_preamp.kic
 reproducibly (747 tracks, 14 vias, 13 mounting holes H101-H113), copper 0 shorts / 0 orphans / 0
 opens, `check_board` OK, DRC 0 shorts / 0 unconnected / 0 parity / no unaccepted errors (user
 decision 2026-11-20: round 1.5 mm TO-92 pad 1 on Q1-Q9). Still open for the user: the values of R13,
-R22, R27, R30, R34, R51 and Q4. `tools/check_all.sh` passes (with the DRC step). Next: Phase 4
-verification (next_prompt.md).
+R22, R27, R30, R34, R51 and Q4. Phase 4 (independent verification, a fresh session) done 2026-11-20: `p2k ipc356_diff` (KiCad's own
+IPC-D-356 export vs the Proteus file: 366/366 records within 0.05 mm, 98 nets 1:1) and the gerber
+round trip `tools/roundtrip.py` (copper XOR per layer: only pad-shape differences; drills 366/366;
+the 2010 Excellon 364/364 plus the 2 vias added in October 2010) pass and are in `tools/check_all.sh`;
+the PDF was re-read against the IPC on all five sheets without a disagreement.
+`tools/check_all.sh`: ALL CHECKS PASSED. Next: Phase 5 (clean-up, user decisions first: the noval
+sockets to the bottom side with the standard numbering, silk / reference clean-up).
 
 Built in about 2010 from the June 2010 Gerbers (`source/fab_2010/`). The Proteus layout was edited in October 2010: Q6 pin 3 moves from net J1 to a new net J4 (Q6-3, Q9-3, pad D), plus a ground reroute. The export in `source/cadcam/` is the October version. Holes, outline and tube sockets are identical to the fabricated board. Accepted as the baseline, since the board gets redesigned.
 
