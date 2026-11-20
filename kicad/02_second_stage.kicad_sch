@@ -1754,7 +1754,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:Valve_Noval_Belton_PCD21.00mm"
 			(at 180.848 138.43 0)
 			(effects
 				(font
@@ -1825,7 +1825,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:Valve_Noval_Belton_PCD21.00mm"
 			(at 198.628 138.43 0)
 			(effects
 				(font
@@ -1895,7 +1895,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:Valve_Noval_Belton_PCD21.00mm"
 			(at 184.658 163.83 0)
 			(effects
 				(font
@@ -1969,7 +1969,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
 			(at 72.39 111.76 0)
 			(effects
 				(font
@@ -2037,7 +2037,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
 			(at 74.93 104.14 0)
 			(effects
 				(font
@@ -2108,7 +2108,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:Relay_DPDT_Omron_G5V-2_ProteusPins"
 			(at 74.93 93.98 0)
 			(effects
 				(font
@@ -2293,7 +2293,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:D_DO-41_SOD81_P10.16mm_Horizontal_AK"
 			(at 87.63 115.57 0)
 			(effects
 				(font
@@ -2486,7 +2486,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 103.632 116.84 0)
 			(effects
 				(font
@@ -2583,7 +2583,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 134.62 126.492 0)
 			(effects
 				(font
@@ -2670,7 +2670,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 107.188 147.32 0)
 			(effects
 				(font
@@ -2769,7 +2769,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 116.332 147.32 0)
 			(effects
 				(font
@@ -2862,7 +2862,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:TO-92_Inline_P2.03mm"
 			(at 115.57 171.45 0)
 			(effects
 				(font
@@ -3000,7 +3000,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 113.03 194.31 0)
 			(effects
 				(font
@@ -3094,7 +3094,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2"
 			(at 137.4648 146.05 0)
 			(effects
 				(font
@@ -3171,7 +3171,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 155.448 149.86 0)
 			(effects
 				(font
@@ -3290,7 +3290,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:TO-92_Inline_P2.03mm"
 			(at 135.89 172.72 0)
 			(effects
 				(font
@@ -3428,7 +3428,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 165.608 165.1 0)
 			(effects
 				(font
@@ -3527,7 +3527,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal"
 			(at 175.768 53.34 0)
 			(effects
 				(font
@@ -3652,7 +3652,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:C_Rect_L16.5mm_W7.0mm_P9.70mm"
 			(at 152.0952 55.88 0)
 			(effects
 				(font
@@ -3755,7 +3755,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:C_Rect_L13.0mm_W6.0mm_P9.70mm"
 			(at 212.09 63.8048 0)
 			(effects
 				(font
@@ -3832,7 +3832,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 281.432 73.66 0)
 			(effects
 				(font
@@ -3899,7 +3899,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 281.432 93.98 0)
 			(effects
 				(font
@@ -3966,7 +3966,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 281.432 116.84 0)
 			(effects
 				(font
@@ -4073,7 +4073,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:C_Rect_L16.5mm_W7.0mm_P9.70mm"
 			(at 251.7648 76.2 0)
 			(effects
 				(font
@@ -4156,7 +4156,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:C_Rect_L16.5mm_W7.0mm_P9.70mm"
 			(at 257.81 106.3752 0)
 			(effects
 				(font
@@ -4259,7 +4259,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 271.272 149.86 0)
 			(effects
 				(font
@@ -4368,7 +4368,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:C_Rect_L16.5mm_W7.0mm_P9.70mm"
 			(at 294.9448 101.6 0)
 			(effects
 				(font
@@ -4487,7 +4487,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 284.988 137.16 0)
 			(effects
 				(font
@@ -4590,7 +4590,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 294.132 137.16 0)
 			(effects
 				(font
@@ -4683,7 +4683,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:TO-92_Inline_P2.03mm"
 			(at 293.37 172.72 0)
 			(effects
 				(font
@@ -4801,7 +4801,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2"
 			(at 193.3448 166.37 0)
 			(effects
 				(font
@@ -4910,7 +4910,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 208.788 165.1 0)
 			(effects
 				(font
@@ -5009,7 +5009,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W5.0mm_P5.00mm"
 			(at 223.8248 146.05 0)
 			(effects
 				(font
@@ -5092,7 +5092,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 239.268 149.86 0)
 			(effects
 				(font
@@ -5205,7 +5205,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:TO-92_Inline_P2.03mm"
 			(at 222.25 172.72 0)
 			(effects
 				(font
@@ -5343,7 +5343,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal"
 			(at 193.548 86.36 0)
 			(effects
 				(font
@@ -5488,7 +5488,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 215.392 116.84 0)
 			(effects
 				(font

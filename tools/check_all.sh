@@ -20,6 +20,10 @@ step "ERC" tools/erc.sh
 # tools/compare.py = p2k compare_netlists with a type-safe sort key (PRES next to PRES1-PRES3 crashes
 # the shared tool: STATUS.md p2k candidate 9). All 5 sheets are drawn: no --allow-missing.
 step "Netlist comparison vs IPC" python3 tools/compare.py
+# Phase 2: footprints
+step "Footprint library, map and fp-lib-table up to date" python3 tools/gen_footprints.py --check
+step "Footprints vs IPC pad geometry" tools/p2k/bin/kipy -m p2k.check_footprints --pcbnew
+step "Pin order vs unmoved KiCad base footprints" tools/p2k/bin/kipy tools/check_pin_order.py
 
 echo
 [ $fail -eq 0 ] && echo "ALL CHECKS PASSED" || echo "SOME CHECKS FAILED"

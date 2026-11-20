@@ -509,7 +509,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:CP_Radial_D16.0mm_P7.50mm_Pin2Plus"
 			(at 101.2952 119.38 0)
 			(effects
 				(font
@@ -596,7 +596,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal"
 			(at 109.22 97.028 0)
 			(effects
 				(font
@@ -717,7 +717,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:CP_Radial_D16.0mm_P7.50mm_Pin2Plus"
 			(at 121.6152 119.38 0)
 			(effects
 				(font
@@ -804,7 +804,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal"
 			(at 129.54 97.028 0)
 			(effects
 				(font
@@ -935,7 +935,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:CP_Radial_D16.0mm_P7.50mm_Pin2Plus"
 			(at 144.4752 119.38 0)
 			(effects
 				(font
@@ -1022,7 +1022,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal"
 			(at 152.4 97.028 0)
 			(effects
 				(font
@@ -1153,7 +1153,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:CP_Radial_D16.0mm_P7.50mm_Pin2Plus"
 			(at 167.3352 119.38 0)
 			(effects
 				(font
@@ -1240,7 +1240,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal"
 			(at 175.26 97.028 0)
 			(effects
 				(font
@@ -1371,7 +1371,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:CP_Radial_D16.0mm_P7.50mm_Pin2Plus"
 			(at 190.1952 119.38 0)
 			(effects
 				(font
@@ -1458,7 +1458,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal"
 			(at 198.12 97.028 0)
 			(effects
 				(font
@@ -1589,7 +1589,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:CP_Radial_D16.0mm_P7.50mm_Pin2Plus"
 			(at 213.0552 119.38 0)
 			(effects
 				(font
@@ -1676,7 +1676,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal"
 			(at 220.98 97.028 0)
 			(effects
 				(font
@@ -1777,7 +1777,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 240.03 100.33 0)
 			(effects
 				(font
@@ -1853,7 +1853,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 240.03 133.35 0)
 			(effects
 				(font
@@ -1951,7 +1951,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 186.69 153.67 0)
 			(effects
 				(font
@@ -2049,7 +2049,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 186.69 171.45 0)
 			(effects
 				(font
@@ -2147,7 +2147,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 186.69 189.23 0)
 			(effects
 				(font
@@ -2245,7 +2245,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 186.69 207.01 0)
 			(effects
 				(font
@@ -2343,7 +2343,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 240.03 153.67 0)
 			(effects
 				(font
@@ -2441,7 +2441,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 240.03 171.45 0)
 			(effects
 				(font
@@ -2539,7 +2539,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 240.03 189.23 0)
 			(effects
 				(font

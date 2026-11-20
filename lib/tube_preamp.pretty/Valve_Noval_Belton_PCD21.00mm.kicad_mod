@@ -1,0 +1,150 @@
+(footprint "Valve_Noval_Belton_PCD21.00mm"
+	(version 20260206)
+	(generator "tube_preamp_gen_footprints")
+	(layer "F.Cu")
+	(descr "Noval tube socket (Proteus 9-PIN BELTON NOVAL): 9 pads 4.318 mm / drill 1.727 on a 21.00 mm pitch circle, pad 9 without a net, body = the Proteus assembly outline (tube_preamp, pads from IPC-D-356A U1)")
+	(property "Reference" "REF**"
+		(at 0 -14.024 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Valve_Noval_Belton_PCD21.00mm"
+		(at 0 14.024 0)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_poly
+		(pts
+			(xy -13.223 12.704) (xy 13.222 12.704) (xy 13.222 -12.704) (xy -13.223 -12.704)
+		)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start -13.223 12.704)
+		(end 13.222 12.704)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 13.222 12.704)
+		(end 13.222 -12.704)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 13.222 -12.704)
+		(end -13.223 -12.704)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -13.223 -12.704)
+		(end -13.223 12.704)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_poly
+		(pts
+			(xy -13.473 12.8076) (xy -13.3266 12.954) (xy 13.3256 12.954) (xy 13.472 12.8076) (xy 13.472 -12.8076) (xy 13.3256 -12.954) (xy -13.3266 -12.954) (xy -13.473 -12.8076)
+		)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at -8.492 6.17)
+		(size 4.318 4.318)
+		(drill 1.727)
+		(layers "*.Cu" "*.Mask")
+	)
+	(pad "2" thru_hole circle
+		(at -10.502 -0.003)
+		(size 4.318 4.318)
+		(drill 1.727)
+		(layers "*.Cu" "*.Mask")
+	)
+	(pad "3" thru_hole circle
+		(at -8.5 -6.166)
+		(size 4.318 4.318)
+		(drill 1.727)
+		(layers "*.Cu" "*.Mask")
+	)
+	(pad "4" thru_hole circle
+		(at -3.244 -9.978)
+		(size 4.318 4.318)
+		(drill 1.727)
+		(layers "*.Cu" "*.Mask")
+	)
+	(pad "5" thru_hole circle
+		(at 3.245 -9.983)
+		(size 4.318 4.318)
+		(drill 1.727)
+		(layers "*.Cu" "*.Mask")
+	)
+	(pad "6" thru_hole circle
+		(at 8.492 -6.165)
+		(size 4.318 4.318)
+		(drill 1.727)
+		(layers "*.Cu" "*.Mask")
+	)
+	(pad "7" thru_hole circle
+		(at 10.502 0.008)
+		(size 4.318 4.318)
+		(drill 1.727)
+		(layers "*.Cu" "*.Mask")
+	)
+	(pad "8" thru_hole circle
+		(at 8.5 6.17)
+		(size 4.318 4.318)
+		(drill 1.727)
+		(layers "*.Cu" "*.Mask")
+	)
+	(pad "9" thru_hole circle
+		(at 3.245 9.983)
+		(size 4.318 4.318)
+		(drill 1.727)
+		(layers "*.Cu" "*.Mask")
+	)
+	(embedded_fonts no)
+)

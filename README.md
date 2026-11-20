@@ -25,7 +25,11 @@ Phase 0 (skeleton and inventory) done 2026-11-20: `p2k_config.py` complete, `ref
 tables from the IPC netlist. Phase 1 (schematic) done 2026-11-20: `lib/part_map.csv` (163 parts),
 `lib/tube_preamp.kicad_sym` (9 symbols, pins = IPC ids), 5 sheets drawn by `tools/sheets/sheet01-05.py`:
 163/163 parts, the KiCad netlist equals the Proteus IPC netlist (98 nets, 0 wrong-net pins), ERC
-0 errors / 0 warnings; `tools/check_all.sh` passes. Next: Phase 2 footprints (next_prompt.md).
+0 errors / 0 warnings. Phase 2 (footprints) done 2026-11-20: `tools/gen_footprints.py` →
+`lib/footprint_map.csv` and `lib/tube_preamp.pretty`, all 163 parts fit the IPC pads (worst residual
+0.001 mm), pin order checked (`tools/check_pin_order.py`); open user questions: the noval socket side
+and the KiCad drills smaller than Proteus (STATUS.md "Decisions"). `tools/check_all.sh` passes.
+Next: Phase 3 PCB (next_prompt.md).
 
 Built in about 2010 from the June 2010 Gerbers (`source/fab_2010/`). The Proteus layout was edited in October 2010: Q6 pin 3 moves from net J1 to a new net J4 (Q6-3, Q9-3, pad D), plus a ground reroute. The export in `source/cadcam/` is the October version. Holes, outline and tube sockets are identical to the fabricated board. Accepted as the baseline, since the board gets redesigned.
 

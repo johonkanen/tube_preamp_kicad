@@ -6,8 +6,8 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 |---|---|
 | 0 Skeleton and inventory | **done** 2026-11-20 (Opus 5.5) |
 | 1 Schematic | **done** 2026-11-20 (preparation Opus 5.5, transcription Fable 5.2): 5 sheets, 163/163 parts, netlist = IPC, ERC 0 / 0 |
-| 2 Footprints | not started (next_prompt.md) |
-| 3 PCB | not started |
+| 2 Footprints | **done** 2026-11-20 (Opus 5.5): 163/163 parts fit the IPC pads (worst residual 0.001 mm, pcbnew placement 0.001 mm), 16 footprints (13 project + 3 KiCad, + 1 board-only), pin order checked; open: noval socket side (finding 13), KiCad drills smaller than Proteus on RLY1-RLY5, C1/C5/C7/C10, the Orange Drops, C4/C14 |
+| 3 PCB | not started (next_prompt.md) |
 | 4 Verification | not started |
 | 5 Clean-up | not started |
 
@@ -351,9 +351,123 @@ counts 101 = 98 nets + the 3 N/C pads U1-9, U2-9, U3-9), 0 missing, 0 extra; ERC
   passes C28 → split warning `unconnected-(C28---Pad1)` and an ERC error.
 - `reports/render/` (schematic PNGs of `p2k render_sheet`) is git-ignored.
 
+## Phase 2 – done (Opus 5.5, 2026-11-20)
+
+New in this repo (all generated, in check_all.sh); pieces taken from the power amp pilot
+(`~/dev/tube_power_amp_kicad`, read only: its `gen_footprints.py` specs for the fly-lead terminal,
+DO-41, TO-92 P2.03, 2 W resistor, 22n Xicon, mounting hole, the fp-lib-table helper, and its
+`check_pin_order.py`):
+
+- **`p2k_config.py`**: `FOOTPRINT_PAD_SIZES = "kicad"` (the default, explicit), `OFF_BOARD_PARTS = {}`
+  (every part is on the board), `HOLE_FOOTPRINT = tube_preamp:MountingHole_3.0mm_PTH_Pad6.35mm` /
+  `HOLE_VALUE` (for Phase 3 `build_pcb`).
+- **`tools/gen_footprints.py`** (RULES + PROJECT, `p2k.footprints.run`) → `lib/footprint_map.csv`
+  (163 rows), `lib/tube_preamp.pretty/` (14 files: 13 used + the board-only mounting hole) and
+  **`kicad/fp-lib-table`** (written and `--check`ed by the board script, pilot p2k candidate 12).
+  One rule per Proteus package, matched on `package` + span + pad size + drill.
+- Sheet scripts re-run: the 179 placed symbol units (163 parts + the 2 extra units of each 12AX7 and
+  G5V-2) carry their footprint; nothing else changed in the sheets (diff = the Footprint lines only;
+  two runs byte-identical); ERC 0/0, compare unchanged.
+- **`tools/check_pin_order.py`** (board script from the pilot, p2k candidate 13): fits the
+  **unmoved** KiCad base footprints with the generator's renumbering (imported from
+  `gen_footprints.PROJECT`) onto the IPC pads, both unmirrored and mirrored, plus an ideal
+  standard noval on the Proteus pitch circle; new here: **derived pads stay on the renumbered base
+  pads** (`MOVE_LIMIT`: only the intended pitch change) and **polarity** stated independently
+  (`POLARITY`: the marked KiCad pad 1 = `+` / `2` / `K` from the Proteus pinouts), because a wrong
+  renumbering of a two-pad part fits either way round and `derive()` would move the pads onto the
+  IPC positions (p2k candidate 14). `--render` (system python3 with matplotlib) writes
+  `reports/pin_order/<ref>.png`.
+- **`tools/check_all.sh`**: + footprint library / map / fp-lib-table up to date
+  (`gen_footprints.py --check`), footprints vs IPC pads (`kipy -m p2k.check_footprints --pcbnew`),
+  pin order (`kipy tools/check_pin_order.py`).
+
+### Footprints and fit
+
+| Parts | Proteus package (2010) | Footprint | How | Pads IPC → footprint (mm, pad / drill) |
+|---|---|---|---|---|
+| 46 R (R1-R5, R8-R21, R24-R32, R34-R51) | RES40 | `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal` | KiCad, unchanged | 1.778/0.762 → 1.6/0.8 |
+| R6, R7, R22, R23, R33, R62-R67 | 2W METAL FILM RESISTOR | `R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal` | derived from `..._P20.32mm` (pilot) | 2.286/1.016 → **2.4**/1.2 |
+| C1, C5, C7, C10 | 22N XICON | `C_Rect_L13.0mm_W6.0mm_P9.70mm` | derived from `C_Rect_L13.0mm_W6.0mm_P10.00mm_FKS3_FKP3_MKS4` (pilot; silk 12.8 x 6.0) | 2.54/1.143 → 2.0/**1.0** |
+| C8, C11-C13, C16, C17, C19-C21, C23-C25, C27, C29 | 1N / 2N2 / 3N3 / 4N7 ORANGE DROP | `C_Rect_L16.5mm_W7.0mm_P9.70mm` | derived from `C_Rect_L16.5mm_W7.0mm_P15.00mm_MKT` (Proteus silk 15.1 x 6.7 mm; KiCad's nearest box), pads moved 2.65 mm in | 2.54/1.143 → 2.2/**1.1** |
+| C15 | 100N XICON | `C_Rect_L24.0mm_W7.0mm_P20.00mm` | derived from `C_Rect_L24.0mm_W7.0mm_P22.50mm_MKT` (silk 23.1 x 6.0) | 2.54/1.143 → 2.4/1.2 |
+| C3, C6, C9 | MMK 2.5*7.2 | `Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2` | KiCad, unchanged (silk 7.2 x 2.5) | 1.778/0.762 → 1.6/0.8 |
+| C4, C14 | MMK J04 | `Capacitor_THT:C_Rect_L7.2mm_W5.0mm_P5.00mm` | KiCad, unchanged (silk 7.2 x 5.0) | 1.778/0.762 → 1.5/**0.75** |
+| C18, C22, C26 | CAP20 | `C_Disc_D7.5mm_W2.5mm_P5.08mm` | derived from `C_Disc_D7.5mm_W2.5mm_P5.00mm` | 1.778/0.762 → **2.0**/1.0 |
+| C2 | ELEC-RAD10 | `CP_Radial_D6.3mm_P2.54mm_PM` | derived from `CP_Radial_D6.3mm_P2.50mm`, pads 1 → `+`, 2 → `-`, moved to P2.54 | 2.032/0.762 → 1.6/0.8 |
+| C30 | 22U 100V | `CP_Radial_D6.3mm_P2.50mm_PM` | same base, pads 1 → `+`, 2 → `-` | 2.032/0.762 → 1.6/0.8 |
+| C28, C33-C37 | ELEC D16 R7.5 | `CP_Radial_D16.0mm_P7.50mm_Pin2Plus` | KiCad `CP_Radial_D16.0mm_P7.50mm`, pads **1 → `2`, 2 → `1`** (Proteus + = 2) | 2.54/1.143 → 2.4/1.2 |
+| D1-D5, D8, D9 | DO41 | `D_DO-41_SOD81_P10.16mm_Horizontal_AK` | KiCad, pads 1 → `K` (band), 2 → `A` (pilot) | 2.286/1.016 → 2.2/1.1 |
+| Q1-Q9 | TO92 | `TO-92_Inline_P2.03mm` | derived from `TO-92_Inline_Wide` (pilot; Proteus P2.032), no renumbering (J112 1 = D, 2 = S, 3 = G = KiCad pads 1-3) | 1.524/0.762 → 1.5/0.8 |
+| RLY1-RLY5 | G5V-2(HI) | `Relay_DPDT_Omron_G5V-2_ProteusPins` | KiCad `Relay_DPDT_Omron_G5V-2`, Omron pads renumbered to the Proteus ids (below), pads not moved | 2.54/1.143 → **1.4/0.7** |
+| U1-U3 | 9-PIN BELTON NOVAL | `Valve_Noval_Belton_PCD21.00mm` | **built from the IPC pads** (U1): KiCad `Valve_Noval_P` is on a 2.54 mm grid; Proteus: 9 pads on a 21.00 mm pitch circle (10 positions at 36°, gap between 9 and 1); body = the Proteus Top Assembly rectangle 26.4 x 25.4 mm (read from the gerber, `noval_body()`) | 4.318/1.727 (Proteus) |
+| 47 terminals | PIN | `FlyLead_Pad_D3.048mm_Drill1.524mm` | built from the IPC pads (GTR_IN), same name as on the power amp | 3.048/1.524 (Proteus) |
+| 13 holes (Phase 3) | mounting holes | `MountingHole_3.0mm_PTH_Pad6.35mm` | board-only, plated, pad number 1, no net (pilot) | 6.35/3.0 (Proteus) |
+
+`check_footprints`: **163/163 parts, 339 pads, worst residual 0.001 mm**; `--pcbnew` placement worst
+0.001 mm; every part on the top side (no THT pattern fits only mirrored); `reports/footprint_fit.csv`
+(placement for Phase 3) and `reports/footprint_pads.csv` written. The six resistors with stale
+layout values (finding 7) and Q4 `NADA` (finding 1) have the layout packages RES40 / 2 W / TO92 like
+their families, so the open value questions do not touch the footprints.
+
+**Pad size / drill differences KiCad vs Proteus, per refdes** (for Phase 3 DRC and Phase 4; a
+**user decision**, left open here):
+
+| KiCad vs Proteus | Parts | Pad (KiCad / Proteus) | Drill (KiCad / Proteus) |
+|---|---|---|---|
+| **pad larger** | R6, R7, R22, R23, R33, R62-R67 | 2.4 / 2.286 (+0.057 per side) | 1.2 / 1.016 (larger) |
+| **pad larger** | C18, C22, C26 | 2.0 / 1.778 (+0.111 per side) | 1.0 / 0.762 (larger) |
+| **drill smaller** | **RLY1-RLY5** | 1.4 / 2.54 | **0.7 / 1.143** (-0.443) |
+| **drill smaller** | C1, C5, C7, C10 | 2.0 / 2.54 | **1.0 / 1.143** (as the power amp's C1-C6) |
+| **drill smaller** | C8, C11-C13, C16, C17, C19-C21, C23-C25, C27, C29 | 2.2 / 2.54 | **1.1 / 1.143** |
+| **drill smaller** | C4, C14 | 1.5 / 1.778 | **0.75 / 0.762** |
+| smaller pad, larger drill | 46 RES40 R, C3/C6/C9, C2, C30, C15, C28/C33-C37, D*, Q* | smaller | larger |
+| equal (Proteus pads) | U1-U3, 47 terminals, 13 holes | = | = |
+
+So Phase 4 (`ipc356_diff`, `gerber_roundtrip`) will report drill mismatches for **RLY1-RLY5 (0.7 vs
+1.143), C1/C5/C7/C10 (1.0 vs 1.143), the 14 Orange Drops (1.1 vs 1.143) and C4/C14 (0.75 vs 0.762)**:
+either `DRILL_SMALLER` entries `(1.143, 0.7)`, `(1.143, 1.0)`, `(1.143, 1.1)`, `(0.762, 0.75)` or Proteus
+drills (`ipc_sizes`) on those footprints. The relay is the big one: the 2010 board was built with
+1.143 mm relay holes; KiCad's G5V-2 footprint uses 0.7 mm. The KiCad pads are larger than Proteus
+only on the 2 W resistors and the CAP20 discs (clearance to check in the Phase 3 DRC).
+
+### Pin order (`tools/check_pin_order.py`, renders in `reports/pin_order/`)
+
+| Parts | Unmoved KiCad base | Unmirrored | Mirrored | Result |
+|---|---|---|---|---|
+| Q1-Q9 (J112) | TO-92_Inline_Wide | 0.508 @ 180° (pitch 2.54 vs 2.032) | 0.508 | inline: body marker decides; KiCad flat side = Proteus flat side on **all nine** (renders): **1 = D, 2 = S, 3 = G on the JEDEC pads 1-3, as KiCad**. The D / S swap of finding 8 is only the net role (Q2-Q6 drain on PRE-GND); the pad order is the same on every part, no pinout oddity |
+| D1-D5, D8, D9 | D_DO-41 (1 = K) | 0.000 | 0.000 | KiCad band at K = Proteus band at K on all seven: **polarity as KiCad** |
+| C2, C30 | CP_Radial_D6.3 (1 = +) | 0.020 / 0.000 | same | KiCad `+` / square pad at the Proteus `+` mark: **polarity as KiCad** |
+| C28, C33-C37 | CP_Radial_D16.0 (1 = + → Proteus `2`) | 0.000 | 0.000 | KiCad `+` at pin 2 = Proteus `+` mark at pin 2 on all six |
+| RLY1-RLY5 | Relay_DPDT_Omron_G5V-2, Omron 16/13/11/9 → 4/2/3/1, 1/4/6/8 → 5/6/7/8 | **0.000** | 7.620 | by pad position: Proteus coil pin 4 + pole 1 (COM 2, NC 3, NO 1) sit on the Omron **16 / 13 / 11 / 9** column, coil pin 5 + pole 2 (6 / 7 / 8) on **1 / 4 / 6 / 8** (KiCad top view) |
+| RLY1-RLY5 | same base, Phase 1 symbol mapping (Omron 1/4/6/8 → 4/2/3/1) | 7.620 | **0.000** | the column-for-column reading of the symbol mapping fits only mirrored (finding 14) |
+| U1-U3 | Valve:Valve_Noval_P | **17.631** | **2.972** | only the **mirrored** KiCad noval matches; ideal standard noval on the 21.00 mm circle: unmirrored 19.319, mirrored **0.007** (finding 13) |
+
+Derived footprints: pads moved from the renumbered base only by the pitch change (TO-92 0.508, DIN0414
+0.635, C_Rect 0.15 / 2.65 / 1.25, disc 0.04, C2 0.02, the rest 0.000). Polarity: marked KiCad pad 1
+= `+` (C2, C30), `2` (C28, C33-C37), `K` (diodes).
+
+**The noval sockets are the oddity** (finding 13), as the octal sockets on the power amp: the
+Proteus pad ids run 1 → 9 **clockwise seen from the component (top) side** (1 lower left, 2 left,
+3 upper left, 4 / 5 top, ..., 9 bottom; in the IPC frame pin k at -144° - 36°(k-1)); the noval
+standard (KiCad) runs clockwise seen from the pin / solder side. The footprint keeps the Proteus ids
+and the top side (reproduces Proteus; copper identical either way). **User question.**
+
+**Negative tests** (restored afterwards; a scratch script in build/tmp, not committed): (1) 22N XICON rule → the unmoved KiCad
+`C_Rect_L13.0mm_W6.0mm_P10.00mm` → `gen_footprints --check` out of date (exit 1); check_footprints
+"schematic footprint != map (re-run the sheet scripts)"; after re-running the sheets "residual 0.150
+mm" on C1/C5/C7/C10 (exit 1). (2) noval pad 4 moved 0.1 mm in the library file → `--check` out of
+date, check_footprints U1-U3 residual 0.089 (exit 1). (3a) TO-92 pads 2/3 swapped in the library
+file → `--check` out of date, check_footprints Q1-Q9 residual 2.032 (exit 1). (3b) relay renumbering
+COM1 / NC1 swapped in gen_footprints (library regenerated) → **check_footprints still OK** (derive
+moves the pads onto the IPC), check_pin_order fails (unmirrored fit 5.080, derived pads moved 5.080).
+(3c) C28 family renumbering dropped / C2 `+` / `-` swapped (library regenerated) → check_footprints OK,
+check_pin_order fails on `POLARITY` (before `POLARITY` was added this was not caught: p2k candidate
+14). (4) noval expectation set to unmirrored → check_pin_order FAILED. (5) `kicad/fp-lib-table`
+removed → `--check` exit 1. All pass again with the committed files.
+
 ## Last check output
 
-`tools/check_all.sh` (2026-11-20, end of Phase 1):
+`tools/check_all.sh` (2026-11-20, end of Phase 2):
 
 ```
 == KiCad environment
@@ -390,6 +504,39 @@ erc: 0 errors, 0 warnings (reports/erc.rpt)
 compare: parts 163/163 present, 0 missing, 0 extra; pins compared 339, wrong-net pins 0; IPC nets touched 101, complete 101
 compare: per sheet (drawn/total) 1:36/36 2:33/33 3:34/34 4:39/39 5:21/21
 compare: OK
+== Footprint library, map and fp-lib-table up to date
+gen_footprints: 163 parts, 16 footprints (14 project), up to date
+== Footprints vs IPC pad geometry
+check_footprints: pcbnew placement of 163 parts, worst pad offset 0.001 mm
+check_footprints: 163/163 parts fitted, 339 pads, 16 footprints, worst residual 0.001 mm (limit 0.05)
+check_footprints: OK
+== Pin order vs unmoved KiCad base footprints
+parts                                  KiCad base (unmoved)                                 unmirrored           mirrored  best
+Q1 Q2 Q3 Q4 Q5 Q6 Q7 Q8 Q9             Package_TO_SOT_THT:TO-92_Inline_Wide               0.508 @  180       0.508 @    0  unmirrored
+D1 D2 D3 D4 D5 D8 D9                   Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal        0.000 @  180       0.000 @    0  unmirrored
+C2                                     Capacitor_THT:CP_Radial_D6.3mm_P2.50mm             0.020 @  180       0.020 @    0  unmirrored
+C30                                    Capacitor_THT:CP_Radial_D6.3mm_P2.50mm             0.000 @  270       0.000 @   90  unmirrored
+C28 C33 C34 C35 C36 C37                Capacitor_THT:CP_Radial_D16.0mm_P7.50mm            0.000 @  270       0.000 @   90  unmirrored
+RLY1 RLY2 RLY3 RLY4 RLY5               Relay_THT:Relay_DPDT_Omron_G5V-2                   0.000 @  180       7.620 @  180  unmirrored
+RLY1 RLY2 RLY3 RLY4 RLY5 (symbol map)  Relay_THT:Relay_DPDT_Omron_G5V-2                   7.620 @  180       0.000 @  180  mirrored
+U1 U2 U3                               Valve:Valve_Noval_P                             17.631 @150.282       2.972 @    0  mirrored
+derived                                CP_Radial_D16.0mm_P7.50mm_Pin2Plus                   pads moved  0.000 mm (limit 0.001)
+derived                                CP_Radial_D6.3mm_P2.50mm_PM                          pads moved  0.000 mm (limit 0.001)
+derived                                CP_Radial_D6.3mm_P2.54mm_PM                          pads moved  0.020 mm (limit 0.03)
+derived                                C_Disc_D7.5mm_W2.5mm_P5.08mm                         pads moved  0.040 mm (limit 0.05)
+derived                                C_Rect_L13.0mm_W6.0mm_P9.70mm                        pads moved  0.150 mm (limit 0.16)
+derived                                C_Rect_L16.5mm_W7.0mm_P9.70mm                        pads moved  2.650 mm (limit 2.66)
+derived                                C_Rect_L24.0mm_W7.0mm_P20.00mm                       pads moved  1.250 mm (limit 1.26)
+derived                                D_DO-41_SOD81_P10.16mm_Horizontal_AK                 pads moved  0.000 mm (limit 0.001)
+derived                                R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal   pads moved  0.635 mm (limit 0.64)
+derived                                Relay_DPDT_Omron_G5V-2_ProteusPins                   pads moved  0.000 mm (limit 0.001)
+derived                                TO-92_Inline_P2.03mm                                 pads moved  0.508 mm (limit 0.51)
+polarity                               CP_Radial_D16.0mm_P7.50mm_Pin2Plus                   KiCad pad 1 (marked) = '2' (expected '2')
+polarity                               CP_Radial_D6.3mm_P2.50mm_PM                          KiCad pad 1 (marked) = '+' (expected '+')
+polarity                               CP_Radial_D6.3mm_P2.54mm_PM                          KiCad pad 1 (marked) = '+' (expected '+')
+polarity                               D_DO-41_SOD81_P10.16mm_Horizontal_AK                 KiCad pad 1 (marked) = 'K' (expected 'K')
+U1 U2 U3                               ideal standard noval, PCD 21.00 mm            19.319              0.007             mirrored
+check_pin_order: OK (results as recorded in STATUS.md)
 
 ALL CHECKS PASSED
 ```
@@ -437,6 +584,31 @@ ALL CHECKS PASSED
     10M or 20M.
 12. **MV0 is a ground pad** (on PRE-GND, sheet 3), as are GTR-GND, POT-GND and PRERETURN: four
     ground fly-lead pads on this board.
+
+13. **Noval socket pin numbering is mirrored against the noval standard** (Phase 2; the same as the
+    power amp's octal sockets, its finding 10). The Proteus `9-PIN BELTON NOVAL` pads of U1-U3 run
+    1 → 9 clockwise seen from the component (top) side; the standard (and KiCad's `Valve_Noval_P`)
+    runs clockwise seen from the pins, i.e. from the solder side of a top-mounted socket. Proteus
+    places U1-U3 on the top (Top Silk / Top Assembly). With a 12AX7 in a top-mounted socket, no
+    rotation makes it work (with the gaps aligned, tube pin 1, anode A1, would sit on pad 9, which has
+    no net, and tube pin 9 on pad 1). Since the preamp was built and played, the sockets were most likely **mounted on the solder
+    side** (tubes below the board; then the pattern is correct), or wired differently. **Please
+    confirm with the built preamp** which side the sockets are on. The conversion keeps the Proteus
+    pads, ids and top side (copper identical either way); if they are on the solder side, Phase 5 can
+    move the socket footprint to B (silk / courtyard / 3D model) with standard numbering. Pitch circle
+    21.00 mm, pads 4.318 / 1.727 mm.
+14. **G5V-2 pin ids by pad position** (Phase 2): the Proteus coil pin 4 and pole 1 (COM 2, NC 3,
+    NO 1) sit on the Omron 16 / 13 / 11 / 9 column (KiCad top view), coil pin 5 and pole 2 (6 / 7 / 8)
+    on Omron 1 / 4 / 6 / 8. The Phase 1 symbol mapping read Proteus 4 / 2 / 3 / 1 as Omron 1 / 4 / 6 /
+    8, which is the mirror image. The G5V-2 pattern (2 x 4) and the relay (two identical poles, coil
+    pins 1 / 16 interchangeable on the standard non-latching type) are mirror-symmetric, so both
+    readings describe the same part: no electrical effect. Only a polarized or latching coil variant
+    would make the coil orientation matter (Omron 1 / 16 then fixed); not the case on this board as far
+    as the schematic shows (flyback diodes D1-D3, D8, D9 across the coils, finding 4).
+15. Smaller Proteus details seen in Phase 2: C2 (ELEC-RAD10) is P2.54 while C30 (22U 100V) is P2.50
+    (both 6.3 mm cans); the CAP20 discs are P5.08; the 22n Xicon and Orange Drop films are P9.70 (not
+    a 10 / 10.16 grid), the 100n Xicon P20.00; the TO-92 pitch is 2.032 mm (80 mil); the relay holes
+    are 1.143 mm (KiCad 0.7); the C28 / C33-C37 electrolytics match KiCad's D16 P7.5 exactly.
 
 ## p2k candidates
 
@@ -496,6 +668,31 @@ ALL CHECKS PASSED
     passes a pin end is only a compare *warning* while other sheets are undrawn (it became
     visible through the ERC error); candidate for a `sheetkit.rail()` helper.
 
+12. **`footprints.run` does not write `kicad/fp-lib-table`** (pilot candidate 12): the board script
+    writes and `--check`s it (`fp_lib_table()`, copied from the pilot).
+13. **Pin-order check written board-locally** (pilot candidate 13): `tools/check_pin_order.py`
+    (unmoved base + renumbering, both mirror states, ideal noval on the pitch circle, the second relay
+    reading, `--render`). A shared `p2k.check_pin_order` with config (groups, expectations, ideal
+    circular sockets with n positions / gap) would serve the octal and noval boards alike.
+14. **`footprints.derive()` with `ipc` hides a wrong renumbering**: it fits the renumbered base onto
+    the IPC pads and moves every pad onto its IPC position, so a wrong renumbering gives pads moved
+    by a pitch (graphics, band, `+`, pin-1 mark left behind) and `check_footprints` passes by
+    construction; for two-pad parts even the unmoved-base pin-order fit cannot tell (180° fits).
+    Board-local answer in `tools/check_pin_order.py`: `MOVE_LIMIT` (derived pads may move only by the
+    intended pitch change) and `POLARITY` (the pin on the marked base pad 1, stated from the Proteus
+    pinouts); negative-tested (relay COM / NC swap, C28 / C2 polarity). The shared tool would need: a
+    spec key `max_move` (fail when a pad moves more) and `marked_pad` / polarity, or report the
+    per-pad move in the library build.
+15. **Rule condition `package` takes one value**: the four Orange Drop packages (`1N` / `2N2` / `3N3` /
+    `4N7 ORANGE DROP`, same footprint) need four identical rules. A tuple / set for `package` /
+    `device` would help.
+16. `body_poly` from a gerber again (pilot candidate 14): `noval_body()` reads the socket rectangle of
+    the Top Assembly at generation time (a spec key `body_from=("Top Assembly", refdes)` would cover
+    the octal and noval cases).
+17. Board-script pitfall (not a p2k bug): `check_pin_order.py` imports `gen_footprints.PROJECT`; an
+    edit of the same size within the same second left a stale `tools/__pycache__/*.pyc` in a
+    negative test, so the script sets `sys.dont_write_bytecode`.
+
 ## Decisions
 
 - Sheet names (no title blocks in the PDF): Input stage / Second stage / EQ stage / Tone stacks /
@@ -518,3 +715,19 @@ ALL CHECKS PASSED
   mirrored and the heater as a separate unit away from the triodes; relay poles at rotation 270
   with COM on the left; relay blocks wider than in the PDF; `tools/compare.py` wrapper instead of
   the shared compare (p2k candidate 9); schematic renders not committed.
+- Phase 2 (agent's choices, no user decision needed): KiCad pad sizes (`FOOTPRINT_PAD_SIZES =
+  "kicad"`, the playbook default) with the pad centres on the Proteus positions; derived footprints
+  where KiCad has the package at another pitch or with other pin ids (2 W resistor, 22n / 100n Xicon,
+  Orange Drop, CAP20, the three electrolytic families, DO-41, TO-92, G5V-2); the Orange Drop body is
+  KiCad's 16.5 x 7 mm box (Proteus silk 15.1 x 6.7), the 100n Xicon KiCad's 24 x 7 (silk 23.1 x 6.0);
+  built from the IPC pads: noval socket (pitch circle differs from KiCad's grid footprint) and the
+  fly-lead terminal; the noval footprint keeps the Proteus pin ids and the top side (finding 13);
+  the relay renumbering that fits without a mirror (finding 14); footprint names describe the
+  Proteus geometry (`_P9.70mm`, `_PM` = pads +/-, `_Pin2Plus`, `_AK`, `_ProteusPins`, `_PCD21.00mm`);
+  `reports/footprint_*.csv` and `reports/pin_order/` committed (as the pilot).
+- **Open for the user** (Phase 2): (a) which side the noval sockets U1-U3 are mounted on (finding
+  13); (b) the KiCad drills smaller than Proteus on RLY1-RLY5 (0.7 vs 1.143), C1/C5/C7/C10 (1.0 vs
+  1.143), the 14 Orange Drops (1.1 vs 1.143) and C4/C14 (0.75 vs 0.762): keep (`DRILL_SMALLER` in
+  Phase 4) or Proteus drills (`ipc_sizes`) per family; (c) pad sizes only if the Phase 3 DRC forces
+  them (KiCad pads larger than Proteus only on the 2 W resistors and C18/C22/C26). Still open from
+  Phase 1: the values of R13, R22, R27, R30, R34, R51 and Q4 (findings 1, 7, 11).
