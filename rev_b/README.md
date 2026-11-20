@@ -50,3 +50,9 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
 - B+ decoupling resistors (3.3k / 6.8k / 10k / 10k) are provisional until the stage currents are
   summed; the simulations used 300 V at the plates' supply.
 - Footprints are not assigned yet.
+- Output (J507), agreed in tube_amplifier_kicad docs/interfaces.md §10 (2026-11-20): Zout about
+  140k; the PI + FX input is ≥ 1 MΩ with a buffer at its connector, total capacitance on OUT
+  ≤ 50 pF. The 1 MΩ load costs about 1.1 dB: change the attenuator's 330k to about 300k at the next
+  value pass. Fallback if the cable can't be short: the divider moves to the receiver, which needs
+  a re-run of sim/preamp_voicing/switching_real.py (mute depth). The connector pinouts are the
+  interfaces.md contract: propose changes through the main-branch session.
