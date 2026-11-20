@@ -50,6 +50,10 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
 - B+ decoupling resistors (3.3k / 6.8k / 10k / 10k) are provisional until the stage currents are
   summed; the simulations used 300 V at the plates' supply.
 - Footprints are not assigned yet.
+- Layout constraint (user decision 2026-11-20, after tube_amplifier_kicad mechanical/chassis_fit.md):
+  one long front-panel board carries all 21 pots; its connectors sit more than about 25 mm below
+  the plate and pass under this board's front edge. Put J504-J506 at the front edge, facing it.
+  Standoffs 15 mm; the `etunen` outline stays.
 - Output (J507), agreed in tube_amplifier_kicad docs/interfaces.md §10 (2026-11-20): Zout about
   140k; the PI + FX input is ≥ 1 MΩ with a buffer at its connector, total capacitance on OUT
   ≤ 50 pF. The 1 MΩ load costs about 1.1 dB: change the attenuator's 330k to about 300k at the next
