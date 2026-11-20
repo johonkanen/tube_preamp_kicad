@@ -19,6 +19,8 @@ board is in `p2k_config.py`.
 
 ## Status
 
+Conversion plan: [PLAN.md](PLAN.md); progress: [STATUS.md](STATUS.md); prompt for the next agent session: [next_prompt.md](next_prompt.md).
+
 Phase 0 (skeleton and inventory) not started. The sources are in place; `p2k_config.py` holds
 only the paths and placeholder sheet names.
 
