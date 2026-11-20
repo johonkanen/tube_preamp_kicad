@@ -275,6 +275,8 @@ def sheet04(d):
     d.text("04 Switch control: MCP23S17 (SPI) -> 2x DG412 (JFET gates 0 / -15 V, normally open: reset or no -15 V "
            "= JFETs on = muted), 2N7002 gates direct (5 V), ULN2003 relay sinks. Unmute = GPA6 AND MUTE_ALL_N "
            "(pulled low: ribbon unplugged = muted).", 0, -1.0, 2)
+    # INTERFACE CONTRACT: J401 pinout is in tube_amplifier_kicad docs/interfaces.md ("preamp rev B
+    # draft (2026-11-20)"); other boards follow it. Propose changes via the main-branch session first.
     d.part("Conn_02x07_Odd_Even", "J401", 0, 2, {1: "+5V", 2: "GND", 3: "+15V", 4: "GND", 5: "-15V", 6: "GND",
                                                   7: "SPI_SCK", 8: "GND", 9: "SPI_MOSI", 10: "SPI_MISO",
                                                   11: "SPI_CS_N", 12: "MUTE_ALL_N", 13: "RESET_N", 14: "GND"},
@@ -322,6 +324,8 @@ def sheet05(d):
     d.text("05 B+ regulator (docs/preamp_regulator.md: CCS-fed zener reference, Rf-Cf filter / soft start, HV "
            "MOSFET follower, foldback limit), RC decoupling to the stage supplies (values provisional), CF grid "
            "bias, heaters with the reference jumper (D12), pot ribbons, output.", 0, -1.0, 2)
+    # INTERFACE CONTRACT: J501-J507 pinouts (tabs, pot ribbons, output) are in tube_amplifier_kicad
+    # docs/interfaces.md ("preamp rev B draft (2026-11-20)"). Propose changes via the main session first.
     d.part("Conn_01x02", "J501", 0, 1, {1: "BP_RAW", 2: "GND"}, value="B+ RAW 430V (tab)")
     d.part("Q_NMOS_Depletion", "Q501", 2, 1, {"D": "BP_RAW", "G": "ZT", "S": "CS"}, value="LND150")
     R(d, "R501", 3, 2, "CS", "ZT", "330")
