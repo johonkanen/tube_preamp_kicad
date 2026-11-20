@@ -22,7 +22,10 @@ board is in `p2k_config.py`.
 Conversion plan: [PLAN.md](PLAN.md); progress: [STATUS.md](STATUS.md); prompt for the next agent session: [next_prompt.md](next_prompt.md).
 
 Phase 0 (skeleton and inventory) done 2026-11-20: `p2k_config.py` complete, `reference/`
-tables from the IPC netlist, `tools/check_all.sh` passes. Phase 1 (schematic) is next.
+tables from the IPC netlist, `tools/check_all.sh` passes. Phase 1 preparation done 2026-11-20:
+`lib/part_map.csv` (163 parts), `lib/tube_preamp.kicad_sym` (9 symbols, pins = IPC ids), KiCad
+project skeleton with the 5 empty sheets, ERC and netlist comparison in `tools/check_all.sh`
+(passes). Next: Phase 1 transcription of the 5 sheets (STATUS.md "Transcription rules").
 
 Built in about 2010 from the June 2010 Gerbers (`source/fab_2010/`). The Proteus layout was edited in October 2010: Q6 pin 3 moves from net J1 to a new net J4 (Q6-3, Q9-3, pad D), plus a ground reroute. The export in `source/cadcam/` is the October version. Holes, outline and tube sockets are identical to the fabricated board. Accepted as the baseline, since the board gets redesigned.
 

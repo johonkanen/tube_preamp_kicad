@@ -5,7 +5,7 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 | Phase | State |
 |---|---|
 | 0 Skeleton and inventory | **done** 2026-11-20 (Opus 5.5) |
-| 1 Schematic | not started; next (next_prompt.md: preparation session) |
+| 1 Schematic | preparation **done** 2026-11-20 (Opus 5.5); transcription next (next_prompt.md) |
 | 2 Footprints | not started |
 | 3 PCB | not started |
 | 4 Verification | not started |
@@ -108,9 +108,203 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
     October vias (33.02, -31.115) and (-29.337, -42.545); check how `gerber_roundtrip` reports that
     before adding it (p2k candidate 3).
 
+## Phase 1 preparation – done (Opus 5.5, 2026-11-20)
+
+New in this repo (all generated, `--check` in check_all.sh); pieces copied from the power amp
+pilot (`~/dev/tube_power_amp_kicad`, read only) and adapted:
+
+- **`tools/make_part_map.py` → `lib/part_map.csv`**: **163 parts**, all on the board (per sheet
+  1:36 2:33 3:34 4:39 5:21). Columns `refdes` (KiCad), `sheet` (PDF page), `lib_id`, `value`,
+  `device`, `package`, `proteus_refdes` (the 13 renamed terminals: `GTR-IN` … `PAD_A` = `A`),
+  `off_board` (empty: none).
+  - refdes from `reference/ipc356_pads.json`. **No off-board parts** (`OFF_BOARD` empty): every
+    refdes-like word of the PDF text layer is an IPC refdes, a net label (`EQ1`-`EQ3`, `J1`-`J4`,
+    `PRE1`, `PRE2`) or value text (`J112`, `MMK J04 1µ`); the PDF has 47 `TERMINAL` words = the 47
+    IPC terminals.
+  - value = schematic value from ROOT.DSN (`p2k.pdsprj.dsn_values`, called **without `A`-`D`**:
+    it raises on single-letter refdes, p2k candidate 2); device / package from ROOT.LYT
+    (`lyt_parts`). Board-local overrides:
+    - `SINGLE_LETTER_PARTS`: `A`-`D` → value `TERMINAL`, device `TERMINAL`, package `PIN` (ROOT.LYT
+      records read by hand: `A TERMINAL TERMINAL PIN J1` … `D … J4`).
+    - `LATIN1_PARTS` (pilot p2k candidate 1): values from the PDF for **C4** `MMK J04 1µ`, **C14**
+      `1µ mmk`, **C30** `22µ` (device / package from ROOT.LYT as pdsprj reads them; C4's layout value
+      is cut to `MMK J04 1`), and the whole record for **C28, C33-C37**: value / device `22µF 450V`,
+      package `ELEC D16 R7.5` (ROOT.LYT bytes; pdsprj misses those records). The script fails if
+      pdsprj starts reading any of them. The CSV is UTF-8.
+    - **Q4 keeps the schematic value `NADA`** (finding 1; device J112 / TO92 from the layout).
+  - sheet = PDF page from the text layer; `PAGE_OVERRIDES`: `A`-`D` → 5 (pages 1/2 have the B+ net
+    labels A-D), `H4`, `H5` → 3 (the terminals sit at U3; pages 1-3 also have `H4`/`H5` net labels).
+    `SW1`-`SW3` resolve to page 5 by themselves (the labels elsewhere are lower case `sw1`-`sw3`).
+  - lib_id from the Proteus device (`SYMBOL_BY_DEVICE`): film / ceramic caps (22N XICON, 100N XICON,
+    MMK J01, MMK J04 5MM, CERAMIC56P, *ORANGE DROP) → C; HITEMP10U50V, MINELECT10U50V → C_Polarized;
+    `22µF 450V` → C_Polarized_12; MINRES100K, METALFILM1K → R; 1N4001 → D; J112; G5V-2(HI) → G5V-2;
+    12AX7; TERMINAL → PIN.
+- **`tools/gen_symbols.py` → `lib/tube_preamp.kicad_sym`** (9 symbols, all from the KiCad 10
+  standard library; no power symbols, the IPC has no `=POWER` nets):
+
+  | Symbol | From | Pins (= IPC ids) |
+  |---|---|---|
+  | R, C | Device | 1, 2 |
+  | C_Polarized | Device:C_Polarized | `+` `-` (C2, C30) |
+  | C_Polarized_12 | Device:C_Polarized | **1 = −, 2 = +** (C28, C33-C37; Proteus `*PINOUT ELEC D16 R7.5` + = 2, − = 1; the PDF prints 2 at the + plate) |
+  | D | Device:D | `A` `K` |
+  | J112 | Device:Q_NJFET_DSG | 1 = D, 2 = S, 3 = G (= the Proteus J112 device, no renumbering) |
+  | G5V-2 | Relay:G5V-2_Split, 3 units, pin names hidden | unit 1 coil: 4 = DC1, 5 = DC2; unit 2 pole 1: 2 = COM1, 3 = NC1, 1 = AC1 (NO); unit 3 pole 2: 6 = COM2, 7 = NC2, 8 = AC2 (NO) |
+  | 12AX7 | Valve:ECC83, 3 units, **units 1/2 swapped** | unit 1 (A): 1 = A1, 2 = G1, 3 = K1; unit 2 (B): 6 = A2, 7 = G2, 8 = K2; unit 3 (C, heater): 4 = H1, 5 = H2, 9 = HCT (N/C) |
+  | PIN | Connector:TestPoint | 1 (the 47 terminals; value `TERMINAL`) |
+
+  **Pinouts (Proteus device / package pin definitions in ROOT.DSN, read by hand; pilot p2k
+  candidate 4):**
+  - **12AX7** (`*PINOUT 9-PIN BELTON NOVAL`): A1 = 1, G1 = 2, K1 = 3, H1 = 4, H2 = 5, A2 = 6, G2 = 7,
+    K2 = 8, HCT = 9: the standard noval pinout, = KiCad ECC83. **Unit split (decided up front):**
+    KiCad's units 1 (pins 6/7/8) and 2 (1/2/3) are swapped so that unit A = Proteus element 1
+    (pins 1-3) and unit B = element 2 (pins 6-8); unit C = heater (4, 5, 9). KiCad draws the
+    envelope for every unit (pilot p2k candidate 8). Pin types: anode, cathode and heater pins
+    `passive` (KiCad: output / bidirectional / power_in; the heater and cathode nets have only
+    passive parts), grids stay `input` (every grid net has a resistor). **Pin 9 is `passive`, not
+    `no_connect`, and gets a no-connect flag** (`_common.tube()` places it): a `no_connect`-type pin
+    stays in its own `unconnected-(…)` net in the KiCad 10 netlist even when a wire joins it (ERC
+    only warns `no_connect_connected`), so compare_netlists could not catch it being wired by
+    mistake; tested both ways in the smoke test (p2k candidate 5).
+  - **J112** (device `$PINSHORT` records: `D 1`, `G 3`, `S 2`): **D = 1, S = 2, G = 3**. On the board
+    the drain / source roles alternate per part (the J112 is symmetric; the IPC is the truth):
+
+    | Part | pin 1 (D) | pin 2 (S) | pin 3 (G) | PDF (gate always on the right) |
+    |---|---|---|---|---|
+    | Q1 | #00011 (R3) | PRE-GND | J1 | D at the top (sheet 1) |
+    | Q2 | PRE-GND | #00035 (C4/R12) | J2 | S at the top (sheet 1) |
+    | Q3 | PRE-GND | #00049 (R19) | J1 | S at the top (sheet 2) |
+    | Q4 | PRE-GND | #00050 (C6/R20) | J1 | S at the top (sheet 2) |
+    | Q5 | PRE-GND | #00057 (C14/R30) | J1 | S at the top (sheet 2) |
+    | Q6 | PRE-GND | #00056 (R29) | J4 | S at the top (sheet 2) |
+    | Q7 | #00098 (PRES1) | PRE-GND | J3 | D at the top (sheet 3) |
+    | Q8 | #00096 (PRES2) | PRE-GND | J2 | D at the top (sheet 3) |
+    | Q9 | #00097 (PRES3) | PRE-GND | J4 | D at the top (sheet 3) |
+
+    So Q2-Q6 have the drain on PRE-GND and the source on the signal node, Q1 and Q7-Q9 the other
+    way round (finding 8). KiCad's Q_NJFET_DSG has G on the left, D at the top, S at the bottom:
+    "gate right, D at the top" = `place_mirrored(..., axis="y")` (Q1, Q7-Q9); "gate right, S at the
+    top" = rotation 180 (Q2-Q6). Check every one against the IPC (compare), not the drawing's look.
+  - **G5V-2(HI)** (`*PINOUT G5V-2(HI)`): AC1 = 1, COM1 = 2, NC1 = 3, DC1 = 4, DC2 = 5, COM2 = 6,
+    NC2 = 7, AC2 = 8. Confirmed on the PDF: every blade rests on the NC contact (pins 3 / 7), e.g.
+    RLY1 pole 1 COM (#00005, U1 anode 2) → NC (#00014, RLY2 COM1), AC (#00020, R8); the coils are
+    DC1 = 4 (always H4) and DC2 = 5 (the switch net). Mapped onto KiCad's G5V-2_Split (Omron pins
+    1/16 coil, 4/13 COM, 6/11 NC, 8/9 NO): KiCad 1 → 4, 16 → 5, 4 → 2, 6 → 3, 8 → 1, 13 → 6, 11 → 7,
+    9 → 8. Pin names (Proteus) hidden on the symbol (they cover the contact drawing). Nets:
+
+    | Relay | coil 4 / 5 | pole 1: COM 2 / NC 3 / NO 1 | pole 2: COM 6 / NC 7 / NO 8 |
+    |---|---|---|---|
+    | RLY1 | H4 / SW1 | #00005 / #00014 / #00020 | #00017 / #00018 / #00019 |
+    | RLY2 | H4 / SW2 | #00014 / #00021 / #00026 | #00018 / #00024 / #00025 |
+    | RLY3 | H4 / SW1 | PRE1 / #00046 / #00062 | EQ / PRE2 / #00062 |
+    | RLY4 | H4 / #00081 | #00073 / #00079 / #00085 | #00082 / EQ1 / #00084 |
+    | RLY5 | H4 / SW3 | #00085 / #00086 / #00090 | #00084 / EQ2 / EQ3 |
+
+    In the PDF the upper drawn switch of RLY1/RLY2/RLY4 is pole 2 (COM 6) and the lower one pole 1
+    (COM 2); read the pole from the COM net, not from the position.
+  - 1N4001 A/K; electrolytics as in the table. No surprises against the datasheets.
+- **`p2k make_skeleton`** → `kicad/` (tube_preamp.kicad_pro, sym-lib-table, root sheet with the 5
+  sub-sheets `01 Input stage` … `05 Supply filter`, empty sub-sheets).
+  **`tools/erc.sh`** (as the pilot). **`tools/sheets/_common.py`** (from the pilot): `part()`,
+  `sh_value()`, `sym()` from the part map; `term()` (terminal with value TERMINAL and the pilot's
+  text justification, pilot p2k candidates 3, 7); `P()` (PDF render position in 10 px units →
+  sheet point); `place_mirrored()` (pilot p2k candidate 6); new **`tube()`** (places all 3 units of
+  a 12AX7 and the pin 9 no-connect flag) and **`relay()`** (all 3 units of a G5V-2).
+- **`tools/check_all.sh`**: + part map, symbol library, symbol pins vs IPC, ERC, netlist
+  comparison (`--allow-missing` until the 5 sheets are drawn).
+- **Smoke test** (scratch copy in build/tmp/smoke, deleted): U1 with `tube()` (3 units, pin 9
+  flagged), RLY1 with `relay()` + D1 across the coil, terminals GTR_IN / GTR_GND / PAD_A (on J1),
+  R1, R2, R4, Q1, global labels H4, H5, SW1, PRE-GND, J1, dummy local labels on the other pins →
+  compare 0 wrong-net pins (U1-9 accepted as N/C), ERC 0 errors (12 isolated-label warnings of
+  the dummy labels). Render checked: unit A = pins 1-3, the relay blades rest on NC 3 / 7.
+  Negative tests: U1-9 wired to H5 → compare "N/C mismatch: U1-9 … on KiCad net H5" (with pin 9
+  as `no_connect` type this was **not** detected: the reason for `passive`); pin 9 without the
+  flag → ERC error; Q1 drain on PRE-GND (D/S swapped) → "KiCad net PRE-GND merges IPC nets";
+  coil pins 4/5 swapped → 2 merge errors; grid wire missing → compare split error + ERC errors;
+  a lower-case label `h4` → only a split **warning** while H4 has undrawn pins (it becomes an
+  error once all sheets are drawn); C28 on symbol C_Polarized, a pin renumbered in the library →
+  check_symbols fails; part map / library edited → `--check` fails; a wrong / unknown
+  `PAGE_OVERRIDES` entry → make_part_map fails.
+
+### Transcription rules (for the sheet sessions)
+
+- **Symbols and values**: only `tube_preamp:` symbols, exactly the `lib_id` and `value` of
+  `lib/part_map.csv` per refdes (`_common.sym(ref)`, `sh_value(ref)`; the µ values are in the map;
+  Q4's value is `NADA`). Refdes = the `refdes` column: `GTR_IN`, `GTR_GND`, `POT_GND`,
+  `POT1_1` … `POT3_2`, `PAD_A`-`PAD_D` (Proteus `A`-`D`); the others as in the PDF.
+  Terminals with `_common.term()` (never `sheetkit.terminal`: wrong value, texts over the circle).
+- **Net names = IPC names** (`reference/pins_by_net.md`), whatever case the PDF writes. **The PDF
+  writes `pre-gnd` (sheet 1), `sw1` / `sw2` / `sw3` (sheets 1-3), `h4` / `h5` (sheet 1, at U1) and
+  `j4` (sheet 2, Q6): label them `PRE-GND`, `SW1`-`SW3`, `H4`, `H5`, `J4`** (KiCad names are
+  case-sensitive; Proteus ignores case). Named nets and their sheets (global labels on every sheet
+  they appear on):
+
+  | Net | Sheets | Pins |
+  |---|---|---|
+  | `PRE-GND` | 1-5 | 45 pins (ground) |
+  | `H4` | 1, 2, 3 | heater pin 4 of U1-U3, every relay coil pin 4, D1/D2/D3/D8/D9 anodes, terminal H4 (sheet 3) |
+  | `H5` | 1, 2, 3 | U1-U3 pin 5, terminal H5 (sheet 3) |
+  | `A` | 1, 5 | R6-1, R62-1, C28-2 |
+  | `B` | 1, 5 | R7-1, R62-2, R63-1, C33-2 |
+  | `C` | 2, 5 | R22-2, C8-1, R63-2, R64-1, C34-2 |
+  | `D` | 2, 5 | R23-2, R64-2, R65-1, C35-2 |
+  | `E` | 3, 5 | U3-1, R33-2, R65-2, R66-1, C36-2 (sheet 3 label `E` above U3 pin 1) |
+  | `F` | 3, 5 | R34-2, R66-2, R67-1, C37-2 |
+  | `J1` | 1, 2, 5 | Q1/Q3/Q4/Q5 gates, PAD_A |
+  | `J2` | 1, 3, 5 | Q2/Q8 gates, PAD_B |
+  | `J3` | 3, 5 | Q7 gate, PAD_C |
+  | `J4` | 2, 3, 5 | Q6/Q9 gates, PAD_D |
+  | `SW1` | 1, 2, 5 | RLY1-5, RLY3-5, D1-K, D3-K, terminal SW1 |
+  | `SW2` | 1, 3, 5 | RLY2-5, D2-K, D5-A, terminal SW2 |
+  | `SW3` | 3, 5 | RLY5-5, D9-K, D4-A, terminal SW3 |
+  | `PRE1` | 1, 2 | R15-1, RLY3-2 |
+  | `EQ` | 2, 3 | RLY3-6, C10-1 |
+  | `EQ1` / `EQ2` / `EQ3` | 3, 4 | RLY4-7 / RLY5-7 / RLY5-8 and the tone-stack inputs (C18/R35, C22/R38, C26/R41) |
+  | `PRE2` | 2 only | RLY3-7, U2-6, R23-1, R50-1 → **local** label `PRE2` (two on sheet 2) |
+
+  All other nets are Proteus auto-names (`#000xx`): plain wires; **none crosses a sheet**. There
+  are no single-pin nets besides the N/C pins.
+- **Terminal refdes are not net names**: the terminals `PAD_A`-`PAD_D` (sheet 5) are on **J1-J4**,
+  not on the B+ nets A-D (sheet 5 draws `J1`-`J4` labels on them: global labels `J1`-`J4`). Only
+  the terminals `H4`, `H5` (sheet 3) and `SW1`-`SW3` (sheet 5) share their net's name. `PREPOWER`
+  is on #00131 (R67-2), `PRERETURN`, `GTR_GND`, `POT_GND`, `MV0` on PRE-GND. Never put a label
+  named after a terminal on a wire unless the table above says so.
+- **12AX7 (U1-U3)**: `tube(sh, ref, a, b, heater)` places all three units (unit A = pins 1-3,
+  unit B = 6-8, unit C = heater 4/5) and the no-connect flag on pin 9; heater pins 4 → `H4`, 5 →
+  `H5` (global labels, as the PDF's h4/h5 / H4/H5 labels at each tube). KiCad's symbol has the
+  cathode at the bottom and the anode at the top like the Proteus one; the heater is its own
+  unit (place it below the tube, where the PDF draws pins 4/5/9).
+- **G5V-2 (RLY1-RLY5)**: `relay(sh, ref, coil, pole1, pole2)` places all three units; pole 1 =
+  COM 2 / NC 3 / NO 1, pole 2 = COM 6 / NC 7 / NO 8 (table above; identify the pole in the PDF by
+  its COM net). The diode across each coil: anode on H4 (finding 4).
+- **J112 (Q1-Q9)**: pins 1 = D, 2 = S, 3 = G; orientation per part from the table above (Q2-Q6
+  have D on PRE-GND: rotation 180; Q1, Q7-Q9: `place_mirrored(axis="y")`).
+- **Electrolytics**: C2 / C30 `C_Polarized` (`+` / `-`), C28 / C33-C37 `C_Polarized_12` (pin 2 = +
+  on the B+ node, pin 1 = − on PRE-GND).
+- **N/C pins**: only U1-U3 pin 9 (flagged by `tube()`). No other pin is left open.
+- **Grid 1.27 mm**: symbols, wires and labels on the grid (`g(n)`, `P(x, y)` = PDF render position in
+  10 px units of `build/tmp/pdf/hi-N.png`); `p2k.sheetkit` helpers (`vert2`, `horiz2`,
+  `glabel_left/right`, `label_left/right`, …). Repeated blocks as helpers in `tools/sheets/_common.py`:
+  the three identical tone stacks of sheet 4 (EQn input, C 250p, R 220k, LOnX/LOnW/LOnO terminals,
+  C 1N / 4N7, R 220K to HInW, R 4k7, C 2N2 to HInX; offsets per stack), and the relay coil + diode
+  block (sheets 1-3).
+- One script per sheet, `tools/sheets/sheetNN.py` (NN = PDF page), rebuilding `kicad/NN_*.kicad_sch`
+  from scratch (two runs byte-identical); render with `tools/p2k/bin/p2k render_sheet
+  kicad/NN_*.kicad_sch` and compare with `build/tmp/pdf/hi-N.png` (`pdftoppm -r 200 -png
+  source/schematic_pdf/etunen.PDF build/tmp/pdf/hi`).
+- After each sheet: `tools/p2k/bin/p2k compare_netlists --allow-missing --sheet N` and
+  `tools/erc.sh`, then `tools/check_all.sh`. Target per sheet: 0 missing on that sheet, 0 compare
+  errors, 0 ERC errors (warnings explained here). Expected while sheets are missing: isolated
+  global-label warnings, split **warnings** for nets with pins on undrawn sheets, and ERC
+  `pin_not_driven` errors for a J112 gate whose net has no terminal yet (draw sheet 5 first: its
+  PAD_A-PAD_D drive J1-J4). After the last sheet: drop `--allow-missing` in check_all.sh.
+- **Suggested order**: 5 Supply filter (21 parts: the label vocabulary A-F, J1-J4, SW1-SW3,
+  PRE-GND) → 4 Tone stacks (39, three identical stacks) → 1 Input stage (36) → 2 Second stage (33)
+  → 3 EQ stage (34).
+
 ## Last check output
 
-`tools/check_all.sh` (2026-11-20, end of Phase 0):
+`tools/check_all.sh` (2026-11-20, end of the Phase 1 preparation):
 
 ```
 == KiCad environment
@@ -125,6 +319,29 @@ ipc356: OK
   drills: 366 plated, 0 non-plated
   outline 382.8 x 71.9 mm at (-195.36, -45.73)
 check_sources: OK
+== Part map up to date
+make_part_map: lib/part_map.csv up to date, 163 parts (163 on the board); per sheet 1:36 2:33 3:34 4:39 5:21
+== Symbol library up to date
+gen_symbols: lib/tube_preamp.kicad_sym up to date (9 symbols)
+== Symbol pin sets vs IPC
+  12AX7                  3  pins  9  U1 U2 U3
+  C                     27  pins  2  C1 C3 C4 C5 C6 C7 C8 C9 ...
+  C_Polarized            2  pins  2  C2 C30
+  C_Polarized_12         6  pins  2  C28 C33 C34 C35 C36 C37
+  D                      7  pins  2  D1 D2 D3 D4 D5 D8 D9
+  G5V-2                  5  pins  8  RLY1 RLY2 RLY3 RLY4 RLY5
+  J112                   9  pins  3  Q1 Q2 Q3 Q4 Q5 Q6 Q7 Q8 ...
+  PIN                   47  pins  1  GTR_GND GTR_IN POT1_1 POT1_2 POT2_1 POT2_2 POT3_1 POT3_2 ...
+  R                     57  pins  2  R1 R2 R3 R4 R5 R6 R7 R8 ...
+symbols: 9 part types, 163 refdes, 0 power symbols
+symbols: OK
+== ERC
+erc: 0 errors, 0 warnings (reports/erc.rpt)
+== Netlist comparison vs IPC
+compare: parts 0/163 present, 163 missing, 0 extra; pins compared 0, wrong-net pins 0; IPC nets touched 0, complete 0
+compare: per sheet (drawn/total) 1:0/36 2:0/33 3:0/34 4:0/39 5:0/21
+WARNING: missing parts (163): (see --verbose or --sheet N)
+compare: OK
 
 ALL CHECKS PASSED
 ```
@@ -150,6 +367,19 @@ ALL CHECKS PASSED
 6. Export quirks (no effect, as on the power amp): Mechanical 1's X2 FileFunction is
    `NonPlated,1,2,NPTH` although it holds only the profile; solder resist files negative; the CADCAM
    READ-ME says format 4.3 while the files use `FSLAX45Y45`.
+7. **Stale layout values**: ROOT.LYT (layout) and ROOT.DSN (schematic) disagree for six resistors
+   (plus Q4, finding 1): **R13** 0R (schematic) / 10M (layout), **R22** 220k/2W / 100k/2W, **R27**
+   120k / 22k, **R30** 2k2 / 1k8, **R34** 22k / 100k, **R51** 100k / 22k. The part map takes the
+   schematic values (playbook: ROOT.LYT values can be stale); which values are on the built board
+   is for the user to confirm before a BOM is made from rev A. Also: R33 `220k` (no `/2W` in the
+   value) uses the 2 W metal-film package; R36/R40/R43 are written `220K`, the others `220k`.
+8. **J112 drain / source alternate** (Phase 1 pinout reading, Proteus J112: D = 1, S = 2, G = 3):
+   Q1 and Q7-Q9 have the drain on the signal node and the source on PRE-GND, Q2-Q6 the drain on
+   PRE-GND. The J112 is a symmetric switching JFET, so no electrical effect; noted for the
+   footprint / pin-order check of Phase 2 (both orientations are on the board).
+9. **RLY3's two NO contacts are joined** (pins 1 and 8 both on #00062, sheet 2) and RLY4/RLY5
+   chain their contacts (RLY4-1 / RLY5-2 #00085, RLY4-8 / RLY5-6 #00084): as drawn, no error;
+   noted to help the reading of sheets 2 and 3.
 
 ## p2k candidates
 
@@ -170,6 +400,25 @@ ALL CHECKS PASSED
    `gerber_roundtrip` requires a 1:1 match, Phase 4 needs an "expected extra holes" option or a
    board-local wrapper. (Not tried yet.)
 4. `p2k ipc356` prints "Net aliases: ." when `NET_ALIASES` is empty (cosmetic, as on the pilot).
+5. **A `no_connect`-type symbol pin hides wiring mistakes from `compare_netlists`**: in the KiCad 10
+   kicadxml netlist such a pin stays in its own `unconnected-(…)` net even when a wire joins it to a
+   net (ERC only warns `no_connect_connected`), so an N/C pad wired by mistake is not an N/C
+   mismatch for compare. Found in the smoke test (12AX7 pin 9 wired to H5: compare OK). Board-local
+   answer: pin 9 is `passive` with a no-connect flag (compare then reports the mistake; a missing
+   flag is an ERC error). The pilot's EL34 pin 6 (`no_connect` type, left open) has the same blind
+   spot. The shared tools would need: compare_netlists to fail on any `no_connect_connected` ERC
+   item or read the pin's wires, or a playbook rule "N/C pads = passive pin + no-connect flag".
+6. **Part-map generator, third copy** (`tools/make_part_map.py`: pilot script + `SINGLE_LETTER_PARTS`
+   and a `LATIN1_PARTS` that can keep the pdsprj device / package): the pilot's candidate 5 (a shared
+   `p2k.part_map` with config keys) is now wanted by three boards.
+7. **symgen helpers written board-locally** in `tools/gen_symbols.py`: `pin_types()` (pilot
+   candidate 9), `swap_units()` (renumber the units of a std symbol: ECC83 units 1/2) and
+   `hide_pin_names()` (G5V-2_Split with Proteus pin names). A shared `from_std(..., pin_types=,
+   units=, hide_pin_names=)` would cover them.
+8. Pilot candidates 3, 6, 7, 8 apply here unchanged and are handled the pilot's way in
+   `tools/sheets/_common.py` (`term()`, `place_mirrored()`, terminal text justification, a heater
+   unit per tube placed by `tube()`). `TRUNCATED_NETS` keys checked (pilot candidate 11 / candidate
+   1 here): they are the KiCad refdes.
 
 ## Decisions
 
@@ -181,3 +430,11 @@ ALL CHECKS PASSED
   consistency).
 - The October 2010 export is the baseline (user, before Phase 0); the June differences are listed
   above for reference only.
+- Phase 1 preparation (agent's choices, no user decision needed): 12AX7 from KiCad's ECC83 with
+  units 1/2 swapped (unit A = pins 1-3, B = 6-8, C = heater 4/5/9); pin 9 `passive` + no-connect
+  flag (not `no_connect` type, p2k candidate 5); G5V-2 from KiCad's G5V-2_Split (coil and the two
+  poles as units, so the drawing can follow the PDF), Proteus pin names hidden; J112 = KiCad
+  Q_NJFET_DSG (pins already D/S/G = 1/2/3); a second polarized-capacitor symbol `C_Polarized_12`
+  for the pins 1/2 electrolytics; all 47 terminals one symbol `PIN` with value `TERMINAL`; values
+  = schematic values incl. Q4 `NADA` (finding 1) and the six resistors whose layout value differs
+  (finding 7); named nets keep the IPC spelling (upper case) where the PDF writes lower case.

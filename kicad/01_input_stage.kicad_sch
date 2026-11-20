@@ -1,0 +1,15 @@
+(kicad_sch
+	(version 20260101)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "58adc578-2d31-40a2-b7e5-b2b0129e9211")
+	(paper "A3")
+	(title_block
+		(title "Tube preamp - Input stage")
+		(company "Tube amplifier")
+		(rev "rev A (as built)")
+		(comment 1 "Redrawn from Proteus etunen")
+	)
+	(lib_symbols)
+	(embedded_fonts no)
+)

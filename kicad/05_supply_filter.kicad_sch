@@ -1,0 +1,15 @@
+(kicad_sch
+	(version 20260101)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "5cfa8bac-dc73-4f74-be4a-c3bcdb0e710a")
+	(paper "A3")
+	(title_block
+		(title "Tube preamp - Supply filter")
+		(company "Tube amplifier")
+		(rev "rev A (as built)")
+		(comment 1 "Redrawn from Proteus etunen")
+	)
+	(lib_symbols)
+	(embedded_fonts no)
+)

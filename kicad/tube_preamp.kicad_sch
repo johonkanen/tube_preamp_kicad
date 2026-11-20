@@ -1,0 +1,236 @@
+(kicad_sch
+	(version 20260101)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "a720dba7-e7bc-43ce-9a80-a9545f83e1af")
+	(paper "A3")
+	(title_block
+		(title "Tube preamp")
+		(company "Tube amplifier")
+		(rev "rev A (as built)")
+		(comment 1 "Redrawn from Proteus etunen")
+	)
+	(lib_symbols)
+	(text "Tube preamp (3x 12AX7) rev A - redrawn from Proteus etunen (2010, October layout).\nOne sheet per Proteus PDF page. Net names follow the IPC-D-356A netlist (reference/pins_by_net.md)."
+		(exclude_from_sim no)
+		(at 25.4 22.86 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "06945c80-d75c-4963-b93c-0ed59c86c88c")
+	)
+	(sheet
+		(at 25.4 38.1)
+		(size 76.2 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "8b67a406-2a15-4cf7-bf64-ea67c0dc6696")
+		(property "Sheetname" "01 Input stage"
+			(at 25.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "01_input_stage.kicad_sch"
+			(at 25.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 152.4 38.1)
+		(size 76.2 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "7ba9aa0c-8e57-463f-b13c-8b68f3cb280e")
+		(property "Sheetname" "02 Second stage"
+			(at 152.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "02_second_stage.kicad_sch"
+			(at 152.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 279.4 38.1)
+		(size 76.2 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "6477bf3a-79b5-4c8d-a52e-8d5d8eaac697")
+		(property "Sheetname" "03 EQ stage"
+			(at 279.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "03_eq_stage.kicad_sch"
+			(at 279.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 88.9)
+		(size 76.2 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "3a012d5c-482e-4af1-9a96-0638a716c9da")
+		(property "Sheetname" "04 Tone stacks"
+			(at 25.4 88.2 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "04_tone_stacks.kicad_sch"
+			(at 25.4 109.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 152.4 88.9)
+		(size 76.2 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "e14d0631-2e61-4781-b613-4f0740223c42")
+		(property "Sheetname" "05 Supply filter"
+			(at 152.4 88.2 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "05_supply_filter.kicad_sch"
+			(at 152.4 109.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

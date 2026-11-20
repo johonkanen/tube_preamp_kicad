@@ -1,0 +1,15 @@
+(kicad_sch
+	(version 20260101)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "968590b4-a70d-4d97-bf47-4bf40d2731d6")
+	(paper "A3")
+	(title_block
+		(title "Tube preamp - Second stage")
+		(company "Tube amplifier")
+		(rev "rev A (as built)")
+		(comment 1 "Redrawn from Proteus etunen")
+	)
+	(lib_symbols)
+	(embedded_fonts no)
+)

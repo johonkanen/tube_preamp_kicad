@@ -1,0 +1,15 @@
+(kicad_sch
+	(version 20260101)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "8c344023-f9d3-4efe-b732-9645a2653e48")
+	(paper "A3")
+	(title_block
+		(title "Tube preamp - Tone stacks")
+		(company "Tube amplifier")
+		(rev "rev A (as built)")
+		(comment 1 "Redrawn from Proteus etunen")
+	)
+	(lib_symbols)
+	(embedded_fonts no)
+)
