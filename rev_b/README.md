@@ -50,7 +50,9 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
   in (limit 8 V); a pad on the crunch's input network is the next fix.
 - B+ decoupling resistors (3.3k / 6.8k / 10k / 10k) are provisional until the stage currents are
   summed; the simulations used 300 V at the plates' supply.
-- Footprints are not assigned yet.
+- Footprints are not assigned yet. An initial JLCPCB BOM with proposed packages is in [bom/](bom/README.md)
+  (`python3 -I rev_b/tools/make_bom.py`; JLC search and stock check from the jlc-tools submodule
+  rev_b/tools/jlc, pinned like efinix_soc_board's).
 - Grounding (tube_amplifier_kicad docs/grounding.md §5a, confirmed by the user 2026-11-21): AGND
   (GNDA) is the signal and power star, its only entry J501 pin 2; the switch references (JFET and
   MOSFET sources, their gate caps, the JFET-gate pull-downs R419-R425) are AGND. Sheet 04's logic,
