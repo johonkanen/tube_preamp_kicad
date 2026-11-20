@@ -12,6 +12,7 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 | 5 Clean-up | **done** 2026-11-20 (Opus 5.5, clean context): noval sockets U1-U3 on the bottom side with the standard noval numbering (footprint built mirrored; copper, pads, nets unchanged), DRC 36 + 16 accepted errors (was 54 + 16); the PI / FX loop board's two hardened checks ported (`tools/check_drill_smaller.py`, joined no-connect pins in `tools/compare.py` / `tools/erc.sh`); negative tests done; **conversion complete** |
 | Design fixes | **done** 2026-11-20 (Opus 5.5, user decisions): G5V-2 symbol relabelled to Omron's terminal names (finding 14), the 9 Proteus track pieces of findings 16 / 20 removed (`REMOVED_TRACKS`), component values unchanged; new check `tools/check_removed_tracks.py`; `make_pcb.sh --check` now stops at a failing step; negative tests done |
 | Shared-tool migration | **done** 2026-11-20 (Opus 5.5): step 1 p2k bump to a9a286c (D-R re-baseline), step 2 board-local tools → shared keys (R1 re-baseline, strict opt-outs none), step 3 relay design change (RLY1-RLY5 on `IPC_PIN_IDS`, stock KiCad G5V-2 symbol / footprint; electrically identical); section "Shared-tool migration 2026-11-20" |
+| Generation stopped | **2026-11-20** (user decision, Opus 5.5): the committed `kicad/` and `lib/` files are the source, edited in KiCad; generators frozen in `tools/generate/` (never run; `make_pcb.sh` refuses without `--force-regenerate`); `check_all.sh` keeps only the checks against the Proteus truth and KiCad's rules; section "Generation stopped 2026-11-20" |
 
 ## Phase 0 – done (Opus 5.5, 2026-11-20)
 
@@ -850,6 +851,8 @@ reference text.
 
 ### Left open / when the board stops being generated
 
+**Done 2026-11-20: generation stopped (user decision), section "Generation stopped 2026-11-20".**
+
 - The values of R13, R22, R27, R30, R34, R51 and Q4 (incl. the R34 / R51 swap, finding 21): open, report
   only; the schematic values are used until the user checks the built board.
 - Per the playbook (section 3, Phase 5) and decision 6: the board stops being generated at the **first
@@ -1091,14 +1094,77 @@ Negative tests (scratch, all restored; full regeneration and `check_all.sh` afte
 
 **Strict opt-outs after the migration: none.**
 
+## Generation stopped 2026-11-20 (Opus 5.5)
+
+**User decision 2026-11-20** (through the coordinating session): rev A (this board at the repo
+root) is no longer generated from the Proteus data. From now on the committed KiCad files
+(`kicad/`, `lib/`) are the source and are edited in KiCad. Last generated state: commit
+`e219d15` (main). At that commit every generator reproduced the committed files byte for byte
+(`make_part_map.py`, `gen_symbols.py`, `gen_footprints.py` `--check`: up to date; `make_pcb.sh
+--check`: "board rebuilt from scratch, byte-identical"), run once more from `tools/generate/`
+after the move. Generation stopped with the commit that records this section. Rev B (the
+redesign) is a separate project in `rev_b/` and is not touched or checked here.
+
+### What changed
+
+- **Generators frozen**: `tools/make_part_map.py`, `tools/gen_symbols.py`, `tools/sheets/`,
+  `tools/gen_footprints.py` and `tools/make_pcb.sh` moved to `tools/generate/` (repo-root paths
+  inside adjusted so they stay importable), with `tools/generate/README.md` saying that they are
+  frozen history and must not be run. `tools/generate/make_pcb.sh` refuses to run (exit 2)
+  unless its first argument is `--force-regenerate`. `p2k sheets` finds no `tools/sheets/` any more.
+- **Still imported**: `p2k check_pin_order` imports `tools/generate/gen_footprints.py` for its
+  `RULES` / `PROJECT` specs (`PIN_ORDER` spec= entries, `PIN_ORDER_MAX_MOVE`); new config key
+  `FOOTPRINT_SCRIPT = "tools/generate/gen_footprints.py"` in `p2k_config.py`.
+- **`tools/check_all.sh`**: removed the steps that regenerate or byte-compare generated files:
+  `make_part_map.py --check`, `gen_symbols.py --check`, `gen_footprints.py --check`, `make_pcb.sh
+  --check` (there was no `p2k sheets --check` step). Kept, all on the committed files:
+  1. KiCad environment (pcbnew 10.0.7)
+  2. `p2k ipc356 --check` - Proteus IPC parse counts and `reference/` vs the Proteus IPC (the
+     tables are derived from the Proteus truth, not from KiCad; the other checks read them)
+  3. `p2k check_sources` - Gerber X2 export vs IPC
+  4. `p2k check_symbols` - symbol pin sets vs IPC
+  5. `p2k erc`
+  6. `p2k compare_netlists` (strict nc_joined, net_names)
+  7. `p2k check_footprints --pcbnew` - footprints vs IPC pad geometry
+  8. `p2k check_pin_order`
+  9. `p2k check_board` - pads, vias, holes vs IPC
+  10. `p2k assign_nets --check` - copper connectivity
+  11. `p2k drc` - schematic parity, strict defaults, `DRC_ACCEPTED`
+  12. `p2k ipc356_diff` - KiCad's IPC-D-356 export vs Proteus
+  13. `p2k gerber_roundtrip --check` - KiCad gerbers / drills vs Proteus, 2010 Excellon
+  14. `tools/check_removed_tracks.py` - never regenerated anything (it reads the board file, the
+      config and the Proteus gerbers); only its docstring was updated.
+- `check_all.sh` checks only the rev A files at the root (the p2k tools find the board through
+  `p2k_config.py` at the root; no step globs files); `rev_b/` is not scanned.
+
+### Working on rev A from now on
+
+Edit `kicad/tube_preamp.kicad_pcb`, the sheets and `lib/` in KiCad 10, then run
+`tools/check_all.sh`. A change that makes the board differ from the Proteus truth (copper, pads,
+nets, drills) makes a check fail on purpose: record it as a deviation (the matching
+`p2k_config.py` key with a reason - `REMOVED_TRACKS`, `DRILL_SMALLER`, the `ROUNDTRIP` deviation
+hooks, `DRC_ACCEPTED`, ... - and a line in STATUS.md), never hide it by loosening a check.
+
+### Negative tests (scratch copies in build/tmp/neg, rev_b/ and .git excluded; edits saved with pcbnew)
+
+| Edit (scratch copy) | Result |
+|---|---|
+| Track J4 F.Cu (33.02, 5.207)-(33.02, 31.115) moved 0.3 mm across (x) | **FAILED**: `gerber_roundtrip` (2 unexplained clusters, 1 draw without copper in the other set); all other checks pass (the track still touches its pads) |
+| The same track moved 2.0 mm across (x) | **FAILED**: `assign_nets --check`, `drc`, `gerber_roundtrip`; `check_board` and `ipc356_diff` pass (they compare pads / vias / holes and their nets, not track geometry) |
+| The same track moved 0.3 mm along its own axis (y) | passes: both ends stay inside the pads, so the extra copper is in the pad-shape clusters of the round trip (tolerance limit, not a hidden deviation: no net or connection changes) |
+| R1 reference text moved 0.5 mm (copper-neutral; pcbnew save otherwise byte-identical) | **ALL CHECKS PASSED** |
+
+`tools/generate/make_pcb.sh --check` without the flag: refuses, exit 2. The real repo:
+`tools/check_all.sh` ALL CHECKS PASSED (below), `git status` clean apart from the commit.
+
 ## Last check output
 
-`tools/check_all.sh` (2026-11-20, shared-tool migration step 3, relay design change: p2k a9a286c, no strict opt-outs; exit status 0):
+`tools/check_all.sh` (2026-11-20, after generation stopped: p2k a9a286c, no strict opt-outs, 14 steps; exit status 0):
 
 ```
 == KiCad environment
 pcbnew 10.0.7
-== IPC-D-356A parser self-check
+== IPC-D-356A parse self-check (counts) and reference/ vs the Proteus IPC
 ipc356: nets=98, records=366, refdes_raw=164, tht_records=366, smd_records=0, smd_top=0, smd_bottom=0, nc_pads=3, vias=14, free_pads=0, holes=13, parts=163
 ipc356: OK
 ipc356: pin ids renamed (IPC_PIN_IDS): RLY1 1->9 2->13 3->11 4->16 5->1 6->4 7->6 8->8; RLY2 1->9 2->13 3->11 4->16 5->1 6->4 7->6 8->8; RLY3 1->9 2->13 3->11 4->16 5->1 6->4 7->6 8->8; RLY4 1->9 2->13 3->11 4->16 5->1 6->4 7->6 8->8; RLY5 1->9 2->13 3->11 4->16 5->1 6->4 7->6 8->8
@@ -1109,10 +1175,6 @@ ipc356: pin ids renamed (IPC_PIN_IDS): RLY1 1->9 2->13 3->11 4->16 5->1 6->4 7->
   drills: 366 plated, 0 non-plated
   outline 382.8 x 71.9 mm at (-195.36, -45.73)
 check_sources: OK
-== Part map up to date
-make_part_map: lib/part_map.csv up to date, 163 parts (163 on the board); per sheet 1:36 2:33 3:34 4:39 5:21
-== Symbol library up to date
-gen_symbols: lib/tube_preamp.kicad_sym up to date (9 symbols)
 == Symbol pin sets vs IPC
   12AX7                  3  pins  9  U1 U2 U3
   C                     27  pins  2  C1 C3 C4 C5 C6 C7 C8 C9 ...
@@ -1131,18 +1193,6 @@ erc: 0 errors, 0 warnings (reports/erc.rpt)
 compare: parts 163/163 present, 0 missing, 0 extra; pins compared 339, wrong-net pins 0; IPC nets touched 98, complete 98 (+ 3 N/C / no-net pins)
 compare: per sheet (drawn/total) 1:36/36 2:33/33 3:34/34 4:39/39 5:21/21
 compare: OK
-== Footprint library, map and fp-lib-table up to date
-footprints: R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal: fit on R6 unmirrored, largest pad move 0.635 mm (pad 2), limit 10.160 mm
-footprints: C_Rect_L13.0mm_W6.0mm_P9.70mm: fit on C1 unmirrored, largest pad move 0.150 mm (pad 1), limit 5.000 mm
-footprints: C_Rect_L16.5mm_W7.0mm_P9.70mm: fit on C8 unmirrored, largest pad move 2.650 mm (pad 2), limit 7.500 mm
-footprints: C_Rect_L24.0mm_W7.0mm_P20.00mm: fit on C15 unmirrored, largest pad move 1.250 mm (pad 2), limit 11.250 mm
-footprints: C_Disc_D7.5mm_W2.5mm_P5.08mm: fit on C18 unmirrored, largest pad move 0.040 mm (pad 2), limit 2.500 mm
-footprints: CP_Radial_D6.3mm_P2.54mm_PM: fit on C2 unmirrored, largest pad move 0.020 mm (pad -), limit 1.250 mm
-footprints: CP_Radial_D6.3mm_P2.50mm_PM: fit on C30 unmirrored, largest pad move 0.000 mm (pad -), limit 1.250 mm
-footprints: CP_Radial_D16.0mm_P7.50mm_Pin2Plus: fit on C28 unmirrored, largest pad move 0.000 mm (pad 1), limit 3.750 mm
-footprints: D_DO-41_SOD81_P10.16mm_Horizontal_AK: fit on D1 unmirrored, largest pad move 0.000 mm (pad A), limit 5.080 mm
-footprints: TO-92_Inline_P2.03mm: fit on Q1 unmirrored, largest pad move 0.508 mm (pad 3), limit 1.270 mm
-gen_footprints: 163 parts, 16 footprints (13 project), up to date
 == Footprints vs IPC pad geometry
 check_footprints: pcbnew placement of 163 parts, worst pad offset 0.001 mm
 check_footprints: note: U1: THT pad pattern fits only mirrored -> bottom side
@@ -1179,13 +1229,6 @@ derived                  R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal   pa
 derived                  TO-92_Inline_P2.03mm                                 pads moved  0.508 mm (limit 0.51)
 bottom                   footprint_fit.csv and kicad/tube_preamp.kicad_pcb: U1 U2 U3 bottom (B.Cu), the other 173 footprints top
 check_pin_order: OK (11 checks as recorded)
-== PCB rebuilt from schematic + gerbers, up to date
-build_pcb: 163 footprints placed (0 excluded from board), 13 mounting holes, 101 nets, 4 outline segments
-gerber_to_tracks: 738 tracks, 14 vias (IPC 14), 0 pour outlines on User.1-4; removed as recorded: 9 tracks (REMOVED_TRACKS), 0 vias (REMOVED_VIAS)
-assign_nets: stage A (no pours): 114 groups, 0 shorts, 0 orphans, 0 opens
-assign_nets: stage B (with pours): 114 groups, 0 shorts, 0 orphans, 0 opens
-place_refdes: 119 kept, 57 moved (sizes 1.0, 0.8 mm)
-make_pcb: board rebuilt from scratch, byte-identical
 == Board pads, vias, holes vs IPC (position, size, nets 1:1)
 check_board: 176 footprints, 339 pads, worst pad offset 0.001 mm (limit 0.05), 98 IPC nets mapped 1:1, 13 mounting holes
 check_board: 738 tracks, 14 vias, 0 zones
@@ -1505,6 +1548,12 @@ ALL CHECKS PASSED
 
 ## Decisions
 
+- **User decision 2026-11-20, generation stopped**: stop generating rev A (the root board) from the
+  Proteus data. From now on the committed KiCad files (`kicad/`, `lib/`) are the source, edited in KiCad.
+  Last generated state: commit `e219d15` (byte-identical with every generator); stopped in the commit
+  that adds section "Generation stopped 2026-11-20". Generators frozen in `tools/generate/`; `check_all.sh`
+  keeps only the checks of the committed files against the Proteus truth and KiCad's rules; deviations
+  from Proteus are recorded, never hidden. Rev B is in `rev_b/`.
 - **User decisions 2026-11-20, design fixes** (through the coordinating session, after Phase 5):
   1. Fix the design findings in the KiCad design, but **leave the component VALUES as they are**
      (R13, R22, R27, R30, R34, R51, Q4; the R34 / R51 swap of finding 21; finding 5: all unchanged).

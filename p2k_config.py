@@ -131,7 +131,10 @@ OUTLINE_RECT = (-195.357, -45.73, 382.79, 71.905)  # x, y, width, height
 # kicad/fp-lib-table). Other warnings are listed only; report reports/erc.rpt.
 ERC_FATAL_WARNINGS = {"no_connect_connected", "footprint_link_issues"}
 
-# --- Footprints (Phase 2, tools/gen_footprints.py, p2k check_footprints) ---------------
+# --- Footprints (Phase 2, tools/generate/gen_footprints.py, p2k check_footprints) ------
+# Generation stopped 2026-11-20 (STATUS.md): the generator is frozen history, never run; p2k
+# check_pin_order still imports its RULES / PROJECT specs (PIN_ORDER spec= / PIN_ORDER_MAX_MOVE).
+FOOTPRINT_SCRIPT = "tools/generate/gen_footprints.py"
 
 # Pad sizes: "kicad" (KiCad library pad sizes and drills, pad centres on the Proteus positions;
 # the IPC-built footprints - noval socket, fly-lead terminal - have the Proteus pads). Changing
@@ -139,7 +142,7 @@ ERC_FATAL_WARNINGS = {"no_connect_connected", "footprint_link_issues"}
 FOOTPRINT_PAD_SIZES = "kicad"
 # Every part of lib/part_map.csv is on the board (no off-board parts).
 OFF_BOARD_PARTS = {}
-# tools/gen_footprints.py (footprints.run) writes / --checks kicad/fp-lib-table (default descr).
+# tools/generate/gen_footprints.py (footprints.run) wrote kicad/fp-lib-table (default descr).
 FP_LIB_TABLE = True
 
 # --- Pin order (p2k check_pin_order; was tools/check_pin_order.py, STATUS.md "Phase 2" and

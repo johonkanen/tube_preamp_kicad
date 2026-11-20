@@ -56,9 +56,27 @@ the board-local tools named above (`compare.py`, `erc.sh`, `check_pin_order.py`,
 shared tools and `p2k_config.py` keys (`tools/make_pcb.sh` = `p2k make_pcb`); no strict-check opt-outs;
 kept: `tools/check_removed_tracks.py`. Design change (electrically identical, same copper): the relays
 RLY1-RLY5 carry the Omron pin numbers (`IPC_PIN_IDS`) with KiCad's stock G5V-2 symbol and footprint.
-Next (the user's call): stop generating the board (next_prompt.md).
+Generation stopped 2026-11-20 (user decision, STATUS.md "Generation stopped 2026-11-20"): the
+committed KiCad files are the source from now on; the generators named above are frozen in `tools/generate/`.
 
 Built in about 2010 from the June 2010 Gerbers (`source/fab_2010/`). The Proteus layout was edited in October 2010: Q6 pin 3 moves from net J1 to a new net J4 (Q6-3, Q9-3, pad D), plus a ground reroute. The export in `source/cadcam/` is the October version. Holes, outline and tube sockets are identical to the fabricated board. Accepted as the baseline, since the board gets redesigned.
+
+## Working on rev A (since 2026-11-20)
+
+Rev A is no longer generated from the Proteus data. The committed KiCad files are the source:
+open `kicad/tube_preamp.kicad_pro` in KiCad 10 and edit the schematic, the board and `lib/`
+there. Then run `tools/check_all.sh` (must end with ALL CHECKS PASSED). It checks the
+committed files against the Proteus truth (IPC netlist, gerbers, drills) and KiCad's rules:
+netlist, ERC, footprints, pin order, board pads / vias / holes, copper connectivity, DRC with
+parity, KiCad's IPC-D-356 export and the gerber round trip. A change that makes the board
+differ from Proteus fails a check on purpose: record it as a deviation (the matching
+`p2k_config.py` key with a reason and a line in STATUS.md), never hide it.
+
+The generator scripts in `tools/generate/` are frozen history (how every file was made) and
+must not be run; `tools/generate/make_pcb.sh` refuses without `--force-regenerate`.
+
+**Rev B** (the redesign, preamp design D) is a separate KiCad project in [`rev_b/`](rev_b/),
+worked on in its own sessions; `tools/check_all.sh` checks only rev A.
 
 ## Source
 
@@ -100,6 +118,10 @@ source/         Proteus exports (read-only)
   fab_2010/       the RS-274X Gerbers the boards were made from (June 2010)
 reference/      tables derived from the IPC netlist (p2k ipc356): pads, pin -> net, pins by net
 tools/p2k/       proteus2kicad (submodule)
+kicad/, lib/     rev A KiCad project and libraries (the source since 2026-11-20)
 tools/check_all.sh  every verification step (run at the start and end of a session)
+tools/check_removed_tracks.py  board check: the decided removed Proteus track pieces
+tools/generate/  frozen generators (history, do not run)
+rev_b/          rev B, the redesign (separate project)
 p2k_config.py   board configuration for the tools
 ```

@@ -18,7 +18,7 @@ the Latin-1 µ values C4, C14, C30, C28 / C33-C37 (LATIN1; pilot p2k candidate 1
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "p2k"))  # proteus2kicad
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "p2k"))  # proteus2kicad
 from p2k import part_map  # noqa: E402
 
 C, CP, R = "C", "C_Polarized", "R"

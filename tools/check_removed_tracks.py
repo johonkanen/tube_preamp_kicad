@@ -5,7 +5,8 @@ User decision 2026-11-20 (STATUS.md "Design fixes 2026-11-20"): the dangling stu
 the zero-length / very short pieces of finding 20 are not built (p2k_config.py REMOVED_TRACKS).
 gerber_to_tracks and gerber_roundtrip only require every REMOVED_TRACKS entry to match a Proteus
 draw; this board-local check pins the decision independently of the config and of the
-make_pcb.sh --check byte compare (which goes when the board stops being generated):
+make_pcb.sh --check byte compare (removed when generation stopped, 2026-11-20; this check never
+regenerated anything and works on the hand-edited board):
 
   - REMOVED_TRACKS lists exactly EXPECTED (no entry missing, none added),
   - every EXPECTED piece is a Conductor draw in the Proteus copper gerber of its layer,

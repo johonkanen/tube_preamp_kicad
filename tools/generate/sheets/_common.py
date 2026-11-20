@@ -13,7 +13,7 @@ import csv
 import os
 import sys
 
-TOOLS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TOOLS = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # tools/generate/sheets/ -> tools
 sys.path.insert(0, os.path.join(TOOLS, "p2k"))  # proteus2kicad
 from p2k.sch_builder import Sheet  # noqa: E402,F401
 from p2k.sheetkit import *  # noqa: E402,F401,F403
