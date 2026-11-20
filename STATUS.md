@@ -970,7 +970,8 @@ Commits (each pushed; regression `regress.sh a9a286c tube_preamp_kicad` per comm
 |---|---|---|
 | 1 bump + D-R + temporary `hole_refdes` exception | 3288dc6 | PASS (80 s) |
 | 2 migration (board-local tools → shared keys) | 14039d4 | PASS (94 s) |
-| 3 relay design change | see the next commit's record | |
+| 3 relay design change | ca0e910 | PASS (75 s) |
+| record (this table, STATUS / README / next_prompt only) | the commit after ca0e910 | PASS |
 
 ### Step 1: p2k bump, D-R re-baseline, temporary strict exception
 
