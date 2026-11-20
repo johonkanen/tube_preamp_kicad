@@ -50,6 +50,8 @@ dangling / zero-length Proteus track pieces of findings 16 / 20 are not built (`
 `tools/check_removed_tracks.py`; 738 tracks), the component values stay as they are (the board will be
 redesigned) and finding 4 is unchanged. `tools/check_all.sh`: ALL CHECKS PASSED. Next: the shared-tool
 migration, then the board stops being generated (next_prompt.md).
+Shared-tool migration 2026-11-20 (STATUS.md "Shared-tool migration 2026-11-20"): in progress; step 1
+(p2k bump to a9a286c, D-R re-baseline) done.
 
 Built in about 2010 from the June 2010 Gerbers (`source/fab_2010/`). The Proteus layout was edited in October 2010: Q6 pin 3 moves from net J1 to a new net J4 (Q6-3, Q9-3, pad D), plus a ground reroute. The export in `source/cadcam/` is the October version. Holes, outline and tube sockets are identical to the fabricated board. Accepted as the baseline, since the board gets redesigned.
 

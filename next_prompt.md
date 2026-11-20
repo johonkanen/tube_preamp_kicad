@@ -8,7 +8,8 @@ unchanged by user decision, finding 4 unchanged). `tools/check_all.sh`: ALL CHEC
 
 What remains, in this order:
 
-1. **Shared-tool migration** (driven by the coordinating session / the agent consolidating the shared
+1. **Shared-tool migration** (in progress 2026-11-20: step 1 bump done; STATUS.md "Shared-tool migration
+   2026-11-20"; the remaining steps are in `tools/p2k/docs/CANDIDATES.md` section 7.2) (driven by the coordinating session / the agent consolidating the shared
    proteus2kicad tools): bump the `tools/p2k` pin to the consolidated version, replace board-local
    copies that the shared tools then cover (candidates in STATUS.md "p2k candidates", e.g. 9
    `compare.py`, 13 `check_pin_order.py`, 25 `bottom` THT footprints, 26 `check_drill_smaller.py`,

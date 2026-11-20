@@ -11,6 +11,7 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 | 4 Verification | **done** 2026-11-20 (Fable 5.2, fresh session): `ipc356_diff` OK (366/366 records, 98 nets 1:1), `gerber_roundtrip --check` OK through `tools/roundtrip.py` (0 unexplained clusters, 0 uncovered draws / flashes, 0 drill mismatches; 2010 Excellon 364/364 + the 2 expected October vias), both in `check_all.sh`; PDF re-read against the IPC on all 5 sheets: no disagreement; findings 1-18 confirmed; negative tests done |
 | 5 Clean-up | **done** 2026-11-20 (Opus 5.5, clean context): noval sockets U1-U3 on the bottom side with the standard noval numbering (footprint built mirrored; copper, pads, nets unchanged), DRC 36 + 16 accepted errors (was 54 + 16); the PI / FX loop board's two hardened checks ported (`tools/check_drill_smaller.py`, joined no-connect pins in `tools/compare.py` / `tools/erc.sh`); negative tests done; **conversion complete** |
 | Design fixes | **done** 2026-11-20 (Opus 5.5, user decisions): G5V-2 symbol relabelled to Omron's terminal names (finding 14), the 9 Proteus track pieces of findings 16 / 20 removed (`REMOVED_TRACKS`), component values unchanged; new check `tools/check_removed_tracks.py`; `make_pcb.sh --check` now stops at a failing step; negative tests done |
+| Shared-tool migration | **in progress** 2026-11-20 (Opus 5.5): step 1 (p2k bump to a9a286c, D-R re-baseline, temporary `hole_refdes` exception) done; section "Shared-tool migration 2026-11-20" |
 
 ## Phase 0 – done (Opus 5.5, 2026-11-20)
 
@@ -956,9 +957,33 @@ what catches it.
 - The board stays generated until after the shared-tool migration; then generation stops (see
   next_prompt.md).
 
+## Shared-tool migration 2026-11-20 (Opus 5.5)
+
+The coordinated migration to the shared proteus2kicad tools (the per-board prompt in
+`tools/p2k/docs/CANDIDATES.md` section 7.2; decisions in that file's "Decisions": D-R, D-Z, R1, "PR
+relays"). Every commit is proven from a clean clone with `~/dev/proteus2kicad/tools/regress.sh a9a286c
+tube_preamp_kicad` (clone, regenerate every generated file, `check_all.sh`, clean `git status`).
+
+### Step 1: p2k bump, D-R re-baseline, temporary strict exception
+
+- `tools/p2k` c5682dd → **a9a286c** (proteus2kicad main; all code is in 2fb1563 = batch Z, a9a286c adds
+  docs only).
+- **D-R re-baseline** (batch R report texts): `p2k ipc356` changes exactly 1 line of
+  `reference/pin_nets_by_component.md` (`Net aliases: .` → `Net aliases: none.`); `.csv` / `.json`
+  unchanged. Committed with the bump.
+- **D-Z strict defaults:** every id of `board.STRICT_DEFAULT` is now on. `hole_refdes` fails (the mounting
+  holes are built as H1-H13 and renamed by `tools/rename_holes.py`; the schematic has the heater terminals
+  H4 / H5), so step 1 adds the temporary `STRICT_CHECKS_OFF = {"hole_refdes": "H4 / H5 until the
+  HOLE_START = 101 migration"}`; step 2 removes it. The other strict checks pass (`nc_joined`,
+  `net_names`, `track_nets`, `roundtrip_counts`, `derive_max_move`, `no_connect_pin_type`); they print to
+  stdout only, so no generated file changes.
+- Every other generated file is byte-identical; `check_all.sh` ALL CHECKS PASSED (the new lines in the
+  output: the strict-check lines, the footprint fit lines of `footprints.run`, the `build_pcb` hole-refdes
+  warning, compare's net count wording).
+
 ## Last check output
 
-`tools/check_all.sh` (2026-11-20, after the design fixes; exit status 0):
+`tools/check_all.sh` (2026-11-20, shared-tool migration step 1: p2k a9a286c, temporary `hole_refdes` exception; exit status 0):
 
 ```
 == KiCad environment
@@ -992,10 +1017,21 @@ symbols: OK
 == ERC
 erc: 0 errors, 0 warnings (reports/erc.rpt)
 == Netlist comparison vs IPC
-compare: parts 163/163 present, 0 missing, 0 extra; pins compared 339, wrong-net pins 0; IPC nets touched 101, complete 101
+compare: parts 163/163 present, 0 missing, 0 extra; pins compared 339, wrong-net pins 0; IPC nets touched 98, complete 98 (+ 3 N/C / no-net pins)
 compare: per sheet (drawn/total) 1:36/36 2:33/33 3:34/34 4:39/39 5:21/21
 compare: OK
 == Footprint library, map and fp-lib-table up to date
+footprints: R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal: fit on R6 unmirrored, largest pad move 0.635 mm (pad 2), limit 10.160 mm
+footprints: C_Rect_L13.0mm_W6.0mm_P9.70mm: fit on C1 unmirrored, largest pad move 0.150 mm (pad 1), limit 5.000 mm
+footprints: C_Rect_L16.5mm_W7.0mm_P9.70mm: fit on C8 unmirrored, largest pad move 2.650 mm (pad 2), limit 7.500 mm
+footprints: C_Rect_L24.0mm_W7.0mm_P20.00mm: fit on C15 unmirrored, largest pad move 1.250 mm (pad 2), limit 11.250 mm
+footprints: C_Disc_D7.5mm_W2.5mm_P5.08mm: fit on C18 unmirrored, largest pad move 0.040 mm (pad 2), limit 2.500 mm
+footprints: CP_Radial_D6.3mm_P2.54mm_PM: fit on C2 unmirrored, largest pad move 0.020 mm (pad -), limit 1.250 mm
+footprints: CP_Radial_D6.3mm_P2.50mm_PM: fit on C30 unmirrored, largest pad move 0.000 mm (pad -), limit 1.250 mm
+footprints: CP_Radial_D16.0mm_P7.50mm_Pin2Plus: fit on C28 unmirrored, largest pad move 0.000 mm (pad 1), limit 3.750 mm
+footprints: D_DO-41_SOD81_P10.16mm_Horizontal_AK: fit on D1 unmirrored, largest pad move 0.000 mm (pad A), limit 5.080 mm
+footprints: TO-92_Inline_P2.03mm: fit on Q1 unmirrored, largest pad move 0.508 mm (pad 3), limit 1.270 mm
+footprints: Relay_DPDT_Omron_G5V-2_ProteusPins: fit on RLY1 unmirrored, largest pad move 0.000 mm (pad 8), limit 2.540 mm
 gen_footprints: 163 parts, 16 footprints (14 project), up to date
 == Footprints vs IPC pad geometry
 check_footprints: pcbnew placement of 163 parts, worst pad offset 0.001 mm
@@ -1035,6 +1071,7 @@ U1 U2 U3                               Valve_Noval_Belton_PCD21.00mm (project)  
                                        footprint_fit.csv and board: U1-U3 bottom (B.Cu), the other 173 footprints top
 check_pin_order: OK (results as recorded in STATUS.md)
 == PCB rebuilt from schematic + gerbers, up to date
+build_pcb: WARNING mounting hole refdes equal schematic refdes: H4 H5 (set HOLE_START / HOLE_PREFIX)
 build_pcb: 163 footprints placed (0 excluded from board), 13 mounting holes, 101 nets, 4 outline segments
 rename_holes: 13 mounting holes renamed H1.. -> H101..
 gerber_to_tracks: 738 tracks, 14 vias (IPC 14), 0 pour outlines on User.1-4; removed as recorded: 9 tracks (REMOVED_TRACKS), 0 vias (REMOVED_VIAS)
@@ -1045,6 +1082,7 @@ make_pcb: board rebuilt from scratch, byte-identical
 == Board pads, vias, holes vs IPC (position, size, nets 1:1)
 check_board: 176 footprints, 339 pads, worst pad offset 0.001 mm (limit 0.05), 98 IPC nets mapped 1:1, 13 mounting holes
 check_board: 738 tracks, 14 vias, 0 zones
+check_board: 752 track / via nets in the board file = their copper group's net (track_nets)
 check_board: OK
 == Board copper connectivity (KiCad geometry)
 assign_nets: after zone fill: 114 groups, 0 shorts, 0 orphans, 0 opens, 0 items with a foreign net
@@ -1064,12 +1102,14 @@ ipc356_diff: 98 Proteus nets mapped 1:1 onto KiCad nets, 0 mismatches
 ipc356_diff: KiCad drill larger (footprint kept): 129x 0.762->0.8, 6x 0.762->1.001, 14x 1.016->1.1, 22x 1.016->1.199, 14x 1.143->1.199
 ipc356_diff: KiCad drill smaller, accepted (DRILL_SMALLER): 4x 0.762->0.749, 40x 1.143->0.701, 8x 1.143->1.001, 28x 1.143->1.1
 ipc356_diff: pads with another size in KiCad (info): C 70, D 14, Q 27, R 114, RLY 40
+ipc356_diff: 3 unconnected-(...) nets, one record each (nc_joined)
 ipc356_diff: OK
 == Gerber round trip vs Proteus (copper XOR, coverage, drills, 2010 Excellon)
 roundtrip: F.Cu   XOR  260.90 mm^2, beyond 0.05 mm: only Proteus 188.53, only KiCad  12.69 mm^2; clusters >= 0.01 mm^2: 339 pad shape; draws/flashes off the other copper: 0 Proteus, 0 KiCad
 roundtrip: B.Cu   XOR  264.42 mm^2, beyond 0.05 mm: only Proteus 190.62, only KiCad  12.56 mm^2; clusters >= 0.01 mm^2: 317 pad shape; draws/flashes off the other copper: 0 Proteus, 0 KiCad
 roundtrip: Proteus objects not compared (recorded deviations, all layers): 9 Conductor draws (REMOVED_TRACKS)
 roundtrip: drills 0 mismatches; KiCad drill smaller, accepted (DRILL_SMALLER): 4x 0.762->0.75, 40x 1.143->0.7, 8x 1.143->1.0, 28x 1.143->1.1; report reports/roundtrip/roundtrip.txt, overlays reports/roundtrip/*.png
+roundtrip: counts (roundtrip_counts): KiCad track draws / flashes per layer F.Cu 397 / 366, B.Cu 341 / 366: tracks as gerber_to_tracks builds them, flashes = Proteus
 roundtrip: OK
 == Smaller KiCad drills are exactly the 80 decided holes
 check_drill_smaller: 366 IPC records, 366 board holes; smaller board drills: 80 (decided 80: 4x 0.762->0.75, 40x 1.143->0.7, 8x 1.143->1.0, 28x 1.143->1.1)
