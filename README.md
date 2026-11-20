@@ -21,8 +21,8 @@ board is in `p2k_config.py`.
 
 Conversion plan: [PLAN.md](PLAN.md); progress: [STATUS.md](STATUS.md); prompt for the next agent session: [next_prompt.md](next_prompt.md).
 
-Phase 0 (skeleton and inventory) not started. The sources are in place; `p2k_config.py` holds
-only the paths and placeholder sheet names.
+Phase 0 (skeleton and inventory) done 2026-11-20: `p2k_config.py` complete, `reference/`
+tables from the IPC netlist, `tools/check_all.sh` passes. Phase 1 (schematic) is next.
 
 Built in about 2010 from the June 2010 Gerbers (`source/fab_2010/`). The Proteus layout was edited in October 2010: Q6 pin 3 moves from net J1 to a new net J4 (Q6-3, Q9-3, pad D), plus a ground reroute. The export in `source/cadcam/` is the October version. Holes, outline and tube sockets are identical to the fabricated board. Accepted as the baseline, since the board gets redesigned.
 
@@ -63,6 +63,8 @@ source/         Proteus exports (read-only)
   schematic_pdf/  schematic PDF to redraw from
   *.pdsprj        Proteus project (schematic values, devices, packages, pin names)
   fab_2010/       the RS-274X Gerbers the boards were made from (June 2010)
+reference/      tables derived from the IPC netlist (p2k ipc356): pads, pin -> net, pins by net
 tools/p2k/       proteus2kicad (submodule)
+tools/check_all.sh  every verification step (run at the start and end of a session)
 p2k_config.py   board configuration for the tools
 ```
