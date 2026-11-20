@@ -10,6 +10,2616 @@
 		(rev "rev A (as built)")
 		(comment 1 "Redrawn from Proteus etunen")
 	)
-	(lib_symbols)
+	(lib_symbols
+		(symbol "tube_preamp:C_Polarized_12"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C"
+				(at 0.635 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Polarized capacitor, Proteus pins 1 = -, 2 = + (package ELEC D16 R7.5)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "CP_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_Polarized_12_0_1"
+				(rectangle
+					(start -2.286 0.508)
+					(end 2.286 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 2.286) (xy -0.762 2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 2.794) (xy -1.27 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 2.286 -0.508)
+					(end -2.286 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "C_Polarized_12_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_preamp:PIN"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 0 6.858 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TERMINAL"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "PIN_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "PIN_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(wire
+		(pts
+			(xy 100.33 81.28) (xy 100.33 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ab7c6965-1883-555d-b747-9c4db48e1c2e")
+	)
+	(global_label "A"
+		(shape passive)
+		(at 100.33 81.28 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "dfb6689a-1a72-5629-99e5-d2849161bf55")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 100.33 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:C_Polarized_12")
+		(at 100.33 115.57 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "922b4862-4123-5f3b-a9c6-5602f35864a2")
+		(property "Reference" "C28"
+			(at 104.52 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22µF 450V"
+			(at 107.82 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 101.2952 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 100.33 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor, Proteus pins 1 = -, 2 = + (package ELEC D16 R7.5)"
+			(at 100.33 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "5a456642-a849-5dc2-81f3-a5fc329faa24")
+		)
+		(pin "1"
+			(uuid "1ce6bc19-0421-5567-b716-29e85a476f55")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "C28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 100.33 95.25) (xy 100.33 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4eff8947-e25e-57d1-9af8-33b51103a994")
+	)
+	(wire
+		(pts
+			(xy 100.33 119.38) (xy 100.33 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cbaa67a5-d789-58c5-84a0-af8eac4c1599")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 109.22 95.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "37988d75-cf22-5aad-8b19-b2347420c736")
+		(property "Reference" "R62"
+			(at 109.22 92.71 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "8k2/2W"
+			(at 109.22 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 109.22 97.028 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 109.22 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 109.22 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0ecbe8fb-189c-5c2a-8527-7d8270104340")
+		)
+		(pin "2"
+			(uuid "a47eadb5-e7d3-5d53-8f02-a66178347dce")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "R62")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 100.33 95.25) (xy 105.41 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e0b47df1-d44a-5cba-b681-0f0fe3e014f8")
+	)
+	(junction
+		(at 100.33 95.25)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1e5b0356-9289-56d3-8ba3-d253b70612b0")
+	)
+	(junction
+		(at 100.33 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5e26c0bb-7559-5ae8-9025-f652bd409640")
+	)
+	(wire
+		(pts
+			(xy 120.65 81.28) (xy 120.65 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a473794-21ee-5301-9e74-b6a18bc1f7e6")
+	)
+	(global_label "B"
+		(shape passive)
+		(at 120.65 81.28 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "de504d0f-bf4b-554a-b25d-f20a057bc30c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 120.65 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:C_Polarized_12")
+		(at 120.65 115.57 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "826b3af5-d244-5143-a3cb-228404292bd6")
+		(property "Reference" "C33"
+			(at 124.84 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22µF 450V"
+			(at 128.14 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 121.6152 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor, Proteus pins 1 = -, 2 = + (package ELEC D16 R7.5)"
+			(at 120.65 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "17ca0857-5380-5d50-a827-61c1da1d479c")
+		)
+		(pin "1"
+			(uuid "ff76dc4b-b644-527d-bdab-f903f0ef2f35")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "C33")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 120.65 95.25) (xy 120.65 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "110bd72f-6821-5305-a88d-a329ad316fae")
+	)
+	(wire
+		(pts
+			(xy 120.65 119.38) (xy 120.65 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9645d4b1-05af-527e-b174-a91e610af53d")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 129.54 95.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e98b79e0-238c-5548-b5d9-8966e3e6b98b")
+		(property "Reference" "R63"
+			(at 129.54 92.71 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "3k3/2W"
+			(at 129.54 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 129.54 97.028 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 129.54 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 129.54 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dd2c3254-1b99-57fa-a908-48e636a31f3e")
+		)
+		(pin "2"
+			(uuid "e2968832-37b7-5cff-bda8-221018fcae0c")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "R63")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 120.65 95.25) (xy 125.73 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8f57fb5-b25f-570b-9a4e-1d85cb0f8599")
+	)
+	(wire
+		(pts
+			(xy 113.03 95.25) (xy 120.65 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "531d23db-60a5-5040-ba1a-a6937e6e121c")
+	)
+	(junction
+		(at 120.65 95.25)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c4d2802b-3e4d-5ba9-aa0a-5b3ccd64a80d")
+	)
+	(junction
+		(at 120.65 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0305a2bc-ef93-5af7-b7cb-091443139246")
+	)
+	(wire
+		(pts
+			(xy 143.51 81.28) (xy 143.51 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8cbeca00-3aa8-518f-96d3-c1a1359130b2")
+	)
+	(global_label "C"
+		(shape passive)
+		(at 143.51 81.28 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "525b32bb-e59f-52c3-8650-bad686706f98")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 143.51 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:C_Polarized_12")
+		(at 143.51 115.57 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "92f78ad1-7f05-5779-87a7-aac928115798")
+		(property "Reference" "C34"
+			(at 147.7 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22µF 450V"
+			(at 151 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 144.4752 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 143.51 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor, Proteus pins 1 = -, 2 = + (package ELEC D16 R7.5)"
+			(at 143.51 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "f2da774d-549c-54fa-a98f-653e171dface")
+		)
+		(pin "1"
+			(uuid "7b35a089-9634-5f65-b504-5e98add8b0cc")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "C34")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 143.51 95.25) (xy 143.51 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b8e994d-2b55-50d0-a73f-38cb9af10a2c")
+	)
+	(wire
+		(pts
+			(xy 143.51 119.38) (xy 143.51 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "454c63cc-0498-5e69-97f0-957363bc089a")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 152.4 95.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "58de582b-9470-5ace-9cf5-a570f1178564")
+		(property "Reference" "R64"
+			(at 152.4 92.71 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2k2/2W"
+			(at 152.4 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 152.4 97.028 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 152.4 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "08bcf677-50e2-512c-b847-f8db9eca1219")
+		)
+		(pin "2"
+			(uuid "6b66ffcc-3284-56d1-8a86-3282de330b32")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "R64")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 143.51 95.25) (xy 148.59 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56c83840-2e3e-5296-bbe0-163d8eedda46")
+	)
+	(wire
+		(pts
+			(xy 133.35 95.25) (xy 143.51 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8a3fb63-5da4-50f1-ba8b-e24d19774f3c")
+	)
+	(junction
+		(at 143.51 95.25)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0f1f861a-7403-5ec1-9f45-8ef1a23ee20b")
+	)
+	(junction
+		(at 143.51 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "508787b0-1d00-5612-86ad-f1c5d1d71816")
+	)
+	(wire
+		(pts
+			(xy 166.37 81.28) (xy 166.37 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85d097ff-e8b9-580b-a41f-ef111b2215b0")
+	)
+	(global_label "D"
+		(shape passive)
+		(at 166.37 81.28 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2abe0496-a22f-5911-9ddb-5619dedaa576")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 166.37 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:C_Polarized_12")
+		(at 166.37 115.57 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1b032dcf-c1f8-5db8-b563-66af23de893d")
+		(property "Reference" "C35"
+			(at 170.56 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22µF 450V"
+			(at 173.86 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.3352 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 166.37 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor, Proteus pins 1 = -, 2 = + (package ELEC D16 R7.5)"
+			(at 166.37 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "9bb0bc92-d189-52aa-b5fc-218dffc2ba68")
+		)
+		(pin "1"
+			(uuid "d2b2dc86-e5cc-5c96-a80a-255f29e1f197")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "C35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 166.37 95.25) (xy 166.37 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "31ff8ffd-a24d-5099-b719-c133646ef4e6")
+	)
+	(wire
+		(pts
+			(xy 166.37 119.38) (xy 166.37 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "51834050-566c-5e58-8ce9-da490402bbf1")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 175.26 95.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0b9a64fd-b544-53f9-99f5-78603c196128")
+		(property "Reference" "R65"
+			(at 175.26 92.71 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2k2/2W"
+			(at 175.26 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 175.26 97.028 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 175.26 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 175.26 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6b3e73c3-aa98-5513-9b59-3c910dd7a767")
+		)
+		(pin "2"
+			(uuid "1c18faaf-d6c6-57ae-9504-19e7223552c1")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "R65")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 166.37 95.25) (xy 171.45 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff766d9a-4dc1-5ca4-9abc-7e61519df8a5")
+	)
+	(wire
+		(pts
+			(xy 156.21 95.25) (xy 166.37 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e8d80680-6557-5b0c-9014-4a76abed77c3")
+	)
+	(junction
+		(at 166.37 95.25)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a964276b-57df-5ff7-b2bd-6a13fcc35363")
+	)
+	(junction
+		(at 166.37 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d2979547-b19a-5d97-8419-9d29fceb0fa0")
+	)
+	(wire
+		(pts
+			(xy 189.23 81.28) (xy 189.23 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6f05a411-5920-5166-bac0-aac12847cead")
+	)
+	(global_label "E"
+		(shape passive)
+		(at 189.23 81.28 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "32a9299d-5b7e-53c1-b231-a512a00f8d2f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 189.23 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:C_Polarized_12")
+		(at 189.23 115.57 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fcb83b1b-6a9d-5c4f-a267-b9a5e133e112")
+		(property "Reference" "C36"
+			(at 193.42 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22µF 450V"
+			(at 196.72 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 190.1952 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 189.23 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor, Proteus pins 1 = -, 2 = + (package ELEC D16 R7.5)"
+			(at 189.23 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e47f87f8-3856-5553-bca7-862b11d8f06e")
+		)
+		(pin "1"
+			(uuid "5a748f22-2a35-5d00-b10b-00c46981515f")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "C36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 189.23 95.25) (xy 189.23 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d931fbe-c6c1-5f80-82a7-e9dda9ed7836")
+	)
+	(wire
+		(pts
+			(xy 189.23 119.38) (xy 189.23 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ba8b3d3-8f59-56b5-bc94-30e4d2cca2a6")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 198.12 95.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6f27d502-61ed-54a8-937a-da7f16ee031b")
+		(property "Reference" "R66"
+			(at 198.12 92.71 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k5/2W"
+			(at 198.12 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 198.12 97.028 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 198.12 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 198.12 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "98a922f7-68d0-5fd3-9d8c-6bcf62b0f2ab")
+		)
+		(pin "2"
+			(uuid "b9d98019-d14b-51be-a2ec-608c0453bb48")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "R66")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 189.23 95.25) (xy 194.31 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ffc66bf5-922f-5f38-b3b7-41db1314285d")
+	)
+	(wire
+		(pts
+			(xy 179.07 95.25) (xy 189.23 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41b5f401-c170-5b39-8968-f6434f149901")
+	)
+	(junction
+		(at 189.23 95.25)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "201fc79e-b897-510f-91a9-65f283ac8ab2")
+	)
+	(junction
+		(at 189.23 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b81226dd-e93b-504c-a5c6-58c302f0f54e")
+	)
+	(wire
+		(pts
+			(xy 212.09 81.28) (xy 212.09 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "14cfdec2-0b9d-59ad-962a-69d49f634a65")
+	)
+	(global_label "F"
+		(shape passive)
+		(at 212.09 81.28 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1d64d44b-1004-5f21-9904-7a0bd9ff0134")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 212.09 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:C_Polarized_12")
+		(at 212.09 115.57 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d387bdeb-93fe-5415-a4f6-086f3e2bcf19")
+		(property "Reference" "C37"
+			(at 216.28 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22µF 450V"
+			(at 219.58 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 213.0552 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 212.09 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor, Proteus pins 1 = -, 2 = + (package ELEC D16 R7.5)"
+			(at 212.09 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "79daaa9a-8d39-5696-a5e1-eb3222c05f37")
+		)
+		(pin "1"
+			(uuid "f7725429-1fe4-5785-a676-9563b4901efb")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "C37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 212.09 95.25) (xy 212.09 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "93827565-3327-58de-87a4-28784e5cc759")
+	)
+	(wire
+		(pts
+			(xy 212.09 119.38) (xy 212.09 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ffcb8aa-5206-56e3-b796-b84a09e3f008")
+	)
+	(symbol
+		(lib_id "tube_preamp:R")
+		(at 220.98 95.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "aaad0245-baad-5227-b5dd-850e19e047e6")
+		(property "Reference" "R67"
+			(at 220.98 92.71 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k5/2W"
+			(at 220.98 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 220.98 97.028 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 220.98 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 220.98 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9a2f87c3-72e0-512b-9a4c-17035c8fb3aa")
+		)
+		(pin "2"
+			(uuid "9f136926-fbe2-56e5-8527-f90ed7308d9e")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "R67")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 212.09 95.25) (xy 217.17 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62337436-f4f2-5843-9b36-088780c066a0")
+	)
+	(wire
+		(pts
+			(xy 201.93 95.25) (xy 212.09 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3f79f39-c8e5-5583-bfec-c1ecc98a5969")
+	)
+	(junction
+		(at 212.09 95.25)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "96b8b55c-a00f-5dfa-a13d-b520c344503d")
+	)
+	(junction
+		(at 212.09 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9a38a9c7-467f-5a97-a75c-512fb7e0ad00")
+	)
+	(symbol
+		(lib_id "tube_preamp:PIN")
+		(at 240.03 95.25 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4d2f3415-2b31-5e36-93f3-895da5a8141a")
+		(property "Reference" "PREPOWER"
+			(at 245.11 93.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TERMINAL"
+			(at 245.11 96.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 240.03 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 240.03 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+			(at 240.03 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0201fc0a-6741-5904-82b7-b0578f032920")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "PREPOWER")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 224.79 95.25) (xy 240.03 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b768aa80-8b8c-59cd-a364-216027fce9f6")
+	)
+	(symbol
+		(lib_id "tube_preamp:PIN")
+		(at 240.03 128.27 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "48a80371-80a8-5f04-ac40-2b7aac58d57c")
+		(property "Reference" "PRERETURN"
+			(at 245.11 127 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TERMINAL"
+			(at 245.11 129.54 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 240.03 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 240.03 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+			(at 240.03 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "481039fd-4c00-5881-9c81-8ae64ee27215")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "PRERETURN")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 86.36 128.27) (xy 240.03 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8100c566-4d8b-538d-bd97-e6d60631b91d")
+	)
+	(global_label "PRE-GND"
+		(shape passive)
+		(at 86.36 128.27 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "8882d53e-b96a-57fb-8169-efd0215e45da")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 86.36 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:PIN")
+		(at 186.69 148.59 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0d7ed256-60e4-5e45-a3b0-734336f83c44")
+		(property "Reference" "PAD_A"
+			(at 191.77 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TERMINAL"
+			(at 191.77 149.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 186.69 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 186.69 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+			(at 186.69 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4e912c01-c399-5b7e-9e22-fbcc05d7bcf5")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "PAD_A")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 167.64 148.59) (xy 186.69 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3475a737-38cb-52a8-9cfb-e0164cdf0632")
+	)
+	(global_label "J1"
+		(shape passive)
+		(at 167.64 148.59 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "17d76d0b-9393-5432-a0da-01d84ddd54a2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 167.64 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:PIN")
+		(at 186.69 166.37 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1aa51d14-b818-5105-bfe1-51cab2205678")
+		(property "Reference" "PAD_B"
+			(at 191.77 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TERMINAL"
+			(at 191.77 167.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 186.69 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 186.69 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+			(at 186.69 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "064b83ff-abba-5bbd-b8ba-4f26b482b3c6")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "PAD_B")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 167.64 166.37) (xy 186.69 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "16a40923-2ee4-57ad-a1cb-010bb32a6f09")
+	)
+	(global_label "J2"
+		(shape passive)
+		(at 167.64 166.37 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "717448e6-63c7-5482-a416-1cb475e0b6ca")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 167.64 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:PIN")
+		(at 186.69 184.15 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4e064956-60a9-5fad-9a89-24fca715cf4d")
+		(property "Reference" "PAD_C"
+			(at 191.77 182.88 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TERMINAL"
+			(at 191.77 185.42 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 186.69 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 186.69 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+			(at 186.69 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "beab5230-2315-5a34-b60c-c04a7c3ed5a4")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "PAD_C")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 167.64 184.15) (xy 186.69 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "beb460d1-983d-5ec9-bf33-85a30c75f11e")
+	)
+	(global_label "J3"
+		(shape passive)
+		(at 167.64 184.15 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c4b9605d-1529-5e68-979f-bf2b9558fe57")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 167.64 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:PIN")
+		(at 186.69 201.93 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a8e5e4bf-b3ba-59c2-adca-97c344641c86")
+		(property "Reference" "PAD_D"
+			(at 191.77 200.66 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TERMINAL"
+			(at 191.77 203.2 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 186.69 207.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 186.69 207.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+			(at 186.69 201.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9e3e80e5-557d-56f0-befe-65bc6ce6926b")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "PAD_D")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 167.64 201.93) (xy 186.69 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59786ad7-0a00-5091-a0b8-7792ed4a50e1")
+	)
+	(global_label "J4"
+		(shape passive)
+		(at 167.64 201.93 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "315ebdaa-2bb4-5d38-a57f-85cb29f3e740")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 167.64 201.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:PIN")
+		(at 240.03 148.59 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "78c05c2f-50d2-5cce-bf59-e90e4fd74552")
+		(property "Reference" "SW1"
+			(at 245.11 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TERMINAL"
+			(at 245.11 149.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 240.03 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 240.03 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+			(at 240.03 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "37c12495-50eb-5a6c-a989-d1896ccad060")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 220.98 148.59) (xy 240.03 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b363d73a-1d2b-52b0-8d92-5fc64206caed")
+	)
+	(global_label "SW1"
+		(shape passive)
+		(at 220.98 148.59 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f3fe1ef5-df6d-5a74-b66b-658bf86fdbbb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 220.98 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:PIN")
+		(at 240.03 166.37 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cf4acf19-4bd1-54a0-88fc-648ee373ee59")
+		(property "Reference" "SW2"
+			(at 245.11 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TERMINAL"
+			(at 245.11 167.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 240.03 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 240.03 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+			(at 240.03 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b7af26c8-7f3a-5ebc-a1bd-eff5f85f492e")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 220.98 166.37) (xy 240.03 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50b211fa-41bb-5a61-8453-5a6adf721cbb")
+	)
+	(global_label "SW2"
+		(shape passive)
+		(at 220.98 166.37 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "bc5b1077-a2e2-57a2-9910-fdc1266c3a8e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 220.98 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp:PIN")
+		(at 240.03 184.15 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1e22acec-ec23-5dd6-b3cf-66672a2b6812")
+		(property "Reference" "SW3"
+			(at 245.11 182.88 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TERMINAL"
+			(at 245.11 185.42 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 240.03 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 240.03 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Proteus TERMINAL: one fly-lead pad (package PIN)"
+			(at 240.03 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8e9453df-fcb6-5690-a965-1d76758b9713")
+		)
+		(instances
+			(project "tube_preamp"
+				(path "/a720dba7-e7bc-43ce-9a80-a9545f83e1af/e14d0631-2e61-4781-b613-4f0740223c42"
+					(reference "SW3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 220.98 184.15) (xy 240.03 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56681293-16ce-5a31-b48f-7bc6f8db3040")
+	)
+	(global_label "SW3"
+		(shape passive)
+		(at 220.98 184.15 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d2e439fc-9a51-507b-b5f8-e1a957f68317")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 220.98 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(text "PAD_A-PAD_D are the Proteus terminals A-D: they are on the JFET gate nets J1-J4, not on the B+ filter nodes A-D."
+		(exclude_from_sim no)
+		(at 86.36 212.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "420afca4-8a12-540e-83c8-c4efd00dd216")
+	)
 	(embedded_fonts no)
 )
