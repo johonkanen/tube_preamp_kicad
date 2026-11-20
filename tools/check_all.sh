@@ -17,8 +17,9 @@ step "Part map up to date" python3 tools/make_part_map.py --check
 step "Symbol library up to date" python3 tools/gen_symbols.py --check
 step "Symbol pin sets vs IPC" tools/p2k/bin/p2k check_symbols
 step "ERC" tools/erc.sh
-# --allow-missing until all 5 sheets are drawn (then drop it)
-step "Netlist comparison vs IPC" tools/p2k/bin/p2k compare_netlists --allow-missing
+# tools/compare.py = p2k compare_netlists with a type-safe sort key (PRES next to PRES1-PRES3 crashes
+# the shared tool: STATUS.md p2k candidate 9). All 5 sheets are drawn: no --allow-missing.
+step "Netlist comparison vs IPC" python3 tools/compare.py
 
 echo
 [ $fail -eq 0 ] && echo "ALL CHECKS PASSED" || echo "SOME CHECKS FAILED"

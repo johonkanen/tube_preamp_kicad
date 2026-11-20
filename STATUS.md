@@ -5,8 +5,8 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 | Phase | State |
 |---|---|
 | 0 Skeleton and inventory | **done** 2026-11-20 (Opus 5.5) |
-| 1 Schematic | preparation **done** 2026-11-20 (Opus 5.5); transcription next (next_prompt.md) |
-| 2 Footprints | not started |
+| 1 Schematic | **done** 2026-11-20 (preparation Opus 5.5, transcription Fable 5.2): 5 sheets, 163/163 parts, netlist = IPC, ERC 0 / 0 |
+| 2 Footprints | not started (next_prompt.md) |
 | 3 PCB | not started |
 | 4 Verification | not started |
 | 5 Clean-up | not started |
@@ -302,9 +302,58 @@ pilot (`~/dev/tube_power_amp_kicad`, read only) and adapted:
   PRE-GND) → 4 Tone stacks (39, three identical stacks) → 1 Input stage (36) → 2 Second stage (33)
   → 3 EQ stage (34).
 
+## Phase 1 transcription – done (Fable 5.2, 2026-11-20)
+
+One script per sheet, `tools/sheets/sheetNN.py`, rebuilding `kicad/NN_*.kicad_sch` from scratch (two
+runs byte-identical, checked for all five). Order 5, 4, 1, 2, 3, one commit per sheet.
+
+| Sheet | Parts | Compare (`--sheet N`) | ERC after the sheet |
+|---|---|---|---|
+| 5 Supply filter | 21/21 | 0 wrong-net pins, 0 errors | 0 errors, 7 warnings (isolated J1-J4 / SW1-SW3 labels: other sheets undrawn) |
+| 4 Tone stacks | 39/39 | 0 / 0 | 0 errors, 7 warnings (same) |
+| 1 Input stage | 36/36 | 0 / 0 | 0 errors, 5 warnings (PRE1, H5, J3, J4, SW3 labels alone) |
+| 2 Second stage | 33/33 | 0 / 0 | 0 errors, 3 warnings (EQ, J3, SW3 labels alone) |
+| 3 EQ stage | 34/34 | 0 / 0 | **0 errors, 0 warnings** |
+
+**Result:** 163/163 parts, 339 pins compared, 0 wrong-net pins, all 98 IPC nets complete (compare
+counts 101 = 98 nets + the 3 N/C pads U1-9, U2-9, U3-9), 0 missing, 0 extra; ERC 0 errors, 0 warnings.
+`tools/check_all.sh` runs the comparison without `--allow-missing` now.
+
+- **Method:** the nets come from `reference/pins_by_net.md` (the IPC), the layout and the
+  topology from the PDF pages; where the drawing was laid out, the PDF connection was looked at
+  next to the IPC net and no disagreement between the PDF and the IPC was noticed. This is not
+  an independent pin-by-pin reading of the PDF (compare against the IPC is the oracle; Phase 4
+  re-reads).
+- **Layout vs the PDF** (same nets; noted in each script's docstring): `P()` positions of the
+  PDF render are kept where possible. The KiCad 12AX7 is three units, so each tube is drawn as
+  triode A, triode B **mirrored** (grid and cathode on the right, like the right half of the
+  Proteus symbol; `tube(..., mirror_b=True)`) and a separate heater unit (sheet 1: lower right,
+  sheet 2: between the cathode networks, sheet 3: upper right together with the pads H4 / H5);
+  everything right of a tube is 6 or more grid units further right. The relay poles are
+  KiCad's G5V-2 units at rotation 270 (COM left, NC upper right, NO lower right; the blade rests
+  on NC as in the PDF), coils at rotation 180 (pin 5 at the top), the diode beside the coil; the
+  relay blocks are wider than in the PDF. Sheet 2: R50 runs straight down to the rail (the PDF
+  jogs it). Sheet 3: Q7-Q9 / PRES1-PRES3 and the relay block are further right.
+- **Helpers added to `tools/sheets/_common.py`:** `tube(mirror_b=)` with text placement,
+  `relay()` text placement (centred texts beside the coil / above each pole), `coil_block()`
+  (diode across a coil, H4 / SWn labels below; `sw_label=False` for RLY4 whose pin 5 is #00081),
+  `hcap()` (horizontal capacitor with the texts clear of the plates), `tone_stack()` (sheet 4).
+- **`tools/compare.py`** (board-local wrapper, p2k candidate 9): `p2k compare_netlists` raised
+  `TypeError: '<' not supported between instances of 'int' and 'str'` as soon as sheet 3 was
+  drawn (PRES next to PRES1-PRES3). check_all.sh calls the wrapper.
+- **Labels:** global labels for PRE-GND, H4, H5, A-F, J1-J4, SW1-SW3, PRE1, EQ, EQ1-EQ3 in the
+  IPC spelling; PRE2 two local labels on sheet 2; all #000xx nets are wires. A note text on each
+  sheet lists the PDF's lower-case labels and the renamed terminals.
+- **Negative test** (restored afterwards): sheet 1's `J1` global label moved from Q1's gate onto
+  the `A` wire → compare 2 errors ("KiCad net A merges IPC nets [J1 …] [A …]", "IPC net J1
+  split … [unconnected-(Q1-G-Pad3): Q1-3]", 4 wrong-net pins), ERC 2 errors. During the work the
+  checks also caught a real slip: sheet 5's first run had no junction where the ground rail
+  passes C28 → split warning `unconnected-(C28---Pad1)` and an ERC error.
+- `reports/render/` (schematic PNGs of `p2k render_sheet`) is git-ignored.
+
 ## Last check output
 
-`tools/check_all.sh` (2026-11-20, end of the Phase 1 preparation):
+`tools/check_all.sh` (2026-11-20, end of Phase 1):
 
 ```
 == KiCad environment
@@ -338,9 +387,8 @@ symbols: OK
 == ERC
 erc: 0 errors, 0 warnings (reports/erc.rpt)
 == Netlist comparison vs IPC
-compare: parts 0/163 present, 163 missing, 0 extra; pins compared 0, wrong-net pins 0; IPC nets touched 0, complete 0
-compare: per sheet (drawn/total) 1:0/36 2:0/33 3:0/34 4:0/39 5:0/21
-WARNING: missing parts (163): (see --verbose or --sheet N)
+compare: parts 163/163 present, 0 missing, 0 extra; pins compared 339, wrong-net pins 0; IPC nets touched 101, complete 101
+compare: per sheet (drawn/total) 1:36/36 2:33/33 3:34/34 4:39/39 5:21/21
 compare: OK
 
 ALL CHECKS PASSED
@@ -381,6 +429,15 @@ ALL CHECKS PASSED
    chain their contacts (RLY4-1 / RLY5-2 #00085, RLY4-8 / RLY5-6 #00084): as drawn, no error;
    noted to help the reading of sheets 2 and 3.
 
+10. **U3 triode A is a cathode follower with its anode directly on `E`** (no anode resistor; R33
+    from `E` only feeds the grid bias node R33 / R48 / C30 → R49). As drawn in the PDF and in the
+    IPC (E: U3-1, R33-2); noted for the reading of sheet 3.
+11. **R13 is `0R`** in series with R14 (10M) between the C5 / R15 node and the grid of U1 triode B
+    (layout value 10M, finding 7): which one is on the board decides whether the divider is
+    10M or 20M.
+12. **MV0 is a ground pad** (on PRE-GND, sheet 3), as are GTR-GND, POT-GND and PRERETURN: four
+    ground fly-lead pads on this board.
+
 ## p2k candidates
 
 (Shared-tool limitations met on this board, with the board-local workaround used.)
@@ -420,6 +477,25 @@ ALL CHECKS PASSED
    unit per tube placed by `tube()`). `TRUNCATED_NETS` keys checked (pilot candidate 11 / candidate
    1 here): they are the KiCad refdes.
 
+9. **`compare_netlists` crashes on a refdes without a number next to a numbered one with the
+   same prefix** (here `PRES` and `PRES1`-`PRES3`, sheet 3; found first on the PI / FX board with
+   `SEND` / `SEND1`): `natkey()` / `pinkey()` build mixed str / int sort keys and `sorted()`
+   raises `TypeError`. Board-local answer: `tools/compare.py`, a wrapper that replaces the two
+   key functions with type-safe ones and calls `compare_netlists.main()` (same arguments and
+   output; copied from `~/dev/tube_pi_fxloop_kicad/tools/compare.py`). The shared tool needs the
+   same key.
+10. **`sch_builder.Sheet.place` text placement**: (a) horizontal two-pin parts get Reference /
+    Value at ±2.54 mm, which overlaps capacitor plates (board-local `hcap()` with `ref_at` /
+    `value_at`); (b) multi-unit symbols placed rotated or mirrored keep the library field
+    offsets, which land on the body (board-local text positions in `relay()` and `tube()`);
+    (c) no option to hide the Value of the extra units, so every relay / tube unit prints it.
+    A shared `place(..., mirror=, text=)` for multi-pin parts would cover these and pilot
+    candidate 6.
+11. **sheetkit has no "wire to rail with junction" helper**: every sheet script defines its own
+    `gnd(p)` (wire straight down to the ground rail + junction). A missing junction where a rail
+    passes a pin end is only a compare *warning* while other sheets are undrawn (it became
+    visible through the ERC error); candidate for a `sheetkit.rail()` helper.
+
 ## Decisions
 
 - Sheet names (no title blocks in the PDF): Input stage / Second stage / EQ stage / Tone stacks /
@@ -438,3 +514,7 @@ ALL CHECKS PASSED
   for the pins 1/2 electrolytics; all 47 terminals one symbol `PIN` with value `TERMINAL`; values
   = schematic values incl. Q4 `NADA` (finding 1) and the six resistors whose layout value differs
   (finding 7); named nets keep the IPC spelling (upper case) where the PDF writes lower case.
+- Phase 1 transcription (agent's choices, no user decision needed): triode B of each 12AX7 drawn
+  mirrored and the heater as a separate unit away from the triodes; relay poles at rotation 270
+  with COM on the left; relay blocks wider than in the PDF; `tools/compare.py` wrapper instead of
+  the shared compare (p2k candidate 9); schematic renders not committed.
