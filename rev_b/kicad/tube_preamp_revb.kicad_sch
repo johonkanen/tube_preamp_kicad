@@ -1,0 +1,225 @@
+(kicad_sch
+	(version 20260101)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "e75f3ff5-9e50-5f30-9463-2e21335bc268")
+	(paper "A3")
+	(title_block
+		(title "Tube preamp rev B")
+		(company "Tube amplifier")
+		(rev "rev B (design D) - first draft")
+		(comment 1 "From tube_amplifier_kicad sim/preamp_voicing (design D) and docs/preamp_board_plan.md")
+	)
+	(lib_symbols)
+	(sheet
+		(at 25.4 38.1)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "206327c2-61fd-5ba9-8af6-2e77c4ef7b86")
+		(property "Sheetname" "01 Input, S1, channel gain networks"
+			(at 25.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "01_input.kicad_sch"
+			(at 25.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 152.4 38.1)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "2c3c3e93-f346-5d0a-aa66-f4840acd4a84")
+		(property "Sheetname" "02 S2, S5, S3, switched voicing"
+			(at 152.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "02_gain_stages.kicad_sch"
+			(at 152.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 279.4 38.1)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "44273019-6afa-56fb-a84b-022e46a07d67")
+		(property "Sheetname" "03 CF, Baxandalls, post gain, S4, output"
+			(at 279.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "03_tone_output.kicad_sch"
+			(at 279.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 78.74000000000001)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "6a92c777-456f-50e2-b5a6-1ad866c76b03")
+		(property "Sheetname" "04 Switch control"
+			(at 25.4 78.04 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "04_control.kicad_sch"
+			(at 25.4 99.66000000000001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 152.4 78.74000000000001)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "fa24baef-5920-5116-b9d1-11e8544a9875")
+		(property "Sheetname" "05 B+ regulator, decoupling, heaters, connectors"
+			(at 152.4 78.04 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "05_supply.kicad_sch"
+			(at 152.4 99.66000000000001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

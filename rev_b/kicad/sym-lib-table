@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "tube_preamp_revb")(type "KiCad")(uri "${KIPRJMOD}/../lib/tube_preamp_revb.kicad_sym")(options "")(descr "rev B symbols, from KiCad stock libraries (tools/make_lib.py)"))
+)
