@@ -346,7 +346,7 @@ def sheet05(d):
     R(d, "R502", 5, 2, "ZT", "GF", "1M", rot=0)
     CP(d, "C501", 6, 3, "GF", "GND", "2.2u/450V")
     R(d, "R503", 7, 2, "GF", "GP", "10k", rot=0)
-    d.part("Q_NMOS", "Q502", 9, 2, {"D": "BP_RAW", "G": "GP", "S": "SRC"}, value="STP4N80K5")
+    d.part("Q_NMOS", "Q502", 9, 2, {"D": "BP_RAW", "G": "GP", "S": "SRC"}, value="STD4N80K5")
     d.part("D_Zener", "D504", 9, 4, {1: "GP", 2: "SRC"}, value="15V", rot=90)
     d.part("D", "D505", 7, 0, {1: "BP_RAW", 2: "GF"}, value="1N4007")
     R(d, "R504", 10, 3, "SRC", "BP", "20", rot=0)

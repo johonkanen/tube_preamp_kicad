@@ -4917,7 +4917,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "STP4N80K5"
+		(property "Value" "STD4N80K5"
 			(at 218.44 72.39 0)
 			(effects
 				(font

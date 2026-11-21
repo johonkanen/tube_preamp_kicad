@@ -93,7 +93,7 @@ add("D505","1N4007","D_SMA","M7 1000V SMA",["1kV","SMA"],"M7 = SMD 1N4007")
 add("Q101,Q102,Q201-Q203","2N7002","SOT-23","2N7002",["SOT-23","60V"],"AC cathode network switches")
 add("Q103-Q105,Q301-Q304","MMBFJ113","SOT-23","MMBFJ113",["SOT-23"],"pot-set / mute JFETs")
 add("Q501","LND150","SOT-89","LND150N8-G",["SOT-89"],"regulator CCS (SOT-89 for heat; SOT-23 C145393 also exists)")
-add("Q502","STP4N80K5","TO-220 (THT)","STP4N80K5",["TO-220"],"pass FET ~1 W: TO-220 on a small heatsink. Only 7 in stock; STD4N80K5 DPAK (C472540) is the SMD option")
+add("Q502","STD4N80K5","DPAK (TO-252)","STD4N80K5",["TO-252"],"pass FET ~1 W in normal use, cooled by a copper pour (user 2026-11-21: DPAK instead of STP4N80K5 TO-220); hand-solder if JLC stock runs out", pick="C472540")
 add("Q503","MMBTA42","SOT-23","MMBTA42",["SOT-23","300V"],"regulator current limit")
 # ---- ICs, relays
 add("U401","MCP23S17-E/SS","SSOP-28","MCP23S17-E/SS",["SSOP-28"],"SPI port expander")
@@ -193,7 +193,12 @@ def main():
     md += [
            "- C105 (22n), C108 (2.2n) and C111 (4.7n) are drawn without a voltage, but they couple the S1 plate (P1):",
            "  the BOM gives them 630 V parts. Put the voltage in the schematic values at the next value pass.",
-           "- Q502: STP4N80K5 has little stock; STD4N80K5 (DPAK, C472540) is the SMD alternative (about 1 W on copper).",
+           "- Q502 STD4N80K5 (DPAK) dissipates about 1 W in normal use, which a copper pour of a few cm2 handles.",
+           "  Into a shorted output the foldback still allows about 10 mA at 430 V (4.3 W, preamp_regulator.md),",
+           "  more than a DPAK on PCB copper can take continuously: lower the foldback current (about 4 mA, 1.7 W)",
+           "  or accept that a short is only survived briefly. Check the DC SOA at 430 V in the datasheet.",
+           "- Hand soldering is fine (the noval sockets are hand-soldered anyway, user 2026-11-21): a part that runs out",
+           "  at JLC can be left off the assembly order and fitted by hand.",
            "- K201-K204: G6K-2F-Y DC5 proposed; check NC / NO pins and coil polarity against the datasheet.",
            "- Faston tabs: check that the BTC-3 parts have 2 legs on 5.00 mm with 1.4 mm drill (interfaces.md 4.1).",
            "- C209 (680 nF, S5 cathode bypass) is X7R for now; a film part would avoid the X7R voltage coefficient.",
