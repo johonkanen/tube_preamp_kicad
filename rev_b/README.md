@@ -53,6 +53,21 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
 - HV resistors split for 200 V 2512 parts (2026-11-21): the B+ bleed is R508 + R518 (2 x 220k, 165 V
   each) and the VB90 divider top R513 + R519 (2 x 330k, 115 V each; 660k with R514 270k gives
   VB90 = 0.29 x BP4, about +2 % on the old 680k).
+- Regulator short-circuit protection by thermal foldback (user 2026-11-21): Q502 is an STD4N80K5 DPAK
+  on a copper pour, and Q503 (the current-limit NPN) sits on the same pour, thermally coupled but
+  not electrically connected. Q503's Vbe falls about 2 mV/K, so a short heats the pour and folds the
+  current back further; R507 stays 820k, R504 goes 20R -> 13R to keep the normal limit above the
+  10-15 mA load when Q503 is warm. Simulated (sim/preamp_supply model, whole circuit at one
+  temperature, 330 V output):
+
+  | Q503 temperature | 0 C | 27 C | 50 C | 70 C | 85 C | 100 C |
+  |---|---|---|---|---|---|---|
+  | Normal limit (mA) | 38 | 33 | 28.5 | 25 | 22 | 19 |
+  | Into a short (mA / W in Q502) | 16.5 / 7.1 | 12.3 / 5.3 | 8.6 / 3.7 | 5.4 / 2.3 | 3.0 / 1.3 | 0.5 / 0.2 |
+
+  Start-up and recovery after a short work at every temperature. With about 30 K/W from the pour
+  to Q503 the short settles near 80 C and 2 W. Lowering R507 instead was rejected: 700k gives 4 mA
+  at 27 C but no start-up above about 70 C. Bench check: short B+ and watch the current settle.
 - Footprints are not assigned yet. An initial JLCPCB BOM with proposed packages is in [bom/](bom/README.md)
   (`python3 -I rev_b/tools/make_bom.py`; JLC search and stock check from the jlc-tools submodule
   rev_b/tools/jlc, pinned like efinix_soc_board's).

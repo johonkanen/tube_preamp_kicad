@@ -349,7 +349,7 @@ def sheet05(d):
     d.part("Q_NMOS", "Q502", 9, 2, {"D": "BP_RAW", "G": "GP", "S": "SRC"}, value="STD4N80K5")
     d.part("D_Zener", "D504", 9, 4, {1: "GP", 2: "SRC"}, value="15V", rot=90)
     d.part("D", "D505", 7, 0, {1: "BP_RAW", 2: "GF"}, value="1N4007")
-    R(d, "R504", 10, 3, "SRC", "BP", "20", rot=0)
+    R(d, "R504", 10, 3, "SRC", "BP", "13", rot=0)   # 13R: limit margin with Q503 hot (thermal foldback, README)
     d.part("Q_NPN", "Q503", 11, 5, {"B": "QB", "C": "GP", "E": "BP"}, value="MMBTA42")
     R(d, "R505", 10, 6, "SRC", "QB", "1k", rot=0)
     R(d, "R506", 12, 6, "QB", "BP", "10k", rot=0)

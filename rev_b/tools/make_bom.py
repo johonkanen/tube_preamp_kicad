@@ -58,7 +58,7 @@ res("R515,R516","100","1206",note="heater artificial centre tap, 0.1 W each")
 res("R501","330","1206",note="regulator (430 V nodes: 1206 for creepage)")
 res("R502","1M","1206",note="regulator")
 res("R503,R506","10k","1206",note="regulator")
-res("R504","20","1206",note="regulator current sense")
+res("R504","13","1206",note="regulator current sense (13R: Q503 runs hot on Q502's pour)")
 res("R505","1k","1206",note="regulator")
 res("R103,R202,R215,R221,R325","100k","2512",note="plate loads: 100-150 V, ~0.15 W (thick film; MELF / thin film preferred for noise if sourced)")
 res("R302","47k","2512",note="CF cathode: 92 V, 0.18 W")
@@ -193,10 +193,9 @@ def main():
     md += [
            "- C105 (22n), C108 (2.2n) and C111 (4.7n) are drawn without a voltage, but they couple the S1 plate (P1):",
            "  the BOM gives them 630 V parts. Put the voltage in the schematic values at the next value pass.",
-           "- Q502 STD4N80K5 (DPAK) dissipates about 1 W in normal use, which a copper pour of a few cm2 handles.",
-           "  Into a shorted output the foldback still allows about 10 mA at 430 V (4.3 W, preamp_regulator.md),",
-           "  more than a DPAK on PCB copper can take continuously: lower the foldback current (about 4 mA, 1.7 W)",
-           "  or accept that a short is only survived briefly. Check the DC SOA at 430 V in the datasheet.",
+           "- Q502 STD4N80K5 (DPAK) dissipates about 1-1.5 W in normal use on its copper pour. Q503 (MMBTA42) sits on",
+           "  the same pour: into a short its Vbe falls as the pour heats and the foldback settles near 2 W",
+           "  (thermal foldback, rev_b/README.md). Check by shorting B+ on the bench. Check the DC SOA at 430 V.",
            "- Hand soldering is fine (the noval sockets are hand-soldered anyway, user 2026-11-21): a part that runs out",
            "  at JLC can be left off the assembly order and fitted by hand.",
            "- K201-K204: G6K-2F-Y DC5 proposed; check NC / NO pins and coil polarity against the datasheet.",
