@@ -353,7 +353,7 @@ def sheet05(d):
     d.part("Q_NPN", "Q503", 11, 5, {"B": "QB", "C": "GP", "E": "BP"}, value="MMBTA42")
     R(d, "R505", 10, 6, "SRC", "QB", "1k", rot=0)
     R(d, "R506", 12, 6, "QB", "BP", "10k", rot=0)
-    R(d, "R507", 11, 7, "BP_RAW", "QB", "820k", rot=0)
+    R(d, "R507", 11, 7, "BP_RAW", "FB_A", "270k", rot=0)   # 3 x 2512 in series (430 V at start-up / short); rest at the end
     CP(d, "C502", 13, 3, "BP", "GND", "47u/450V")
     C(d, "C503", 14, 3, "BP", "GND", "100n/630V")
     R(d, "R508", 15, 3, "BP", "BLEED_M", "220k")    # 2 x 2512 in series (330 V over 200 V parts); lower half at the end
@@ -383,9 +383,12 @@ def sheet05(d):
     R(d, "R540", 2, 14, "SHLD_OUT", "GND", "10")      # shield soft tie here, solid at the PI + FX end
     C(d, "C540", 3, 14, "SHLD_OUT", "GND", "100n")
     d.text("Post-gain pot top = treble pot wiper (POT_TR_x_W): joined on the pot board. Pot bottoms of gain / post = GND pins.", 15, 15.5)
-    # Drawn last so the earlier refs keep their numbers: lower halves of the split HV resistors (R518, R519).
+    # Drawn last so the earlier refs keep their numbers: lower halves of the split HV resistors (R518, R519)
+    # and the rest of the foldback resistor R507 (R520, R521; 3 x 270k = 810k).
     R(d, "R550", 15, 5, "BLEED_M", "GND", "220k")
     R(d, "R551", 17, 5, "VDIV_M", "VB90", "330k")
+    R(d, "R552", 13, 7, "FB_A", "FB_B", "270k", rot=0)
+    R(d, "R553", 15, 7, "FB_B", "QB", "270k", rot=0)
 
 
 SHEETS = [("01_input.kicad_sch", sheet01), ("02_gain_stages.kicad_sch", sheet02),

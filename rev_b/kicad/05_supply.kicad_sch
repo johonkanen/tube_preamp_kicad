@@ -5715,7 +5715,7 @@
 				)
 			)
 		)
-		(property "Value" "820k"
+		(property "Value" "270k"
 			(at 258.74 161.29 0)
 			(effects
 				(font
@@ -5795,7 +5795,7 @@
 		)
 		(uuid "0d9275f2-d2e1-534d-a704-32049ffc2617")
 	)
-	(label "QB"
+	(label "FB_A"
 		(at 254 166.37 270)
 		(effects
 			(font
@@ -14907,6 +14907,220 @@
 				(hide yes)
 			)
 		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 294.64 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cb2f05af-3692-52c2-b4e0-12c2e89efcec")
+		(property "Reference" "R520"
+			(at 299.38 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "270k"
+			(at 299.38 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 292.862 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 294.64 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 294.64 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ea5a255f-2291-5ea2-877a-c3ce020d8f24")
+		)
+		(pin "2"
+			(uuid "1ae12056-a98b-5f04-b949-4547ceaf1926")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
+					(reference "R520")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 294.64 156.21) (xy 294.64 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2b3b04d4-0114-563a-87e4-b76858f2d14d")
+	)
+	(label "FB_A"
+		(at 294.64 153.67 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ffb9474c-9369-5320-a319-b64b1fa26298")
+	)
+	(wire
+		(pts
+			(xy 294.64 163.83) (xy 294.64 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3c71f13c-b94c-5fe6-b71d-c5e6f4da1391")
+	)
+	(label "FB_B"
+		(at 294.64 166.37 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4df7bd2e-223e-5635-aa18-953b4a1da900")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 335.28 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "52de2842-2d51-579a-acfc-0403199fa223")
+		(property "Reference" "R521"
+			(at 340.02 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "270k"
+			(at 340.02 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 333.502 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 335.28 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 335.28 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "db15f8ae-eb3f-58be-946e-f5b633bd9575")
+		)
+		(pin "2"
+			(uuid "ea1acd62-8b43-5746-a787-704d9548f410")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
+					(reference "R521")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 335.28 156.21) (xy 335.28 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c61fb0a-f862-5139-bb5e-a8d5ae18b4de")
+	)
+	(label "FB_B"
+		(at 335.28 153.67 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f68e5cd8-9f48-5cf1-974c-1fa6c5e2c761")
+	)
+	(wire
+		(pts
+			(xy 335.28 163.83) (xy 335.28 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73ef2745-bde6-53c7-a406-b27f45cd4ed8")
+	)
+	(label "QB"
+		(at 335.28 166.37 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5b88f572-df1a-5412-87de-1299a67fcedc")
 	)
 	(sheet_instances
 		(path "/"
