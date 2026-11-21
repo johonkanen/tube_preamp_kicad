@@ -50,6 +50,9 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
   in (limit 8 V); a pad on the crunch's input network is the next fix.
 - B+ decoupling resistors (3.3k / 6.8k / 10k / 10k) are provisional until the stage currents are
   summed; the simulations used 300 V at the plates' supply.
+- HV resistors split for 200 V 2512 parts (2026-11-21): the B+ bleed is R508 + R518 (2 x 220k, 165 V
+  each) and the VB90 divider top R513 + R519 (2 x 330k, 115 V each; 660k with R514 270k gives
+  VB90 = 0.29 x BP4, about +2 % on the old 680k).
 - Footprints are not assigned yet. An initial JLCPCB BOM with proposed packages is in [bom/](bom/README.md)
   (`python3 -I rev_b/tools/make_bom.py`; JLC search and stock check from the jlc-tools submodule
   rev_b/tools/jlc, pinned like efinix_soc_board's).

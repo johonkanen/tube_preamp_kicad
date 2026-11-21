@@ -64,10 +64,8 @@ res("R103,R202,R215,R221,R325","100k","2512",note="plate loads: 100-150 V, ~0.15
 res("R302","47k","2512",note="CF cathode: 92 V, 0.18 W")
 res("R509","3.3k","2512",note="B+ decoupling, ~8 mA: ~0.24 W (provisional)")
 res("R510","6.8k","2512",note="B+ decoupling, ~5 mA: ~0.17 W (provisional)")
-add("R508","470k","R_Axial_DIN0309 (THT)","470kΩ 1W metal film",["470kΩ","350V","Metal Film"],
-    "B+ bleed: 330 V across, above any JLC SMD rating. THT 1 W 350 V; better: split into 2 x 2512 in series (schematic change)")
-add("R513","680k","R_Axial_DIN0309 (THT)","680kΩ 1W metal film",["680kΩ","350V","Metal Film"],
-    "VB90 divider top: 230 V across. THT 1 W 350 V, or 2 x 2512 in series")
+res("R508,R518","220k","2512",note="B+ bleed, 2 in series: 165 V and 0.12 W each (was one 470k)")
+res("R513,R519","330k","2512",note="VB90 divider top, 2 in series: 115 V each (was one 680k; VB90 now 0.29 x BP4, about +2 %)")
 # ---- capacitors
 add("C102,C104,C107,C110,C112,C202,C213,C215,C307,C312,C317,C320","10n","C_0603","10nF 0603 X7R 50V",["10nF","0603","X7R"],"JFET / MOSFET gate RC (not audio)")
 add("C401-C407,C509","100n","C_0603","100nF 0603 X7R 50V",["100nF","0603"],"decoupling, ground tie")
@@ -192,8 +190,7 @@ def main():
             md.append(f"| {len(it['refs'])} | {it['value']} | {refs} | {it['pkg']} | — | — | — | — | — | {it['note']} |")
     md += ["", "## Open points", ""]
     md += [f"- Low stock for {BOARDS} boards: " + ", ".join(f"{it['refs'][0]} {c['lcsc']} ({c['free']})" for it, c in low)] if low else []
-    md += ["- R508 (470k, 330 V across) and R513 (680k, 230 V) exceed every SMD rating JLC stocks: THT 1 W 350 V for now;",
-           "  better two 2512s in series each (schematic change, 4 refs instead of 2).",
+    md += [
            "- C105 (22n), C108 (2.2n) and C111 (4.7n) are drawn without a voltage, but they couple the S1 plate (P1):",
            "  the BOM gives them 630 V parts. Put the voltage in the schematic values at the next value pass.",
            "- Q502: STP4N80K5 has little stock; STD4N80K5 (DPAK, C472540) is the SMD alternative (about 1 W on copper).",

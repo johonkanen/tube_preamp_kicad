@@ -6146,7 +6146,7 @@
 				)
 			)
 		)
-		(property "Value" "470k"
+		(property "Value" "220k"
 			(at 335.28 91.44 270)
 			(effects
 				(font
@@ -6226,70 +6226,15 @@
 		)
 		(uuid "9d2b10f3-b900-5c73-9102-1f0a89c0e3ba")
 	)
-	(symbol
-		(lib_id "tube_preamp_revb:GNDA")
+	(label "BLEED_M"
 		(at 341.63 88.9 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3f5a6014-62d8-5848-a6f8-9d19476e9c46")
-		(property "Reference" "#PWR507"
-			(at 341.63 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Value" "GNDA"
-			(at 341.63 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 341.63 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 341.63 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
-			(at 341.63 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "675bfde1-8b89-57ee-9d89-7d94ef3b4295")
-		)
-		(instances
-			(project "tube_preamp_revb"
-				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR507")
-					(unit 1)
-				)
-			)
-		)
+		(uuid "0ad96f50-1e85-55cc-95c3-c770e5e4542d")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -6366,7 +6311,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0ad96f50-1e85-55cc-95c3-c770e5e4542d")
+		(uuid "9fcdb78f-caa6-5fc9-90ad-83dd17d31711")
 	)
 	(label "BP"
 		(at 375.92 46.99 90)
@@ -6376,7 +6321,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "9fcdb78f-caa6-5fc9-90ad-83dd17d31711")
+		(uuid "f8b1f801-139f-5cf1-9612-91dcba38351c")
 	)
 	(wire
 		(pts
@@ -6386,7 +6331,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f8b1f801-139f-5cf1-9612-91dcba38351c")
+		(uuid "25b65a52-1d39-5f2d-af03-0a91dde55478")
 	)
 	(global_label "BP4"
 		(shape passive)
@@ -6398,7 +6343,7 @@
 			)
 			(justify right)
 		)
-		(uuid "25b65a52-1d39-5f2d-af03-0a91dde55478")
+		(uuid "86ee73be-955e-53db-bd1f-fbc57884f33c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 375.92 59.69 0)
 			(effects
@@ -6485,7 +6430,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "86ee73be-955e-53db-bd1f-fbc57884f33c")
+		(uuid "cde72755-b7b4-5b0c-bfaa-75e991d53b1c")
 	)
 	(global_label "BP4"
 		(shape passive)
@@ -6497,7 +6442,7 @@
 			)
 			(justify left)
 		)
-		(uuid "cde72755-b7b4-5b0c-bfaa-75e991d53b1c")
+		(uuid "d5a35ee5-d337-5526-bc58-78c4dc8b87a2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 396.24 64.77 0)
 			(effects
@@ -6517,7 +6462,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d5a35ee5-d337-5526-bc58-78c4dc8b87a2")
+		(uuid "e7c35d94-e5d7-5659-94fc-2d58914f4f1b")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -6527,8 +6472,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b7e0fcee-a023-5df4-b278-2711d7b9a326")
-		(property "Reference" "#PWR508"
+		(uuid "3f5a6014-62d8-5848-a6f8-9d19476e9c46")
+		(property "Reference" "#PWR507"
 			(at 396.24 83.82 0)
 			(effects
 				(font
@@ -6573,12 +6518,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "32de9df2-7f1a-50eb-9476-78540b3e72cc")
+			(uuid "675bfde1-8b89-57ee-9d89-7d94ef3b4295")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR508")
+					(reference "#PWR507")
 					(unit 1)
 				)
 			)
@@ -6659,7 +6604,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e7c35d94-e5d7-5659-94fc-2d58914f4f1b")
+		(uuid "b783f0d2-c846-5746-93a3-cd795131bff4")
 	)
 	(global_label "BP4"
 		(shape passive)
@@ -6671,7 +6616,7 @@
 			)
 			(justify left)
 		)
-		(uuid "b783f0d2-c846-5746-93a3-cd795131bff4")
+		(uuid "d488c656-f49a-5ba0-9dc4-881e2d3a66ef")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 416.56 46.99 0)
 			(effects
@@ -6691,7 +6636,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d488c656-f49a-5ba0-9dc4-881e2d3a66ef")
+		(uuid "544b78d4-e1d3-51ce-8550-bd6d75d67249")
 	)
 	(global_label "BP3"
 		(shape passive)
@@ -6703,7 +6648,7 @@
 			)
 			(justify right)
 		)
-		(uuid "544b78d4-e1d3-51ce-8550-bd6d75d67249")
+		(uuid "a3f9ab95-c323-570e-bdbe-d01b7a212866")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 416.56 59.69 0)
 			(effects
@@ -6790,7 +6735,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a3f9ab95-c323-570e-bdbe-d01b7a212866")
+		(uuid "5a05cd0d-2e22-5cf0-ae35-035ea5cdee8b")
 	)
 	(global_label "BP3"
 		(shape passive)
@@ -6802,7 +6747,7 @@
 			)
 			(justify left)
 		)
-		(uuid "5a05cd0d-2e22-5cf0-ae35-035ea5cdee8b")
+		(uuid "e2d89717-9815-5e3f-a5fd-e5bf3955f063")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 436.88 64.77 0)
 			(effects
@@ -6822,7 +6767,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e2d89717-9815-5e3f-a5fd-e5bf3955f063")
+		(uuid "89876ea4-cadb-5fb5-9f39-bb8f0686f16b")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -6832,8 +6777,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "017ff921-9570-5f2a-92d0-05f7e8a7da04")
-		(property "Reference" "#PWR509"
+		(uuid "b7e0fcee-a023-5df4-b278-2711d7b9a326")
+		(property "Reference" "#PWR508"
 			(at 436.88 83.82 0)
 			(effects
 				(font
@@ -6878,12 +6823,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "cb6beef4-aa96-5a40-9b49-33e854ec0ecd")
+			(uuid "32de9df2-7f1a-50eb-9476-78540b3e72cc")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR509")
+					(reference "#PWR508")
 					(unit 1)
 				)
 			)
@@ -6964,7 +6909,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "89876ea4-cadb-5fb5-9f39-bb8f0686f16b")
+		(uuid "00e1357e-6c2e-55da-9853-e02d9d8958cb")
 	)
 	(global_label "BP3"
 		(shape passive)
@@ -6976,7 +6921,7 @@
 			)
 			(justify left)
 		)
-		(uuid "00e1357e-6c2e-55da-9853-e02d9d8958cb")
+		(uuid "60e17174-a197-5b84-9757-f81bdba56b50")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 457.2 46.99 0)
 			(effects
@@ -6996,7 +6941,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "60e17174-a197-5b84-9757-f81bdba56b50")
+		(uuid "c9e03539-9b05-5863-819c-3bc61a719e85")
 	)
 	(global_label "BP2"
 		(shape passive)
@@ -7008,7 +6953,7 @@
 			)
 			(justify right)
 		)
-		(uuid "c9e03539-9b05-5863-819c-3bc61a719e85")
+		(uuid "91da188c-1b8a-58ba-8568-15413bcbfbd8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 457.2 59.69 0)
 			(effects
@@ -7095,7 +7040,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "91da188c-1b8a-58ba-8568-15413bcbfbd8")
+		(uuid "2c48b254-1e4f-5455-8152-310ea697f2b8")
 	)
 	(global_label "BP2"
 		(shape passive)
@@ -7107,7 +7052,7 @@
 			)
 			(justify left)
 		)
-		(uuid "2c48b254-1e4f-5455-8152-310ea697f2b8")
+		(uuid "80336074-987b-5400-9d49-49e978761be3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 477.52 64.77 0)
 			(effects
@@ -7127,7 +7072,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "80336074-987b-5400-9d49-49e978761be3")
+		(uuid "e0cee3fe-fdcf-597a-a252-fd666dcee0cb")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -7137,8 +7082,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "98c29cd3-cd2d-5ca1-8270-9bda34ec95d1")
-		(property "Reference" "#PWR510"
+		(uuid "017ff921-9570-5f2a-92d0-05f7e8a7da04")
+		(property "Reference" "#PWR509"
 			(at 477.52 83.82 0)
 			(effects
 				(font
@@ -7183,12 +7128,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "d77ea1a9-2f3b-5c46-98c6-bd69b8019345")
+			(uuid "cb6beef4-aa96-5a40-9b49-33e854ec0ecd")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR510")
+					(reference "#PWR509")
 					(unit 1)
 				)
 			)
@@ -7269,7 +7214,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e0cee3fe-fdcf-597a-a252-fd666dcee0cb")
+		(uuid "4120475c-05c8-53e2-8c60-91beef348956")
 	)
 	(global_label "BP2"
 		(shape passive)
@@ -7281,7 +7226,7 @@
 			)
 			(justify left)
 		)
-		(uuid "4120475c-05c8-53e2-8c60-91beef348956")
+		(uuid "e178a217-f320-5cf9-bb4e-3d5b3f6cce1f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 497.84 46.99 0)
 			(effects
@@ -7301,7 +7246,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e178a217-f320-5cf9-bb4e-3d5b3f6cce1f")
+		(uuid "fefd70c0-7489-54bc-9425-c6e269dcbec6")
 	)
 	(global_label "BP1"
 		(shape passive)
@@ -7313,7 +7258,7 @@
 			)
 			(justify right)
 		)
-		(uuid "fefd70c0-7489-54bc-9425-c6e269dcbec6")
+		(uuid "143b18ed-a803-59e2-9be0-cd1d9d90baeb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 497.84 59.69 0)
 			(effects
@@ -7400,7 +7345,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "143b18ed-a803-59e2-9be0-cd1d9d90baeb")
+		(uuid "02114e53-54a8-512f-bf7c-0ddcd715866d")
 	)
 	(global_label "BP1"
 		(shape passive)
@@ -7412,7 +7357,7 @@
 			)
 			(justify left)
 		)
-		(uuid "02114e53-54a8-512f-bf7c-0ddcd715866d")
+		(uuid "71969519-0189-544a-a82c-0a246adf506d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 518.16 64.77 0)
 			(effects
@@ -7432,7 +7377,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "71969519-0189-544a-a82c-0a246adf506d")
+		(uuid "22c71fe3-0df2-5cde-835c-b6e86bbe1a39")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -7442,8 +7387,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d2d2211c-5b54-525a-9cc1-b54aceea84e4")
-		(property "Reference" "#PWR511"
+		(uuid "98c29cd3-cd2d-5ca1-8270-9bda34ec95d1")
+		(property "Reference" "#PWR510"
 			(at 518.16 83.82 0)
 			(effects
 				(font
@@ -7488,12 +7433,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "d9e9ce02-dc7a-5b1a-a726-bafa65827793")
+			(uuid "d77ea1a9-2f3b-5c46-98c6-bd69b8019345")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR511")
+					(reference "#PWR510")
 					(unit 1)
 				)
 			)
@@ -7516,7 +7461,7 @@
 				)
 			)
 		)
-		(property "Value" "680k"
+		(property "Value" "330k"
 			(at 375.92 109.22 270)
 			(effects
 				(font
@@ -7574,7 +7519,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "22c71fe3-0df2-5cde-835c-b6e86bbe1a39")
+		(uuid "fe4f98c0-ec81-5a30-b33c-f0958743fd8a")
 	)
 	(global_label "BP4"
 		(shape passive)
@@ -7586,7 +7531,7 @@
 			)
 			(justify right)
 		)
-		(uuid "fe4f98c0-ec81-5a30-b33c-f0958743fd8a")
+		(uuid "da750194-a146-55ad-b907-7bf78cb1ed7b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 369.57 106.68 0)
 			(effects
@@ -7606,29 +7551,17 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "da750194-a146-55ad-b907-7bf78cb1ed7b")
+		(uuid "ed4fbd85-2d3c-5158-bedf-85d14d5b0239")
 	)
-	(global_label "VB90"
-		(shape passive)
+	(label "VDIV_M"
 		(at 382.27 106.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify left bottom)
 		)
-		(uuid "ed4fbd85-2d3c-5158-bedf-85d14d5b0239")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 382.27 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
+		(uuid "07ca9d47-216c-500b-a407-0fbad042c491")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -7705,7 +7638,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "07ca9d47-216c-500b-a407-0fbad042c491")
+		(uuid "c8de8117-d28d-5d75-80c6-8e23b1cc1a0e")
 	)
 	(global_label "VB90"
 		(shape passive)
@@ -7717,7 +7650,7 @@
 			)
 			(justify right)
 		)
-		(uuid "c8de8117-d28d-5d75-80c6-8e23b1cc1a0e")
+		(uuid "7e3a2ded-b6ed-50b3-a7dd-e0b152044c39")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 369.57 142.24 0)
 			(effects
@@ -7737,7 +7670,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7e3a2ded-b6ed-50b3-a7dd-e0b152044c39")
+		(uuid "2182ac98-518d-5652-a5c7-9c54f7fb1967")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -7747,8 +7680,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8326c922-bfed-5889-8821-25cf72cb1b8b")
-		(property "Reference" "#PWR512"
+		(uuid "d2d2211c-5b54-525a-9cc1-b54aceea84e4")
+		(property "Reference" "#PWR511"
 			(at 382.27 148.59 0)
 			(effects
 				(font
@@ -7793,12 +7726,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "06c1fd15-db9b-5510-8789-51bb5e6f11bc")
+			(uuid "d9e9ce02-dc7a-5b1a-a726-bafa65827793")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR512")
+					(reference "#PWR511")
 					(unit 1)
 				)
 			)
@@ -7879,7 +7812,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2182ac98-518d-5652-a5c7-9c54f7fb1967")
+		(uuid "06b9688b-7995-5d56-98dc-ce6301436615")
 	)
 	(global_label "VB90"
 		(shape passive)
@@ -7891,7 +7824,7 @@
 			)
 			(justify left)
 		)
-		(uuid "06b9688b-7995-5d56-98dc-ce6301436615")
+		(uuid "9aee68de-122b-5cb5-bdec-582476293114")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 396.24 135.89 0)
 			(effects
@@ -7911,7 +7844,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9aee68de-122b-5cb5-bdec-582476293114")
+		(uuid "8b96565f-f644-539d-8d78-6b2cddccca3f")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -7921,8 +7854,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d1d3fe61-9555-5e6f-b185-9bfd3cf2be12")
-		(property "Reference" "#PWR513"
+		(uuid "8326c922-bfed-5889-8821-25cf72cb1b8b")
+		(property "Reference" "#PWR512"
 			(at 396.24 154.94 0)
 			(effects
 				(font
@@ -7967,12 +7900,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "1fa3d05b-4619-5d16-b394-6068e1adfda0")
+			(uuid "06c1fd15-db9b-5510-8789-51bb5e6f11bc")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR513")
+					(reference "#PWR512")
 					(unit 1)
 				)
 			)
@@ -8053,7 +7986,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8b96565f-f644-539d-8d78-6b2cddccca3f")
+		(uuid "d635076f-6028-5f3b-bd5f-57624e655680")
 	)
 	(label "HTR1"
 		(at 22.86 195.58 180)
@@ -8063,7 +7996,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d635076f-6028-5f3b-bd5f-57624e655680")
+		(uuid "5526eabe-e258-5a85-8e93-c750d080c0e4")
 	)
 	(wire
 		(pts
@@ -8073,7 +8006,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5526eabe-e258-5a85-8e93-c750d080c0e4")
+		(uuid "f31a5895-0265-57c7-95ef-8af0a2b7c361")
 	)
 	(label "HTR2"
 		(at 22.86 198.12 180)
@@ -8083,7 +8016,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "f31a5895-0265-57c7-95ef-8af0a2b7c361")
+		(uuid "d7cbcd31-5c4f-5944-841a-e62a9173e7b9")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:PWR_FLAG")
@@ -8158,7 +8091,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d7cbcd31-5c4f-5944-841a-e62a9173e7b9")
+		(uuid "70cd7450-3fe1-5e3e-b0b2-b86b4922e48f")
 	)
 	(label "HTR1"
 		(at 50.8 215.9 270)
@@ -8168,7 +8101,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "70cd7450-3fe1-5e3e-b0b2-b86b4922e48f")
+		(uuid "c4ff1af6-d352-5d10-8f6d-458d32195150")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:PWR_FLAG")
@@ -8243,7 +8176,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c4ff1af6-d352-5d10-8f6d-458d32195150")
+		(uuid "ba6521e1-3171-5553-a40b-8e2ce857a646")
 	)
 	(label "HTR2"
 		(at 63.5 215.9 270)
@@ -8253,7 +8186,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "ba6521e1-3171-5553-a40b-8e2ce857a646")
+		(uuid "a2812a2e-520f-568f-ab24-32d1e37f6e63")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:ECC83")
@@ -8333,7 +8266,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a2812a2e-520f-568f-ab24-32d1e37f6e63")
+		(uuid "8cb2cfc6-7803-5e7a-9dc0-1a7797fe8664")
 	)
 	(label "HTR1"
 		(at 88.9 209.55 270)
@@ -8343,7 +8276,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "8cb2cfc6-7803-5e7a-9dc0-1a7797fe8664")
+		(uuid "3aa0abc2-cf5c-5fdf-9912-2d98dea058f7")
 	)
 	(wire
 		(pts
@@ -8353,7 +8286,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3aa0abc2-cf5c-5fdf-9912-2d98dea058f7")
+		(uuid "32db6f07-6411-51f8-b11a-6bbf2a835824")
 	)
 	(label "HTR1"
 		(at 93.98 209.55 270)
@@ -8363,7 +8296,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "32db6f07-6411-51f8-b11a-6bbf2a835824")
+		(uuid "04072ccd-b4e8-5065-9a15-279caf1b69a4")
 	)
 	(wire
 		(pts
@@ -8373,7 +8306,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "04072ccd-b4e8-5065-9a15-279caf1b69a4")
+		(uuid "ef0dab00-7383-5cab-80fa-b2fbe3ad1c56")
 	)
 	(label "HTR2"
 		(at 91.44 209.55 270)
@@ -8383,7 +8316,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "ef0dab00-7383-5cab-80fa-b2fbe3ad1c56")
+		(uuid "240b40c3-e1e3-50f2-b935-3f8ac4554a94")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:ECC83")
@@ -8463,7 +8396,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "240b40c3-e1e3-50f2-b935-3f8ac4554a94")
+		(uuid "ef8cee20-1b4d-5bc0-8d6f-f3105f38c820")
 	)
 	(label "HTR1"
 		(at 129.54 209.55 270)
@@ -8473,7 +8406,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "ef8cee20-1b4d-5bc0-8d6f-f3105f38c820")
+		(uuid "717b4859-4de0-518b-9f62-89b1c84e2c22")
 	)
 	(wire
 		(pts
@@ -8483,7 +8416,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "717b4859-4de0-518b-9f62-89b1c84e2c22")
+		(uuid "f89b3cbc-0379-5e0b-89d0-abac24d1e7cf")
 	)
 	(label "HTR1"
 		(at 134.62 209.55 270)
@@ -8493,7 +8426,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "f89b3cbc-0379-5e0b-89d0-abac24d1e7cf")
+		(uuid "b22c1749-58df-5cbf-89bb-8596a610db1c")
 	)
 	(wire
 		(pts
@@ -8503,7 +8436,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b22c1749-58df-5cbf-89bb-8596a610db1c")
+		(uuid "5c5d5ea5-ee7f-5817-b582-6f92519b532a")
 	)
 	(label "HTR2"
 		(at 132.08 209.55 270)
@@ -8513,7 +8446,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "5c5d5ea5-ee7f-5817-b582-6f92519b532a")
+		(uuid "8e0f836d-d358-52b4-a0f9-231b1200da51")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:ECC83")
@@ -8593,7 +8526,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8e0f836d-d358-52b4-a0f9-231b1200da51")
+		(uuid "1331d663-27ae-544c-895a-9967d377e1da")
 	)
 	(label "HTR1"
 		(at 170.18 209.55 270)
@@ -8603,7 +8536,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "1331d663-27ae-544c-895a-9967d377e1da")
+		(uuid "c129a48a-4ddb-5d89-b3fb-52babe54e753")
 	)
 	(wire
 		(pts
@@ -8613,7 +8546,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c129a48a-4ddb-5d89-b3fb-52babe54e753")
+		(uuid "26a0e2e3-a082-5165-b1ae-b4f3ae10a4df")
 	)
 	(label "HTR1"
 		(at 175.26 209.55 270)
@@ -8623,7 +8556,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "26a0e2e3-a082-5165-b1ae-b4f3ae10a4df")
+		(uuid "74f15392-aee6-5a80-80b2-571c666a12ab")
 	)
 	(wire
 		(pts
@@ -8633,7 +8566,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "74f15392-aee6-5a80-80b2-571c666a12ab")
+		(uuid "842a7a14-b6aa-5766-be18-53569e0fbb4e")
 	)
 	(label "HTR2"
 		(at 172.72 209.55 270)
@@ -8643,7 +8576,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "842a7a14-b6aa-5766-be18-53569e0fbb4e")
+		(uuid "da3d2d07-9755-5287-aa0d-e2720016b594")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -8720,7 +8653,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "da3d2d07-9755-5287-aa0d-e2720016b594")
+		(uuid "b300d4a8-be50-5f70-b0fe-de7a7803deb3")
 	)
 	(label "HTR1"
 		(at 227.33 195.58 180)
@@ -8730,7 +8663,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "b300d4a8-be50-5f70-b0fe-de7a7803deb3")
+		(uuid "d3a3204e-23cc-5bdd-aa8d-a68c23573b9f")
 	)
 	(wire
 		(pts
@@ -8740,7 +8673,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d3a3204e-23cc-5bdd-aa8d-a68c23573b9f")
+		(uuid "05b748b3-0676-597f-89bc-2f045431c535")
 	)
 	(label "HREF"
 		(at 240.03 195.58 0)
@@ -8750,7 +8683,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "05b748b3-0676-597f-89bc-2f045431c535")
+		(uuid "346ff99c-7d55-53bb-b76d-99c2901fbb8b")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -8827,7 +8760,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "346ff99c-7d55-53bb-b76d-99c2901fbb8b")
+		(uuid "362e4071-48a9-5b85-ada8-c62a176a2ed7")
 	)
 	(label "HTR2"
 		(at 247.65 195.58 180)
@@ -8837,7 +8770,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "362e4071-48a9-5b85-ada8-c62a176a2ed7")
+		(uuid "c6b5f5da-66be-5e01-bdfa-907b91521dd3")
 	)
 	(wire
 		(pts
@@ -8847,7 +8780,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c6b5f5da-66be-5e01-bdfa-907b91521dd3")
+		(uuid "8f3eaa0c-4155-56ae-a8eb-1aadbadd7986")
 	)
 	(label "HREF"
 		(at 260.35 195.58 0)
@@ -8857,7 +8790,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "8f3eaa0c-4155-56ae-a8eb-1aadbadd7986")
+		(uuid "50a2cc8d-3fc5-5da0-8377-b18944fca26f")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:Conn_01x03")
@@ -8937,7 +8870,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "50a2cc8d-3fc5-5da0-8377-b18944fca26f")
+		(uuid "42c873ef-ed3c-5986-adeb-85e9335f44ec")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -8947,8 +8880,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "7ee2411a-f082-5092-af8f-c8308e07e06d")
-		(property "Reference" "#PWR514"
+		(uuid "d1d3fe61-9555-5e6f-b185-9bfd3cf2be12")
+		(property "Reference" "#PWR513"
 			(at 287.02 199.39 0)
 			(effects
 				(font
@@ -8993,12 +8926,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "64efb33e-e00b-5fe0-8df6-52468923c780")
+			(uuid "1fa3d05b-4619-5d16-b394-6068e1adfda0")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR514")
+					(reference "#PWR513")
 					(unit 1)
 				)
 			)
@@ -9012,7 +8945,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "42c873ef-ed3c-5986-adeb-85e9335f44ec")
+		(uuid "a26cbefd-059e-5aea-ba4f-140b66396fdc")
 	)
 	(label "HREF"
 		(at 287.02 195.58 180)
@@ -9022,7 +8955,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "a26cbefd-059e-5aea-ba4f-140b66396fdc")
+		(uuid "d449095a-43c0-5094-b227-4e28933a36c8")
 	)
 	(wire
 		(pts
@@ -9032,7 +8965,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d449095a-43c0-5094-b227-4e28933a36c8")
+		(uuid "e57c50bf-fce9-502b-8559-70820afb07e2")
 	)
 	(global_label "VB90"
 		(shape passive)
@@ -9044,7 +8977,7 @@
 			)
 			(justify right)
 		)
-		(uuid "e57c50bf-fce9-502b-8559-70820afb07e2")
+		(uuid "9c7bbdb8-a0f5-52a2-90db-e79756a81b0e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 287.02 198.12 0)
 			(effects
@@ -9203,7 +9136,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9c7bbdb8-a0f5-52a2-90db-e79756a81b0e")
+		(uuid "aaeffa5d-8eb0-5f48-a5d0-5aec05949c8a")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -9213,8 +9146,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ea1935c4-b37a-5c08-88d9-f586853bc714")
-		(property "Reference" "#PWR515"
+		(uuid "7ee2411a-f082-5092-af8f-c8308e07e06d")
+		(property "Reference" "#PWR514"
 			(at 347.98 204.47 0)
 			(effects
 				(font
@@ -9259,12 +9192,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "f55a8161-3198-5f0d-83e1-42f3a8257542")
+			(uuid "64efb33e-e00b-5fe0-8df6-52468923c780")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR515")
+					(reference "#PWR514")
 					(unit 1)
 				)
 			)
@@ -9278,7 +9211,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "aaeffa5d-8eb0-5f48-a5d0-5aec05949c8a")
+		(uuid "977144b0-2bdf-5a7d-9cd1-73035dec3a1d")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -9288,8 +9221,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a68b661a-36d7-528a-9508-6d64ab45d54a")
-		(property "Reference" "#PWR516"
+		(uuid "ea1935c4-b37a-5c08-88d9-f586853bc714")
+		(property "Reference" "#PWR515"
 			(at 347.98 207.01 0)
 			(effects
 				(font
@@ -9334,12 +9267,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "83ae46c0-1a89-5c56-9a1a-488d48cb9afb")
+			(uuid "f55a8161-3198-5f0d-83e1-42f3a8257542")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR516")
+					(reference "#PWR515")
 					(unit 1)
 				)
 			)
@@ -9353,7 +9286,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "977144b0-2bdf-5a7d-9cd1-73035dec3a1d")
+		(uuid "9fa1fc06-9cc0-5886-abe9-5e2523be4a92")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -9363,8 +9296,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "0254f22d-d5e4-5724-93bc-ee69a1b8a868")
-		(property "Reference" "#PWR517"
+		(uuid "a68b661a-36d7-528a-9508-6d64ab45d54a")
+		(property "Reference" "#PWR516"
 			(at 347.98 209.55 0)
 			(effects
 				(font
@@ -9409,12 +9342,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "db3ba267-30f5-5481-b84f-6f1934d085dc")
+			(uuid "83ae46c0-1a89-5c56-9a1a-488d48cb9afb")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR517")
+					(reference "#PWR516")
 					(unit 1)
 				)
 			)
@@ -9428,7 +9361,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9fa1fc06-9cc0-5886-abe9-5e2523be4a92")
+		(uuid "352304d8-3e68-5878-9ac8-5e377e738d7f")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -9438,8 +9371,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4bdc7d7b-4b91-55cc-ba41-66a6ee5a16a0")
-		(property "Reference" "#PWR518"
+		(uuid "0254f22d-d5e4-5724-93bc-ee69a1b8a868")
+		(property "Reference" "#PWR517"
 			(at 347.98 212.09 0)
 			(effects
 				(font
@@ -9484,12 +9417,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "2d6d8a98-5268-5581-904e-81de1ea5c6b4")
+			(uuid "db3ba267-30f5-5481-b84f-6f1934d085dc")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR518")
+					(reference "#PWR517")
 					(unit 1)
 				)
 			)
@@ -9503,7 +9436,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "352304d8-3e68-5878-9ac8-5e377e738d7f")
+		(uuid "87d52308-9d78-53fa-b505-b0ce2589afcc")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -9513,8 +9446,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1cf2e565-f94b-534b-a4bd-5f1e010156d2")
-		(property "Reference" "#PWR519"
+		(uuid "4bdc7d7b-4b91-55cc-ba41-66a6ee5a16a0")
+		(property "Reference" "#PWR518"
 			(at 347.98 214.63 0)
 			(effects
 				(font
@@ -9559,12 +9492,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "c60e2723-bf99-57ed-8166-0c5c2cc8b59c")
+			(uuid "2d6d8a98-5268-5581-904e-81de1ea5c6b4")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR519")
+					(reference "#PWR518")
 					(unit 1)
 				)
 			)
@@ -9578,7 +9511,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "87d52308-9d78-53fa-b505-b0ce2589afcc")
+		(uuid "108377e6-b2b9-5aea-8df1-62f602dc1d96")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -9588,8 +9521,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c29acd5d-ab40-5888-85cc-146240200452")
-		(property "Reference" "#PWR520"
+		(uuid "1cf2e565-f94b-534b-a4bd-5f1e010156d2")
+		(property "Reference" "#PWR519"
 			(at 347.98 217.17 0)
 			(effects
 				(font
@@ -9634,12 +9567,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b848d260-06b6-5a4e-9ad4-8a7b07eb687f")
+			(uuid "c60e2723-bf99-57ed-8166-0c5c2cc8b59c")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR520")
+					(reference "#PWR519")
 					(unit 1)
 				)
 			)
@@ -9653,7 +9586,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "108377e6-b2b9-5aea-8df1-62f602dc1d96")
+		(uuid "c055ef6e-0e68-5f43-8932-f9eb4b71332b")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -9663,8 +9596,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "df3745f9-6986-519a-ab75-8eba535a0af4")
-		(property "Reference" "#PWR521"
+		(uuid "c29acd5d-ab40-5888-85cc-146240200452")
+		(property "Reference" "#PWR520"
 			(at 347.98 219.71 0)
 			(effects
 				(font
@@ -9709,12 +9642,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "994318db-940f-59cc-b037-1e0222c04829")
+			(uuid "b848d260-06b6-5a4e-9ad4-8a7b07eb687f")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR521")
+					(reference "#PWR520")
 					(unit 1)
 				)
 			)
@@ -9728,7 +9661,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c055ef6e-0e68-5f43-8932-f9eb4b71332b")
+		(uuid "8c32cf70-a961-5360-823e-d6ca78e224a2")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -9738,8 +9671,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ed0a29d6-21cc-5a45-891f-61c8b7217a8b")
-		(property "Reference" "#PWR522"
+		(uuid "df3745f9-6986-519a-ab75-8eba535a0af4")
+		(property "Reference" "#PWR521"
 			(at 347.98 222.25 0)
 			(effects
 				(font
@@ -9784,12 +9717,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "25dd88e4-9898-51d4-aaf7-4af7e8f64b77")
+			(uuid "994318db-940f-59cc-b037-1e0222c04829")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR522")
+					(reference "#PWR521")
 					(unit 1)
 				)
 			)
@@ -9803,7 +9736,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8c32cf70-a961-5360-823e-d6ca78e224a2")
+		(uuid "ba0b5cd7-b12b-5440-94cb-c17e3831bf0f")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -9813,8 +9746,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "36e8c8cb-b943-54e7-a517-63f5177a76e5")
-		(property "Reference" "#PWR523"
+		(uuid "ed0a29d6-21cc-5a45-891f-61c8b7217a8b")
+		(property "Reference" "#PWR522"
 			(at 347.98 224.79 0)
 			(effects
 				(font
@@ -9859,12 +9792,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "32defd79-5a2c-5bf6-98b8-ffd2e01f1c46")
+			(uuid "25dd88e4-9898-51d4-aaf7-4af7e8f64b77")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR523")
+					(reference "#PWR522")
 					(unit 1)
 				)
 			)
@@ -9878,7 +9811,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ba0b5cd7-b12b-5440-94cb-c17e3831bf0f")
+		(uuid "f45a7966-4523-5e62-98ab-02206d6c952b")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -9888,8 +9821,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "40f06562-e8e1-5c8d-be5b-ab1b86129740")
-		(property "Reference" "#PWR524"
+		(uuid "36e8c8cb-b943-54e7-a517-63f5177a76e5")
+		(property "Reference" "#PWR523"
 			(at 347.98 227.33 0)
 			(effects
 				(font
@@ -9934,12 +9867,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "7f933ebb-932a-5b8d-8550-b51dd481df79")
+			(uuid "32defd79-5a2c-5bf6-98b8-ffd2e01f1c46")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR524")
+					(reference "#PWR523")
 					(unit 1)
 				)
 			)
@@ -9953,7 +9886,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f45a7966-4523-5e62-98ab-02206d6c952b")
+		(uuid "b8c95773-22db-5c61-83e2-c008e1e3f1dc")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -9963,8 +9896,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "0b4df91d-1168-543d-af9f-906c7e0185ad")
-		(property "Reference" "#PWR525"
+		(uuid "40f06562-e8e1-5c8d-be5b-ab1b86129740")
+		(property "Reference" "#PWR524"
 			(at 347.98 229.87 0)
 			(effects
 				(font
@@ -10009,12 +9942,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "397cf261-d9c6-559f-8b88-f7cb87dc2ed1")
+			(uuid "7f933ebb-932a-5b8d-8550-b51dd481df79")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR525")
+					(reference "#PWR524")
 					(unit 1)
 				)
 			)
@@ -10028,7 +9961,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b8c95773-22db-5c61-83e2-c008e1e3f1dc")
+		(uuid "a59df805-7a99-5be5-a080-adbb96edc736")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -10038,8 +9971,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "73c79b83-2268-57b1-93d5-176842dca9e1")
-		(property "Reference" "#PWR526"
+		(uuid "0b4df91d-1168-543d-af9f-906c7e0185ad")
+		(property "Reference" "#PWR525"
 			(at 347.98 232.41 0)
 			(effects
 				(font
@@ -10084,12 +10017,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "08c80e34-3d4e-55b5-b83a-18fac5a66d80")
+			(uuid "397cf261-d9c6-559f-8b88-f7cb87dc2ed1")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR526")
+					(reference "#PWR525")
 					(unit 1)
 				)
 			)
@@ -10103,7 +10036,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a59df805-7a99-5be5-a080-adbb96edc736")
+		(uuid "e870ce33-685c-56c5-abba-d97969c53dfc")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -10113,8 +10046,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "bb5308bd-ae6b-5ce4-9166-09a2af74a701")
-		(property "Reference" "#PWR527"
+		(uuid "73c79b83-2268-57b1-93d5-176842dca9e1")
+		(property "Reference" "#PWR526"
 			(at 347.98 234.95 0)
 			(effects
 				(font
@@ -10159,12 +10092,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "aab58310-b808-51c0-801a-e452cc161873")
+			(uuid "08c80e34-3d4e-55b5-b83a-18fac5a66d80")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR527")
+					(reference "#PWR526")
 					(unit 1)
 				)
 			)
@@ -10178,7 +10111,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e870ce33-685c-56c5-abba-d97969c53dfc")
+		(uuid "b1c17ccb-7c3c-59e4-974f-d08978100b74")
 	)
 	(global_label "POT_G_CL_TOP"
 		(shape passive)
@@ -10190,7 +10123,7 @@
 			)
 			(justify left)
 		)
-		(uuid "b1c17ccb-7c3c-59e4-974f-d08978100b74")
+		(uuid "767e09ca-7ded-5bbb-acc7-9a79bb094368")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 365.76 198.12 0)
 			(effects
@@ -10210,7 +10143,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "767e09ca-7ded-5bbb-acc7-9a79bb094368")
+		(uuid "16a0da3c-1161-5835-a636-37377a1eda0e")
 	)
 	(global_label "POT_G_CL_W"
 		(shape passive)
@@ -10222,7 +10155,7 @@
 			)
 			(justify left)
 		)
-		(uuid "16a0da3c-1161-5835-a636-37377a1eda0e")
+		(uuid "5a2d125e-38d1-587b-b2eb-45222965a843")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 365.76 200.66 0)
 			(effects
@@ -10242,7 +10175,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5a2d125e-38d1-587b-b2eb-45222965a843")
+		(uuid "1fa98ab9-dd25-5952-864c-aee89a580062")
 	)
 	(global_label "POT_BS_CL_TOP"
 		(shape passive)
@@ -10254,7 +10187,7 @@
 			)
 			(justify left)
 		)
-		(uuid "1fa98ab9-dd25-5952-864c-aee89a580062")
+		(uuid "b4817cb5-4862-5f12-adb5-e092c9687d79")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 365.76 203.2 0)
 			(effects
@@ -10274,7 +10207,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b4817cb5-4862-5f12-adb5-e092c9687d79")
+		(uuid "85a58a79-1a7c-5473-993e-25656575bdce")
 	)
 	(global_label "POT_BS_CL_W"
 		(shape passive)
@@ -10286,7 +10219,7 @@
 			)
 			(justify left)
 		)
-		(uuid "85a58a79-1a7c-5473-993e-25656575bdce")
+		(uuid "864bfbac-2153-5308-9a96-8c718a3d44fd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 365.76 205.74 0)
 			(effects
@@ -10306,7 +10239,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "864bfbac-2153-5308-9a96-8c718a3d44fd")
+		(uuid "c592734f-1f37-5797-9025-e1bd507ae590")
 	)
 	(global_label "POT_BS_CL_BOT"
 		(shape passive)
@@ -10318,7 +10251,7 @@
 			)
 			(justify left)
 		)
-		(uuid "c592734f-1f37-5797-9025-e1bd507ae590")
+		(uuid "27b0f57a-5a6f-5f39-9491-4d5b19f378c8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 365.76 208.28 0)
 			(effects
@@ -10338,7 +10271,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "27b0f57a-5a6f-5f39-9491-4d5b19f378c8")
+		(uuid "8766aeba-bbec-5f8e-877d-08081e4a5d63")
 	)
 	(global_label "POT_TR_CL_TOP"
 		(shape passive)
@@ -10350,7 +10283,7 @@
 			)
 			(justify left)
 		)
-		(uuid "8766aeba-bbec-5f8e-877d-08081e4a5d63")
+		(uuid "a0adc7b4-5c28-5b19-8f97-8ebf744761cf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 365.76 210.82 0)
 			(effects
@@ -10370,7 +10303,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a0adc7b4-5c28-5b19-8f97-8ebf744761cf")
+		(uuid "79683b92-d109-5d4f-9065-d85d5539ea13")
 	)
 	(global_label "POT_TR_CL_W"
 		(shape passive)
@@ -10382,7 +10315,7 @@
 			)
 			(justify left)
 		)
-		(uuid "79683b92-d109-5d4f-9065-d85d5539ea13")
+		(uuid "17241a0d-c6de-57d9-97f4-796f740631e2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 365.76 213.36 0)
 			(effects
@@ -10402,7 +10335,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "17241a0d-c6de-57d9-97f4-796f740631e2")
+		(uuid "f5f2ce4c-0b51-560b-b75d-8a13b4f1f5fb")
 	)
 	(global_label "POT_TR_CL_BOT"
 		(shape passive)
@@ -10414,7 +10347,7 @@
 			)
 			(justify left)
 		)
-		(uuid "f5f2ce4c-0b51-560b-b75d-8a13b4f1f5fb")
+		(uuid "92ecd457-03e3-541a-be3d-5bcbd3b3f864")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 365.76 215.9 0)
 			(effects
@@ -10434,7 +10367,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "92ecd457-03e3-541a-be3d-5bcbd3b3f864")
+		(uuid "dc6c0c56-3d7d-5a0c-ab9e-c5c0c1cb6f0b")
 	)
 	(global_label "POT_P_CL_W"
 		(shape passive)
@@ -10446,7 +10379,7 @@
 			)
 			(justify left)
 		)
-		(uuid "dc6c0c56-3d7d-5a0c-ab9e-c5c0c1cb6f0b")
+		(uuid "6b298563-78e9-53eb-97b3-d9da76fe5e5f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 365.76 218.44 0)
 			(effects
@@ -10466,7 +10399,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6b298563-78e9-53eb-97b3-d9da76fe5e5f")
+		(uuid "3e73f612-5bf0-577c-abb4-bec172ddf46d")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -10476,8 +10409,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "184a422f-e8d5-5e2c-8f5c-7fa59751ffb6")
-		(property "Reference" "#PWR528"
+		(uuid "bb5308bd-ae6b-5ce4-9166-09a2af74a701")
+		(property "Reference" "#PWR527"
 			(at 365.76 227.33 0)
 			(effects
 				(font
@@ -10522,12 +10455,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "6895d5fb-4bf6-5030-9ed1-a83a9710ea07")
+			(uuid "aab58310-b808-51c0-801a-e452cc161873")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR528")
+					(reference "#PWR527")
 					(unit 1)
 				)
 			)
@@ -10541,7 +10474,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3e73f612-5bf0-577c-abb4-bec172ddf46d")
+		(uuid "f8cdf01f-1174-5550-b83c-f8338aefc16a")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -10551,8 +10484,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4d04e09d-0cca-5b7f-aab7-972d6822a9f3")
-		(property "Reference" "#PWR529"
+		(uuid "184a422f-e8d5-5e2c-8f5c-7fa59751ffb6")
+		(property "Reference" "#PWR528"
 			(at 365.76 229.87 0)
 			(effects
 				(font
@@ -10597,12 +10530,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "e0a8b01f-94a1-5dd3-83c0-43abde435d6d")
+			(uuid "6895d5fb-4bf6-5030-9ed1-a83a9710ea07")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR529")
+					(reference "#PWR528")
 					(unit 1)
 				)
 			)
@@ -10616,7 +10549,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f8cdf01f-1174-5550-b83c-f8338aefc16a")
+		(uuid "ee7eb711-cc93-56d7-9533-adea58051865")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -10626,8 +10559,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ed73daf7-8b8f-5018-a750-9a13ecbeed02")
-		(property "Reference" "#PWR530"
+		(uuid "4d04e09d-0cca-5b7f-aab7-972d6822a9f3")
+		(property "Reference" "#PWR529"
 			(at 365.76 232.41 0)
 			(effects
 				(font
@@ -10672,12 +10605,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "9fa14106-64ab-528a-85a1-97510f998379")
+			(uuid "e0a8b01f-94a1-5dd3-83c0-43abde435d6d")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR530")
+					(reference "#PWR529")
 					(unit 1)
 				)
 			)
@@ -10691,7 +10624,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ee7eb711-cc93-56d7-9533-adea58051865")
+		(uuid "fc34e66e-efb7-5a1e-8482-5a2120114195")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -10701,8 +10634,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "041d1f10-21f6-5011-959e-0ad4cc4b7244")
-		(property "Reference" "#PWR531"
+		(uuid "ed73daf7-8b8f-5018-a750-9a13ecbeed02")
+		(property "Reference" "#PWR530"
 			(at 365.76 234.95 0)
 			(effects
 				(font
@@ -10747,12 +10680,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "608a2922-4e20-56f9-8a5a-c28015bdb525")
+			(uuid "9fa14106-64ab-528a-85a1-97510f998379")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR531")
+					(reference "#PWR530")
 					(unit 1)
 				)
 			)
@@ -10905,7 +10838,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fc34e66e-efb7-5a1e-8482-5a2120114195")
+		(uuid "ab20de48-20d1-5ebb-94bf-5075c893dc89")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -10915,8 +10848,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "7ef66d16-ada5-555e-a242-856018878535")
-		(property "Reference" "#PWR532"
+		(uuid "041d1f10-21f6-5011-959e-0ad4cc4b7244")
+		(property "Reference" "#PWR531"
 			(at 429.26 204.47 0)
 			(effects
 				(font
@@ -10961,12 +10894,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "09dd7aad-9de8-54a1-8f40-da031b8b32e9")
+			(uuid "608a2922-4e20-56f9-8a5a-c28015bdb525")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR532")
+					(reference "#PWR531")
 					(unit 1)
 				)
 			)
@@ -10980,7 +10913,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ab20de48-20d1-5ebb-94bf-5075c893dc89")
+		(uuid "a18dda34-4606-56d0-a405-41742665bd04")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -10990,8 +10923,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d19bc257-a91d-5d0c-8161-37d6dd57c698")
-		(property "Reference" "#PWR533"
+		(uuid "7ef66d16-ada5-555e-a242-856018878535")
+		(property "Reference" "#PWR532"
 			(at 429.26 207.01 0)
 			(effects
 				(font
@@ -11036,12 +10969,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "af17b56f-a55a-525f-8fc8-71b49a4df683")
+			(uuid "09dd7aad-9de8-54a1-8f40-da031b8b32e9")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR533")
+					(reference "#PWR532")
 					(unit 1)
 				)
 			)
@@ -11055,7 +10988,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a18dda34-4606-56d0-a405-41742665bd04")
+		(uuid "a145ddf0-62a7-57e8-8f88-2348e161b20f")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -11065,8 +10998,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "bdf7aadb-fa6f-5ab9-85cd-7acc55224130")
-		(property "Reference" "#PWR534"
+		(uuid "d19bc257-a91d-5d0c-8161-37d6dd57c698")
+		(property "Reference" "#PWR533"
 			(at 429.26 209.55 0)
 			(effects
 				(font
@@ -11111,12 +11044,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "f834c663-6143-5f1c-bfb5-c3971ca810ca")
+			(uuid "af17b56f-a55a-525f-8fc8-71b49a4df683")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR534")
+					(reference "#PWR533")
 					(unit 1)
 				)
 			)
@@ -11130,7 +11063,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a145ddf0-62a7-57e8-8f88-2348e161b20f")
+		(uuid "c09a24a8-7708-51fe-8277-965d9bc9b4ca")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -11140,8 +11073,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ed34c1c2-36d3-5d91-ae2d-6947b6c1c45e")
-		(property "Reference" "#PWR535"
+		(uuid "bdf7aadb-fa6f-5ab9-85cd-7acc55224130")
+		(property "Reference" "#PWR534"
 			(at 429.26 212.09 0)
 			(effects
 				(font
@@ -11186,12 +11119,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "26f33b25-c11d-5eca-964b-77624a244306")
+			(uuid "f834c663-6143-5f1c-bfb5-c3971ca810ca")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR535")
+					(reference "#PWR534")
 					(unit 1)
 				)
 			)
@@ -11205,7 +11138,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c09a24a8-7708-51fe-8277-965d9bc9b4ca")
+		(uuid "cd918d82-53db-5908-a454-7b9ba53fb40d")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -11215,8 +11148,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "89c9389e-9b73-5295-9967-079e528f995b")
-		(property "Reference" "#PWR536"
+		(uuid "ed34c1c2-36d3-5d91-ae2d-6947b6c1c45e")
+		(property "Reference" "#PWR535"
 			(at 429.26 214.63 0)
 			(effects
 				(font
@@ -11261,12 +11194,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b5a01a10-42e6-5bbb-bc1b-89e907fd293a")
+			(uuid "26f33b25-c11d-5eca-964b-77624a244306")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR536")
+					(reference "#PWR535")
 					(unit 1)
 				)
 			)
@@ -11280,7 +11213,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cd918d82-53db-5908-a454-7b9ba53fb40d")
+		(uuid "d4366a8f-7d98-5b23-b0a9-aadce6ca0cd3")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -11290,8 +11223,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "22f794e2-8b33-5f54-b747-09bfcfa1c400")
-		(property "Reference" "#PWR537"
+		(uuid "89c9389e-9b73-5295-9967-079e528f995b")
+		(property "Reference" "#PWR536"
 			(at 429.26 217.17 0)
 			(effects
 				(font
@@ -11336,12 +11269,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "0a66b9d2-cde8-5343-a896-843ba7f7a6db")
+			(uuid "b5a01a10-42e6-5bbb-bc1b-89e907fd293a")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR537")
+					(reference "#PWR536")
 					(unit 1)
 				)
 			)
@@ -11355,7 +11288,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d4366a8f-7d98-5b23-b0a9-aadce6ca0cd3")
+		(uuid "d4abcbba-fc6e-5c4a-aada-4f4b167f1a24")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -11365,8 +11298,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d4b9f3cd-d201-5f07-b0b3-24c745f908cb")
-		(property "Reference" "#PWR538"
+		(uuid "22f794e2-8b33-5f54-b747-09bfcfa1c400")
+		(property "Reference" "#PWR537"
 			(at 429.26 219.71 0)
 			(effects
 				(font
@@ -11411,12 +11344,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "7575ecfe-e0e4-55c7-b930-73a4721c5365")
+			(uuid "0a66b9d2-cde8-5343-a896-843ba7f7a6db")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR538")
+					(reference "#PWR537")
 					(unit 1)
 				)
 			)
@@ -11430,7 +11363,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d4abcbba-fc6e-5c4a-aada-4f4b167f1a24")
+		(uuid "42efe79a-fdcf-5230-80b1-220509670129")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -11440,8 +11373,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1141c209-91cc-5809-afca-1cccdd8d8a70")
-		(property "Reference" "#PWR539"
+		(uuid "d4b9f3cd-d201-5f07-b0b3-24c745f908cb")
+		(property "Reference" "#PWR538"
 			(at 429.26 222.25 0)
 			(effects
 				(font
@@ -11486,12 +11419,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "169c44d0-bc17-59f7-bcdc-e29a5d1d0cf7")
+			(uuid "7575ecfe-e0e4-55c7-b930-73a4721c5365")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR539")
+					(reference "#PWR538")
 					(unit 1)
 				)
 			)
@@ -11505,7 +11438,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "42efe79a-fdcf-5230-80b1-220509670129")
+		(uuid "854e6adc-8a16-5232-b62a-8247a0278aaa")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -11515,8 +11448,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "07dac580-620e-51f8-a1eb-523dab34cf21")
-		(property "Reference" "#PWR540"
+		(uuid "1141c209-91cc-5809-afca-1cccdd8d8a70")
+		(property "Reference" "#PWR539"
 			(at 429.26 224.79 0)
 			(effects
 				(font
@@ -11561,12 +11494,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "c4354700-7b0f-51d5-a8e3-8bd4351bff54")
+			(uuid "169c44d0-bc17-59f7-bcdc-e29a5d1d0cf7")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR540")
+					(reference "#PWR539")
 					(unit 1)
 				)
 			)
@@ -11580,7 +11513,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "854e6adc-8a16-5232-b62a-8247a0278aaa")
+		(uuid "85989207-8c49-5607-ae50-e177d4969576")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -11590,8 +11523,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "32bc11e1-b02d-5858-8f22-1d9c0f5e20ae")
-		(property "Reference" "#PWR541"
+		(uuid "07dac580-620e-51f8-a1eb-523dab34cf21")
+		(property "Reference" "#PWR540"
 			(at 429.26 227.33 0)
 			(effects
 				(font
@@ -11636,12 +11569,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b294ca9e-156e-5d0b-ba54-c27b405a6b63")
+			(uuid "c4354700-7b0f-51d5-a8e3-8bd4351bff54")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR541")
+					(reference "#PWR540")
 					(unit 1)
 				)
 			)
@@ -11655,7 +11588,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "85989207-8c49-5607-ae50-e177d4969576")
+		(uuid "9fc70efd-deb4-5261-ad47-594dc1a993e8")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -11665,8 +11598,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a3be12e5-f07f-54a0-925f-b468acdb85e6")
-		(property "Reference" "#PWR542"
+		(uuid "32bc11e1-b02d-5858-8f22-1d9c0f5e20ae")
+		(property "Reference" "#PWR541"
 			(at 429.26 229.87 0)
 			(effects
 				(font
@@ -11711,12 +11644,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "62da79c1-c7ea-5d67-8738-13a3460ee8f6")
+			(uuid "b294ca9e-156e-5d0b-ba54-c27b405a6b63")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR542")
+					(reference "#PWR541")
 					(unit 1)
 				)
 			)
@@ -11730,7 +11663,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9fc70efd-deb4-5261-ad47-594dc1a993e8")
+		(uuid "c808fca7-8d8d-5ef6-bd0b-080542083511")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -11740,8 +11673,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "5645b480-7a9b-532a-a42b-33780c6e130f")
-		(property "Reference" "#PWR543"
+		(uuid "a3be12e5-f07f-54a0-925f-b468acdb85e6")
+		(property "Reference" "#PWR542"
 			(at 429.26 232.41 0)
 			(effects
 				(font
@@ -11786,12 +11719,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "24e869fe-4d9e-5db9-9f09-960dc65b4cfd")
+			(uuid "62da79c1-c7ea-5d67-8738-13a3460ee8f6")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR543")
+					(reference "#PWR542")
 					(unit 1)
 				)
 			)
@@ -11805,7 +11738,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c808fca7-8d8d-5ef6-bd0b-080542083511")
+		(uuid "5c17b115-3e5b-5b8d-8517-4ec1ed6026cc")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -11815,8 +11748,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "7a359958-8da2-5452-8bb5-082f77da7879")
-		(property "Reference" "#PWR544"
+		(uuid "5645b480-7a9b-532a-a42b-33780c6e130f")
+		(property "Reference" "#PWR543"
 			(at 429.26 234.95 0)
 			(effects
 				(font
@@ -11861,12 +11794,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "6e07fc6a-e6c4-55ad-8b04-0731fcbefba1")
+			(uuid "24e869fe-4d9e-5db9-9f09-960dc65b4cfd")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR544")
+					(reference "#PWR543")
 					(unit 1)
 				)
 			)
@@ -11880,7 +11813,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5c17b115-3e5b-5b8d-8517-4ec1ed6026cc")
+		(uuid "20167d1b-5cc3-522f-a6a2-d7f3be620ae4")
 	)
 	(global_label "POT_G_CR_TOP"
 		(shape passive)
@@ -11892,7 +11825,7 @@
 			)
 			(justify left)
 		)
-		(uuid "20167d1b-5cc3-522f-a6a2-d7f3be620ae4")
+		(uuid "c7944e26-4234-5426-982d-5c65d1a58c29")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 447.04 198.12 0)
 			(effects
@@ -11912,7 +11845,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c7944e26-4234-5426-982d-5c65d1a58c29")
+		(uuid "1c02d91b-3d34-5e3b-bb5b-1423239ea749")
 	)
 	(global_label "POT_G_CR_W"
 		(shape passive)
@@ -11924,7 +11857,7 @@
 			)
 			(justify left)
 		)
-		(uuid "1c02d91b-3d34-5e3b-bb5b-1423239ea749")
+		(uuid "0572d31a-16c6-59c5-916c-2270ffaf98e8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 447.04 200.66 0)
 			(effects
@@ -11944,7 +11877,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0572d31a-16c6-59c5-916c-2270ffaf98e8")
+		(uuid "a667c479-f20f-5213-9df1-0bc84ad755b3")
 	)
 	(global_label "POT_BS_CR_TOP"
 		(shape passive)
@@ -11956,7 +11889,7 @@
 			)
 			(justify left)
 		)
-		(uuid "a667c479-f20f-5213-9df1-0bc84ad755b3")
+		(uuid "466bf1e4-5809-5285-9752-52f828e72df8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 447.04 203.2 0)
 			(effects
@@ -11976,7 +11909,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "466bf1e4-5809-5285-9752-52f828e72df8")
+		(uuid "d7b5e903-7060-5087-828a-45eb363a2beb")
 	)
 	(global_label "POT_BS_CR_W"
 		(shape passive)
@@ -11988,7 +11921,7 @@
 			)
 			(justify left)
 		)
-		(uuid "d7b5e903-7060-5087-828a-45eb363a2beb")
+		(uuid "2e78b5de-282f-50a4-9755-952646d98905")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 447.04 205.74 0)
 			(effects
@@ -12008,7 +11941,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2e78b5de-282f-50a4-9755-952646d98905")
+		(uuid "1850651e-5f62-5b41-bca5-720f4fdbc779")
 	)
 	(global_label "POT_BS_CR_BOT"
 		(shape passive)
@@ -12020,7 +11953,7 @@
 			)
 			(justify left)
 		)
-		(uuid "1850651e-5f62-5b41-bca5-720f4fdbc779")
+		(uuid "a66df494-76a6-58a3-8e4e-5e0b9e655b07")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 447.04 208.28 0)
 			(effects
@@ -12040,7 +11973,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a66df494-76a6-58a3-8e4e-5e0b9e655b07")
+		(uuid "43f41693-4a3a-5844-b233-dfbd93668875")
 	)
 	(global_label "POT_TR_CR_TOP"
 		(shape passive)
@@ -12052,7 +11985,7 @@
 			)
 			(justify left)
 		)
-		(uuid "43f41693-4a3a-5844-b233-dfbd93668875")
+		(uuid "66d737ff-f2ba-50a9-9341-4a66d1e4ba22")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 447.04 210.82 0)
 			(effects
@@ -12072,7 +12005,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "66d737ff-f2ba-50a9-9341-4a66d1e4ba22")
+		(uuid "ac52a7e9-85ab-530c-ae76-1a8af30862f7")
 	)
 	(global_label "POT_TR_CR_W"
 		(shape passive)
@@ -12084,7 +12017,7 @@
 			)
 			(justify left)
 		)
-		(uuid "ac52a7e9-85ab-530c-ae76-1a8af30862f7")
+		(uuid "2fc5b454-c466-5a07-80a6-4973272ef994")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 447.04 213.36 0)
 			(effects
@@ -12104,7 +12037,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2fc5b454-c466-5a07-80a6-4973272ef994")
+		(uuid "6014e7b6-8e92-5213-85c4-8dbb21349a07")
 	)
 	(global_label "POT_TR_CR_BOT"
 		(shape passive)
@@ -12116,7 +12049,7 @@
 			)
 			(justify left)
 		)
-		(uuid "6014e7b6-8e92-5213-85c4-8dbb21349a07")
+		(uuid "61922fc3-7518-54ed-b66d-a1397dc86d8c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 447.04 215.9 0)
 			(effects
@@ -12136,7 +12069,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "61922fc3-7518-54ed-b66d-a1397dc86d8c")
+		(uuid "6a0dad38-a2ad-54d0-85e1-dc1d7c1041b0")
 	)
 	(global_label "POT_P_CR_W"
 		(shape passive)
@@ -12148,7 +12081,7 @@
 			)
 			(justify left)
 		)
-		(uuid "6a0dad38-a2ad-54d0-85e1-dc1d7c1041b0")
+		(uuid "a592e4c3-3b1f-55e6-8e79-c271b6fec398")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 447.04 218.44 0)
 			(effects
@@ -12168,7 +12101,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a592e4c3-3b1f-55e6-8e79-c271b6fec398")
+		(uuid "9bab5036-67de-54e7-81fa-b7cfddf52624")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -12178,8 +12111,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "477d94c9-c3ac-55ac-a7ea-5d3b4a7d68b5")
-		(property "Reference" "#PWR545"
+		(uuid "7a359958-8da2-5452-8bb5-082f77da7879")
+		(property "Reference" "#PWR544"
 			(at 447.04 227.33 0)
 			(effects
 				(font
@@ -12224,12 +12157,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "bb988a47-12a0-5b18-9a3c-303b01c0ced2")
+			(uuid "6e07fc6a-e6c4-55ad-8b04-0731fcbefba1")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR545")
+					(reference "#PWR544")
 					(unit 1)
 				)
 			)
@@ -12243,7 +12176,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9bab5036-67de-54e7-81fa-b7cfddf52624")
+		(uuid "d5be400b-4708-5400-bb85-f8f54e3cf13d")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -12253,8 +12186,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "7c10fa91-eb88-5b10-8c17-7023892249ed")
-		(property "Reference" "#PWR546"
+		(uuid "477d94c9-c3ac-55ac-a7ea-5d3b4a7d68b5")
+		(property "Reference" "#PWR545"
 			(at 447.04 229.87 0)
 			(effects
 				(font
@@ -12299,12 +12232,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "497d64ba-bf70-530e-9ac7-d8052b677734")
+			(uuid "bb988a47-12a0-5b18-9a3c-303b01c0ced2")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR546")
+					(reference "#PWR545")
 					(unit 1)
 				)
 			)
@@ -12318,7 +12251,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d5be400b-4708-5400-bb85-f8f54e3cf13d")
+		(uuid "f4adbcd0-e421-53bc-a1c2-7282b953bc4d")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -12328,8 +12261,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "fe8f69e1-1234-5738-b2d7-175dff02add1")
-		(property "Reference" "#PWR547"
+		(uuid "7c10fa91-eb88-5b10-8c17-7023892249ed")
+		(property "Reference" "#PWR546"
 			(at 447.04 232.41 0)
 			(effects
 				(font
@@ -12374,12 +12307,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b7431193-3866-5c71-b8b5-07a4ae2505dd")
+			(uuid "497d64ba-bf70-530e-9ac7-d8052b677734")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR547")
+					(reference "#PWR546")
 					(unit 1)
 				)
 			)
@@ -12393,7 +12326,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f4adbcd0-e421-53bc-a1c2-7282b953bc4d")
+		(uuid "04610572-c558-5ac1-8e0c-60e2474b487f")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -12403,8 +12336,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a34d1730-369a-53f7-8ff6-c880a43c28f6")
-		(property "Reference" "#PWR548"
+		(uuid "fe8f69e1-1234-5738-b2d7-175dff02add1")
+		(property "Reference" "#PWR547"
 			(at 447.04 234.95 0)
 			(effects
 				(font
@@ -12449,12 +12382,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "2678bb7d-94b4-5197-b6f1-19d960a6d2b8")
+			(uuid "b7431193-3866-5c71-b8b5-07a4ae2505dd")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR548")
+					(reference "#PWR547")
 					(unit 1)
 				)
 			)
@@ -12607,7 +12540,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "04610572-c558-5ac1-8e0c-60e2474b487f")
+		(uuid "768cfc44-69b6-50e2-a449-f4791e30f696")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -12617,8 +12550,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "3e1284d0-6be8-5a92-aa9f-7c1a124a3126")
-		(property "Reference" "#PWR549"
+		(uuid "a34d1730-369a-53f7-8ff6-c880a43c28f6")
+		(property "Reference" "#PWR548"
 			(at 510.54 204.47 0)
 			(effects
 				(font
@@ -12663,12 +12596,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a4477fe2-af74-5682-a50c-0d635421851f")
+			(uuid "2678bb7d-94b4-5197-b6f1-19d960a6d2b8")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR549")
+					(reference "#PWR548")
 					(unit 1)
 				)
 			)
@@ -12682,7 +12615,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "768cfc44-69b6-50e2-a449-f4791e30f696")
+		(uuid "6fd4fbc6-0abb-584d-849e-b5e0b21150ea")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -12692,8 +12625,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a0e00d40-1c5c-5901-b0ee-05545fd80ba8")
-		(property "Reference" "#PWR550"
+		(uuid "3e1284d0-6be8-5a92-aa9f-7c1a124a3126")
+		(property "Reference" "#PWR549"
 			(at 510.54 207.01 0)
 			(effects
 				(font
@@ -12738,12 +12671,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "519a3821-3f91-51c6-b155-28e7ebabe3cf")
+			(uuid "a4477fe2-af74-5682-a50c-0d635421851f")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR550")
+					(reference "#PWR549")
 					(unit 1)
 				)
 			)
@@ -12757,7 +12690,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6fd4fbc6-0abb-584d-849e-b5e0b21150ea")
+		(uuid "9b1c3c7b-b9ec-509c-85e9-ac948604363a")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -12767,8 +12700,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "53976ce4-4047-5325-8831-6b0fdfbf9896")
-		(property "Reference" "#PWR551"
+		(uuid "a0e00d40-1c5c-5901-b0ee-05545fd80ba8")
+		(property "Reference" "#PWR550"
 			(at 510.54 209.55 0)
 			(effects
 				(font
@@ -12813,12 +12746,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "974315c5-e5b9-5745-8dc7-eb36801eecb5")
+			(uuid "519a3821-3f91-51c6-b155-28e7ebabe3cf")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR551")
+					(reference "#PWR550")
 					(unit 1)
 				)
 			)
@@ -12832,7 +12765,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9b1c3c7b-b9ec-509c-85e9-ac948604363a")
+		(uuid "bba3e51c-956b-5d1c-8cba-100a79c0f80a")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -12842,8 +12775,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "2ca4f0f2-77f5-501d-9539-cbd813ab8380")
-		(property "Reference" "#PWR552"
+		(uuid "53976ce4-4047-5325-8831-6b0fdfbf9896")
+		(property "Reference" "#PWR551"
 			(at 510.54 212.09 0)
 			(effects
 				(font
@@ -12888,12 +12821,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "68daf777-f5f8-529c-9b23-49dc8fc15c57")
+			(uuid "974315c5-e5b9-5745-8dc7-eb36801eecb5")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR552")
+					(reference "#PWR551")
 					(unit 1)
 				)
 			)
@@ -12907,7 +12840,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "bba3e51c-956b-5d1c-8cba-100a79c0f80a")
+		(uuid "cf39f011-61a3-5c26-bc5d-700b0fdfb482")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -12917,8 +12850,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "3f150e36-4b11-5d86-b8f2-efdff5cf2109")
-		(property "Reference" "#PWR553"
+		(uuid "2ca4f0f2-77f5-501d-9539-cbd813ab8380")
+		(property "Reference" "#PWR552"
 			(at 510.54 214.63 0)
 			(effects
 				(font
@@ -12963,12 +12896,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "88592bf3-7d5d-5f8e-91fc-bb006d909a7a")
+			(uuid "68daf777-f5f8-529c-9b23-49dc8fc15c57")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR553")
+					(reference "#PWR552")
 					(unit 1)
 				)
 			)
@@ -12982,7 +12915,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cf39f011-61a3-5c26-bc5d-700b0fdfb482")
+		(uuid "20c88577-d6f4-5736-ac60-bed05a99e435")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -12992,8 +12925,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "0b84a4a4-326d-5971-83c8-90628e1d4b1c")
-		(property "Reference" "#PWR554"
+		(uuid "3f150e36-4b11-5d86-b8f2-efdff5cf2109")
+		(property "Reference" "#PWR553"
 			(at 510.54 217.17 0)
 			(effects
 				(font
@@ -13038,12 +12971,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "1034cc7a-8d5a-5502-8303-92027833bb5d")
+			(uuid "88592bf3-7d5d-5f8e-91fc-bb006d909a7a")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR554")
+					(reference "#PWR553")
 					(unit 1)
 				)
 			)
@@ -13057,7 +12990,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "20c88577-d6f4-5736-ac60-bed05a99e435")
+		(uuid "d1460e05-8f3e-5b98-a1fb-23c855caa36a")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -13067,8 +13000,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "872a4e5b-e50a-5f24-a3b0-f9b6df0696e8")
-		(property "Reference" "#PWR555"
+		(uuid "0b84a4a4-326d-5971-83c8-90628e1d4b1c")
+		(property "Reference" "#PWR554"
 			(at 510.54 219.71 0)
 			(effects
 				(font
@@ -13113,12 +13046,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "8ba7edee-ff98-56e5-af1e-6a3988707e6a")
+			(uuid "1034cc7a-8d5a-5502-8303-92027833bb5d")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR555")
+					(reference "#PWR554")
 					(unit 1)
 				)
 			)
@@ -13132,7 +13065,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d1460e05-8f3e-5b98-a1fb-23c855caa36a")
+		(uuid "42a98f5b-4644-55e4-9c1f-61426cf0125e")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -13142,8 +13075,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "e6ec794d-ed33-55fc-bd1e-8abbce83a69a")
-		(property "Reference" "#PWR556"
+		(uuid "872a4e5b-e50a-5f24-a3b0-f9b6df0696e8")
+		(property "Reference" "#PWR555"
 			(at 510.54 222.25 0)
 			(effects
 				(font
@@ -13188,12 +13121,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "52529e60-b19c-5824-81ec-454c416a662b")
+			(uuid "8ba7edee-ff98-56e5-af1e-6a3988707e6a")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR556")
+					(reference "#PWR555")
 					(unit 1)
 				)
 			)
@@ -13207,7 +13140,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "42a98f5b-4644-55e4-9c1f-61426cf0125e")
+		(uuid "3b47cb95-dcc4-521b-92b0-4675ce3d9188")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -13217,8 +13150,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "43bfb732-6644-583c-bb4a-587824c8f845")
-		(property "Reference" "#PWR557"
+		(uuid "e6ec794d-ed33-55fc-bd1e-8abbce83a69a")
+		(property "Reference" "#PWR556"
 			(at 510.54 224.79 0)
 			(effects
 				(font
@@ -13263,12 +13196,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "325ddf57-79e9-5c77-85bd-ffb84a5d3a9f")
+			(uuid "52529e60-b19c-5824-81ec-454c416a662b")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR557")
+					(reference "#PWR556")
 					(unit 1)
 				)
 			)
@@ -13282,7 +13215,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3b47cb95-dcc4-521b-92b0-4675ce3d9188")
+		(uuid "7af89096-810f-597f-b448-38ac196350ed")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -13292,8 +13225,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f2492db3-0740-51af-a3a2-0613d7757c29")
-		(property "Reference" "#PWR558"
+		(uuid "43bfb732-6644-583c-bb4a-587824c8f845")
+		(property "Reference" "#PWR557"
 			(at 510.54 227.33 0)
 			(effects
 				(font
@@ -13338,12 +13271,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "97d46fb7-18d0-5bf5-9e0a-39c9cb3c48f5")
+			(uuid "325ddf57-79e9-5c77-85bd-ffb84a5d3a9f")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR558")
+					(reference "#PWR557")
 					(unit 1)
 				)
 			)
@@ -13357,7 +13290,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7af89096-810f-597f-b448-38ac196350ed")
+		(uuid "3c76840f-8a8d-5641-8bd6-9f1823517e33")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -13367,8 +13300,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f4645bd5-2991-5db8-a118-e4627fc9f1fd")
-		(property "Reference" "#PWR559"
+		(uuid "f2492db3-0740-51af-a3a2-0613d7757c29")
+		(property "Reference" "#PWR558"
 			(at 510.54 229.87 0)
 			(effects
 				(font
@@ -13413,12 +13346,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "88c36078-e8fc-5fc3-93c3-72a6ef5d2cc0")
+			(uuid "97d46fb7-18d0-5bf5-9e0a-39c9cb3c48f5")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR559")
+					(reference "#PWR558")
 					(unit 1)
 				)
 			)
@@ -13432,7 +13365,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3c76840f-8a8d-5641-8bd6-9f1823517e33")
+		(uuid "15f3883d-5e4b-5ca3-bee9-b3462acb1cf6")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -13442,8 +13375,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "9c1e58fa-acad-5d0f-a7ab-4fe3818209f2")
-		(property "Reference" "#PWR560"
+		(uuid "f4645bd5-2991-5db8-a118-e4627fc9f1fd")
+		(property "Reference" "#PWR559"
 			(at 510.54 232.41 0)
 			(effects
 				(font
@@ -13488,12 +13421,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "436120ff-3541-5152-aed6-c3e30ffc4282")
+			(uuid "88c36078-e8fc-5fc3-93c3-72a6ef5d2cc0")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR560")
+					(reference "#PWR559")
 					(unit 1)
 				)
 			)
@@ -13507,7 +13440,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "15f3883d-5e4b-5ca3-bee9-b3462acb1cf6")
+		(uuid "1d8fd9ff-c92c-5d9e-bf43-1ba0b0758379")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -13517,8 +13450,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "fcdb8a50-7ae6-5944-a685-c6d36cffbe50")
-		(property "Reference" "#PWR561"
+		(uuid "9c1e58fa-acad-5d0f-a7ab-4fe3818209f2")
+		(property "Reference" "#PWR560"
 			(at 510.54 234.95 0)
 			(effects
 				(font
@@ -13563,12 +13496,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "0949b7e9-dd7c-5d59-bf55-0d880b8414ed")
+			(uuid "436120ff-3541-5152-aed6-c3e30ffc4282")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR561")
+					(reference "#PWR560")
 					(unit 1)
 				)
 			)
@@ -13582,7 +13515,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1d8fd9ff-c92c-5d9e-bf43-1ba0b0758379")
+		(uuid "8d2c850e-6b3c-594a-a4f5-b72a4259154a")
 	)
 	(global_label "POT_G_LD_TOP"
 		(shape passive)
@@ -13594,7 +13527,7 @@
 			)
 			(justify left)
 		)
-		(uuid "8d2c850e-6b3c-594a-a4f5-b72a4259154a")
+		(uuid "7f8927e7-49fd-5e96-8c26-8c142c03a416")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 528.32 198.12 0)
 			(effects
@@ -13614,7 +13547,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7f8927e7-49fd-5e96-8c26-8c142c03a416")
+		(uuid "72aa32f6-02d6-5c1a-8ab8-649214298e10")
 	)
 	(global_label "POT_G_LD_W"
 		(shape passive)
@@ -13626,7 +13559,7 @@
 			)
 			(justify left)
 		)
-		(uuid "72aa32f6-02d6-5c1a-8ab8-649214298e10")
+		(uuid "c30f99f1-a41e-5010-9306-96be56df0d76")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 528.32 200.66 0)
 			(effects
@@ -13646,7 +13579,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c30f99f1-a41e-5010-9306-96be56df0d76")
+		(uuid "baccac9e-db8e-592a-847e-5a4ee42d5a51")
 	)
 	(global_label "POT_BS_LD_TOP"
 		(shape passive)
@@ -13658,7 +13591,7 @@
 			)
 			(justify left)
 		)
-		(uuid "baccac9e-db8e-592a-847e-5a4ee42d5a51")
+		(uuid "5d173f4e-4a67-53f0-a0e3-2017a105d9f7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 528.32 203.2 0)
 			(effects
@@ -13678,7 +13611,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5d173f4e-4a67-53f0-a0e3-2017a105d9f7")
+		(uuid "e569eb32-b934-533e-9e3e-c410bb7c1b5a")
 	)
 	(global_label "POT_BS_LD_W"
 		(shape passive)
@@ -13690,7 +13623,7 @@
 			)
 			(justify left)
 		)
-		(uuid "e569eb32-b934-533e-9e3e-c410bb7c1b5a")
+		(uuid "7dea8262-b712-5972-9aed-d8cd0239317e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 528.32 205.74 0)
 			(effects
@@ -13710,7 +13643,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7dea8262-b712-5972-9aed-d8cd0239317e")
+		(uuid "6a9298e9-21a0-57cb-bb00-604114b4b804")
 	)
 	(global_label "POT_BS_LD_BOT"
 		(shape passive)
@@ -13722,7 +13655,7 @@
 			)
 			(justify left)
 		)
-		(uuid "6a9298e9-21a0-57cb-bb00-604114b4b804")
+		(uuid "be7e58ed-076a-5a44-8694-0e96a3c57a11")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 528.32 208.28 0)
 			(effects
@@ -13742,7 +13675,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "be7e58ed-076a-5a44-8694-0e96a3c57a11")
+		(uuid "3f421d97-aec1-5530-8db1-9788856c9e4c")
 	)
 	(global_label "POT_TR_LD_TOP"
 		(shape passive)
@@ -13754,7 +13687,7 @@
 			)
 			(justify left)
 		)
-		(uuid "3f421d97-aec1-5530-8db1-9788856c9e4c")
+		(uuid "ff2760c1-042d-57f3-85e7-7b4579aa305f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 528.32 210.82 0)
 			(effects
@@ -13774,7 +13707,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ff2760c1-042d-57f3-85e7-7b4579aa305f")
+		(uuid "f43525d4-a937-5e30-a02e-c7cb0bda9b6f")
 	)
 	(global_label "POT_TR_LD_W"
 		(shape passive)
@@ -13786,7 +13719,7 @@
 			)
 			(justify left)
 		)
-		(uuid "f43525d4-a937-5e30-a02e-c7cb0bda9b6f")
+		(uuid "c089eec7-5e1d-56e3-a81e-b3f3ffc1529c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 528.32 213.36 0)
 			(effects
@@ -13806,7 +13739,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c089eec7-5e1d-56e3-a81e-b3f3ffc1529c")
+		(uuid "ccbccd4a-ca25-5618-980e-b4696d381fb3")
 	)
 	(global_label "POT_TR_LD_BOT"
 		(shape passive)
@@ -13818,7 +13751,7 @@
 			)
 			(justify left)
 		)
-		(uuid "ccbccd4a-ca25-5618-980e-b4696d381fb3")
+		(uuid "7b048013-79e9-592b-8432-c0545596349a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 528.32 215.9 0)
 			(effects
@@ -13838,7 +13771,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7b048013-79e9-592b-8432-c0545596349a")
+		(uuid "c90b463f-91db-5d63-9547-884d7b339c85")
 	)
 	(global_label "POT_P_LD_W"
 		(shape passive)
@@ -13850,7 +13783,7 @@
 			)
 			(justify left)
 		)
-		(uuid "c90b463f-91db-5d63-9547-884d7b339c85")
+		(uuid "6632f0b6-705f-5d65-8bfb-d7dad0e3a826")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 528.32 218.44 0)
 			(effects
@@ -13870,7 +13803,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6632f0b6-705f-5d65-8bfb-d7dad0e3a826")
+		(uuid "d3170308-fc16-5493-993a-180efe30c881")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -13880,8 +13813,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b6ff939b-87e1-55e0-a823-7004bf4cd51f")
-		(property "Reference" "#PWR562"
+		(uuid "fcdb8a50-7ae6-5944-a685-c6d36cffbe50")
+		(property "Reference" "#PWR561"
 			(at 528.32 227.33 0)
 			(effects
 				(font
@@ -13926,12 +13859,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "3eb126e6-ed2d-512c-8481-24e2a48ac72b")
+			(uuid "0949b7e9-dd7c-5d59-bf55-0d880b8414ed")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR562")
+					(reference "#PWR561")
 					(unit 1)
 				)
 			)
@@ -13945,7 +13878,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d3170308-fc16-5493-993a-180efe30c881")
+		(uuid "7c799659-f523-5c85-b284-e27a43cadd1e")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -13955,8 +13888,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c62b2d17-3206-526b-9cc4-1ae35bc08c53")
-		(property "Reference" "#PWR563"
+		(uuid "b6ff939b-87e1-55e0-a823-7004bf4cd51f")
+		(property "Reference" "#PWR562"
 			(at 528.32 229.87 0)
 			(effects
 				(font
@@ -14001,12 +13934,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "60f17856-a640-53a7-b526-9ca07e722237")
+			(uuid "3eb126e6-ed2d-512c-8481-24e2a48ac72b")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR563")
+					(reference "#PWR562")
 					(unit 1)
 				)
 			)
@@ -14020,7 +13953,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7c799659-f523-5c85-b284-e27a43cadd1e")
+		(uuid "c3b98e51-8881-593b-bd83-9303b0141096")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -14030,8 +13963,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "cc845fe6-50a5-5290-b6ac-83d8265f120c")
-		(property "Reference" "#PWR564"
+		(uuid "c62b2d17-3206-526b-9cc4-1ae35bc08c53")
+		(property "Reference" "#PWR563"
 			(at 528.32 232.41 0)
 			(effects
 				(font
@@ -14076,12 +14009,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "285d429c-e3e4-5b3a-ac38-00a61db4f7e9")
+			(uuid "60f17856-a640-53a7-b526-9ca07e722237")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR564")
+					(reference "#PWR563")
 					(unit 1)
 				)
 			)
@@ -14095,7 +14028,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c3b98e51-8881-593b-bd83-9303b0141096")
+		(uuid "80abe843-281e-5ef9-96c2-6c2d51a58373")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -14105,8 +14038,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b7a85a80-5e46-5b32-b9bf-f3bc05e2a775")
-		(property "Reference" "#PWR565"
+		(uuid "cc845fe6-50a5-5290-b6ac-83d8265f120c")
+		(property "Reference" "#PWR564"
 			(at 528.32 234.95 0)
 			(effects
 				(font
@@ -14151,12 +14084,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "0ffb6d2d-cac0-5b2b-9b44-b83e4b410e65")
+			(uuid "285d429c-e3e4-5b3a-ac38-00a61db4f7e9")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR565")
+					(reference "#PWR564")
 					(unit 1)
 				)
 			)
@@ -14240,7 +14173,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "80abe843-281e-5ef9-96c2-6c2d51a58373")
+		(uuid "f6d63120-719b-5cce-8139-afb245f5380e")
 	)
 	(global_label "OUT"
 		(shape passive)
@@ -14252,7 +14185,7 @@
 			)
 			(justify right)
 		)
-		(uuid "f6d63120-719b-5cce-8139-afb245f5380e")
+		(uuid "f3263507-0251-55a1-a966-a324134233cf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 22.86 264.16 0)
 			(effects
@@ -14272,7 +14205,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f3263507-0251-55a1-a966-a324134233cf")
+		(uuid "343222b2-e704-5ac1-97a8-42453bc1c652")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -14282,8 +14215,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "95c8987e-069e-5580-bbef-00ac996f6004")
-		(property "Reference" "#PWR566"
+		(uuid "b7a85a80-5e46-5b32-b9bf-f3bc05e2a775")
+		(property "Reference" "#PWR565"
 			(at 22.86 273.05 0)
 			(effects
 				(font
@@ -14328,12 +14261,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "d9a50b59-2b33-5405-b369-89dd5d829df1")
+			(uuid "0ffb6d2d-cac0-5b2b-9b44-b83e4b410e65")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR566")
+					(reference "#PWR565")
 					(unit 1)
 				)
 			)
@@ -14347,7 +14280,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "343222b2-e704-5ac1-97a8-42453bc1c652")
+		(uuid "5602455e-43e5-5558-b233-1e385336805e")
 	)
 	(label "SHLD_OUT"
 		(at 22.86 269.24 180)
@@ -14357,7 +14290,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "5602455e-43e5-5558-b233-1e385336805e")
+		(uuid "e621a7e9-7098-55e4-8a0f-45d894a95e8d")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:R")
@@ -14434,7 +14367,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e621a7e9-7098-55e4-8a0f-45d894a95e8d")
+		(uuid "f6e55366-6f23-525b-aafe-7cd5af296075")
 	)
 	(label "SHLD_OUT"
 		(at 64.77 284.48 180)
@@ -14444,7 +14377,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "f6e55366-6f23-525b-aafe-7cd5af296075")
+		(uuid "363ab0b9-2ef0-5974-a9ce-db6748ca8e3b")
 	)
 	(wire
 		(pts
@@ -14454,7 +14387,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "363ab0b9-2ef0-5974-a9ce-db6748ca8e3b")
+		(uuid "8b99e3d5-2021-57d8-ab01-8c133ea6c464")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -14464,8 +14397,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "fdc6a241-6f93-5625-b423-4be95a1e8d49")
-		(property "Reference" "#PWR567"
+		(uuid "95c8987e-069e-5580-bbef-00ac996f6004")
+		(property "Reference" "#PWR566"
 			(at 77.47 290.83 0)
 			(effects
 				(font
@@ -14510,12 +14443,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "cbf3ceff-fc77-5c35-a7ff-5aea8076b24b")
+			(uuid "d9a50b59-2b33-5405-b369-89dd5d829df1")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR567")
+					(reference "#PWR566")
 					(unit 1)
 				)
 			)
@@ -14596,7 +14529,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8b99e3d5-2021-57d8-ab01-8c133ea6c464")
+		(uuid "c94f0465-6651-5207-b021-4715f1c243f2")
 	)
 	(label "SHLD_OUT"
 		(at 85.09 284.48 180)
@@ -14606,7 +14539,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "c94f0465-6651-5207-b021-4715f1c243f2")
+		(uuid "f822e811-22cf-540f-ba99-23ff8db9b215")
 	)
 	(wire
 		(pts
@@ -14616,7 +14549,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f822e811-22cf-540f-ba99-23ff8db9b215")
+		(uuid "6c748b56-a980-55fb-9386-77b8697d355d")
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:GNDA")
@@ -14626,8 +14559,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "065998f3-b717-59f0-ab2e-cf5902133193")
-		(property "Reference" "#PWR568"
+		(uuid "fdc6a241-6f93-5625-b423-4be95a1e8d49")
+		(property "Reference" "#PWR567"
 			(at 97.79 290.83 0)
 			(effects
 				(font
@@ -14672,12 +14605,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "2aa81e0f-acf4-590c-9c86-c4b40a34547c")
+			(uuid "cbf3ceff-fc77-5c35-a7ff-5aea8076b24b")
 		)
 		(instances
 			(project "tube_preamp_revb"
 				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
-					(reference "#PWR568")
+					(reference "#PWR567")
 					(unit 1)
 				)
 			)
@@ -14692,7 +14625,288 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6c748b56-a980-55fb-9386-77b8697d355d")
+		(uuid "8a01ba12-e38f-5fac-a3e5-a763529796ff")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 335.28 124.46 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "29ae8cb9-0f73-5810-9653-dcb5c0c63657")
+		(property "Reference" "R518"
+			(at 335.28 121.92 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220k"
+			(at 335.28 127 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 335.28 126.238 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 335.28 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 335.28 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c6f51424-56e6-5c2d-a8a4-586e1250a801")
+		)
+		(pin "2"
+			(uuid "a0564d47-8a61-5c44-8bd4-ba33e625ebb3")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
+					(reference "R518")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 331.47 124.46) (xy 328.93 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7777a1a6-2a64-56f3-9be7-553f8815bab3")
+	)
+	(label "BLEED_M"
+		(at 328.93 124.46 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2c75c0d3-077b-5abb-9113-36b8b035d133")
+	)
+	(wire
+		(pts
+			(xy 339.09 124.46) (xy 341.63 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "508ca3d6-ee41-5721-952f-6428a82b4080")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:GNDA")
+		(at 341.63 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "065998f3-b717-59f0-ab2e-cf5902133193")
+		(property "Reference" "#PWR568"
+			(at 341.63 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 341.63 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 341.63 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 341.63 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 341.63 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2aa81e0f-acf4-590c-9c86-c4b40a34547c")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
+					(reference "#PWR568")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 375.92 124.46 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "de87953c-26ef-51c6-a2be-0d889a7aa81a")
+		(property "Reference" "R519"
+			(at 375.92 121.92 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330k"
+			(at 375.92 127 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 375.92 126.238 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 375.92 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 375.92 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "97a4ad99-618a-5c41-8198-ad67b5f9c85f")
+		)
+		(pin "2"
+			(uuid "58b0db39-35c8-5e2e-8570-2833c17c1e24")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
+					(reference "R519")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 372.11 124.46) (xy 369.57 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b90bf07-10cf-5c2f-accf-5953c4beae8a")
+	)
+	(label "VDIV_M"
+		(at 369.57 124.46 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "93a02711-b78c-5544-86b6-bd85f9704cc9")
+	)
+	(wire
+		(pts
+			(xy 379.73 124.46) (xy 382.27 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a06288b-9bd6-5bdf-91d8-1521faf08b8f")
+	)
+	(global_label "VB90"
+		(shape passive)
+		(at 382.27 124.46 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4fc9dd35-d6e9-5a68-8cdb-dd5eb22ef26c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 382.27 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(sheet_instances
 		(path "/"

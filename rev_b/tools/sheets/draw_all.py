@@ -356,12 +356,12 @@ def sheet05(d):
     R(d, "R507", 11, 7, "BP_RAW", "QB", "820k", rot=0)
     CP(d, "C502", 13, 3, "BP", "GND", "47u/450V")
     C(d, "C503", 14, 3, "BP", "GND", "100n/630V")
-    R(d, "R508", 15, 3, "BP", "GND", "470k")
+    R(d, "R508", 15, 3, "BP", "BLEED_M", "220k")    # 2 x 2512 in series (330 V over 200 V parts); lower half at the end
     chain = [("BP", "BP4", "3.3k"), ("BP4", "BP3", "6.8k"), ("BP3", "BP2", "10k"), ("BP2", "BP1", "10k")]
     for i, (a, b, rv) in enumerate(chain):
         R(d, f"R51{i}", 17 + i * 2, 1, a, b, rv, rot=0)
         CP(d, f"C51{i}", 18 + i * 2, 2, b, "GND", "22u/450V")
-    R(d, "R520", 17, 4, "BP4", "VB90", "680k")
+    R(d, "R520", 17, 4, "BP4", "VDIV_M", "330k")    # 2 x 2512 in series (230 V; 660k: VB90 = 0.29 x BP4); lower half at the end
     R(d, "R521", 17, 6, "VB90", "GND", "270k")
     CP(d, "C520", 18, 6, "VB90", "GND", "10u/250V")
     d.part("Conn_01x02", "J502", 0, 9, {1: "HTR1", 2: "HTR2"}, value="HEATER 6.3V (tab)")
@@ -383,6 +383,9 @@ def sheet05(d):
     R(d, "R540", 2, 14, "SHLD_OUT", "GND", "10")      # shield soft tie here, solid at the PI + FX end
     C(d, "C540", 3, 14, "SHLD_OUT", "GND", "100n")
     d.text("Post-gain pot top = treble pot wiper (POT_TR_x_W): joined on the pot board. Pot bottoms of gain / post = GND pins.", 15, 15.5)
+    # Drawn last so the earlier refs keep their numbers: lower halves of the split HV resistors (R518, R519).
+    R(d, "R550", 15, 5, "BLEED_M", "GND", "220k")
+    R(d, "R551", 17, 5, "VDIV_M", "VB90", "330k")
 
 
 SHEETS = [("01_input.kicad_sch", sheet01), ("02_gain_stages.kicad_sch", sheet02),
