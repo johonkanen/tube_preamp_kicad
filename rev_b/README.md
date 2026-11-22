@@ -94,7 +94,10 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
   68 V of the drop, so Q502 dissipates 0.5 W instead of 1.5 W and Q503 stays near 87-91 C at 70 C
   ambient (limit about 22 mA, 19 mA at 420 V raw; start-up works). Without it the regulator lost
   start-up above 60 C ambient. Short unchanged. See tube_amplifier_kicad docs/preamp_regulator.md
-  and sim/preamp_supply/results/thermal_foldback.md.
+  and sim/preamp_supply/results/thermal_foldback.md. Raw rail at 480 V (HV supplies' trip level,
+  2026-11-22): every raw-rail part is within its rating (LND150 sees about 90 V, R3 160 V per part);
+  the regulator keeps running, but held at 480 V with Q503 at 85 C or more it doesn't start or
+  recover from a short. Fine as a transient, sustained raw at most 450 V (preamp_regulator.md).
 - Footprints (2026-11-22): every part has one, chosen on its line in `tools/make_bom.py` (the BOM
   and the footprints come from the same list; [bom/](bom/README.md), JLC search and stock check from
   the jlc-tools submodule rev_b/tools/jlc). KiCad stock footprints except three Faston tab
