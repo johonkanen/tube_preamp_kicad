@@ -74,6 +74,12 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
   Start-up and recovery after a short work at every temperature. With about 30 K/W from the pour
   to Q503 the short settles near 80 C and 2 W. Lowering R507 instead was rejected: 700k gives 4 mA
   at 27 C but no start-up above about 70 C. Bench check: short B+ and watch the current settle.
+- Drain resistor R522 + R523 + R524 (3 x 1.5k 2512 = 4.5k, raw rail to Q502's drain, placed off
+  Q502's pour), user 2026-11-22 with the 70 C design temperature under the plate: it takes about
+  68 V of the drop, so Q502 dissipates 0.5 W instead of 1.5 W and Q503 stays near 87-91 C at 70 C
+  ambient (limit about 22 mA, 19 mA at 420 V raw; start-up works). Without it the regulator lost
+  start-up above 60 C ambient. Short unchanged. See tube_amplifier_kicad docs/preamp_regulator.md
+  and sim/preamp_supply/results/thermal_foldback.md.
 - Footprints are not assigned yet. An initial JLCPCB BOM with proposed packages is in [bom/](bom/README.md)
   (`python3 -I rev_b/tools/make_bom.py`; JLC search and stock check from the jlc-tools submodule
   rev_b/tools/jlc, pinned like efinix_soc_board's).

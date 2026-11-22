@@ -346,7 +346,7 @@ def sheet05(d):
     R(d, "R502", 5, 2, "ZT", "GF", "1M", rot=0)
     CP(d, "C501", 6, 3, "GF", "GND", "2.2u/450V")
     R(d, "R503", 7, 2, "GF", "GP", "10k", rot=0)
-    d.part("Q_NMOS", "Q502", 9, 2, {"D": "BP_RAW", "G": "GP", "S": "SRC"}, value="STD4N80K5")
+    d.part("Q_NMOS", "Q502", 9, 2, {"D": "BP_DRN", "G": "GP", "S": "SRC"}, value="STD4N80K5")   # drain resistor (R522-R524) at the end
     d.part("D_Zener", "D504", 9, 4, {1: "GP", 2: "SRC"}, value="15V", rot=90)
     d.part("D", "D505", 7, 0, {1: "BP_RAW", 2: "GF"}, value="1N4007")
     R(d, "R504", 10, 3, "SRC", "BP", "13", rot=0)   # 13R: limit margin with Q503 hot (thermal foldback, README)
@@ -389,6 +389,11 @@ def sheet05(d):
     R(d, "R551", 17, 5, "VDIV_M", "VB90", "330k")
     R(d, "R552", 13, 7, "FB_A", "FB_B", "270k", rot=0)
     R(d, "R553", 15, 7, "FB_B", "QB", "270k", rot=0)
+    # Drain resistor 4.5k (3 x 1.5k 2512, off Q502's pour): takes ~68 V of the drop so Q502 / Q503 stay
+    # cool enough at 70 C under the plate (user 2026-11-22; docs/preamp_regulator.md). R522-R524.
+    R(d, "R554", 10, 0, "BP_RAW", "DRN_A", "1.5k", rot=0)
+    R(d, "R555", 12, 0, "DRN_A", "DRN_B", "1.5k", rot=0)
+    R(d, "R556", 14, 0, "DRN_B", "BP_DRN", "1.5k", rot=0)
 
 
 SHEETS = [("01_input.kicad_sch", sheet01), ("02_gain_stages.kicad_sch", sheet02),

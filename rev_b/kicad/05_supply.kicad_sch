@@ -4981,7 +4981,7 @@
 		)
 		(uuid "41d4a8bb-5e83-5010-b487-8c5f2fee927a")
 	)
-	(label "BP_RAW"
+	(label "BP_DRN"
 		(at 215.9 63.5 90)
 		(effects
 			(font
@@ -15121,6 +15121,327 @@
 			(justify right bottom)
 		)
 		(uuid "5b88f572-df1a-5412-87de-1299a67fcedc")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 233.68 35.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ef5617df-63c0-54e4-ba7d-29526d079f95")
+		(property "Reference" "R522"
+			(at 238.42 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.5k"
+			(at 238.42 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 231.902 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 233.68 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 233.68 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "23dec419-2f2d-502e-99ad-38a9fbdf9b4d")
+		)
+		(pin "2"
+			(uuid "48584195-b0ae-550a-973b-43177682d1e9")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
+					(reference "R522")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 233.68 31.75) (xy 233.68 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "341e6230-022d-5cdb-9e9c-bdcb5d7cd87e")
+	)
+	(label "BP_RAW"
+		(at 233.68 29.21 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a5550029-2455-5b80-868e-85cade7b6d09")
+	)
+	(wire
+		(pts
+			(xy 233.68 39.37) (xy 233.68 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "781030fa-ec3f-513b-9472-a72d73f818a4")
+	)
+	(label "DRN_A"
+		(at 233.68 41.91 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "feb155ad-f247-5e06-b13c-0ebcf922330c")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 274.32 35.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "16d7d0ca-7046-5da1-b7e4-75514a2f8bd4")
+		(property "Reference" "R523"
+			(at 279.06 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.5k"
+			(at 279.06 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 272.542 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 274.32 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 274.32 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9d28aa86-483c-508e-9ac2-89d61c339af3")
+		)
+		(pin "2"
+			(uuid "533e9e7f-596b-5e2a-a836-d3082b246e31")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
+					(reference "R523")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 274.32 31.75) (xy 274.32 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e94f973-03f9-5ef5-bb8e-97668c1cc2ca")
+	)
+	(label "DRN_A"
+		(at 274.32 29.21 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "af66b56a-fc82-528f-9fec-4b114b4bbeac")
+	)
+	(wire
+		(pts
+			(xy 274.32 39.37) (xy 274.32 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12e68e4d-1293-56d1-9638-cea37825f5b4")
+	)
+	(label "DRN_B"
+		(at 274.32 41.91 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d3416bce-a69b-576a-a720-b528e2a39597")
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 314.96 35.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e94cf1de-35b2-5a89-8c26-60d311946b93")
+		(property "Reference" "R524"
+			(at 319.7 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.5k"
+			(at 319.7 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 313.182 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 314.96 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 314.96 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3e86add3-c545-5e30-b00c-5d7accf22b8d")
+		)
+		(pin "2"
+			(uuid "4f112149-965d-5554-999c-e51640507c5f")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/fa24baef-5920-5116-b9d1-11e8544a9875"
+					(reference "R524")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 314.96 31.75) (xy 314.96 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27149335-a071-5e89-a48b-f4789f5ef9f1")
+	)
+	(label "DRN_B"
+		(at 314.96 29.21 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f0bd3de9-3aaa-56b6-9f19-1f3ef5167925")
+	)
+	(wire
+		(pts
+			(xy 314.96 39.37) (xy 314.96 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aec39482-26ed-5033-b1f2-8fc22aef3a17")
+	)
+	(label "BP_DRN"
+		(at 314.96 41.91 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2008f777-af89-5c55-9427-22775aca6033")
 	)
 	(sheet_instances
 		(path "/"

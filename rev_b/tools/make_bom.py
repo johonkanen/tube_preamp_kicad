@@ -52,6 +52,7 @@ res("R203","10k","0805","thin",note="cathode (DC)")
 res("R206,R222","4.7k","0805","thin",note="cathode (DC)")
 res("R207-R210,R213,R219,R228","10M","1206",note="cap bleeds: up to ~300 V at power-up, 1206 for 200 V rating")
 res("R507,R520,R521","270k","2512",note="regulator foldback, 3 in series (810k): 430 V at start-up or into a short, 145 V each (was one 820k 1206)")
+res("R522,R523,R524","1.5k","2512",note="regulator drain resistor, 3 in series (4.5k): ~68 V of the drop, 0.34 W and 22 V each; off Q502's pour")
 res("R514","270k","1206",note="VB90 divider bottom, 90 V")
 res("R511,R512","10k","1206",note="B+ decoupling (provisional)")
 res("R515,R516","100","1206",note="heater artificial centre tap, 0.1 W each")
@@ -193,7 +194,7 @@ def main():
     md += [
            "- C105 (22n), C108 (2.2n) and C111 (4.7n) are drawn without a voltage, but they couple the S1 plate (P1):",
            "  the BOM gives them 630 V parts. Put the voltage in the schematic values at the next value pass.",
-           "- Q502 STD4N80K5 (DPAK) dissipates about 1-1.5 W in normal use on its copper pour. Q503 (MMBTA42) sits on",
+           "- Q502 STD4N80K5 (DPAK) dissipates about 0.5 W in normal use (R522-R524 take ~1 W off the pour). Q503 (MMBTA42) sits on",
            "  the same pour: into a short its Vbe falls as the pour heats and the foldback settles near 2 W",
            "  (thermal foldback, rev_b/README.md). Check by shorting B+ on the bench. Check the DC SOA at 430 V.",
            "- Hand soldering is fine (the noval sockets are hand-soldered anyway, user 2026-11-21): a part that runs out",
