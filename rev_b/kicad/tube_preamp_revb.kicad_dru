@@ -1,0 +1,24 @@
+(version 1)
+# Rev B preamp clearance rules (tools/make_pcb.py; tube_amplifier_kicad review N57, IPC-2221B B2,
+# uncoated): HV = nets that reach 300-430 V, MV = 100-300 V (plates, the zener string, the dividers),
+# V90 = about 90 V (net class clearance 0.6 mm). Unconnected pads (a relay's open NC contact) are
+# left out. Functional insulation only.
+(rule "HV to LV"
+  (condition "A.NetClass == 'HV' && B.NetClass != 'HV' && B.NetClass != 'MV' && B.NetClass != 'V90' && B.NetName != 'unconnected-*'")
+  (constraint clearance (min 2.5mm)))
+(rule "HV to MV or V90"
+  (condition "A.NetClass == 'HV' && (B.NetClass == 'MV' || B.NetClass == 'V90')")
+  (constraint clearance (min 1.25mm)))
+(rule "MV to LV"
+  (condition "A.NetClass == 'MV' && B.NetClass != 'HV' && B.NetClass != 'MV' && B.NetName != 'unconnected-*'")
+  (constraint clearance (min 1.25mm)))
+# K201 / K204: the G6K-2F-Y's coil pad 1 (+5 V) is 2.4 mm from contact pad 2 (B+ ~300-330 V); the
+# relay's own coil-contact rating covers it (-Y: 3.2 mm inside the part). Accepted exception.
+(rule "K201 K204 coil to contact"
+  (condition "A.NetClass == 'HV' && B.NetClass != 'HV' && B.NetName != 'unconnected-*' && ((A.memberOfFootprint('K201') && B.memberOfFootprint('K201')) || (A.memberOfFootprint('K204') && B.memberOfFootprint('K204')))")
+  (constraint clearance (min 2.3mm)))
+# C501 (2.2 uF 450 V, 8 mm, 3.5 mm lead pitch): 1.9 mm between its own pads, GF (up to 390 V) to GND.
+# The part's lead pitch sets it; accepted exception for its own pads only.
+(rule "C501 own pads"
+  (condition "A.memberOfFootprint('C501') && B.memberOfFootprint('C501')")
+  (constraint clearance (min 1.8mm)))

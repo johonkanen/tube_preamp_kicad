@@ -1991,7 +1991,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical"
 			(at 30.48 53.34 0)
 			(effects
 				(font
@@ -2153,7 +2153,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 50.8 72.898 0)
 			(effects
 				(font
@@ -2315,7 +2315,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp_revb:Faston_Tab_6.3mm_x1"
 			(at 30.48 97.79 0)
 			(effects
 				(font
@@ -2454,7 +2454,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 69.342 53.34 0)
 			(effects
 				(font
@@ -2561,7 +2561,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Valve:Valve_Noval_P"
+		(property "Footprint" "tube_preamp_revb:Valve_Noval_Belton_PCD21.00mm"
 			(at 118.618 63.5 0)
 			(effects
 				(font
@@ -2691,7 +2691,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 111.76 37.338 0)
 			(effects
 				(font
@@ -2810,7 +2810,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 111.76 90.678 0)
 			(effects
 				(font
@@ -2972,7 +2972,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 152.4 72.898 0)
 			(effects
 				(font
@@ -3079,7 +3079,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:CP_Elec_5x5.4"
 			(at 153.3652 92.71 0)
 			(effects
 				(font
@@ -3375,7 +3375,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 172.72 108.458 0)
 			(effects
 				(font
@@ -3537,7 +3537,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 130.302 106.68 0)
 			(effects
 				(font
@@ -3656,7 +3656,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 128.27 125.4252 0)
 			(effects
 				(font
@@ -3818,7 +3818,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:CP_Elec_5x5.4"
 			(at 214.3252 92.71 0)
 			(effects
 				(font
@@ -4114,7 +4114,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 233.68 108.458 0)
 			(effects
 				(font
@@ -4276,7 +4276,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 191.262 106.68 0)
 			(effects
 				(font
@@ -4395,7 +4395,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 189.23 125.4252 0)
 			(effects
 				(font
@@ -4560,15 +4560,15 @@
 				)
 			)
 		)
-		(property "Value" "22n"
-			(at 278.51 54.61 0)
+		(property "Value" "22n/630V"
+			(at 281.26 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Rect_L10.0mm_W4.0mm_P7.50mm_MKS4"
 			(at 275.2852 57.15 0)
 			(effects
 				(font
@@ -4687,7 +4687,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 318.77 70.1548 0)
 			(effects
 				(font
@@ -4818,7 +4818,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 333.502 53.34 0)
 			(effects
 				(font
@@ -5126,7 +5126,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 353.822 71.12 0)
 			(effects
 				(font
@@ -5245,7 +5245,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 351.79 89.8652 0)
 			(effects
 				(font
@@ -5407,7 +5407,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 394.462 53.34 0)
 			(effects
 				(font
@@ -5529,15 +5529,15 @@
 				)
 			)
 		)
-		(property "Value" "2.2n"
-			(at 279.06 125.73 0)
+		(property "Value" "2.2n/630V"
+			(at 281.81 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 275.2852 128.27 0)
 			(effects
 				(font
@@ -5609,27 +5609,15 @@
 		)
 		(uuid "980b7551-763e-55d3-be08-f739d173e595")
 	)
-	(global_label "POT_G_CR_TOP"
-		(shape passive)
+	(label "N1_CR"
 		(at 274.32 130.81 270)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify right bottom)
 		)
 		(uuid "749f1fa8-1f95-5d6d-9903-255292f21016")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 274.32 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
 	)
 	(symbol
 		(lib_id "tube_preamp_revb:C")
@@ -5656,7 +5644,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 318.77 141.2748 0)
 			(effects
 				(font
@@ -5787,7 +5775,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 333.502 124.46 0)
 			(effects
 				(font
@@ -6095,7 +6083,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 353.822 142.24 0)
 			(effects
 				(font
@@ -6214,7 +6202,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 351.79 160.9852 0)
 			(effects
 				(font
@@ -6376,7 +6364,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 394.462 124.46 0)
 			(effects
 				(font
@@ -6498,15 +6486,15 @@
 				)
 			)
 		)
-		(property "Value" "4.7n"
-			(at 279.06 196.85 0)
+		(property "Value" "4.7n/630V"
+			(at 281.81 196.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 275.2852 199.39 0)
 			(effects
 				(font
@@ -6625,7 +6613,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 333.502 195.58 0)
 			(effects
 				(font
@@ -6933,7 +6921,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 353.822 213.36 0)
 			(effects
 				(font
@@ -7052,7 +7040,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 351.79 232.1052 0)
 			(effects
 				(font
@@ -7214,7 +7202,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 394.462 195.58 0)
 			(effects
 				(font
@@ -7299,6 +7287,125 @@
 		(uuid "6183b205-76a1-5ada-abeb-fa0d41f0ef2e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 396.24 201.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_preamp_revb:R")
+		(at 307.34 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "81781bed-b155-5b45-8c51-97315bfc508c")
+		(property "Reference" "R119"
+			(at 312.08 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0"
+			(at 310.43 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 305.562 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 307.34 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 307.34 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1e25c4b4-d227-53d5-9233-f4ed14bfaba5")
+		)
+		(pin "2"
+			(uuid "2b1333ae-6962-5d01-8231-e5460ed5c297")
+		)
+		(instances
+			(project "tube_preamp_revb"
+				(path "/e75f3ff5-9e50-5f30-9463-2e21335bc268/206327c2-61fd-5ba9-8af6-2e77c4ef7b86"
+					(reference "R119")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 307.34 156.21) (xy 307.34 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8e78f9c-65ce-5c98-babc-5789d74da790")
+	)
+	(label "N1_CR"
+		(at 307.34 153.67 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bf93be3a-83e7-518b-9792-d31a400557f2")
+	)
+	(wire
+		(pts
+			(xy 307.34 163.83) (xy 307.34 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a2908cd-2d7c-5d60-82b3-a41c050b461a")
+	)
+	(global_label "POT_G_CR_TOP"
+		(shape passive)
+		(at 307.34 166.37 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e1417333-db50-58ae-967b-1789a36b51f5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 307.34 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)

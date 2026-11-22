@@ -22,6 +22,11 @@ WANT = [
     ("power", "GND"), ("power", "GNDA"), ("power", "GNDD"), ("Connector_Generic", "Conn_01x01"), ("power", "+5V"), ("power", "+15V"), ("power", "-15V"), ("power", "PWR_FLAG"),
 ]
 _cache = {}
+# Pin numbers per package for the generic transistor symbols (their stock pins are numbered D / G / S
+# or B / C / E, which no footprint matches): Q502 STD4N80K5 TO-252 (1 G, 2 tab D, 3 S), Q501 LND150N8
+# SOT-89 (1 G, 2 tab D, 3 S), Q503 MMBTA42 SOT-23 (1 B, 2 E, 3 C).
+RENUMBER = {"Q_NMOS": {"G": "1", "D": "2", "S": "3"}, "Q_NMOS_Depletion": {"G": "1", "D": "2", "S": "3"},
+            "Q_NPN": {"B": "1", "E": "2", "C": "3"}}
 
 
 def library(name):
@@ -53,10 +58,16 @@ def main():
     lib = [Sym("kicad_symbol_lib"), [Sym("version"), 20251024], [Sym("generator"), "make_lib"],
            [Sym("generator_version"), "10.0"]]
     for libname, name in WANT:
-        lib.append(flat(libname, name))
-    save(os.path.join(HERE, "lib", "tube_preamp_revb.kicad_sym"), lib)
-    for libname, name in WANT:
         s = flat(libname, name)
+        for sub in find_all(s, "symbol"):
+            for p in find_all(sub, "pin"):
+                num = find(p, "number")
+                if name in RENUMBER and num and num[1] in RENUMBER[name]:
+                    num[1] = RENUMBER[name][num[1]]
+        lib.append(s)
+    save(os.path.join(HERE, "lib", "tube_preamp_revb.kicad_sym"), lib)
+    for s in lib[4:]:
+        name = s[1]
         pins = []
         for sub in find_all(s, "symbol"):
             for p in find_all(sub, "pin"):

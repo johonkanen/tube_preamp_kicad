@@ -173,12 +173,15 @@ def sheet01(d):
     R(d, "R104", 4, 3, "K1", "GND", "2.7k")
     mosfet_net(d, "Q101", 6, 3, "K1", "CTL_S1A", "S1A", series_r="1.5k")     # clean
     mosfet_net(d, "Q102", 9, 3, "K1", "CTL_S1B", "S1B")                     # crunch, lead
-    vals = {"CL": ("22n", None, "470p"), "CR": ("2.2n", None, "470p"), "LD": ("4.7n", None, None)}   # lead pad and bright cap dropped by the refit (2026-11-20)
+    # Coupling caps sit on S1's plate (P1): 630 V parts. Lead pad and bright cap dropped by the refit
+    # (2026-11-20). Crunch: a pad footprint (N1_CR -> POT_G_CR_TOP, drawn at the end of the sheet so the
+    # refs keep their numbers), fitted as a 0R link until the voicing sim sets its value (layout 2026-11-22).
+    vals = {"CL": ("22n/630V", None, "470p"), "CR": ("2.2n/630V", None, "470p"), "LD": ("4.7n/630V", None, None)}
     for i, (t, name) in enumerate(CH):
         c0, r0 = 12, 1 + i * 4
         cc, pad, br = vals[t]
         d.text(f"{name}: gain pot on J5{i + 4} (pot ribbon)", c0, r0 - 0.6)
-        C(d, f"C1{i}1", c0, r0, "P1", f"N1_{t}" if pad else f"POT_G_{t}_TOP", cc, rot=0)
+        C(d, f"C1{i}1", c0, r0, "P1", f"N1_{t}" if pad or t == "CR" else f"POT_G_{t}_TOP", cc, rot=0)
         if pad:
             R(d, f"R1{i}1", c0 + 1, r0, f"N1_{t}", f"POT_G_{t}_TOP", pad, rot=0)
         if br:
@@ -186,6 +189,7 @@ def sheet01(d):
         R(d, f"R1{i}2", c0 + 3, r0, f"POT_G_{t}_W", f"XI_{t}", "100k", rot=0)
         jfet(d, f"Q1{i}3", c0 + 5, r0 + 1, f"XI_{t}", f"JDRV_I{t}", f"I{t}")
         R(d, f"R1{i}3", c0 + 6, r0, f"XI_{t}", "GX2", "100k", rot=0)
+    R(d, "R190", 13.6, 7.0, "N1_CR", "POT_G_CR_TOP", "0", rot=0)   # crunch pad (value from the voicing sim)
 
 
 # ------------------------------------------------------------------ sheet 02
@@ -272,7 +276,7 @@ def sheet03(d):
     R(d, "R342", 20, 3, "K4", "GND", "1.5k")
     CP(d, "C340", 21, 3, "K4", "GND", "22u/25V")
     C(d, "C341", 22, 1, "P4", "AT", "22n/630V", rot=0)
-    R(d, "R343", 23, 1, "AT", "OUT", "330k", rot=0)
+    R(d, "R343", 23, 1, "AT", "OUT", "300k", rot=0)   # 300k: makes up for the PI + FX's 1 MOhm input (interfaces.md 10)
     R(d, "R344", 24, 2, "OUT", "GND", "220k")
     jfet(d, "Q345", 26, 2, "OUT", "JDRV_MUTE", "MUTE")
 
@@ -338,7 +342,7 @@ def sheet05(d):
     # docs/interfaces.md ("preamp rev B draft (2026-11-20)"). Propose changes via the main session first.
     d.part("Conn_01x02", "J501", 0, 1, {1: "BP_RAW", 2: "GND"}, value="B+ RAW 430V (tab)")   # pin 2: the AGND entry
     d.part("PWR_FLAG", "#FLG503", 1, 2.5, {1: "GND"}, value="PWR_FLAG")
-    d.part("Q_NMOS_Depletion", "Q501", 2, 1, {"D": "BP_RAW", "G": "ZT", "S": "CS"}, value="LND150")
+    d.part("Q_NMOS_Depletion", "Q501", 2, 1, {2: "BP_RAW", 1: "ZT", 3: "CS"}, value="LND150")
     R(d, "R501", 3, 2, "CS", "ZT", "330")
     for i in range(3):
         d.part("D_Zener", f"D50{i + 1}", 3, 3 + i, {1: "ZT" if i == 0 else f"Z{i}", 2: f"Z{i + 1}" if i < 2 else "GND"},
@@ -346,11 +350,11 @@ def sheet05(d):
     R(d, "R502", 5, 2, "ZT", "RF_A", "330k", rot=0)   # Rf: 3 x 330k 2512 (390 V at soft start); rest at the end
     CP(d, "C501", 6, 3, "GF", "GND", "2.2u/450V")
     R(d, "R503", 7, 2, "GF", "GP", "10k", rot=0)
-    d.part("Q_NMOS", "Q502", 9, 2, {"D": "BP_DRN", "G": "GP", "S": "SRC"}, value="STD4N80K5")   # drain resistor (R522-R524) at the end
+    d.part("Q_NMOS", "Q502", 9, 2, {2: "BP_DRN", 1: "GP", 3: "SRC"}, value="STD4N80K5")   # drain resistor (R522-R524) at the end
     d.part("D_Zener", "D504", 9, 4, {1: "GP", 2: "SRC"}, value="15V", rot=90)
     d.part("D", "D505", 7, 0, {1: "BP_RAW", 2: "GF"}, value="1N4007")
     R(d, "R504", 10, 3, "SRC", "BP", "13", rot=0)   # 13R: limit margin with Q503 hot (thermal foldback, README)
-    d.part("Q_NPN", "Q503", 11, 5, {"B": "QB", "C": "GP", "E": "BP"}, value="MMBTA42")
+    d.part("Q_NPN", "Q503", 11, 5, {1: "QB", 3: "GP", 2: "BP"}, value="MMBTA42")
     R(d, "R505", 10, 6, "SRC", "QB", "1k", rot=0)
     R(d, "R506", 12, 6, "QB", "BP", "10k", rot=0)
     R(d, "R507", 11, 7, "BP_RAW", "FB_A", "270k", rot=0)   # 3 x 2512 in series (430 V at start-up / short); rest at the end

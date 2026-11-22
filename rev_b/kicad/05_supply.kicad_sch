@@ -632,7 +632,7 @@
 							)
 						)
 					)
-					(number "D"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -650,7 +650,7 @@
 							)
 						)
 					)
-					(number "G"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -668,7 +668,7 @@
 							)
 						)
 					)
-					(number "S"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1419,7 +1419,7 @@
 							)
 						)
 					)
-					(number "D"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1437,7 +1437,7 @@
 							)
 						)
 					)
-					(number "G"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1455,7 +1455,7 @@
 							)
 						)
 					)
-					(number "S"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1817,7 +1817,7 @@
 							)
 						)
 					)
-					(number "B"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1835,7 +1835,7 @@
 							)
 						)
 					)
-					(number "C"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1853,7 +1853,7 @@
 							)
 						)
 					)
-					(number "E"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3631,7 +3631,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp_revb:Faston_Tab_4.8mm_x2_P15.00mm"
 			(at 30.48 53.34 0)
 			(effects
 				(font
@@ -3935,7 +3935,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-89-3"
 			(at 71.12 53.34 0)
 			(effects
 				(font
@@ -3962,14 +3962,14 @@
 				(hide yes)
 			)
 		)
-		(pin "D"
-			(uuid "00ba178d-73da-5294-973d-fd12e65f8be4")
+		(pin "2"
+			(uuid "22169444-1314-555e-b197-454dc10101af")
 		)
-		(pin "G"
-			(uuid "2e39fcb2-906b-5359-ab71-c0ed85df438c")
+		(pin "1"
+			(uuid "8eee9e0d-d29a-5a71-a822-e034d44523ca")
 		)
-		(pin "S"
-			(uuid "03d1f7b0-9fe1-5147-8898-afa6409c9aeb")
+		(pin "3"
+			(uuid "c9b58ae5-9eb0-51d0-9807-5f0f41d6ff8b")
 		)
 		(instances
 			(project "tube_preamp_revb"
@@ -4065,7 +4065,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 91.44 72.898 0)
 			(effects
 				(font
@@ -4172,7 +4172,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 91.44 88.9 0)
 			(effects
 				(font
@@ -4279,7 +4279,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 91.44 106.68 0)
 			(effects
 				(font
@@ -4386,7 +4386,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 91.44 124.46 0)
 			(effects
 				(font
@@ -4548,7 +4548,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 130.302 71.12 0)
 			(effects
 				(font
@@ -4655,7 +4655,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm"
 			(at 153.3652 92.71 0)
 			(effects
 				(font
@@ -4817,7 +4817,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 170.942 71.12 0)
 			(effects
 				(font
@@ -4926,7 +4926,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:TO-252-2"
 			(at 218.44 68.58 0)
 			(effects
 				(font
@@ -4953,14 +4953,14 @@
 				(hide yes)
 			)
 		)
-		(pin "D"
-			(uuid "152ee43b-fe8a-5bce-be46-270b868819d4")
+		(pin "2"
+			(uuid "a775c9ed-3ace-5782-b8e1-3bb4d99e1dbe")
 		)
-		(pin "G"
-			(uuid "3126002d-58dc-56ff-bbca-1c6b2b5622d8")
+		(pin "1"
+			(uuid "ba9d0ca0-3b58-5fa6-bf79-dbe338d714c9")
 		)
-		(pin "S"
-			(uuid "01b79012-1315-5a27-92f4-816053e8220e")
+		(pin "3"
+			(uuid "9b9348d5-f962-58bb-be29-a5a06415a2e8")
 		)
 		(instances
 			(project "tube_preamp_revb"
@@ -5056,7 +5056,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SOD-123"
 			(at 213.36 106.68 0)
 			(effects
 				(font
@@ -5163,7 +5163,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 172.72 35.56 0)
 			(effects
 				(font
@@ -5270,7 +5270,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 231.902 88.9 0)
 			(effects
 				(font
@@ -5379,7 +5379,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 259.08 121.92 0)
 			(effects
 				(font
@@ -5406,14 +5406,14 @@
 				(hide yes)
 			)
 		)
-		(pin "B"
-			(uuid "e27cdd86-a20a-5861-9c02-014b4dadd7aa")
+		(pin "1"
+			(uuid "5cac26f4-3a4d-5ff9-af80-8e01e0f9878b")
 		)
-		(pin "C"
-			(uuid "8df57bec-91fb-5a0d-b39a-a4ad617fffe4")
+		(pin "3"
+			(uuid "a80eb926-ce4f-59a6-92ab-dc2916e31f2e")
 		)
-		(pin "E"
-			(uuid "3095f37a-ec66-5346-aa80-5bd68b121bc3")
+		(pin "2"
+			(uuid "51471ae7-240b-5763-8f09-b318e020bf26")
 		)
 		(instances
 			(project "tube_preamp_revb"
@@ -5509,7 +5509,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 231.902 142.24 0)
 			(effects
 				(font
@@ -5616,7 +5616,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 272.542 142.24 0)
 			(effects
 				(font
@@ -5723,7 +5723,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 252.222 160.02 0)
 			(effects
 				(font
@@ -5830,7 +5830,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D16.0mm_P7.50mm"
 			(at 295.6052 92.71 0)
 			(effects
 				(font
@@ -5992,7 +5992,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Rect_L13.0mm_W6.0mm_P10.00mm_FKS3_FKP3_MKS4"
 			(at 318.77 87.9348 0)
 			(effects
 				(font
@@ -6154,7 +6154,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 335.28 90.678 0)
 			(effects
 				(font
@@ -6261,7 +6261,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 374.142 53.34 0)
 			(effects
 				(font
@@ -6380,7 +6380,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D16.0mm_P7.50mm"
 			(at 397.2052 74.93 0)
 			(effects
 				(font
@@ -6554,7 +6554,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 414.782 53.34 0)
 			(effects
 				(font
@@ -6685,7 +6685,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D16.0mm_P7.50mm"
 			(at 437.8452 74.93 0)
 			(effects
 				(font
@@ -6859,7 +6859,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 455.422 53.34 0)
 			(effects
 				(font
@@ -6990,7 +6990,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D16.0mm_P7.50mm"
 			(at 478.4852 74.93 0)
 			(effects
 				(font
@@ -7164,7 +7164,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 496.062 53.34 0)
 			(effects
 				(font
@@ -7295,7 +7295,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D16.0mm_P7.50mm"
 			(at 519.1252 74.93 0)
 			(effects
 				(font
@@ -7469,7 +7469,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 375.92 108.458 0)
 			(effects
 				(font
@@ -7588,7 +7588,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 375.92 144.018 0)
 			(effects
 				(font
@@ -7762,7 +7762,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm"
 			(at 397.2052 146.05 0)
 			(effects
 				(font
@@ -7936,7 +7936,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_preamp_revb:Faston_Tab_6.3mm_x2_P12.70mm"
 			(at 30.48 195.58 0)
 			(effects
 				(font
@@ -8213,7 +8213,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Valve:Valve_Noval_P"
+		(property "Footprint" "tube_preamp_revb:Valve_Noval_Belton_PCD21.00mm"
 			(at 98.298 205.74 0)
 			(effects
 				(font
@@ -8343,7 +8343,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Valve:Valve_Noval_P"
+		(property "Footprint" "tube_preamp_revb:Valve_Noval_Belton_PCD21.00mm"
 			(at 138.938 205.74 0)
 			(effects
 				(font
@@ -8473,7 +8473,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Valve:Valve_Noval_P"
+		(property "Footprint" "tube_preamp_revb:Valve_Noval_Belton_PCD21.00mm"
 			(at 179.578 205.74 0)
 			(effects
 				(font
@@ -8603,7 +8603,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 233.68 197.358 0)
 			(effects
 				(font
@@ -8710,7 +8710,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 254 197.358 0)
 			(effects
 				(font
@@ -8817,7 +8817,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 294.64 195.58 0)
 			(effects
 				(font
@@ -9014,7 +9014,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_IDC:IDC-Header_2x13_P2.54mm_Vertical"
 			(at 355.6 213.36 0)
 			(effects
 				(font
@@ -10716,7 +10716,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_IDC:IDC-Header_2x13_P2.54mm_Vertical"
 			(at 436.88 213.36 0)
 			(effects
 				(font
@@ -12418,7 +12418,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_IDC:IDC-Header_2x13_P2.54mm_Vertical"
 			(at 518.16 213.36 0)
 			(effects
 				(font
@@ -14120,7 +14120,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-03A_1x03_P2.54mm_Vertical"
 			(at 30.48 266.7 0)
 			(effects
 				(font
@@ -14317,7 +14317,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 71.12 286.258 0)
 			(effects
 				(font
@@ -14479,7 +14479,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 95.25 283.5148 0)
 			(effects
 				(font
@@ -14652,7 +14652,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 335.28 126.238 0)
 			(effects
 				(font
@@ -14814,7 +14814,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 375.92 126.238 0)
 			(effects
 				(font
@@ -14933,7 +14933,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 292.862 160.02 0)
 			(effects
 				(font
@@ -15040,7 +15040,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 333.502 160.02 0)
 			(effects
 				(font
@@ -15147,7 +15147,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 231.902 35.56 0)
 			(effects
 				(font
@@ -15254,7 +15254,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 272.542 35.56 0)
 			(effects
 				(font
@@ -15361,7 +15361,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 313.182 35.56 0)
 			(effects
 				(font
@@ -15468,7 +15468,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 130.302 142.24 0)
 			(effects
 				(font
@@ -15575,7 +15575,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 170.942 142.24 0)
 			(effects
 				(font

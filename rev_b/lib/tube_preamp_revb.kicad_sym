@@ -1085,7 +1085,7 @@
 						)
 					)
 				)
-				(number "D"
+				(number "2"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1103,7 +1103,7 @@
 						)
 					)
 				)
-				(number "G"
+				(number "1"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1121,7 +1121,7 @@
 						)
 					)
 				)
-				(number "S"
+				(number "3"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1365,7 +1365,7 @@
 						)
 					)
 				)
-				(number "D"
+				(number "2"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1383,7 +1383,7 @@
 						)
 					)
 				)
-				(number "G"
+				(number "1"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1401,7 +1401,7 @@
 						)
 					)
 				)
-				(number "S"
+				(number "3"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1575,7 +1575,7 @@
 						)
 					)
 				)
-				(number "B"
+				(number "1"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1593,7 +1593,7 @@
 						)
 					)
 				)
-				(number "C"
+				(number "3"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1611,7 +1611,7 @@
 						)
 					)
 				)
-				(number "E"
+				(number "2"
 					(effects
 						(font
 							(size 1.27 1.27)

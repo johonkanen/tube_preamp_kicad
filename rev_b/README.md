@@ -17,8 +17,14 @@ lines from an MCP23S17.
 ```
 python3 rev_b/tools/make_lib.py          # lib/tube_preamp_revb.kicad_sym from KiCad's stock libraries (flattened)
 python3 rev_b/tools/make_project.py      # project, root sheet, empty sub-sheets
-python3 rev_b/tools/sheets/draw_all.py   # draws all five sheets (overwrites them)
+python3 -I rev_b/tools/make_footprints.py  # project footprints, lib/footprint_map.csv (from make_bom.py), fp-lib-table
+python3 rev_b/tools/sheets/draw_all.py   # draws all five sheets (overwrites them); Footprint fields from the map
+python3 -I rev_b/tools/make_footprints.py --check   # every part has a footprint, symbol pins = pads
+tools/p2k/bin/kipy rev_b/tools/make_pcb.py   # NEW board from the netlist (refuses once it has tracks)
 ```
+
+`make_pcb.py` is for the start only: once placement begins, the board is edited in KiCad and
+schematic changes go in with Update PCB from Schematic (the footprints carry the schematic links).
 
 The sheets are generated: edit `tools/sheets/draw_all.py`, not the `.kicad_sch` files, until the
 draft is frozen. Drawing style is netlist-first (parts on a grid, a wire stub and a label on every
@@ -51,9 +57,12 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
   Contacts carry no DC (10M bleeds, CH-5 rule 3); K201 / K204 sit at the B+ DC level, within the
   coil-to-contact insulation of the -Y (3.2 mm) version.
 - Open from the fit: the crunch's gain knob stays at 0.9 and its JFET node at 9.3 V peak with 1 V
-  in (limit 8 V); a pad on the crunch's input network is the next fix.
+  in (limit 8 V); a pad on the crunch's input network is the next fix. The footprint is in: R119
+  (0805) between C108 and the crunch gain pot's top, fitted as a 0R link until the voicing sim
+  sets the value (2026-11-22).
 - B+ decoupling resistors (3.3k / 6.8k / 10k / 10k) are provisional until the stage currents are
-  summed; the simulations used 300 V at the plates' supply.
+  summed; the simulations used 300 V at the plates' supply. All four are 2512 (2026-11-22), so a
+  later value change doesn't touch the layout.
 - HV resistors split for 200 V 2512 parts (2026-11-21): the B+ bleed is R508 + R518 (2 x 220k, 165 V
   each) and the VB90 divider top R513 + R519 (2 x 330k, 115 V each; 660k with R514 270k gives
   VB90 = 0.29 x BP4, about +2 % on the old 680k). The regulator's foldback resistor is R507 + R520 +
@@ -86,9 +95,13 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
   ambient (limit about 22 mA, 19 mA at 420 V raw; start-up works). Without it the regulator lost
   start-up above 60 C ambient. Short unchanged. See tube_amplifier_kicad docs/preamp_regulator.md
   and sim/preamp_supply/results/thermal_foldback.md.
-- Footprints are not assigned yet. An initial JLCPCB BOM with proposed packages is in [bom/](bom/README.md)
-  (`python3 -I rev_b/tools/make_bom.py`; JLC search and stock check from the jlc-tools submodule
-  rev_b/tools/jlc, pinned like efinix_soc_board's).
+- Footprints (2026-11-22): every part has one, chosen on its line in `tools/make_bom.py` (the BOM
+  and the footprints come from the same list; [bom/](bom/README.md), JLC search and stock check from
+  the jlc-tools submodule rev_b/tools/jlc). KiCad stock footprints except three Faston tab
+  footprints and the rev A noval socket (rev_b/lib/tube_preamp_revb.pretty). The generic transistor
+  symbols got package pin numbers (make_lib.py: Q501 / Q502 1 G, 2 D, 3 S; Q503 1 B, 2 E, 3 C).
+  Values set at the same time: R327 300k (for the PI + FX's 1 MΩ input), C105 / C108 / C111
+  marked 630 V.
 - Grounding (tube_amplifier_kicad docs/grounding.md §5a, confirmed by the user 2026-11-21): AGND
   (GNDA) is the signal and power star, its only entry J501 pin 2; the switch references (JFET and
   MOSFET sources, their gate caps, the JFET-gate pull-downs R419-R425) are AGND. Sheet 04's logic,
@@ -117,7 +130,55 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
   board's right end (main session 2026-11-22).
 - Output (J507), agreed in tube_amplifier_kicad docs/interfaces.md §10 (2026-11-20): Zout about
   140k; the PI + FX input is ≥ 1 MΩ with a buffer at its connector, total capacitance on OUT
-  ≤ 50 pF. The 1 MΩ load costs about 1.1 dB: change the attenuator's 330k to about 300k at the next
-  value pass. Fallback if the cable can't be short: the divider moves to the receiver, which needs
+  ≤ 50 pF. The 1 MΩ load costs about 1.1 dB: the attenuator's 330k is now 300k (R327, 2026-11-22). Fallback if the cable can't be short: the divider moves to the receiver, which needs
   a re-run of sim/preamp_voicing/switching_real.py (mute depth). The connector pinouts are the
   interfaces.md contract: propose changes through the main-branch session.
+
+## Layout (decisions 2026-11-22, user: "make decisions that allow completing the layout")
+
+`kicad/tube_preamp_revb.kicad_pcb` is started (`tools/make_pcb.py`): outline, holes, sockets, the
+interface connectors placed, net classes and clearance rules set, every other part parked below
+the board by sheet. DRC with schematic parity: only the unrouted connections. Choices made so the
+layout can be finished; to check against the other boards when they are laid out.
+
+- **Frame:** the `etunen` outline (382.79 x 71.91 mm) in rev A's coordinates: chassis x = board
+  x + 198.73, chassis y = board y + 42.35. The top edge (y -26.175) is the front, the left end is
+  the input end. KiCad's front (F) side is the component side, facing down.
+- **Board:** 2 layers, 1.6 mm, 2 oz copper (the regulator's 40 K/W pour estimate assumed 2 oz; set it in
+  Board Setup > Physical Stackup before the fab outputs, the generated board has the default 1 oz).
+  Min track / space 0.2 mm.
+- **Sockets:** V1-V3 on the solder side (B), at rev A's U1-U3 positions and orientation (pads
+  checked: 0.00 mm). The rev A footprint got a round courtyard and silk outline (the rectangle
+  clipped the standoff holes H103-H105).
+- **Mounting holes:** H101-H113 at the rev A positions, 3.2 mm, not plated, with an 8 mm copper
+  keep-out. The chassis bond is J102 only (grounding.md §5a), so no hole is plated.
+- **Pot ribbons:** J504 (clean) and J505 (crunch) between V1 and V2, J506 (lead) between V2 and
+  V3, long axis along the front edge, body front edge 20 mm behind the board edge, odd (GND) pins
+  on the rear row. Centres at board x -112 / -62 / 25 = **chassis x 86.7 / 136.7 / 223.7**, body
+  front edge at chassis y 36.2. Three 41 mm headers don't fit in one gap between sockets; the
+  lead's gain-pot lines then run about 120 mm to V1, inside the ground pour. Each channel's
+  Baxandall and post-gain JFET go next to its header.
+- **Other connectors:** J101 input and J102 chassis tab at the left end (chassis x about 9);
+  J401 at the right end, clear of H102 (chassis x 375-385, y 27-54, about 60 mm from the control
+  board's connector); J501 B+ raw tabs at the rear right (chassis x 357 / 372); J502 heater tabs
+  (chassis x 290 / 303) and the J503 heater-reference jumper at the rear, next to the right
+  socket; J507 output at the rear, chassis x 328-333 (toward the PI + FX board).
+- **Faston tabs:** footprints per interfaces.md 4.1 (2 legs on 5.00 mm, 1.4 mm drill): J501 two
+  4.8 mm tabs 15 mm apart (HV, insulated receptacles), J502 two 6.3 mm tabs 12.7 mm apart, J102 one
+  6.3 mm tab.
+- **Zones** (drawn on User.Comments): the 15 mm front strip (≤ 5 mm parts) along the whole front
+  edge; the regulator at the right end (x 120-172, behind the control block); the control logic
+  (U401-U405, the DGND island) next to J401, joined to AGND only by R426 / C407 there.
+- **Regulator copper:** Q502's tab (drain, BP_DRN) on a pour of at least 6 cm² per side, F and B,
+  stitched with vias. Q503 sits on F in a cut-out of that pour, over the B-side drain copper (1.6 mm
+  FR-4 between: thermal coupling without an electrical connection). R522-R524 off the pour.
+- **Clearance** (`kicad/tube_preamp_revb.kicad_dru`, IPC-2221B B2 uncoated, review N57): net
+  classes HV (300-430 V: raw rail, regulator, B+, BP1-BP4, the treble-bleed nodes), MV (100-300 V:
+  plates, zener string, dividers), V90 (about 90 V: CF cathode and grid, VB90; 0.6 mm), HEATER
+  (1.2 mm track, 0.6 mm clearance). HV to low voltage 2.5 mm, HV to MV / V90 1.25 mm, MV to low
+  voltage 1.25 mm. Two accepted exceptions inside a part: K201 / K204 coil pad 1 to contact pad 2
+  is 2.4 mm (the relay's own coil-contact insulation), and C501's pads are 1.9 mm apart (its 3.5 mm
+  lead pitch).
+
+Next: place the parked parts by stage around their sockets, the pours, then route (the
+`kicad-agentic-routing` skill or by hand).
