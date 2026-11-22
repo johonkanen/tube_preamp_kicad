@@ -43,9 +43,13 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
   gate sits at 0 V (JFET on) and the output is muted; a missing control ribbon pulls MUTE_ALL_N low.
 - 2N7002 gates run from the expander's 5 V (the plan said 10 V); Rds(on) at 5 V is a few ohms
   against 1.5k-10k cathode resistors. Check the 22 µF / 1M bleed timing with the real Vgs(th).
-- G6K-2 NC / NO contact pins, and the coil (5 V, about 30 mA each, 4 coils) to check against the
-  Omron datasheet; the relay part number is still open (proposed G6K-2F-Y DC5, SMD, coil pin 1 +;
-  the PI + FX board uses the same family).
+- Relays: Omron G6K-2F-Y 5 VDC, decided 2026-11-22 (main session; same part on the PI + FX board).
+  Checked against the Omron G6K datasheet (top view): coil + pin 1, - pin 8; pole 1 COM 3, NC 4,
+  NO 2; pole 2 COM 6, NC 5, NO 7. Every switched function is on the NO contacts, so energized =
+  the lead / crunch setting and an unpowered board sits in the clean wiring (the first draft had
+  2 / 4 and 5 / 7 the other way round; fixed 2026-11-22). Coil 21.1 mA at 5 V (237 Ω), 4 coils.
+  Contacts carry no DC (10M bleeds, CH-5 rule 3); K201 / K204 sit at the B+ DC level, within the
+  coil-to-contact insulation of the -Y (3.2 mm) version.
 - Open from the fit: the crunch's gain knob stays at 0.9 and its JFET node at 9.3 V peak with 1 V
   in (limit 8 V); a pad on the crunch's input network is the next fix.
 - B+ decoupling resistors (3.3k / 6.8k / 10k / 10k) are provisional until the stage currents are
@@ -92,7 +96,13 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
 - Pot direction: on every pot ribbon line the CW (clockwise-end) lug takes the TOP net. Bass and
   treble: TOP is the boost end (C1 / C3 from the CF), BOT the cut end (22k to GND), so clockwise =
   more; gain and post: TOP is the signal, the bottom GND (confirmed to the front panel session
-  2026-11-21).
+  2026-11-21). Pots (front panel board, decided 2026-11-22): Alpha 16 mm PCB pots (RV16AF-41
+  class, M7 bushing); gain and post-gain 1M log, treble and bass 1M linear.
+- Start-up (2026-11-22): the amp plays before Linux boots; the control board's FPGA brings it up on
+  its own, so this board sees RESET_N, the SPI write, then unmute a few seconds after power-on.
+- J401 placement: the control board (126 x 92 mm at chassis x 426-552, y 30-122) has its preamp
+  ribbon connector on its front edge at about x 438-464, roughly 50-80 mm from J401 at this
+  board's right end (main session 2026-11-22).
 - Output (J507), agreed in tube_amplifier_kicad docs/interfaces.md §10 (2026-11-20): Zout about
   140k; the PI + FX input is ≥ 1 MΩ with a buffer at its connector, total capacitance on OUT
   ≤ 50 pF. The 1 MΩ load costs about 1.1 dB: change the attenuator's 330k to about 300k at the next

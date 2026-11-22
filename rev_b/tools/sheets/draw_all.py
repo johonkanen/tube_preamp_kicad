@@ -149,8 +149,8 @@ def mosfet_net(d, ref, c, r, k, ctl, tag, series_r=None):
 
 def relay(d, ref, c, r, drive, poles):
     """G6K-2 (SMD, 5 V coil): coil pin 1 to +5V, pin 8 to the ULN2003 sink. poles: dict pin->net
-    (pole 1: COM 3, contacts 2 / 4; pole 2: COM 6, contacts 7 / 5). NC / NO assignment of
-    2 / 4 and 7 / 5 to check against the Omron datasheet."""
+    (Omron G6K-2F-Y datasheet, top view: coil + 1, - 8; pole 1 COM 3, NC 4, NO 2; pole 2 COM 6,
+    NC 5, NO 7). Every function is on the NO contacts: energized = lead / crunch setting."""
     nets = {1: "+5V", 8: drive}
     for p in (2, 3, 4, 5, 6, 7):
         nets[p] = poles.get(p, "NC")
@@ -204,18 +204,18 @@ def sheet02(d):
     CP(d, "C202", 2, 6.5, "N_S2L", "GND", "22u/25V")
     C(d, "C203", 6, 0, "P2", "BL2", "1n/630V", rot=0)
     R(d, "R206", 7, 1, "BL2", "BP2", "10M")
-    relay(d, "K201", 7, 3, "RLY_BL2_N", {3: "BL2", 4: "BP2"})              # lead: S2 treble bleed
+    relay(d, "K201", 7, 3, "RLY_BL2_N", {3: "BL2", 2: "BP2"})              # lead: S2 treble bleed
     C(d, "C204", 9, 1, "P2", "C2A", "2.2n/630V", rot=0)
     C(d, "C205", 9, 2, "P2", "C2B", "22n/630V", rot=0)
     R(d, "R207", 10, 3, "C2A", "GND", "10M")
     R(d, "R208", 11, 3, "C2B", "GND", "10M")
-    relay(d, "K203", 11, 5, "RLY_C2_N", {3: "N2", 2: "C2A", 4: "C2B"})    # crunch: 22 nF
+    relay(d, "K203", 11, 5, "RLY_C2_N", {3: "N2", 4: "C2A", 2: "C2B"})    # crunch: 22 nF
     R(d, "R209", 12, 2, "N2", "GND", "10M")
     R(d, "R210", 13, 1, "N2", "GX2B", "470k", rot=0)
     C(d, "C206", 13, 2, "N2", "GX2B", "470p", rot=0)
     R(d, "R211", 14, 3, "GX2B", "GND", "470k")
-    # S5 routing: pole 1 switches S5's input, pole 2 picks bypass (NC) or S5 out (NO) into S3
-    relay(d, "K202", 16, 5, "RLY_S5_N", {3: "GX2B", 4: "CI5", 6: "CX", 7: "GX2B", 5: "Q5"})
+    # S5 routing: pole 1 switches S5's input (NO), pole 2 picks bypass (NC 5) or S5 out (NO 7) into S3
+    relay(d, "K202", 16, 5, "RLY_S5_N", {3: "GX2B", 2: "CI5", 6: "CX", 5: "GX2B", 7: "Q5"})
     C(d, "C207", 16, 1, "CI5", "GI5", "100n", rot=0)
     R(d, "R212", 15, 2, "CI5", "GND", "10M")
     R(d, "R213", 17, 2, "GI5", "GND", "1M")
@@ -236,7 +236,7 @@ def sheet02(d):
     mosfet_net(d, "Q203", 26, 8, "K3", "CTL_S3B", "S3B")                    # lead
     C(d, "C215", 23, 5, "P3", "BL3", "1n/630V", rot=0)
     R(d, "R227", 24, 6, "BL3", "BP3", "10M")
-    relay(d, "K204", 25, 4, "RLY_BL3_N", {3: "BL3", 4: "BP3"})             # lead: S3 treble bleed
+    relay(d, "K204", 25, 4, "RLY_BL3_N", {3: "BL3", 2: "BP3"})             # lead: S3 treble bleed
 
 
 # ------------------------------------------------------------------ sheet 03

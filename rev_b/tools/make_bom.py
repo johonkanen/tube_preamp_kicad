@@ -100,7 +100,7 @@ add("U401","MCP23S17-E/SS","SSOP-28","MCP23S17-E/SS",["SSOP-28"],"SPI port expan
 add("U402","74LVC1G08","SOT-23-5","74LVC1G08GV",["SOT-23-5"],"unmute AND")
 add("U403,U404","DG412DY","SOIC-16","DG412DY-T1-E3",["SOIC-16"],"JFET gate switches, +/-15 V (the only DG412 variant in stock)")
 add("U405","ULN2003A","SOIC-16","ULN2003A SOIC-16",["SOP-16"],"relay coil sink")
-add("K201-K204","G6K-2F-Y 5VDC","Relay SMD 10x6.5","G6K-2F-Y DC5",["5V"],"proposed; NC/NO pins and coil polarity to check on the datasheet")
+add("K201-K204","G6K-2F-Y 5VDC","Relay SMD 10x6.5","G6K-2F-Y DC5",["5V"],"decided 2026-11-22; pins checked on the datasheet: coil + 1, NC 4 / 5, NO 2 / 7")
 # ---- connectors
 add("J401","CONTROL 2x7","IDC box header 2.54 2x7 vertical","2x7P 2.54mm IDC Header",["2x7P","IDC Header","Through Hole"],"control ribbon")
 add("J504-J506","POTS 2x13","IDC box header 2.54 2x13 vertical","2x13P 2.54mm IDC Header",["2x13P","IDC Header","Through Hole"],"pot ribbons")
@@ -198,7 +198,6 @@ def main():
            "  (thermal foldback, rev_b/README.md). Check by shorting B+ on the bench. Check the DC SOA at 430 V.",
            "- Hand soldering is fine (the noval sockets are hand-soldered anyway, user 2026-11-21): a part that runs out",
            "  at JLC can be left off the assembly order and fitted by hand.",
-           "- K201-K204: G6K-2F-Y DC5 proposed; check NC / NO pins and coil polarity against the datasheet.",
            "- Faston tabs: check that the BTC-3 parts have 2 legs on 5.00 mm with 1.4 mm drill (interfaces.md 4.1).",
            "- C209 (680 nF, S5 cathode bypass) is X7R for now; a film part would avoid the X7R voltage coefficient.",
            "- Plate loads are 2512 thick film; MELF or thin film would be quieter but JLC had no stock.",
