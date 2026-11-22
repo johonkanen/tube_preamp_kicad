@@ -62,7 +62,9 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
   1M 1206; 2026-11-22, found by the PI + FX session): the 390 V zener reference sits across it while
   C501 charges, 130 V per part. Checked the rest of the board from the netlist: no other resistor
   sees more than 200 V in normal operation. The 10M cap bleeds (relay networks) see under 100 V at
-  start-up and short recovery, and only a ~300 V pulse (22-220 ms) if B+ is hard-shorted.
+  start-up and short recovery, and only a ~300 V pulse (22-220 ms) if B+ is hard-shorted; kept as 1206 (main session
+  2026-11-22: the 200 V rule covers normal operation and start-up, a decaying fault pulse within the
+  part's short-time overload rating is acceptable).
 - Regulator short-circuit protection by thermal foldback (user 2026-11-21): Q502 is an STD4N80K5 DPAK
   on a copper pour, and Q503 (the current-limit NPN) sits on the same pour, thermally coupled but
   not electrically connected. Q503's Vbe falls about 2 mV/K, so a short heats the pour and folds the
