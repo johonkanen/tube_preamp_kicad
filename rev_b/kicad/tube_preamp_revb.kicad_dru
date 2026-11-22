@@ -22,3 +22,11 @@
 (rule "C501 own pads"
   (condition "A.memberOfFootprint('C501') && B.memberOfFootprint('C501')")
   (constraint clearance (min 1.8mm)))
+# The front panel's pot pins end about 2.2 mm in front of the board's front edge (main session
+# 2026-11-22), and the chassis is all round: HV copper 2.5 mm, MV 1.25 mm from every board edge.
+(rule "HV to board edge"
+  (condition "A.NetClass == 'HV'")
+  (constraint edge_clearance (min 2.5mm)))
+(rule "MV to board edge"
+  (condition "A.NetClass == 'MV'")
+  (constraint edge_clearance (min 1.25mm)))

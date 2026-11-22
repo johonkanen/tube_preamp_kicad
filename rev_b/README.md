@@ -165,7 +165,10 @@ layout can be finished; to check against the other boards when they are laid out
   J401 at the right end, clear of H102 (chassis x 375-385, y 27-54, about 60 mm from the control
   board's connector); J501 B+ raw tabs at the rear right (chassis x 357 / 372); J502 heater tabs
   (chassis x 290 / 303) and the J503 heater-reference jumper at the rear, next to the right
-  socket; J507 output at the rear, chassis x 328-333 (toward the PI + FX board).
+  socket; J507 output at the rear, chassis x 328-333 (toward the PI + FX board). The header
+  positions are the reference for the front panel board (main session, 2026-11-22). The shielded
+  Ethernet patch cable runs behind the board (about chassis y 96) and crosses the J507 cable at
+  right angles.
 - **Faston tabs:** footprints per interfaces.md 4.1 (2 legs on 5.00 mm, 1.4 mm drill): J501 two
   4.8 mm tabs 15 mm apart (HV, insulated receptacles), J502 two 6.3 mm tabs 12.7 mm apart, J102 one
   6.3 mm tab.
@@ -179,7 +182,8 @@ layout can be finished; to check against the other boards when they are laid out
   classes HV (300-430 V: raw rail, regulator, B+, BP1-BP4, the treble-bleed nodes), MV (100-300 V:
   plates, zener string, dividers), V90 (about 90 V: CF cathode and grid, VB90; 0.6 mm), HEATER
   (1.2 mm track, 0.6 mm clearance). HV to low voltage 2.5 mm, HV to MV / V90 1.25 mm, MV to low
-  voltage 1.25 mm. Two accepted exceptions inside a part: K201 / K204 coil pad 1 to contact pad 2
+  voltage 1.25 mm; HV copper 2.5 mm and MV 1.25 mm from every board edge (the front panel's pot pins
+  end about 2.2 mm in front of the front edge). Two accepted exceptions inside a part: K201 / K204 coil pad 1 to contact pad 2
   is 2.4 mm (the relay's own coil-contact insulation), and C501's pads are 1.9 mm apart (its 3.5 mm
   lead pitch).
 
