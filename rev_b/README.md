@@ -168,7 +168,11 @@ layout can be finished; to check against the other boards when they are laid out
   socket; J507 output at the rear, chassis x 328-333 (toward the PI + FX board). The header
   positions are the reference for the front panel board (main session, 2026-11-22). The shielded
   Ethernet patch cable runs behind the board (about chassis y 96) and crosses the J507 cable at
-  right angles.
+  right angles. Front panel board, third pass: its ribbons rise from below with an S-bend (J504 /
+  J505) or a U-turn (J506) into the headers, straight, conductor 1 at the left seen from the front
+  = pin 1 at each header's low-x end. Between the front strip and each header (chassis y 31-36)
+  over the header's x span, parts at most 20 mm tall (J504 / J505) and 38 mm (J506); drawn on
+  User.Comments.
 - **Faston tabs:** footprints per interfaces.md 4.1 (2 legs on 5.00 mm, 1.4 mm drill): J501 two
   4.8 mm tabs 15 mm apart (HV, insulated receptacles), J502 two 6.3 mm tabs 12.7 mm apart, J102 one
   6.3 mm tab.

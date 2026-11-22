@@ -315,6 +315,12 @@ def main():
          -120.0, Y0 + 2.5, 1.2)
     note(board, f"J504-J506: body front edge {HEADER_SETBACK:.0f} mm behind the front edge; clean, crunch, lead",
          -120.0, Y0 + 5.0, 1.2)
+    # Between the front strip and each pot header the front panel's ribbon bends up into the header
+    # (front panel board, third pass): parts there at most 20 mm (J504 / J505) / 38 mm (J506) tall.
+    for ref, hmax in (("J504", 20), ("J505", 20), ("J506", 38)):
+        l, t_, r, b_ = crtyd(fps[ref])
+        box(board, l, Y0 + FRONT_STRIP, r, t_, C, 0.15)
+        note(board, f"<= {hmax} mm (ribbon bend)", l + 1.0, Y0 + FRONT_STRIP + 2.5, 1.0)
     zones = [
         ("Regulator (430 V, HV rules):\nQ502 drain pour >= 6 cm2 per side, F and B, stitched;\n"
          "Q503 on F in a cut-out over the B-side drain copper;\nR522-R524 off the pour", 120.0, 4.0, 172.0, 30.0),
