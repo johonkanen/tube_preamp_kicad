@@ -343,7 +343,7 @@ def sheet05(d):
     for i in range(3):
         d.part("D_Zener", f"D50{i + 1}", 3, 3 + i, {1: "ZT" if i == 0 else f"Z{i}", 2: f"Z{i + 1}" if i < 2 else "GND"},
                value="130V 1W", rot=90)
-    R(d, "R502", 5, 2, "ZT", "GF", "1M", rot=0)
+    R(d, "R502", 5, 2, "ZT", "RF_A", "330k", rot=0)   # Rf: 3 x 330k 2512 (390 V at soft start); rest at the end
     CP(d, "C501", 6, 3, "GF", "GND", "2.2u/450V")
     R(d, "R503", 7, 2, "GF", "GP", "10k", rot=0)
     d.part("Q_NMOS", "Q502", 9, 2, {"D": "BP_DRN", "G": "GP", "S": "SRC"}, value="STD4N80K5")   # drain resistor (R522-R524) at the end
@@ -394,6 +394,10 @@ def sheet05(d):
     R(d, "R554", 10, 0, "BP_RAW", "DRN_A", "1.5k", rot=0)
     R(d, "R555", 12, 0, "DRN_A", "DRN_B", "1.5k", rot=0)
     R(d, "R556", 14, 0, "DRN_B", "BP_DRN", "1.5k", rot=0)
+    # Rest of the reference filter Rf (R502 + R525 + R526 = 3 x 330k, 990k): the whole 390 V zener
+    # reference sits across it while C501 charges (soft start), 130 V per part. R525, R526.
+    R(d, "R557", 5, 6, "RF_A", "RF_B", "330k", rot=0)
+    R(d, "R558", 7, 6, "RF_B", "GF", "330k", rot=0)
 
 
 SHEETS = [("01_input.kicad_sch", sheet01), ("02_gain_stages.kicad_sch", sheet02),

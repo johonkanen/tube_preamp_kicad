@@ -58,7 +58,11 @@ pin), exact for ERC and the netlist; a tidy layout pass comes later. ERC: 0 erro
   each) and the VB90 divider top R513 + R519 (2 x 330k, 115 V each; 660k with R514 270k gives
   VB90 = 0.29 x BP4, about +2 % on the old 680k). The regulator's foldback resistor is R507 + R520 +
   R521 (3 x 270k = 810k, was one 820k 1206): it sees the whole 430 V raw rail at start-up or into a
-  short, 145 V per part.
+  short, 145 V per part. The reference filter Rf is R502 + R525 + R526 (3 x 330k = 990k, was one
+  1M 1206; 2026-11-22, found by the PI + FX session): the 390 V zener reference sits across it while
+  C501 charges, 130 V per part. Checked the rest of the board from the netlist: no other resistor
+  sees more than 200 V in normal operation. The 10M cap bleeds (relay networks) see under 100 V at
+  start-up and short recovery, and only a ~300 V pulse (22-220 ms) if B+ is hard-shorted.
 - Regulator short-circuit protection by thermal foldback (user 2026-11-21): Q502 is an STD4N80K5 DPAK
   on a copper pour, and Q503 (the current-limit NPN) sits on the same pour, thermally coupled but
   not electrically connected. Q503's Vbe falls about 2 mV/K, so a short heats the pour and folds the
