@@ -1,0 +1,386 @@
+{
+ "schema": 1,
+ "board": "rev_b/kicad/tube_preamp_revb.kicad_pcb",
+ "groups": [
+  {
+   "name": "v1a",
+   "role": "core",
+   "refs": [
+    "J101",
+    "J102",
+    "R101",
+    "R102",
+    "R103",
+    "R104",
+    "R105",
+    "C101",
+    "Q101",
+    "R106",
+    "R107",
+    "C102",
+    "C103",
+    "Q102",
+    "R108",
+    "R109",
+    "C104"
+   ],
+   "near": [
+    "v1b",
+    "in_mix"
+   ],
+   "side": "F",
+   "why": "V1a input stage: grid stopper at pin 2, cathode and its two bypass switches, BP1 decoupling"
+  },
+  {
+   "name": "bplus",
+   "role": "core",
+   "refs": [
+    "R509",
+    "C504",
+    "R510",
+    "C505",
+    "R511",
+    "C506",
+    "R512",
+    "C507"
+   ],
+   "near": [
+    "supply"
+   ],
+   "side": "F",
+   "why": "B+ dropping resistors and decoupling caps in one row along the rear edge, as rev A (BP at the regulator end, BP1 at V1)",
+   "edge": "S"
+  },
+  {
+   "name": "v1b",
+   "role": "core",
+   "refs": [
+    "R203",
+    "R206",
+    "C203",
+    "C201",
+    "Q201",
+    "R204",
+    "R205",
+    "C202",
+    "R202"
+   ],
+   "near": [
+    "v1a",
+    "in_mix",
+    "s2"
+   ],
+   "side": "F",
+   "why": "V1b cathode with its bypass switch, plate load, BP2 decoupling"
+  },
+  {
+   "name": "in_mix",
+   "role": "core",
+   "refs": [
+    "C105",
+    "C108",
+    "R119",
+    "R110",
+    "Q103",
+    "R111",
+    "C107",
+    "R419",
+    "R112",
+    "R113",
+    "Q104",
+    "R114",
+    "C110",
+    "R420",
+    "R115",
+    "R116",
+    "Q105",
+    "R117",
+    "C112",
+    "R421",
+    "R118",
+    "R201",
+    "C111"
+   ],
+   "near": [
+    "v1a",
+    "v1b"
+   ],
+   "side": "F",
+   "why": "the three pre-gain coupling caps off P1, the channel JFET mutes and mixing resistors to GX2 (V1 pin 7)"
+  },
+  {
+   "name": "ch_clean",
+   "role": "core",
+   "refs": [
+    "C106",
+    "C303",
+    "C304",
+    "C305",
+    "C306",
+    "R303",
+    "R304",
+    "R305",
+    "R306"
+   ],
+   "near": [],
+   "side": "F",
+   "why": "clean bright cap and tone stack in front of J504"
+  },
+  {
+   "name": "ch_crunch",
+   "role": "core",
+   "refs": [
+    "C109",
+    "C308",
+    "C309",
+    "C310",
+    "C311",
+    "R310",
+    "R311",
+    "R312",
+    "R313"
+   ],
+   "near": [],
+   "side": "F",
+   "why": "crunch bright cap and tone stack in front of J505"
+  },
+  {
+   "name": "ch_lead",
+   "role": "core",
+   "refs": [
+    "C313",
+    "C314",
+    "C315",
+    "C316",
+    "R317",
+    "R318",
+    "R319",
+    "R320"
+   ],
+   "near": [],
+   "side": "F",
+   "why": "lead tone stack in front of J506"
+  },
+  {
+   "name": "s2",
+   "role": "core",
+   "refs": [
+    "K201",
+    "K202",
+    "C204",
+    "C205",
+    "C206",
+    "C207",
+    "R207",
+    "R208",
+    "R209",
+    "R210",
+    "R211",
+    "R212"
+   ],
+   "near": [
+    "v1b",
+    "v2"
+   ],
+   "side": "F",
+   "why": "V1b plate: bright relay, coupling select relay and the 470k/470k divider to GX2B"
+  },
+  {
+   "name": "v2",
+   "role": "core",
+   "refs": [
+    "K203",
+    "C208",
+    "R213",
+    "R214",
+    "R215",
+    "R216",
+    "C209",
+    "C210",
+    "R217",
+    "R218",
+    "C211",
+    "R219",
+    "R220",
+    "R221",
+    "R222",
+    "R223",
+    "R224",
+    "R225",
+    "R226",
+    "R227",
+    "C212",
+    "C213",
+    "C214",
+    "C215",
+    "Q202",
+    "Q203",
+    "C216",
+    "K204",
+    "R228",
+    "C301"
+   ],
+   "near": [
+    "s2",
+    "cf"
+   ],
+   "side": "F",
+   "why": "V2: stage select relay, V2a and V2b with cathode switches, bright relay on P3, BP3 decoupling"
+  },
+  {
+   "name": "cf",
+   "role": "core",
+   "refs": [
+    "R301",
+    "R302",
+    "C302",
+    "C508",
+    "R514",
+    "R519",
+    "R513"
+   ],
+   "near": [
+    "v2",
+    "tone_mix",
+    "v3b"
+   ],
+   "side": "F",
+   "why": "V3a cathode follower: grid bias (VB90 divider), cathode resistor, output cap to SIN; BP4 decoupling"
+  },
+  {
+   "name": "tone_mix",
+   "role": "core",
+   "refs": [
+    "R307",
+    "Q301",
+    "R308",
+    "C307",
+    "R422",
+    "R309",
+    "R314",
+    "Q302",
+    "R315",
+    "C312",
+    "R423",
+    "R316",
+    "R321",
+    "Q303",
+    "R322",
+    "C317",
+    "R424",
+    "R323",
+    "R324"
+   ],
+   "near": [
+    "cf",
+    "v3b"
+   ],
+   "side": "F",
+   "why": "presence-wiper mutes and mixing resistors to GX4 (V3 pin 7)"
+  },
+  {
+   "name": "v3b",
+   "role": "core",
+   "refs": [
+    "R325",
+    "R326",
+    "C318",
+    "C319",
+    "R327",
+    "R328",
+    "Q304",
+    "C320",
+    "R329",
+    "R425",
+    "C509",
+    "R517"
+   ],
+   "near": [
+    "cf",
+    "tone_mix"
+   ],
+   "side": "F",
+   "why": "V3b plate load, cathode, output divider, output mute, J507 shield RC"
+  },
+  {
+   "name": "supply",
+   "role": "core",
+   "refs": [
+    "Q501",
+    "Q502",
+    "Q503",
+    "C501",
+    "C502",
+    "C503",
+    "D501",
+    "D502",
+    "D503",
+    "D504",
+    "D505",
+    "R501",
+    "R502",
+    "R503",
+    "R504",
+    "R505",
+    "R506",
+    "R507",
+    "R508",
+    "R518",
+    "R520",
+    "R521",
+    "R522",
+    "R523",
+    "R524",
+    "R525",
+    "R526",
+    "R515",
+    "R516"
+   ],
+   "near": [
+    "v3b"
+   ],
+   "side": "F",
+   "why": "B+ regulator (430 V raw from J501), bleeder, heater reference resistors"
+  },
+  {
+   "name": "control",
+   "role": "core",
+   "refs": [
+    "U401",
+    "U402",
+    "U403",
+    "U404",
+    "U405",
+    "C401",
+    "C402",
+    "C403",
+    "C404",
+    "C405",
+    "C406",
+    "C407",
+    "R401",
+    "R402",
+    "R403",
+    "R404",
+    "R405",
+    "R406",
+    "R407",
+    "R408",
+    "R409",
+    "R410",
+    "R411",
+    "R412",
+    "R413",
+    "R414",
+    "R415",
+    "R416",
+    "R417",
+    "R418",
+    "R426"
+   ],
+   "near": [],
+   "side": "F",
+   "why": "control logic: port expander, JFET drive switches, relay driver; DGND island at J401"
+  }
+ ]
+}

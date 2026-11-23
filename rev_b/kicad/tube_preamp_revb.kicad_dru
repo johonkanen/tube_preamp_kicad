@@ -24,6 +24,11 @@
   (constraint clearance (min 1.8mm)))
 # The front panel's pot pins end about 2.2 mm in front of the board's front edge (main session
 # 2026-11-22), and the chassis is all round: HV copper 2.5 mm, MV 1.25 mm from every board edge.
+# High-impedance audio nets: ground pours keep 1.5 away (stray capacitance to ground, user
+# 2026-11-23: picofarads matter at these impedances).
+(rule "HIZ to pour"
+  (condition "(A.NetClass == 'HIZ' || A.NetName == '*/GCB') && B.Type == 'Zone'")
+  (constraint clearance (min 1.5mm)))
 (rule "HV to board edge"
   (condition "A.NetClass == 'HV'")
   (constraint edge_clearance (min 2.5mm)))

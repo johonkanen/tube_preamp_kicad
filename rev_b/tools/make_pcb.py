@@ -53,6 +53,18 @@ HV = ["BP_RAW", "CS", "ZT", "GF", "GP", "SRC", "QB", "BP", "BP_DRN", "DRN_A", "D
 MV = ["P1", "P2", "P3", "P4", "P5", "Z1", "Z2", "BLEED_M", "VDIV_M"]
 V90 = ["KCF", "GCB", "VB90"]          # the CF's cathode and grid bias, about 90 V: 0.6 mm (IPC B2 51-100 V)
 HEATER = ["HTR1", "HTR2", "HREF"]
+# High-impedance audio nodes (100 kOhm and up: grids, the pots, the 470k-10M coupling nodes, the guitar
+# input). A few pF there is audible (1 pF on 1 MOhm: 160 kHz; 10 pF: 16 kHz) and couples plate signals
+# back into grids, so ground pours keep away from them (rule below; the opposite layer's pour is cut
+# under their tracks by rev_b/layout/finalize.py). GCB (V90) is named in the rule, not in the class.
+HIZ = ["IN_TIP", "G1", "GX2", "GX2B", "GI5", "GX3", "GX4", "N2", "CI5", "CX", "C2A", "C2B", "N5", "Q5", "N1_CR",
+       "XI_CL", "XI_CR", "XI_LD", "XP_CL", "XP_CR", "XP_LD",
+       "POT_G_CL_TOP", "POT_G_CL_W", "POT_G_CR_TOP", "POT_G_CR_W", "POT_G_LD_TOP", "POT_G_LD_W",
+       "POT_BS_CL_TOP", "POT_BS_CL_W", "POT_BS_CL_BOT", "POT_BS_CR_TOP", "POT_BS_CR_W", "POT_BS_CR_BOT",
+       "POT_BS_LD_TOP", "POT_BS_LD_W", "POT_BS_LD_BOT", "POT_TR_CL_TOP", "POT_TR_CL_W", "POT_TR_CL_BOT",
+       "POT_TR_CR_TOP", "POT_TR_CR_W", "POT_TR_CR_BOT", "POT_TR_LD_TOP", "POT_TR_LD_W", "POT_TR_LD_BOT",
+       "POT_P_CL_W", "POT_P_CR_W", "POT_P_LD_W"]
+HIZ_POUR = 1.5          # mm, ground pour to a high-impedance net, same layer and (finalize.py) the other layer
 
 DRU = """(version 1)
 # Rev B preamp clearance rules (tools/make_pcb.py; tube_amplifier_kicad review N57, IPC-2221B B2,
@@ -80,6 +92,11 @@ DRU = """(version 1)
   (constraint clearance (min 1.8mm)))
 # The front panel's pot pins end about 2.2 mm in front of the board's front edge (main session
 # 2026-11-22), and the chassis is all round: HV copper 2.5 mm, MV 1.25 mm from every board edge.
+# High-impedance audio nets: ground pours keep HIZ_POUR away (stray capacitance to ground, user
+# 2026-11-23: picofarads matter at these impedances).
+(rule "HIZ to pour"
+  (condition "(A.NetClass == 'HIZ' || A.NetName == '*/GCB') && B.Type == 'Zone'")
+  (constraint clearance (min HIZ_POURmm)))
 (rule "HV to board edge"
   (condition "A.NetClass == 'HV'")
   (constraint edge_clearance (min 2.5mm)))
@@ -186,15 +203,17 @@ def project_settings():
          "pcb_color": "rgba(194, 118, 0, 1.000)", "schematic_color": "rgba(0, 0, 0, 0.000)", "priority": 1},
         {"name": "V90", "clearance": 0.6, "track_width": 0.3, "via_diameter": 0.8, "via_drill": 0.4,
          "pcb_color": "rgba(150, 150, 0, 1.000)", "schematic_color": "rgba(0, 0, 0, 0.000)", "priority": 3},
+        {"name": "HIZ", "clearance": 0.2, "track_width": 0.3, "via_diameter": 0.8, "via_drill": 0.4,
+         "pcb_color": "rgba(0, 160, 60, 1.000)", "schematic_color": "rgba(0, 0, 0, 0.000)", "priority": 4},
         {"name": "HEATER", "clearance": 0.6, "track_width": 1.2, "via_diameter": 1.2, "via_drill": 0.6,
          "pcb_color": "rgba(0, 120, 194, 1.000)", "schematic_color": "rgba(0, 0, 0, 0.000)", "priority": 2},
     ]
-    pats = [{"netclass": c, "pattern": p} for c, names in (("HV", HV), ("MV", MV), ("V90", V90), ("HEATER", HEATER))
+    pats = [{"netclass": c, "pattern": p} for c, names in (("HV", HV), ("MV", MV), ("V90", V90), ("HEATER", HEATER), ("HIZ", HIZ))
             for n in names for p in (n, "*/" + n)]
     pro["net_settings"] = {"classes": classes, "meta": {"version": 4}, "net_colors": None,
                            "netclass_assignments": None, "netclass_patterns": pats}
     json.dump(pro, open(PRO, "w"), indent=2)
-    open(os.path.join(K, PROJECT + ".kicad_dru"), "w").write(DRU)
+    open(os.path.join(K, PROJECT + ".kicad_dru"), "w").write(DRU.replace("HIZ_POUR", f"{HIZ_POUR}"))
 
 
 def load_fp(lib_id):
@@ -224,6 +243,10 @@ def place_box(f, rot, cx=None, top=None, left=None, right=None, cy=None, bottom=
 
 
 def main():
+    if "--settings-only" in sys.argv:          # net classes and rules only; the board is left as it is
+        project_settings()
+        print(f"{PRO}, {PROJECT}.kicad_dru written")
+        return
     if os.path.exists(PCB) and "--force" not in sys.argv:
         b = pcbnew.LoadBoard(PCB)
         if len(b.GetTracks()):

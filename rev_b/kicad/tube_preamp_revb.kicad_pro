@@ -313,6 +313,16 @@
         "priority": 3
       },
       {
+        "name": "HIZ",
+        "clearance": 0.2,
+        "track_width": 0.3,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "pcb_color": "rgba(0, 160, 60, 1.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 4
+      },
+      {
         "name": "HEATER",
         "clearance": 0.6,
         "track_width": 1.2,
@@ -616,6 +626,390 @@
       {
         "netclass": "HEATER",
         "pattern": "*/HREF"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "IN_TIP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/IN_TIP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "G1"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/G1"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "GX2"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/GX2"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "GX2B"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/GX2B"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "GI5"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/GI5"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "GX3"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/GX3"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "GX4"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/GX4"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "N2"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/N2"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "CI5"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/CI5"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "CX"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/CX"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "C2A"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/C2A"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "C2B"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/C2B"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "N5"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/N5"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "Q5"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/Q5"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "N1_CR"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/N1_CR"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "XI_CL"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/XI_CL"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "XI_CR"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/XI_CR"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "XI_LD"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/XI_LD"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "XP_CL"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/XP_CL"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "XP_CR"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/XP_CR"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "XP_LD"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/XP_LD"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_G_CL_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_G_CL_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_G_CL_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_G_CL_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_G_CR_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_G_CR_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_G_CR_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_G_CR_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_G_LD_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_G_LD_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_G_LD_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_G_LD_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_BS_CL_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_BS_CL_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_BS_CL_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_BS_CL_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_BS_CL_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_BS_CL_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_BS_CR_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_BS_CR_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_BS_CR_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_BS_CR_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_BS_CR_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_BS_CR_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_BS_LD_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_BS_LD_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_BS_LD_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_BS_LD_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_BS_LD_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_BS_LD_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_TR_CL_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_TR_CL_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_TR_CL_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_TR_CL_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_TR_CL_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_TR_CL_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_TR_CR_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_TR_CR_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_TR_CR_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_TR_CR_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_TR_CR_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_TR_CR_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_TR_LD_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_TR_LD_TOP"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_TR_LD_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_TR_LD_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_TR_LD_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_TR_LD_BOT"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_P_CL_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_P_CL_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_P_CR_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_P_CR_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "POT_P_LD_W"
+      },
+      {
+        "netclass": "HIZ",
+        "pattern": "*/POT_P_LD_W"
       }
     ]
   },

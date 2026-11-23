@@ -178,8 +178,10 @@ layout can be finished; to check against the other boards when they are laid out
   180-377.7 (board x -18.7 to 179, stopping before the corner hole H102; the last pins, presence
   at x 371, end at about 376) a rule area keeps the first 4 mm behind the front edge
   free of copper, pads and parts. That covers the 2 mm the front panel asked for, and leaves room to
-  pull the edge back 2 mm there if the chassis measurement comes out at 14 mm (H102's hole edge
-  is then still 2.3 mm from the edge).
+  pull the edge back 2 mm there if the chassis measurement had come out at 14 mm. The user measured
+  16 mm from the front panel's inner face to the board's front edge (2026-11-23): the pins keep
+  2.2 mm (2.9 mm trimmed flush), so the edge stays and the 4 mm keep-out stays as drawn. Bare
+  aluminium chassis, no overlay sheet (interfaces.md §12.2 / §14).
 - B+ electrolytics 500 V (user 2026-11-23): C502 47 µF Nichicon UCY2H470MHD6 (18 x 31.5 mm, P7.5;
   footprint D18), C504-C507 22 µF UCY2H220MHD6 (16 x 25 mm, P7.5). Hand-soldered, not at JLC. C501
   (390 V reference) and C508 (VB90) stay. They fit: below the board there is about 66 mm, and they
@@ -208,5 +210,60 @@ layout can be finished; to check against the other boards when they are laid out
   is 2.4 mm (the relay's own coil-contact insulation), and C501's pads are 1.9 mm apart (its 3.5 mm
   lead pitch).
 
-Next: place the parked parts by stage around their sockets, the pours, then route (the
-`kicad-agentic-routing` skill or by hand).
+### Placement and routing (in progress, 2026-11-23)
+
+Scripted in `rev_b/layout/` (KiCadRoutingTools 0.24.2 in `~/dev/KiCadRoutingTools`; outputs in
+`rev_b/layout/build/`, not in git). `rev_b/kicad/tube_preamp_revb.kicad_pcb` is still the
+unplaced board from `tools/make_pcb.py`; the placed and routed board is built from it:
+
+1. `layout/place.sh`: Q502 / Q503 pinned (138.5, 24.0) / (146.0, 31.5), then KRT `place_simple`
+   (seed 7, deterministic) with `layout/groups.json` + `layout/intent.json` from
+   `layout/make_groups.py`: one group per stage, each with a zone; keep-outs for the 15 mm front
+   strip (short SMD parts only), the pot pins, the standoff holes (r 4), the ribbon bends, the
+   heater path and the Q502 drain pour. -> `build/placed.kicad_pcb`.
+2. `layout/route_chain.sh [FROM [LAST]]` (`layout/routing.json`): 0 `draw_heater.py` +
+   `draw_pours.py`; 1 heater (HREF); 2 HV; 3 MV; 4 V90; 5 control; 6 audio; 7 leftovers;
+   8 GNDA pours (F, B); 9 plane repair + `finalize.py` -> `build/routed.kicad_pcb`. Each group
+   routes in its own step (KRT stamps obstacles at the largest clearance rule among one step's
+   nets) and is locked before the next. About 40 minutes.
+3. `layout/drc.sh BOARD` grades against `rev_b/kicad`'s own rules (KRT steps may rewrite the
+   sibling .kicad_pro: run them with `--escalation board --no-fix-drc-settings`).
+   `layout/coupling_check.py BOARD [MM]` lists plate / output tracks running near earlier
+   grids and pot lines. `layout/render.sh BOARD OUTDIR` renders PNGs.
+
+Decisions:
+- **2 layers, no ground plane** (user: a plane's picofarads on the high-impedance nodes matter in
+  the audio band and can close feedback loops). GNDA is poured on F and B, but the pours keep
+  1.5 mm from every high-impedance net on the same layer (net class HIZ: grids, pots, the
+  470k-10M nodes, the input; "HIZ to pour" rule) and are cut 1.5 mm each side under their tracks
+  on the other layer (`finalize.py`).
+- **Heaters along the front edge, opposite the B+ row** (user; as rev A): 6.3 V, pins 4+5 /
+  pin 9, 0.9 A. Broadside pair, HTR1 on F over HTR2 on B, 1.2 mm, at y -21.0 (behind the pot-pin
+  keep-out, in front of the H104 / H105 keep-outs), V1 to x 87.5; nothing is placed in front of
+  it (a broadside pair is a wall on two layers). Rearward leg to J502 side by side on B (2.2 mm
+  pitch), so other tracks cross on F. Per socket: HTR1 stubs to pins 4, 5 on F; HTR2 between
+  pins 4 and 5 (0.8 mm) through the socket centre to pin 9. No vias but one.
+- **B+ row along the rear edge** (as rev A): R509-R512 and C504-C507 in one line, regulator end
+  to V1.
+- **Q502 drain pour** 25 x 24.5 mm (6.1 cm2) on F and B at x 127-152, y 12.5-37, 40 stitching
+  vias; Q503 in a 7.2 mm cut-out of the F pour over the B copper.
+- **Feedback keep-away**: plates (MV class), SIN, KCF, AT and OUT are priced within 3 mm of the
+  earlier-stage grids and gain-pot lines (KRT `--keep-away`, soft).
+- Post-gain line capacitance (main session, front panel first layout): worst-case corner about
+  11 kHz clean / 12 crunch / 14 lead at one pot position (280 kOhm wiper, ~50 pF incl. this
+  board's 175 / 135 / 18 mm runs); no change.
+
+**Where we left off (end of 2026-11-23):** the best complete run (before the keep-away and the
+wider control zone) was 0 DRC errors against the project rules and 5 unconnected: 2 relay-coil
+lines (RLY_BL2_N / RLY_S5_N, ULN2003 at x 137 to K201 / K203, about 200 mm) and 3 GNDA pour
+islands. The coupling check on it found SIN (CF output) 15.7 mm alongside POT_G_LD_TOP at
+0.9 mm (a loop round the lead channel's gain), SIN beside GX3, P2 beside GX2; the keep-away was
+added for that. A run with the keep-away, the control zone widened to x 118 and a 0.6 mm/net
+placement halo round the control ICs was in progress. Next:
+1. Rerun `place.sh` + `route_chain.sh 1 9`; get to 0 unconnected (the control block's escape and
+   the long control lines are the hard part: try ordering, a wider control zone, or moving
+   K201-K204 closer to the right end).
+2. `coupling_check.py`: no later plate / output beside an earlier grid or gain-pot line.
+3. Look at the renders (crossings, detours, pour around the HIZ nets), then copy
+   `build/routed.kicad_pcb` to `rev_b/kicad/`, set 2 oz in the stackup, DRC with parity,
+   fab outputs.
