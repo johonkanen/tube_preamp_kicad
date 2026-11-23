@@ -173,6 +173,17 @@ layout can be finished; to check against the other boards when they are laid out
   = pin 1 at each header's low-x end. Between the front strip and each header (chassis y 31-36)
   over the header's x span, parts at most 20 mm tall (J504 / J505) and 38 mm (J506); drawn on
   User.Comments.
+- **Front edge at the pot pins (2026-11-23, front panel fourth pass):** the upper pot row's pins
+  (treble, presence) end about 2 mm in front of the board edge, at board level. Over chassis x
+  180-377.7 (board x -18.7 to 179, stopping before the corner hole H102; the last pins, presence
+  at x 371, end at about 376) a rule area keeps the first 4 mm behind the front edge
+  free of copper, pads and parts. That covers the 2 mm the front panel asked for, and leaves room to
+  pull the edge back 2 mm there if the chassis measurement comes out at 14 mm (H102's hole edge
+  is then still 2.3 mm from the edge).
+- B+ electrolytics 500 V (user 2026-11-23): C502 47 µF Nichicon UCY2H470MHD6 (18 x 31.5 mm, P7.5;
+  footprint D18), C504-C507 22 µF UCY2H220MHD6 (16 x 25 mm, P7.5). Hand-soldered, not at JLC. C501
+  (390 V reference) and C508 (VB90) stay. They fit: below the board there is about 66 mm, and they
+  go behind the front strip and the ribbon-bend zones.
 - **J401 (W12 to the control board's J2), checked 2026-11-23:** long axis along y, pin 1 / 2 at
   chassis (378.40 / 380.94, 32.82), pin 13 / 14 at y 48.06, odd row (and the key slot) on the -x
   side. The control board's J2 (long axis along x, pin 1 at (458.40, 33.74), pin 14 at (443.16,

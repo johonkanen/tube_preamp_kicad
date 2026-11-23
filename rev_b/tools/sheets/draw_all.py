@@ -358,13 +358,13 @@ def sheet05(d):
     R(d, "R505", 10, 6, "SRC", "QB", "1k", rot=0)
     R(d, "R506", 12, 6, "QB", "BP", "10k", rot=0)
     R(d, "R507", 11, 7, "BP_RAW", "FB_A", "270k", rot=0)   # 3 x 2512 in series (430 V at start-up / short); rest at the end
-    CP(d, "C502", 13, 3, "BP", "GND", "47u/450V")
+    CP(d, "C502", 13, 3, "BP", "GND", "47u/500V")   # 500 V: a pass-device short at 480 V raw (user 2026-11-23)
     C(d, "C503", 14, 3, "BP", "GND", "100n/630V")
     R(d, "R508", 15, 3, "BP", "BLEED_M", "220k")    # 2 x 2512 in series (330 V over 200 V parts); lower half at the end
     chain = [("BP", "BP4", "3.3k"), ("BP4", "BP3", "6.8k"), ("BP3", "BP2", "10k"), ("BP2", "BP1", "10k")]
     for i, (a, b, rv) in enumerate(chain):
         R(d, f"R51{i}", 17 + i * 2, 1, a, b, rv, rot=0)
-        CP(d, f"C51{i}", 18 + i * 2, 2, b, "GND", "22u/450V")
+        CP(d, f"C51{i}", 18 + i * 2, 2, b, "GND", "22u/500V")
     R(d, "R520", 17, 4, "BP4", "VDIV_M", "330k")    # 2 x 2512 in series (230 V; 660k: VB90 = 0.29 x BP4); lower half at the end
     R(d, "R521", 17, 6, "VB90", "GND", "270k")
     CP(d, "C520", 18, 6, "VB90", "GND", "10u/250V")

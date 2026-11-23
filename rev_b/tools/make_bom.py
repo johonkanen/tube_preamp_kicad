@@ -96,8 +96,10 @@ add("C105,C206,C210,C301,C319","22n/630V","C_Rect P7.5mm (THT film)","22nF 630V 
 add("C302","470n/250V","C_Rect P15mm (THT film)","470nF 400V film capacitor",["470nF"],"CF output coupling, 92 V DC: film >= 250 V",fp="Capacitor_THT:C_Rect_L18.0mm_W8.0mm_P15.00mm_FKS3_FKP3")
 add("C101,C103,C201,C203,C212,C214,C318","22u/25V","CP_Elec_5x5.4 (SMD)","22uF 35V electrolytic SMD",["22uF"],"cathode bypass, AC networks")
 add("C501","2.2u/450V","CP_Radial D8 (THT)","2.2uF 450V electrolytic",["2.2uF","450V"],"regulator reference filter",fp="Capacitor_THT:CP_Radial_D8.0mm_P3.50mm")
-add("C502","47u/450V","CP_Radial D16 (THT)","47uF 450V electrolytic",["47uF","450V"],"B+ main reservoir (16 x 26 mm)",fp="Capacitor_THT:CP_Radial_D16.0mm_P7.50mm")
-add("C504-C507","22u/450V","CP_Radial D16 (THT)","22uF 450V electrolytic",["22uF","450V"],"per-stage B+ decoupling (16 x 20 mm)",fp="Capacitor_THT:CP_Radial_D16.0mm_P7.50mm")
+# B+ electrolytics 500 V (user 2026-11-23: a pass-device short with the raw rail at 480 V puts it on B+).
+# Not at LCSC / JLC: hand-soldered, DigiKey (long factory lead times).
+add("C502","47u/500V","CP_Radial D18 (THT)","",[],"B+ main reservoir: Nichicon UCY2H470MHD6 (500 V, 18 x 31.5, P7.5, 105 C 12000 h; alt. Rubycon 500LXW47MEFR18X25); not at JLC, hand-solder",fp="Capacitor_THT:CP_Radial_D18.0mm_P7.50mm")
+add("C504-C507","22u/500V","CP_Radial D16 (THT)","",[],"per-stage B+ decoupling: Nichicon UCY2H220MHD6 (500 V, 16 x 25, P7.5); not at JLC, hand-solder",fp="Capacitor_THT:CP_Radial_D16.0mm_P7.50mm")
 add("C508","10u/250V","CP_Radial D8 (THT)","10uF 250V electrolytic",["10uF","250V"],"VB90 decoupling (heater elevation option too)",fp="Capacitor_THT:CP_Radial_D8.0mm_P3.50mm")
 # ---- semis
 add("D501-D503","130V 1W","D_SMA","1SMA5952B",["130V","SMA"],"regulator reference string (1.5 W rating)")
@@ -212,7 +214,8 @@ def main():
            "- Faston tabs: check that the BTC-3 parts have 2 legs on 5.00 mm with 1.4 mm drill (interfaces.md 4.1).",
            "- C209 (680 nF, S5 cathode bypass) is X7R for now; a film part would avoid the X7R voltage coefficient.",
            "- Plate loads are 2512 thick film; MELF or thin film would be quieter but JLC had no stock.",
-           "- Not from JLC: three noval PCB sockets, one 2.54 mm jumper shunt (J503), the tubes.",
+           "- Not from JLC: three noval PCB sockets, one 2.54 mm jumper shunt (J503), the tubes, the 500 V B+ electrolytics",
+           "  C502 / C504-C507 (Nichicon UCY2H, DigiKey; user 2026-11-23).",
            "- Values still open (footprints fixed, layout 2026-11-22): the crunch pad R119 (0R link now) and the B+ decoupling",
            "  resistors (all 2512, so any value fits).",
            "", "Check stock before ordering: `python3 -I rev_b/tools/jlc/stock_check.py rev_b/bom/bom_jlcpcb.csv --boards N`."]

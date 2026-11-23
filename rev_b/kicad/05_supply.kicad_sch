@@ -5822,7 +5822,7 @@
 				)
 			)
 		)
-		(property "Value" "47u/450V"
+		(property "Value" "47u/500V"
 			(at 301.58 90.17 0)
 			(effects
 				(font
@@ -5830,7 +5830,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D16.0mm_P7.50mm"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D18.0mm_P7.50mm"
 			(at 295.6052 92.71 0)
 			(effects
 				(font
@@ -6372,7 +6372,7 @@
 				)
 			)
 		)
-		(property "Value" "22u/450V"
+		(property "Value" "22u/500V"
 			(at 403.18 72.39 0)
 			(effects
 				(font
@@ -6677,7 +6677,7 @@
 				)
 			)
 		)
-		(property "Value" "22u/450V"
+		(property "Value" "22u/500V"
 			(at 443.82 72.39 0)
 			(effects
 				(font
@@ -6982,7 +6982,7 @@
 				)
 			)
 		)
-		(property "Value" "22u/450V"
+		(property "Value" "22u/500V"
 			(at 484.46 72.39 0)
 			(effects
 				(font
@@ -7287,7 +7287,7 @@
 				)
 			)
 		)
-		(property "Value" "22u/450V"
+		(property "Value" "22u/500V"
 			(at 525.1 72.39 0)
 			(effects
 				(font

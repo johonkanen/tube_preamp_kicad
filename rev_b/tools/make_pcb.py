@@ -156,6 +156,24 @@ def keepout_circle(board, x, y, r):
     board.Add(z)
 
 
+def keepout_rect(board, x0, y0, x1, y1):
+    """Rule area on both copper layers: no tracks, vias, pads, zone fill or footprints."""
+    z = pcbnew.ZONE(board)
+    z.SetIsRuleArea(True)
+    for f in (z.SetDoNotAllowTracks, z.SetDoNotAllowVias, z.SetDoNotAllowZoneFills, z.SetDoNotAllowPads,
+              z.SetDoNotAllowFootprints):
+        f(True)
+    ls = pcbnew.LSET()
+    ls.AddLayer(pcbnew.F_Cu)
+    ls.AddLayer(pcbnew.B_Cu)
+    z.SetLayerSet(ls)
+    o = z.Outline()
+    o.NewOutline()
+    for x, y in ((x0, y0), (x1, y0), (x1, y1), (x0, y1)):
+        o.Append(mm(x), mm(y))
+    board.Add(z)
+
+
 def project_settings():
     pro = json.load(open(PRO))
     pro.setdefault("board", {})
@@ -315,6 +333,12 @@ def main():
          -120.0, Y0 + 2.5, 1.2)
     note(board, f"J504-J506: body front edge {HEADER_SETBACK:.0f} mm behind the front edge; clean, crunch, lead",
          -120.0, Y0 + 5.0, 1.2)
+    # Front panel pot pins (upper row, treble / presence) reach to about 2 mm from the front edge over
+    # chassis x 180-390 (front panel fourth pass): nothing within 4 mm of the edge there, so the edge
+    # can also be pulled back 2 mm later if the chassis measurement says so (main session 2026-11-23).
+    # It stops at chassis x 377.7, before H102's courtyard (the last pins, presence at x 371, end at about 376).
+    keepout_rect(board, 180.0 - 198.73, Y0, 179.0, Y0 + 4.0)
+    note(board, "Keep-out 4 mm: pot pins (chassis x 180-390)", 60.0, Y0 + 7.5, 1.0)
     # Between the front strip and each pot header the front panel's ribbon bends up into the header
     # (front panel board, third pass): parts there at most 20 mm (J504 / J505) / 38 mm (J506) tall.
     for ref, hmax in (("J504", 20), ("J505", 20), ("J506", 38)):
