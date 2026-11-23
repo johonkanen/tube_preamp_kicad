@@ -173,6 +173,12 @@ layout can be finished; to check against the other boards when they are laid out
   = pin 1 at each header's low-x end. Between the front strip and each header (chassis y 31-36)
   over the header's x span, parts at most 20 mm tall (J504 / J505) and 38 mm (J506); drawn on
   User.Comments.
+- **J401 (W12 to the control board's J2), checked 2026-11-23:** long axis along y, pin 1 / 2 at
+  chassis (378.40 / 380.94, 32.82), pin 13 / 14 at y 48.06, odd row (and the key slot) on the -x
+  side. The control board's J2 (long axis along x, pin 1 at (458.40, 33.74), pin 14 at (443.16,
+  36.28)) is right as placed: a straight 1:1 ribbon leaves J401 downward, runs east flat with
+  conductor 1 on its front edge, takes one 45° fold under J2 to turn toward the front, and comes up
+  into J2 with conductor 1 at J2's east end. About 0.15 m.
 - **Faston tabs:** footprints per interfaces.md 4.1 (2 legs on 5.00 mm, 1.4 mm drill): J501 two
   4.8 mm tabs 15 mm apart (HV, insulated receptacles), J502 two 6.3 mm tabs 12.7 mm apart, J102 one
   6.3 mm tab.
